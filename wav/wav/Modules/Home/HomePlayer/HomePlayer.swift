@@ -34,12 +34,14 @@ extension HomeViewController {
         // End generating notifications
         MPMusicPlayerController.systemMusicPlayer.endGeneratingPlaybackNotifications()
     }
-
     internal func fetchCurrentlyPlaying() {
         guard let nowPlayingItem = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem,
             let songTitle = nowPlayingItem.title,
             let artistName = nowPlayingItem.artist else {
-            print("Now playing: no")
+            // No song playing or paused
+            currentSong.text = "No song playing"
+            currentArtist.text = ""
+            currentCover.image = UIImage(named: "NoSongImage")
             return
         }
         // Update the UI with the song title and artist name
