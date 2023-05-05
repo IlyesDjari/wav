@@ -7,9 +7,9 @@
 
 import Foundation
 import MediaPlayer
+import MusadoraKit
 import MarqueeLabel
 import Kingfisher
-import UIImageColors
 
 extension HomeViewController {
 
@@ -36,33 +36,40 @@ extension HomeViewController {
     }
 
     internal func fetchCurrentlyPlaying() {
-        let musicPlayer = MPMusicPlayerController.systemMusicPlayer
-        if musicPlayer.playbackState == .playing {
-            homePlayer.isHidden = false
-            if let nowPlayingItem = musicPlayer.nowPlayingItem,
-                let songTitle = nowPlayingItem.title,
-                let artistName = nowPlayingItem.artist,
-                let coverImage = nowPlayingItem.artwork?.image(at: CGSize(width: 50, height: 50)) {
-                
-                // Update the UI with the song title, artist name, and cover image
-                currentSong.text = artistName
-                currentArtist.text = songTitle
-                currentCover.image = coverImage
-                
-                // Get the dominant color of the cover image
-                coverImage.getColors { [weak self] colors in
-                    guard let self = self, let backgroundColor = colors?.background else { return }
-                    // Update the background color of the home player view with the dominant color
-                    let background = backgroundColor.isLight ? UIColor.black : backgroundColor
-                    UIView.animate(withDuration: 1) {
-                        self.homePlayer.backgroundColor = background
-                    }
-                }
-            } else {
-                print("Now playing: no info found")
-            }
+        guard let nowPlayingItem = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem,
+            let songTitle = nowPlayingItem.title,
+            let artistName = nowPlayingItem.artist else {
+            print("Now playing: no")
+            return
+        }
+        // Update the UI with the song title and artist name
+        currentSong.text = artistName
+        currentArtist.text = songTitle
+        if let artwork = nowPlayingItem.value(forProperty: MPMediaItemPropertyArtwork) as? MPMediaItemArtwork,
+            let coverImage = artwork.image(at: CGSize(width: 50, height: 50)) {
+            // Update the UI with the song's artwork
+            currentCover.image = coverImage
+
+            // Update the background color of the home player view with the dominant color of the artwork
+            updateBackgroundColor(from: coverImage, in: homePlayer)
         } else {
-            homePlayer.isHidden = true
+            let songID = nowPlayingItem.playbackStoreID
+            // Show a loading indicator while the image is loading
+            currentCover.kf.indicatorType = .activity
+            currentCover.kf.setImage(
+                with: URL(string: ""),
+                placeholder: UIImage(named: "loading_placeholder"),
+                options: [.cacheOriginalImage]
+            )
+            
+            Task {
+                let songInfo = try await MCatalog.song(id: MusicItemID(rawValue: songID)).artwork?.url(width: 50, height: 50)
+                currentCover.kf.setImage(
+                    with: songInfo,
+                    placeholder: UIImage(named: "loading_placeholder"),
+                    options: [.cacheOriginalImage]
+                )
+            }
         }
     }
 
@@ -75,7 +82,7 @@ extension HomeViewController {
             stateButton.image = UIImage(named: "homePlay")
         }
     }
-    
+
     internal func togglePlayback() {
         let musicPlayer = MPMusicPlayerController.systemMusicPlayer
         if musicPlayer.playbackState == .playing {

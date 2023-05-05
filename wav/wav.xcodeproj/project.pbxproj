@@ -29,6 +29,7 @@
 		7EAB3EFB2A01637800BB2E0B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAB3EFA2A01637800BB2E0B /* LoginViewController.swift */; };
 		7EAB3EFD2A0165F100BB2E0B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAB3EFC2A0165F100BB2E0B /* HomeViewController.swift */; };
 		7EAB3EFF2A0165F800BB2E0B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EAB3EFE2A0165F800BB2E0B /* Home.storyboard */; };
+		7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		7EAB3EFA2A01637800BB2E0B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7EAB3EFC2A0165F100BB2E0B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7EAB3EFE2A0165F800BB2E0B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateBackgroundColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				7E418B622A03155C007B9863 /* shadowView.swift */,
 				7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */,
 				7E418B6C2A056FDB007B9863 /* showLoadingView.swift */,
+				7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				7EAB3EDC2A0162D500BB2E0B /* AppDelegate.swift in Sources */,
 				7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */,
 				7EAB3EE62A0162D500BB2E0B /* wav.xcdatamodeld in Sources */,
+				7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */,
 				7EAB3EFB2A01637800BB2E0B /* LoginViewController.swift in Sources */,
 				7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */,
 				7E418B632A03155C007B9863 /* shadowView.swift in Sources */,

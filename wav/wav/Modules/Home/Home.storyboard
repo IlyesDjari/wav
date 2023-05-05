@@ -297,14 +297,14 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="d9n-ht-FXo"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KGf-gY-gIc"/>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-fA-5NN">
-                                <rect key="frame" x="0.0" y="1137" width="392" height="80"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-fA-5NN">
+                                <rect key="frame" x="0.0" y="1147" width="392" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-pS-TTF">
-                                        <rect key="frame" x="15" y="10" width="60" height="60"/>
+                                        <rect key="frame" x="15" y="8" width="55" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="AV2-4b-kFD"/>
-                                            <constraint firstAttribute="width" constant="60" id="kPk-7E-EE3"/>
+                                            <constraint firstAttribute="height" constant="55" id="AV2-4b-kFD"/>
+                                            <constraint firstAttribute="width" constant="55" id="kPk-7E-EE3"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -313,11 +313,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9x5-cu-gxP" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                        <rect key="frame" x="98" y="21" width="214" height="23"/>
+                                        <rect key="frame" x="93" y="15" width="214" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="214" id="lDX-1r-XHb"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -330,11 +330,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGt-CC-jmm" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                        <rect key="frame" x="98" y="42" width="214" height="19"/>
+                                        <rect key="frame" x="93" y="36" width="214" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="Uvm-CD-cnT"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -347,7 +347,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRi-Zh-IL8">
-                                        <rect key="frame" x="351" y="25" width="25" height="25"/>
+                                        <rect key="frame" x="320" y="23" width="25" height="25"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="gXe-vc-x3p"/>
@@ -358,19 +358,19 @@
                                         </connections>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="Purple"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="LGt-CC-jmm" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="42" id="1Dy-Qe-xuH"/>
+                                    <constraint firstItem="LGt-CC-jmm" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="36" id="1Dy-Qe-xuH"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="leading" secondItem="eXe-pS-TTF" secondAttribute="trailing" constant="23" id="5Sb-vG-FoG"/>
-                                    <constraint firstAttribute="height" constant="80" id="9fh-RQ-6aW"/>
-                                    <constraint firstItem="uRi-Zh-IL8" firstAttribute="top" secondItem="9x5-cu-gxP" secondAttribute="top" constant="4" id="BQb-9a-FIv"/>
+                                    <constraint firstAttribute="height" constant="70" id="9fh-RQ-6aW"/>
+                                    <constraint firstItem="uRi-Zh-IL8" firstAttribute="top" secondItem="9x5-cu-gxP" secondAttribute="top" constant="8" id="BQb-9a-FIv"/>
                                     <constraint firstItem="eXe-pS-TTF" firstAttribute="leading" secondItem="Ycr-fA-5NN" secondAttribute="leading" constant="15" id="M49-T0-Ia3"/>
-                                    <constraint firstItem="9x5-cu-gxP" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="21" id="NvF-iB-Phj"/>
+                                    <constraint firstItem="9x5-cu-gxP" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="15" id="NvF-iB-Phj"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="leading" secondItem="LGt-CC-jmm" secondAttribute="leading" id="eZD-Hc-75k"/>
-                                    <constraint firstAttribute="trailing" secondItem="uRi-Zh-IL8" secondAttribute="trailing" constant="16" id="heT-Cw-gc4"/>
+                                    <constraint firstAttribute="trailing" secondItem="uRi-Zh-IL8" secondAttribute="trailing" constant="47" id="heT-Cw-gc4"/>
                                     <constraint firstItem="LGt-CC-jmm" firstAttribute="top" secondItem="9x5-cu-gxP" secondAttribute="bottom" constant="-2" id="i2f-ZI-1MH"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="trailing" secondItem="LGt-CC-jmm" secondAttribute="trailing" id="l6E-NY-PbT"/>
-                                    <constraint firstItem="eXe-pS-TTF" firstAttribute="bottom" secondItem="Ycr-fA-5NN" secondAttribute="bottomMargin" constant="-2" id="tup-8J-Fs5"/>
+                                    <constraint firstItem="eXe-pS-TTF" firstAttribute="bottom" secondItem="Ycr-fA-5NN" secondAttribute="bottomMargin" constant="1" id="tup-8J-Fs5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -431,7 +431,7 @@
     </scenes>
     <designables>
         <designable name="9x5-cu-gxP">
-            <size key="intrinsicContentSize" width="41.333333333333336" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="36.666666666666664" height="17"/>
         </designable>
         <designable name="ETv-Gu-2hV">
             <size key="intrinsicContentSize" width="36.666666666666664" height="17"/>
@@ -440,7 +440,7 @@
             <size key="intrinsicContentSize" width="31.666666666666668" height="14.333333333333334"/>
         </designable>
         <designable name="LGt-CC-jmm">
-            <size key="intrinsicContentSize" width="36" height="17"/>
+            <size key="intrinsicContentSize" width="31.666666666666668" height="14.333333333333334"/>
         </designable>
         <designable name="Wug-qp-Ffr">
             <size key="intrinsicContentSize" width="31.666666666666668" height="14.333333333333334"/>
@@ -458,7 +458,7 @@
     <resources>
         <image name="arrow-right-circle" width="32" height="32"/>
         <namedColor name="Background">
-            <color red="0.10199999809265137" green="0.10199999809265137" blue="0.10199999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
             <color red="0.3449999988079071" green="0.18000000715255737" blue="0.56499999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
