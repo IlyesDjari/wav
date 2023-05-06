@@ -11,8 +11,8 @@ import UIKit
 func addShadow(to view: UIView) {
     view.layer.shadowColor = UIColor.black.cgColor
     view.layer.shadowOpacity = 0.3
-    view.layer.shadowOffset = CGSize(width: 3, height: 6)
-    view.layer.shadowRadius = 6
+    view.layer.shadowOffset = CGSize(width: 10, height: 18)
+    view.layer.shadowRadius = 20
     view.layer.shouldRasterize = true
     view.layer.rasterizationScale = UIScreen.main.scale
 }

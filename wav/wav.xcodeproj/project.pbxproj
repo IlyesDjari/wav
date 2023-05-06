@@ -19,6 +19,11 @@
 		7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */; };
 		7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E6202A05A37200ADB0EE /* HomeViewController+CollectionView.swift */; };
 		7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E6242A05A48500ADB0EE /* ForYouCollectionViewCell.swift */; };
+		7E91E6282A05AAA200ADB0EE /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E91E6272A05AAA200ADB0EE /* Player.storyboard */; };
+		7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E6292A05AAB300ADB0EE /* PlayerViewController.swift */; };
+		7E91E62C2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E62B2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift */; };
+		7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E62D2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift */; };
+		7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E62F2A0681B300ADB0EE /* MusicPlaybackControl.swift */; };
 		7EA183A02A01AC0500F658E4 /* MusadoraKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA1839F2A01AC0500F658E4 /* MusadoraKit */; };
 		7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA183A22A01B1B600F658E4 /* RecentItems.swift */; };
 		7EAB3EDC2A0162D500BB2E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAB3EDB2A0162D500BB2E0B /* AppDelegate.swift */; };
@@ -33,6 +38,7 @@
 		7EAB3EFD2A0165F100BB2E0B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAB3EFC2A0165F100BB2E0B /* HomeViewController.swift */; };
 		7EAB3EFF2A0165F800BB2E0B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EAB3EFE2A0165F800BB2E0B /* Home.storyboard */; };
 		7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */; };
+		7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +51,11 @@
 		7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Stations.swift"; sourceTree = "<group>"; };
 		7E91E6202A05A37200ADB0EE /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		7E91E6242A05A48500ADB0EE /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E91E6272A05AAA200ADB0EE /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
+		7E91E6292A05AAB300ADB0EE /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		7E91E62B2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+fetchPlayingSong.swift"; sourceTree = "<group>"; };
+		7E91E62D2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePlayerViewController+FetchCurrentlyPlaying.swift"; sourceTree = "<group>"; };
+		7E91E62F2A0681B300ADB0EE /* MusicPlaybackControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlaybackControl.swift; sourceTree = "<group>"; };
 		7EA183A22A01B1B600F658E4 /* RecentItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItems.swift; sourceTree = "<group>"; };
 		7EAB3ED82A0162D500BB2E0B /* wav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EAB3EDB2A0162D500BB2E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +71,7 @@
 		7EAB3EFC2A0165F100BB2E0B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7EAB3EFE2A0165F800BB2E0B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateBackgroundColor.swift; sourceTree = "<group>"; };
+		7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.name+selectedSongIDChanged.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				7E418B652A0320C0007B9863 /* HomePlayer.swift */,
+				7E91E62D2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift */,
 			);
 			path = HomePlayer;
 			sourceTree = "<group>";
@@ -107,6 +120,16 @@
 				7E91E6202A05A37200ADB0EE /* HomeViewController+CollectionView.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		7E91E6262A05AA9400ADB0EE /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				7E91E6272A05AAA200ADB0EE /* Player.storyboard */,
+				7E91E6292A05AAB300ADB0EE /* PlayerViewController.swift */,
+				7E91E62B2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 		7EA183A12A01B1A600F658E4 /* Models */ = {
@@ -139,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				7EAB3EF42A0162EA00BB2E0B /* UI */,
-				7EAB3EF32A0162E500BB2E0B /* Services */,
+				7EAB3EF32A0162E500BB2E0B /* Helpers */,
 				7EAB3EF22A0162E000BB2E0B /* Modules */,
 				7EAB3EDB2A0162D500BB2E0B /* AppDelegate.swift */,
 				7EAB3EDD2A0162D500BB2E0B /* SceneDelegate.swift */,
@@ -155,15 +178,18 @@
 				7EAB3EF52A0162FB00BB2E0B /* Launchscreen */,
 				7EAB3EF72A01635100BB2E0B /* Login */,
 				7EAB3EF62A01634B00BB2E0B /* Home */,
+				7E91E6262A05AA9400ADB0EE /* Player */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		7EAB3EF32A0162E500BB2E0B /* Services */ = {
+		7EAB3EF32A0162E500BB2E0B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7E91E62F2A0681B300ADB0EE /* MusicPlaybackControl.swift */,
+				7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */,
 			);
-			path = Services;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		7EAB3EF42A0162EA00BB2E0B /* UI */ = {
@@ -286,6 +312,7 @@
 				7EAB3EEB2A0162D700BB2E0B /* LaunchScreen.storyboard in Resources */,
 				7EAB3EE82A0162D700BB2E0B /* Assets.xcassets in Resources */,
 				7EAB3EE32A0162D500BB2E0B /* Main.storyboard in Resources */,
+				7E91E6282A05AAA200ADB0EE /* Player.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,10 +328,15 @@
 				7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */,
 				7E418B662A0320C0007B9863 /* HomePlayer.swift in Sources */,
 				7EAB3EE02A0162D500BB2E0B /* ViewController.swift in Sources */,
+				7E91E62C2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift in Sources */,
+				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
+				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
 				7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */,
 				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,
+				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
 				7EAB3EDC2A0162D500BB2E0B /* AppDelegate.swift in Sources */,
 				7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */,
+				7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */,
 				7EAB3EE62A0162D500BB2E0B /* wav.xcdatamodeld in Sources */,
 				7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */,
 				7EAB3EFB2A01637800BB2E0B /* LoginViewController.swift in Sources */,

@@ -11,13 +11,22 @@ import UIImageColors
 
 public func updateBackgroundColor(from image: UIImage?, in view: UIView) {
     guard let image = image else { return }
-    
+
     image.getColors { [weak view] colors in
-        guard let view = view, let backgroundColor = colors?.background else { return }
-        
-        let background = backgroundColor.isLight ? UIColor.black : backgroundColor
+        guard let view = view, let primaryColor = colors?.primary, let secondaryColor = colors?.secondary, let backgroundColor = colors?.background else { return }
+
+        let finalColor: UIColor
+        if !backgroundColor.isLight {
+            finalColor = backgroundColor
+        } else if !primaryColor.isLight {
+            finalColor = primaryColor
+        } else if !secondaryColor.isLight {
+            finalColor = secondaryColor
+        } else {
+            finalColor = UIColor(named: "Background")!
+        }
         UIView.animate(withDuration: 1) {
-            view.backgroundColor = background
+            view.backgroundColor = finalColor
         }
     }
 }

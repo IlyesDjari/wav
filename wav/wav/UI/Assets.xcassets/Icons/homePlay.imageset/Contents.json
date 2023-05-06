@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "homePlay.svg",
+      "filename" : "play-fill.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "homePlay 1.svg",
+      "filename" : "play-fill 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "homePlay 2.svg",
+      "filename" : "play-fill 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

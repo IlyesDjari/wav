@@ -11,6 +11,22 @@ import UIKit
 
 extension HomeViewController {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == HistoryCollectionView {
+            // Get the corresponding recent item
+            let recentItem = recentItems[indexPath.row]
+            // Get the song ID and store it in songID
+            if let songID = recentItem.song?.id.rawValue {
+                self.songID = songID
+            } else {
+                print("Song ID not found")
+                return
+            }
+            // Perform the segue
+            performSegue(withIdentifier: "showPlayer", sender: self)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == HistoryCollectionView {
             // Return the number of recent items
@@ -43,7 +59,6 @@ extension HomeViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foryouCell", for: indexPath) as! ForYouCollectionViewCell
             // Get the corresponding recommended station
             let recommendedStation = recommendedStations[indexPath.row]
-            print(recommendedStation)
             // Set the station name to the cell label
             cell.title.text = recommendedStation.name
             // Set the station image to the cell image view
@@ -56,6 +71,15 @@ extension HomeViewController {
         } else {
             // Return an empty cell if the collection view is not recognized
             return UICollectionViewCell()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPlayer" {
+            if let playerViewController = segue.destination as? PlayerViewController {
+                playerViewController.songID = songID
+                playerViewController.homeViewController = self
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ import MusicKit
 import MusadoraKit
 import MarqueeLabel
 
-class HomeViewController: UIViewController, UICollectionViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerViewControllerDelegate {
 
     // Outlets
     @IBOutlet weak var HistoryCollectionView: UICollectionView! {
@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
         }
     }
-    
+
     @IBOutlet weak var ForYouCollectionView: UICollectionView! {
         didSet {
             ForYouCollectionView.dataSource = self
@@ -28,23 +28,29 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
         }
     }
-    
+
     @IBOutlet weak var SeeMoreButton: UIView!
     @IBOutlet weak var homePlayer: UIView!
     @IBOutlet weak var currentArtist: MarqueeLabel!
     @IBOutlet weak var currentSong: MarqueeLabel!
     @IBOutlet weak var currentCover: UIImageView!
     @IBOutlet weak var stateButton: UIImageView!
-    
+
     // Properties
     public var recentItems: [RecentItem] = []
     public var recommendedStations: [Playlist] = []
-
+    public var songID: String?
+    let musicPlaybackControl = MusicPlaybackControl()
+    let player = ApplicationMusicPlayer.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         fetchAllData()
+    }
+    
+    func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?) {
+        self.songID = songID
     }
 
     private func configureUI() {
@@ -59,7 +65,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         Task {
             do {
                 try await fetchRecentlyPlayed()
-                fetchCurrentlyPlaying()
+                if let songID = songID {
+                    fetchCurrentlyPlaying(songID: songID)
+                } else {
+                    fetchCurrentlyPlaying(songID: nil)
+                }
                 try await fetchRecommendedStations()
                 // Remove the loading view when the data is loaded
                 loadingView.removeFromSuperview()
@@ -69,8 +79,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             }
         }
     }
-    
+
     @IBAction func stateTapped(_ sender: Any) {
-        togglePlayback()
+        musicPlaybackControl.togglePlayback()
     }
+    
 }
