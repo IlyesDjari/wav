@@ -11,7 +11,7 @@ import MusadoraKit
 import MusicKit
 
 extension HomeViewController {
-    internal func fetchCurrentlyPlaying(songID: String?) {
+    public func fetchCurrentlyPlaying(songID: String?) {
         guard let songID = songID else {
             // No song is selected
             currentSong.text = "No song selected"

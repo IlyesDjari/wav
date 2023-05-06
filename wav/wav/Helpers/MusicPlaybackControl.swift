@@ -15,7 +15,7 @@ struct MusicPlaybackControl {
     
     func setStateButtonImage(stateButton: UIImageView) {
         DispatchQueue.main.async {
-            if musicPlayer.isPlaying {
+            if musicPlayer.state.playbackStatus == .playing {
                 stateButton.image = UIImage(named: "homePause")
             } else {
                 stateButton.image = UIImage(named: "homePlay")
@@ -24,9 +24,11 @@ struct MusicPlaybackControl {
     }
 
     func togglePlayback() {
-        if musicPlayer.isPlaying {
+        let playbackState = musicPlayer.state.playbackStatus
+        switch playbackState {
+        case .playing:
             musicPlayer.pause()
-        } else {
+        default:
             Task {
                 do {
                     try await musicPlayer.play()

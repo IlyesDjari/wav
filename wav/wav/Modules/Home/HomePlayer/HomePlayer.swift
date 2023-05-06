@@ -12,15 +12,11 @@ import MarqueeLabel
 import MusicKit
 
 extension HomeViewController {
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("test")
-
-        // Register observers for now playing item changes, playback state changes, and selected song ID changes
-        NotificationCenter.default.addObserver(self, selector: #selector(playbackStateChanged), name: .MPMusicPlayerControllerPlaybackStateDidChange, object: player)
+        // Register observers for selected song ID changes and playback state changes
         NotificationCenter.default.addObserver(self, selector: #selector(selectedSongIDChanged(_:)), name: .songIDChanged, object: nil)
-
         // Fetch the currently playing item or the selected song
         if let songID = songID {
             fetchCurrentlyPlaying(songID: songID)
@@ -28,24 +24,36 @@ extension HomeViewController {
         } else {
             fetchCurrentlyPlaying(songID: nil)
         }
-
         // Set the initial state of the state button
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
+        // Check playback status
+        playbackStatusTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(playbackStatusChanged), userInfo: nil, repeats: true)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
-        // Remove observers for now playing item changes, playback state changes, and selected song ID changes
-        NotificationCenter.default.removeObserver(self, name: .MPMusicPlayerControllerPlaybackStateDidChange, object: player)
+        // Remove observers for selected song ID changes and playback state changes
         NotificationCenter.default.removeObserver(self, name: .songIDChanged, object: nil)
+        
+        // Remove the observer for playback status changes
+        playbackStatusTimer?.invalidate()
     }
-
-    @objc func playbackStateChanged() {
+    
+    @objc public func playbackStatusChanged() {
         fetchCurrentlyPlaying(songID: songID)
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
+        if let lastPlaybackStatus = lastPlaybackStatus {
+            switch lastPlaybackStatus {
+            case .playing:
+                print("Music is playing")
+            case .paused:
+                print("Music is paused")
+            default:
+                print("Other playback status")
+            }
+        }
     }
-
+    
     @objc func selectedSongIDChanged(_ notification: Notification) {
         if let songID = notification.userInfo?["songID"] as? String {
             self.songID = songID

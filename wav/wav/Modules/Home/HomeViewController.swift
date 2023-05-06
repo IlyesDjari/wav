@@ -40,8 +40,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     public var recentItems: [RecentItem] = []
     public var recommendedStations: [Playlist] = []
     public var songID: String?
-    let musicPlaybackControl = MusicPlaybackControl()
-    let player = ApplicationMusicPlayer.shared
+    internal var playbackStatusTimer: Timer?
+    internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
+    public let musicPlaybackControl = MusicPlaybackControl()
+    public let player = ApplicationMusicPlayer.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()

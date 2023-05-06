@@ -39,9 +39,14 @@ extension PlayerViewController {
                             }
                         }
                     }
-                    // Play the song with the provided songID
-                    player.queue = [song]
-                    try await player.play()
+                    // Play the song with the provided songID if it's not already playing
+                    print(songID)
+                    print(ApplicationMusicPlayer.shared.queue.currentEntry?.item?.id.rawValue != songID)
+                    if ApplicationMusicPlayer.shared.queue.currentEntry?.item?.id.rawValue != songID {
+                        print
+                        player.queue = [song]
+                        try await player.play()
+                    }
                 } catch {
                     print("Error fetching song details: \(error)")
                 }

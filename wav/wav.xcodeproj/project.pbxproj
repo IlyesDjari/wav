@@ -39,6 +39,7 @@
 		7EAB3EFF2A0165F800BB2E0B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EAB3EFE2A0165F800BB2E0B /* Home.storyboard */; };
 		7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */; };
 		7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */; };
+		7EF5583C2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		7EAB3EFE2A0165F800BB2E0B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateBackgroundColor.swift; sourceTree = "<group>"; };
 		7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.name+selectedSongIDChanged.swift"; sourceTree = "<group>"; };
+		7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Observers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				7E91E6272A05AAA200ADB0EE /* Player.storyboard */,
 				7E91E6292A05AAB300ADB0EE /* PlayerViewController.swift */,
 				7E91E62B2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift */,
+				7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */,
+				7EF5583C2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift in Sources */,
 				7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */,
 				7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */,
 				7E418B662A0320C0007B9863 /* HomePlayer.swift in Sources */,
