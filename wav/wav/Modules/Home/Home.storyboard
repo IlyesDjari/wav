@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="1217"/>
+                        <rect key="frame" x="0.0" y="0.0" width="392" height="1134"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGj-Ct-u0e">
-                                <rect key="frame" x="0.0" y="0.0" width="392" height="1217"/>
+                                <rect key="frame" x="0.0" y="0.0" width="392" height="1134"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0KB-yC-CgZ">
                                         <rect key="frame" x="0.0" y="0.0" width="392" height="1300"/>
@@ -78,7 +78,7 @@
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <integer key="value" value="10"/>
+                                                                            <integer key="value" value="20"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
@@ -165,7 +165,7 @@
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <integer key="value" value="10"/>
+                                                                            <integer key="value" value="20"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
@@ -209,13 +209,13 @@
                                                 <rect key="frame" x="246" y="188" width="130" height="130"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2I5-fZ-xdh">
-                                                        <rect key="frame" x="0.0" y="38" width="130" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <rect key="frame" x="0.0" y="38" width="130" height="24"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right-circle" translatesAutoresizingMaskIntoConstraints="NO" id="6Et-Bf-VnK">
-                                                        <rect key="frame" x="46" y="70" width="38" height="38"/>
+                                                        <rect key="frame" x="46" y="73" width="38" height="38"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="38" id="MOD-cE-hpg"/>
                                                         </constraints>
@@ -234,7 +234,7 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
+                                                        <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -393,7 +393,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="KGf-gY-gIc"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-fA-5NN">
-                                <rect key="frame" x="0.0" y="1147" width="392" height="70"/>
+                                <rect key="frame" x="0.0" y="1064" width="392" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-pS-TTF">
                                         <rect key="frame" x="15" y="8" width="55" height="55"/>
@@ -488,7 +488,7 @@
                     <tabBarItem key="tabBarItem" title="Home" id="jT6-9T-lsL">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
-                    <size key="freeformSize" width="392" height="1300"/>
+                    <size key="freeformSize" width="392" height="1217"/>
                     <connections>
                         <outlet property="ForYouCollectionView" destination="gxI-kV-SAV" id="nSm-0C-X6v"/>
                         <outlet property="HistoryCollectionView" destination="Mh8-YJ-giA" id="CRr-8w-Ghj"/>
@@ -512,7 +512,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1985.5999999999999" y="2.2167487684729066"/>
+            <point key="canvasLocation" x="1985.5999999999999" y="1.8472906403940887"/>
         </scene>
         <!--PlayerViewController-->
         <scene sceneID="hTV-pC-83S">
@@ -574,7 +574,7 @@
     <resources>
         <image name="arrow-right-circle" width="32" height="32"/>
         <namedColor name="Background">
-            <color red="0.12200000137090683" green="0.12200000137090683" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
             <color red="0.73299998044967651" green="0.52499997615814209" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

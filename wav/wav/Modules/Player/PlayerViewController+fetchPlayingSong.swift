@@ -32,6 +32,12 @@ extension PlayerViewController {
                                 case .success(let value):
                                     let coverImage = value.image
                                     self.cover.image = coverImage
+                                    if let duration = song.duration {
+                                        self.timeline.maximumValue = Float(duration)
+                                        let formattedSongTime = formatPlaybackTime(duration)
+                                        self.songTime.text = formattedSongTime
+                                    }
+                                    updateTimelineGradient(from: coverImage, in: self.timeline)
                                     updateBackgroundColor(from: coverImage, in: self.background)
                                 case .failure:
                                     break

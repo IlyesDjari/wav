@@ -33,18 +33,29 @@ extension PlayerViewController {
             print("Now playing the selected song ID: \(songID)")
         }
     }
-    @objc func updatePlaybackTime() {
-        let playbackTime = player.playbackTime
-        let formattedPlaybackTime = formatPlaybackTime(playbackTime)
-        //let formattedDuration = formatPlaybackTime(duration)
-        print(formattedPlaybackTime)
-    }
     
-    private func formatPlaybackTime(_ time: TimeInterval) -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.zeroFormattingBehavior = .pad
-        formatter.allowedUnits = [.minute, .second]
-        return formatter.string(from: time) ?? "0:00"
+    @objc func timelineValueChanged(_ sender: UISlider) {
+        if !timelineEditing {
+            player.playbackTime = TimeInterval(sender.value)
+            currentTime.text = formatPlaybackTime(player.playbackTime)
+        }
+    }
+
+    @objc func timelineEditingBegan(_ sender: UISlider) {
+        timelineEditing = true
+    }
+
+    @objc func timelineEditingEnded(_ sender: UISlider) {
+        timelineEditing = false
+        player.playbackTime = TimeInterval(sender.value)
+    }
+
+    @objc func updatePlaybackTime() {
+        if !timelineEditing {
+            let playbackTime = player.playbackTime
+            let formattedPlaybackTime = formatPlaybackTime(playbackTime)
+            currentTime.text = formattedPlaybackTime
+            timeline.value = Float(playbackTime)
+        }
     }
 }

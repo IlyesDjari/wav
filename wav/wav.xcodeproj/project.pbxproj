@@ -40,6 +40,8 @@
 		7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */; };
 		7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */; };
 		7EF5583C2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */; };
+		7EF5583E2A06F4EB00D1FE8F /* formatPlaybackTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5583D2A06F4EB00D1FE8F /* formatPlaybackTime.swift */; };
+		7EF558402A06F89000D1FE8F /* updateTimelineGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5583F2A06F89000D1FE8F /* updateTimelineGradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateBackgroundColor.swift; sourceTree = "<group>"; };
 		7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.name+selectedSongIDChanged.swift"; sourceTree = "<group>"; };
 		7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Observers.swift"; sourceTree = "<group>"; };
+		7EF5583D2A06F4EB00D1FE8F /* formatPlaybackTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = formatPlaybackTime.swift; sourceTree = "<group>"; };
+		7EF5583F2A06F89000D1FE8F /* updateTimelineGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateTimelineGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 			children = (
 				7E91E62F2A0681B300ADB0EE /* MusicPlaybackControl.swift */,
 				7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */,
+				7EF5583D2A06F4EB00D1FE8F /* formatPlaybackTime.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */,
 				7E418B6C2A056FDB007B9863 /* showLoadingView.swift */,
 				7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */,
+				7EF5583F2A06F89000D1FE8F /* updateTimelineGradient.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 			files = (
 				7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */,
 				7EF5583C2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift in Sources */,
+				7EF5583E2A06F4EB00D1FE8F /* formatPlaybackTime.swift in Sources */,
 				7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */,
 				7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */,
 				7E418B662A0320C0007B9863 /* HomePlayer.swift in Sources */,
@@ -338,6 +345,7 @@
 				7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */,
 				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,
 				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
+				7EF558402A06F89000D1FE8F /* updateTimelineGradient.swift in Sources */,
 				7EAB3EDC2A0162D500BB2E0B /* AppDelegate.swift in Sources */,
 				7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */,
 				7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */,

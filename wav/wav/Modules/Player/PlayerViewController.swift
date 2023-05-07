@@ -23,14 +23,17 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var artist: MarqueeLabel!
     @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var stateButton: UIImageView!
-    @IBOutlet weak var playbackTimeLabel: UILabel!
-
+    @IBOutlet weak var currentTime: UILabel!
+    @IBOutlet weak var songTime: UILabel!
+    @IBOutlet weak var timeline: UISlider!
+    
     // Properties
     weak var homeViewController: HomeViewController?
     weak var delegate: PlayerViewControllerDelegate?
     internal var playbackStatusTimer: Timer?
-    internal var playbackTimeTimer: Timer?
+    internal var timelineTimer: Timer?
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
+    internal var timelineEditing = false
     let player = ApplicationMusicPlayer.shared
     let musicPlaybackControl = MusicPlaybackControl()
     var songID: String?
@@ -51,8 +54,13 @@ class PlayerViewController: UIViewController {
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
         // Check playback status
         playbackStatusTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(playbackStatusChanged), userInfo: nil, repeats: true)
-        // Check playback time
-        playbackTimeTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updatePlaybackTime), userInfo: nil, repeats: true)
+        // Add timeline observers
+        timeline.addTarget(self, action: #selector(timelineValueChanged(_:)), for: .valueChanged)
+        timeline.addTarget(self, action: #selector(timelineEditingBegan(_:)), for: .touchDown)
+        timeline.addTarget(self, action: #selector(timelineEditingEnded(_:)), for: .touchUpInside)
+        timeline.addTarget(self, action: #selector(timelineEditingEnded(_:)), for: .touchUpOutside)
+        // Start the timer to update the playback time every 0.3 second
+        timelineTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updatePlaybackTime), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,14 +69,16 @@ class PlayerViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .songIDChanged, object: nil)
         // Remove the observer for playback status changes
         playbackStatusTimer?.invalidate()
-        // Remove the observer for playback time
-        playbackTimeTimer?.invalidate()
+        timelineTimer?.invalidate()
     }
 
     private func configureUI() {
         addShadow(to: coverView)
+        timeline.value = 0
+        timeline.minimumValue = 0
     }
 
+    
     @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
         musicPlaybackControl.togglePlayback()
     }

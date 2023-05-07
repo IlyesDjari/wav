@@ -20,6 +20,7 @@ public func updateBackgroundColor(from image: UIImage?, in view: UIView) {
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradientLayer.frame = view.bounds
+        gradientLayer.cornerRadius = 10
         view.layer.insertSublayer(gradientLayer, at: 0)
 
         let finalColor: UIColor
@@ -32,19 +33,15 @@ public func updateBackgroundColor(from image: UIImage?, in view: UIView) {
         } else {
             finalColor = UIColor(named: "Background")!
         }
-
+        
+        // Get the current colors of the gradient layer
+        guard let currentColors = gradientLayer.colors as? [CGColor] else { return }
         let animation = CABasicAnimation(keyPath: "colors")
-        animation.fromValue = gradientLayer.colors
-        animation.toValue = [finalColor.cgColor, finalColor.cgColor]
-        animation.duration = 3.0
+        animation.fromValue = currentColors
+        animation.toValue = [primaryColor.cgColor, finalColor.cgColor]
+        animation.duration = 1
         gradientLayer.add(animation, forKey: "colorChange")
-
-        let autoreverseAnimation = CABasicAnimation(keyPath: "colors")
-        autoreverseAnimation.fromValue = [finalColor.cgColor, finalColor.cgColor]
-        autoreverseAnimation.toValue = gradientLayer.colors
-        autoreverseAnimation.duration = 20.0
-        autoreverseAnimation.autoreverses = true
-        autoreverseAnimation.repeatCount = Float.infinity
-        gradientLayer.add(autoreverseAnimation, forKey: "colorChangeAutoreverse")
+        gradientLayer.colors = [primaryColor.cgColor, finalColor.cgColor]
     }
 }
+
