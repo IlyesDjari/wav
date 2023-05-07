@@ -10,6 +10,7 @@ import UIKit
 import MusadoraKit
 import MarqueeLabel
 import MusicKit
+import MediaPlayer
 
 extension HomeViewController {
     
@@ -28,6 +29,11 @@ extension HomeViewController {
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
         // Check playback status
         playbackStatusTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(playbackStatusChanged), userInfo: nil, repeats: true)
+//        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { _ in
+//            if let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID {
+//                self.songChanged(nextSongID: nextSongID)
+//            }
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,6 +58,11 @@ extension HomeViewController {
             }
         }
     }
+    
+//    func songChanged(nextSongID: String) {
+//        songID = nextSongID
+//        fetchCurrentlyPlaying(songID: nextSongID)
+//    }
     
     @objc func selectedSongIDChanged(_ notification: Notification) {
         if let songID = notification.userInfo?["songID"] as? String {

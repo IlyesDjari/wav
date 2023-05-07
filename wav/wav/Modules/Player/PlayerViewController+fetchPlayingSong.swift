@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MusicKit
 import MusadoraKit
+import MediaPlayer
 
 extension PlayerViewController {
     internal func fetchPlayingSong(songID: String? = nil) {
@@ -43,11 +44,19 @@ extension PlayerViewController {
                             }
                         }
                     }
-                    // Play the song with the provided songID if it's not already playing
-                    if ApplicationMusicPlayer.shared.queue.currentEntry?.item?.id.rawValue != songID {
-                        player.queue = [song]
-                        try await player.play()
-                        await queueRecommendation(songID: songID)
+                    
+                    // Check if the song is already playing
+                    if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
+                       nowPlayingItem.playbackStoreID == songID {
+                       // The song is already playing, add recommendation to the queue
+                       print("Song is already playing. Adding recommendation to the queue...")
+                       await queueRecommendation(songID: songID)
+                    } else {
+                       // The song is not playing, play it and add recommendation to the queue
+                       print("Song is not playing. Playing and adding recommendation to the queue...")
+                       player.queue = [song]
+                       try await player.play()
+                       await queueRecommendation(songID: songID)
                     }
                 } catch {
                     print("Error fetching song details: \(error)")
@@ -57,18 +66,21 @@ extension PlayerViewController {
             // Fallback to the original implementation of fetching the now playing song
         }
     }
+
     
-    private func queueRecommendation(songID: String) async {
+    internal func queueRecommendation(songID: String) async {
         do {
             let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
             let recommendations = try await MRecommendation.continuousSongs(for: song)
             if let recommendedSong = recommendations.first {
-                try await player.queue.insert(recommendedSong, position: .afterCurrentEntry)
+                try await player.queue.insert(recommendedSong, position: .tail)
+                print(player.queue.entries.count)
             }
         } catch {
             print("Error fetching song recommendation: \(error)")
         }
     }
+
 
     private func playSong(songID: String) {
         fetchPlayingSong(songID: songID)

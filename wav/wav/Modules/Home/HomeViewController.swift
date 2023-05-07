@@ -63,7 +63,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     private func fetchAllData() {
         // Show the loading view
         let loadingView = showLoadingView(on: view)
-
         Task {
             do {
                 try await fetchRecentlyPlayed()
