@@ -26,8 +26,8 @@ extension HomeViewController {
                 let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
                 noSongLabel.isHidden = true
                 homePlayer.isUserInteractionEnabled = true
-                currentSong.text = song.title
-                currentArtist.text = song.artistName
+                currentArtist.text = song.title
+                currentSong.text = song.artistName
                 if let artworkURL = song.artwork?.url(width: 50, height: 50) {
                     currentCover.kf.indicatorType = .activity
                     currentCover.kf.setImage(

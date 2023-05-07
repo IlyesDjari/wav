@@ -84,5 +84,4 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     @IBAction func stateTapped(_ sender: Any) {
         musicPlaybackControl.togglePlayback()
     }
-    
 }

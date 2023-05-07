@@ -10,6 +10,7 @@ import MusicKit
 import MarqueeLabel
 import MusadoraKit
 import MediaPlayer
+import Combine
 
 protocol PlayerViewControllerDelegate: AnyObject {
     func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?)
@@ -27,7 +28,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var currentTime: UILabel!
     @IBOutlet weak var songTime: UILabel!
     @IBOutlet weak var timeline: UISlider!
-
+    @IBOutlet weak var skipButton: UIImageView!
+    @IBOutlet weak var backButton: UIImageView!
     // Properties
     weak var homeViewController: HomeViewController?
     weak var delegate: PlayerViewControllerDelegate?
@@ -57,15 +59,15 @@ class PlayerViewController: UIViewController {
         // Set the initial state of the state button
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
         // Check playback status
-        playbackStatusTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+        playbackStatusTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
             self.playbackStatusChanged()
         }
         // Add timeline observers
         timeline.addTarget(self, action: #selector(timelineValueChanged(_:)), for: .valueChanged)
         timeline.addTarget(self, action: #selector(timelineEditingBegan(_:)), for: .touchDown)
         timeline.addTarget(self, action: #selector(timelineEditingEnded(_:)), for: [.touchUpInside, .touchUpOutside])
-        // Start the timer to update the playback time every 0.3 second
-        timelineTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+        // Start the timer to update the playback time every 0.5 second
+        timelineTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
             self.updatePlaybackTime()
         }
     }
@@ -81,11 +83,7 @@ class PlayerViewController: UIViewController {
         addShadow(to: coverView)
     }
 
-    @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
-        musicPlaybackControl.togglePlayback()
-    }
-
-    func setupRemoteTransportControls() {
+    private func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
 
         commandCenter.skipForwardCommand.addTarget { event in
@@ -103,6 +101,40 @@ class PlayerViewController: UIViewController {
             guard let nowPlayingItem = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem else { return }
             let nowPlayingSongID = nowPlayingItem.playbackStoreID
             self.songChanged(nextSongID: nowPlayingSongID)
+        }
+    }
+
+    @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
+        musicPlaybackControl.togglePlayback()
+    }
+
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        // Animate the button
+        UIView.animate(withDuration: 0.2, animations: {
+            self.skipButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.2) {
+                self.skipButton.transform = CGAffineTransform.identity
+            }
+        })
+        // Skip to the next song
+        Task { @MainActor in
+            await musicPlaybackControl.skipToNextSong()
+        }
+    }
+
+
+    @IBAction func tapPrevious(_ sender: Any) {
+        // Animate the button
+        UIView.animate(withDuration: 0.2, animations: {
+            self.backButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.2) {
+                self.backButton.transform = CGAffineTransform.identity
+            }
+        })
+        Task { @MainActor in
+            await musicPlaybackControl.skipToPreviousSong()
         }
     }
 }

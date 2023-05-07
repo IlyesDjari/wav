@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "arrow-circle-right-fill.svg",
+      "filename" : "fast-forward-fill.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "arrow-circle-right-fill 1.svg",
+      "filename" : "fast-forward-fill 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "arrow-circle-right-fill 2.svg",
+      "filename" : "fast-forward-fill 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
