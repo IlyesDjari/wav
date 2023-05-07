@@ -34,7 +34,6 @@ extension HomeViewController {
         super.viewWillDisappear(animated)
         // Remove observers for selected song ID changes and playback state changes
         NotificationCenter.default.removeObserver(self, name: .songIDChanged, object: nil)
-        
         // Remove the observer for playback status changes
         playbackStatusTimer?.invalidate()
     }
@@ -59,7 +58,6 @@ extension HomeViewController {
             self.songID = songID
             fetchCurrentlyPlaying(songID: songID)
             musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
-            print("Now playing the selected song ID: \(songID)")
         }
     }
 }

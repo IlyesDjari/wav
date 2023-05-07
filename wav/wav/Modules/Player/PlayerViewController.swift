@@ -74,10 +74,7 @@ class PlayerViewController: UIViewController {
 
     private func configureUI() {
         addShadow(to: coverView)
-        timeline.value = 0
-        timeline.minimumValue = 0
     }
-
     
     @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
         musicPlaybackControl.togglePlayback()

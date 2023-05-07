@@ -14,17 +14,20 @@ extension HomeViewController {
     public func fetchCurrentlyPlaying(songID: String?) {
         guard let songID = songID else {
             // No song is selected
-            currentSong.text = "No song selected"
+            noSongLabel.isHidden = false
+            currentSong.text = ""
             currentArtist.text = ""
             currentCover.image = UIImage(named: "NoSongImage")
+            homePlayer.isUserInteractionEnabled = false
             return
         }
         Task {
             do {
                 let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
+                noSongLabel.isHidden = true
+                homePlayer.isUserInteractionEnabled = true
                 currentSong.text = song.title
                 currentArtist.text = song.artistName
-                
                 if let artworkURL = song.artwork?.url(width: 50, height: 50) {
                     currentCover.kf.indicatorType = .activity
                     currentCover.kf.setImage(
@@ -44,6 +47,7 @@ extension HomeViewController {
                 } else {
                     // Show a placeholder image if no artwork is available
                     currentCover.image = UIImage(named: "NoSongImage")
+                    updateBackgroundColor(from: nil, in: self.homePlayer)
                 }
             } catch {
                 print("Error fetching song details: \(error)")

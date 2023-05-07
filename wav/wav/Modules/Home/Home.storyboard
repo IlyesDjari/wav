@@ -424,6 +424,23 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Song Playing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjT-lu-JrJ" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                        <rect key="frame" x="93" y="24" width="214" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="t0A-dy-qgb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGt-CC-jmm" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                         <rect key="frame" x="93" y="36" width="214" height="19"/>
                                         <constraints>
@@ -442,7 +459,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRi-Zh-IL8">
-                                        <rect key="frame" x="320" y="23" width="25" height="25"/>
+                                        <rect key="frame" x="333" y="23" width="25" height="25"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="gXe-vc-x3p"/>
@@ -463,10 +480,13 @@
                                     <constraint firstItem="eXe-pS-TTF" firstAttribute="leading" secondItem="Ycr-fA-5NN" secondAttribute="leading" constant="15" id="M49-T0-Ia3"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="15" id="NvF-iB-Phj"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="leading" secondItem="LGt-CC-jmm" secondAttribute="leading" id="eZD-Hc-75k"/>
-                                    <constraint firstAttribute="trailing" secondItem="uRi-Zh-IL8" secondAttribute="trailing" constant="47" id="heT-Cw-gc4"/>
+                                    <constraint firstAttribute="trailing" secondItem="uRi-Zh-IL8" secondAttribute="trailing" constant="34" id="heT-Cw-gc4"/>
                                     <constraint firstItem="LGt-CC-jmm" firstAttribute="top" secondItem="9x5-cu-gxP" secondAttribute="bottom" constant="-2" id="i2f-ZI-1MH"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="trailing" secondItem="LGt-CC-jmm" secondAttribute="trailing" id="l6E-NY-PbT"/>
+                                    <constraint firstItem="WjT-lu-JrJ" firstAttribute="leading" secondItem="LGt-CC-jmm" secondAttribute="leading" id="neQ-Z7-OI5"/>
+                                    <constraint firstItem="WjT-lu-JrJ" firstAttribute="centerY" secondItem="uRi-Zh-IL8" secondAttribute="centerY" id="rIR-Vv-hWh"/>
                                     <constraint firstItem="eXe-pS-TTF" firstAttribute="bottom" secondItem="Ycr-fA-5NN" secondAttribute="bottomMargin" constant="1" id="tup-8J-Fs5"/>
+                                    <constraint firstItem="WjT-lu-JrJ" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="24" id="wTa-Ya-3Fh"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="5AE-qh-OO1" appends="YES" id="4Y8-M3-a48"/>
@@ -497,6 +517,7 @@
                         <outlet property="currentCover" destination="eXe-pS-TTF" id="epC-QI-SzL"/>
                         <outlet property="currentSong" destination="LGt-CC-jmm" id="MSo-ny-P73"/>
                         <outlet property="homePlayer" destination="Ycr-fA-5NN" id="mSn-1I-HZG"/>
+                        <outlet property="noSongLabel" destination="WjT-lu-JrJ" id="4dn-o4-cmQ"/>
                         <outlet property="stateButton" destination="uRi-Zh-IL8" id="8nA-Rm-yJk"/>
                     </connections>
                 </viewController>
@@ -554,6 +575,9 @@
         </designable>
         <designable name="LGt-CC-jmm">
             <size key="intrinsicContentSize" width="31.666666666666668" height="14.333333333333334"/>
+        </designable>
+        <designable name="WjT-lu-JrJ">
+            <size key="intrinsicContentSize" width="110" height="17"/>
         </designable>
         <designable name="Wug-qp-Ffr">
             <size key="intrinsicContentSize" width="31.666666666666668" height="14.333333333333334"/>

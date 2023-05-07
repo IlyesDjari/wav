@@ -28,7 +28,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
 
         }
     }
-
+    @IBOutlet weak var noSongLabel: MarqueeLabel!
     @IBOutlet weak var SeeMoreButton: UIView!
     @IBOutlet weak var homePlayer: UIView!
     @IBOutlet weak var currentArtist: MarqueeLabel!
