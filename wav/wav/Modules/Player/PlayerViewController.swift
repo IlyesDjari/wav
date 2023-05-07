@@ -46,7 +46,6 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         fetchPlayingSong(songID: songID)
-        musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
     }
 
     override func viewDidAppear(_ animated: Bool) {

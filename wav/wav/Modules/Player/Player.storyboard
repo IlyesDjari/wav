@@ -71,7 +71,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hm1-r1-xhh">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePlay" translatesAutoresizingMaskIntoConstraints="NO" id="hm1-r1-xhh">
                                         <rect key="frame" x="182" y="756" width="50" height="50"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -236,6 +236,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="homePlay" width="32" height="32"/>
         <image name="previous" width="32" height="32"/>
         <image name="repeat" width="32" height="32"/>
         <image name="skip" width="32" height="32"/>

@@ -16,21 +16,9 @@ struct MusicPlaybackControl {
     public func setStateButtonImage(stateButton: UIImageView) {
         let isPlaying = musicPlayer.state.playbackStatus == .playing
         let newImage = isPlaying ? UIImage(named: "homePause") : UIImage(named: "homePlay")
-        let oldImage = stateButton.image
-        // Animate the image change with a bounce effect
-        let animationDuration = 0.3
-        let animationDamping: CGFloat = 0.5
-        let animationVelocity: CGFloat = 5.0
-        UIView.transition(with: stateButton, duration: animationDuration, options: [.transitionCrossDissolve, .allowAnimatedContent], animations: {
-            stateButton.image = newImage
-            if oldImage != nil && isPlaying != (oldImage == UIImage(named: "homePause")) {
-                stateButton.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            }
-        }, completion: { _ in
-            UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: animationDamping, initialSpringVelocity: animationVelocity, options: [], animations: {
-                stateButton.transform = .identity
-            }, completion: nil)
-        })
+        if newImage != stateButton.image {
+            stateButton.animateImageTransition(to: newImage, withBounce: true)
+        }
     }
     
     public func togglePlayback() {
@@ -70,16 +58,6 @@ struct MusicPlaybackControl {
         }
     }
     public func toggleRepeatMode(repeatModeButton: UIImageView) {
-        print( musicPlayer.state.repeatMode)
-        print( musicPlayer.state.repeatMode)
-        print( musicPlayer.state.repeatMode)
-        print( musicPlayer.state.repeatMode)
-        print( musicPlayer.state.repeatMode)
-        print( musicPlayer.state.repeatMode)
-        print( musicPlayer.state.repeatMode)
-        print( musicPlayer.state.repeatMode)
-
-    
         switch musicPlayer.state.repeatMode {
         case .all:
             musicPlayer.state.repeatMode = .one
