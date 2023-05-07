@@ -30,6 +30,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var timeline: UISlider!
     @IBOutlet weak var skipButton: UIImageView!
     @IBOutlet weak var backButton: UIImageView!
+    @IBOutlet weak var repeatOnce: UIImageView!
     // Properties
     weak var homeViewController: HomeViewController?
     weak var delegate: PlayerViewControllerDelegate?
@@ -85,17 +86,14 @@ class PlayerViewController: UIViewController {
 
     private func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
-
         commandCenter.skipForwardCommand.addTarget { event in
             // Handle skip forward command here
             return .success
         }
-
         commandCenter.skipBackwardCommand.addTarget { event in
             // Handle skip backward command here
             return .success
         }
-
         NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main) { [weak self] notification in
             guard let self = self else { return }
             guard let nowPlayingItem = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem else { return }
@@ -110,31 +108,37 @@ class PlayerViewController: UIViewController {
 
     @IBAction func skipButtonTapped(_ sender: Any) {
         // Animate the button
-        UIView.animate(withDuration: 0.2, animations: {
+        let animator = UIViewPropertyAnimator(duration: 0.0, dampingRatio: 0.8) {
             self.skipButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.2) {
-                self.skipButton.transform = CGAffineTransform.identity
-            }
-        })
+        }
+        animator.addAnimations({
+            self.skipButton.transform = CGAffineTransform.identity
+        }, delayFactor: 0.5)
+        animator.startAnimation()
+
         // Skip to the next song
         Task { @MainActor in
             await musicPlaybackControl.skipToNextSong()
+            animateCoverImage(self.cover, isNext: true)
         }
     }
 
-
     @IBAction func tapPrevious(_ sender: Any) {
         // Animate the button
-        UIView.animate(withDuration: 0.2, animations: {
+        let animator = UIViewPropertyAnimator(duration: 0.0, dampingRatio: 0.8) {
             self.backButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.2) {
-                self.backButton.transform = CGAffineTransform.identity
-            }
-        })
+        }
+        animator.addAnimations({
+            self.backButton.transform = CGAffineTransform.identity
+        }, delayFactor: 0.5)
+        animator.startAnimation()
         Task { @MainActor in
             await musicPlaybackControl.skipToPreviousSong()
+            animateCoverImage(self.cover, isNext: false)
         }
+    }
+    
+    @IBAction func tapRepeat(_ sender: Any) {
+        musicPlaybackControl.toggleRepeatMode(repeatModeButton: repeatOnce)
     }
 }

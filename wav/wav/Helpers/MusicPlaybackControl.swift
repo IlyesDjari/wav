@@ -69,4 +69,36 @@ struct MusicPlaybackControl {
             print("Error skipping to previous song: \(error)")
         }
     }
+    public func toggleRepeatMode(repeatModeButton: UIImageView) {
+        print( musicPlayer.state.repeatMode)
+        print( musicPlayer.state.repeatMode)
+        print( musicPlayer.state.repeatMode)
+        print( musicPlayer.state.repeatMode)
+        print( musicPlayer.state.repeatMode)
+        print( musicPlayer.state.repeatMode)
+        print( musicPlayer.state.repeatMode)
+        print( musicPlayer.state.repeatMode)
+
+    
+        switch musicPlayer.state.repeatMode {
+        case .all:
+            musicPlayer.state.repeatMode = .one
+            let repeatOneImage = UIImage(named: "repeatOnce")
+            repeatModeButton.animateImageTransition(to: repeatOneImage, withBounce: true)
+        case .one:
+            musicPlayer.state.repeatMode = MusicPlayer.RepeatMode.none
+            let repeatImage = UIImage(named: "repeat")
+            repeatModeButton.animateImageTransition(to: repeatImage, withBounce: true)
+        case .none?:
+            musicPlayer.state.repeatMode = .all
+            let repeatOnImage = UIImage(named: "repeatOn")
+            repeatModeButton.animateImageTransition(to: repeatOnImage, withBounce: true)
+        case nil:
+            musicPlayer.state.repeatMode = .all
+            let repeatOnImage = UIImage(named: "repeatOn")
+            repeatModeButton.animateImageTransition(to: repeatOnImage, withBounce: true)
+        @unknown default:
+            break
+        }
+    }
 }
