@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 import MusicKit
-import MediaPlayer
-import AVFoundation
 import MusadoraKit
 
 extension PlayerViewController {
@@ -49,6 +47,7 @@ extension PlayerViewController {
                     if ApplicationMusicPlayer.shared.queue.currentEntry?.item?.id.rawValue != songID {
                         player.queue = [song]
                         try await player.play()
+                        await queueRecommendation(songID: songID)
                     }
                 } catch {
                     print("Error fetching song details: \(error)")
@@ -56,6 +55,18 @@ extension PlayerViewController {
             }
         } else {
             // Fallback to the original implementation of fetching the now playing song
+        }
+    }
+    
+    private func queueRecommendation(songID: String) async {
+        do {
+            let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
+            let recommendations = try await MRecommendation.continuousSongs(for: song)
+            if let recommendedSong = recommendations.first {
+                try await player.queue.insert(recommendedSong, position: .afterCurrentEntry)
+            }
+        } catch {
+            print("Error fetching song recommendation: \(error)")
         }
     }
 
