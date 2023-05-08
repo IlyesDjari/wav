@@ -31,6 +31,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var skipButton: UIImageView!
     @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var repeatOnce: UIImageView!
+    @IBOutlet weak var shuffleButton: UIImageView!
     // Properties
     weak var homeViewController: HomeViewController?
     weak var delegate: PlayerViewControllerDelegate?
@@ -137,6 +138,9 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    @IBAction func tapShuffle(_ sender: Any) {
+        musicPlaybackControl.toggleShuffleMode(shuffleModeButton: shuffleButton)
+    }
     @IBAction func tapRepeat(_ sender: Any) {
         musicPlaybackControl.toggleRepeatMode(repeatModeButton: repeatOnce)
     }

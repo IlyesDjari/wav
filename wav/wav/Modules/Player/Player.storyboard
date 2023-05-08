@@ -104,6 +104,25 @@
                                             <outletCollection property="gestureRecognizers" destination="wT3-Tp-Lap" appends="YES" id="Rqa-xO-jYD"/>
                                         </connections>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repeat" translatesAutoresizingMaskIntoConstraints="NO" id="PKa-fN-aRB">
+                                        <rect key="frame" x="360" y="765" width="32" height="32"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="KSm-Ev-Dyi"/>
+                                            <constraint firstAttribute="height" constant="32" id="Yl3-D6-4Xf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="LED-5X-PyA" appends="YES" id="J7n-h6-k3p"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carret-down" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-Ww-TV0">
+                                        <rect key="frame" x="191" y="102" width="32" height="32"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="UYb-6s-rH2"/>
+                                            <constraint firstAttribute="height" constant="32" id="lNl-fm-pyK"/>
+                                        </constraints>
+                                    </imageView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-ob-O8m">
                                         <rect key="frame" x="20" y="640" width="374" height="30"/>
                                         <color key="tintColor" name="Purple"/>
@@ -131,15 +150,15 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repeat" translatesAutoresizingMaskIntoConstraints="NO" id="PKa-fN-aRB">
-                                        <rect key="frame" x="360" y="765" width="32" height="32"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuffleOff" translatesAutoresizingMaskIntoConstraints="NO" id="JCC-G1-w21">
+                                        <rect key="frame" x="22" y="765" width="32" height="32"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="KSm-Ev-Dyi"/>
-                                            <constraint firstAttribute="height" constant="32" id="Yl3-D6-4Xf"/>
+                                            <constraint firstAttribute="height" constant="32" id="GGc-aA-Lfk"/>
+                                            <constraint firstAttribute="width" constant="32" id="wk5-wi-5Wl"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="LED-5X-PyA" appends="YES" id="J7n-h6-k3p"/>
+                                            <outletCollection property="gestureRecognizers" destination="14I-hZ-phS" appends="YES" id="e9e-PT-wXp"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
@@ -150,18 +169,22 @@
                                     <constraint firstItem="tCV-MW-b1H" firstAttribute="leading" secondItem="hm1-r1-xhh" secondAttribute="trailing" constant="47" id="4jA-cC-LN4"/>
                                     <constraint firstItem="Ygn-eF-zaa" firstAttribute="leading" secondItem="0bU-ob-O8m" secondAttribute="leading" id="69H-HK-GAW"/>
                                     <constraint firstItem="pNF-fW-Di4" firstAttribute="top" secondItem="PEX-RC-qvs" secondAttribute="top" constant="163.5" id="7Ir-Ts-Hm8"/>
+                                    <constraint firstItem="mBE-Ww-TV0" firstAttribute="centerX" secondItem="cAq-7B-8h0" secondAttribute="centerX" id="9V5-9w-zOl"/>
+                                    <constraint firstItem="JCC-G1-w21" firstAttribute="top" secondItem="PKa-fN-aRB" secondAttribute="top" id="CcP-P9-3vd"/>
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="trailing" secondItem="pNF-fW-Di4" secondAttribute="trailing" id="DFD-QG-CZh"/>
                                     <constraint firstItem="pNF-fW-Di4" firstAttribute="leading" secondItem="PEX-RC-qvs" secondAttribute="leading" constant="22" id="Dc9-Y8-0yK"/>
                                     <constraint firstItem="0bU-ob-O8m" firstAttribute="centerX" secondItem="hm1-r1-xhh" secondAttribute="centerX" id="FIs-1g-qpw"/>
                                     <constraint firstItem="pNF-fW-Di4" firstAttribute="leading" secondItem="jsb-ld-Khk" secondAttribute="leading" id="HZC-xt-PT9"/>
                                     <constraint firstItem="hm1-r1-xhh" firstAttribute="leading" secondItem="hyv-7Q-N7T" secondAttribute="trailing" constant="47" id="JTZ-Tp-Txv"/>
                                     <constraint firstItem="jsb-ld-Khk" firstAttribute="top" secondItem="cAq-7B-8h0" secondAttribute="bottom" constant="26.5" id="Jxd-9m-1gb"/>
+                                    <constraint firstItem="9mh-Zy-E8f" firstAttribute="leading" secondItem="JCC-G1-w21" secondAttribute="leading" id="KL5-17-Cof"/>
                                     <constraint firstItem="hm1-r1-xhh" firstAttribute="top" secondItem="0bU-ob-O8m" secondAttribute="bottom" constant="87" id="KWk-fv-Sbs"/>
                                     <constraint firstItem="pNF-fW-Di4" firstAttribute="centerX" secondItem="PEX-RC-qvs" secondAttribute="centerX" id="LRz-qc-ZCD"/>
                                     <constraint firstItem="0bU-ob-O8m" firstAttribute="top" secondItem="Ygn-eF-zaa" secondAttribute="bottom" constant="33" id="LcT-Px-gXc"/>
                                     <constraint firstItem="tCV-MW-b1H" firstAttribute="top" secondItem="hm1-r1-xhh" secondAttribute="top" constant="3" id="LcX-8f-9DG"/>
                                     <constraint firstAttribute="trailing" secondItem="jsb-ld-Khk" secondAttribute="trailing" constant="47" id="Nb7-rE-8Be"/>
                                     <constraint firstItem="OYX-W7-cA3" firstAttribute="top" secondItem="Ygn-eF-zaa" secondAttribute="bottom" constant="54" id="O8I-Tn-wsZ"/>
+                                    <constraint firstItem="cAq-7B-8h0" firstAttribute="top" secondItem="mBE-Ww-TV0" secondAttribute="bottom" constant="29.5" id="OUe-H9-x76"/>
                                     <constraint firstItem="jsb-ld-Khk" firstAttribute="leading" secondItem="Ygn-eF-zaa" secondAttribute="leading" id="Pxc-53-gcc"/>
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="trailing" secondItem="0bU-ob-O8m" secondAttribute="trailing" id="UwE-W1-GcB"/>
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="top" secondItem="pNF-fW-Di4" secondAttribute="top" id="X1T-YS-fOo"/>
@@ -195,6 +218,7 @@
                         <outlet property="coverView" destination="cAq-7B-8h0" id="b2H-QL-k67"/>
                         <outlet property="currentTime" destination="9mh-Zy-E8f" id="01X-wq-3nD"/>
                         <outlet property="repeatOnce" destination="PKa-fN-aRB" id="9ET-5Q-V01"/>
+                        <outlet property="shuffleButton" destination="JCC-G1-w21" id="UO4-tO-MYM"/>
                         <outlet property="skipButton" destination="tCV-MW-b1H" id="Fvz-hM-Oyr"/>
                         <outlet property="song" destination="jsb-ld-Khk" id="Mzh-aj-7JK"/>
                         <outlet property="songTime" destination="OYX-W7-cA3" id="o3x-j0-Mqa"/>
@@ -223,6 +247,11 @@
                         <action selector="tapRepeat:" destination="Y6W-OH-hqX" id="Z7t-e7-cFd"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="14I-hZ-phS" userLabel="tapShuffle">
+                    <connections>
+                        <action selector="tapShuffle:" destination="Y6W-OH-hqX" id="juo-f1-uGm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="139.13043478260872" y="-2.6785714285714284"/>
         </scene>
@@ -236,9 +265,11 @@
         </designable>
     </designables>
     <resources>
+        <image name="carret-down" width="32" height="32"/>
         <image name="homePlay" width="32" height="32"/>
         <image name="previous" width="32" height="32"/>
         <image name="repeat" width="32" height="32"/>
+        <image name="shuffleOff" width="32" height="32"/>
         <image name="skip" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
