@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Name View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="NameViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nc-HL-6kQ">
+                                <rect key="frame" x="16" y="209" width="361" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="SbT-0G-qp0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                <color key="textColor" name="Purple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How should we call you ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CD-M7-E25">
+                                <rect key="frame" x="16" y="276" width="361" height="28.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHN-At-bKa">
+                                <rect key="frame" x="16" y="684" width="361" height="52"/>
+                                <color key="backgroundColor" name="Purple"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="sBU-h0-Rba"/>
+                                </constraints>
+                                <color key="tintColor" name="Purple"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start your music journey">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="GE7-Dv-fhD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your username here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CBF-xR-ssY">
+                                <rect key="frame" x="16" y="411" width="361" height="50"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <color key="tintColor" name="Purple"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Gmc-5b-amJ"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="6Nc-HL-6kQ" firstAttribute="trailing" secondItem="CBF-xR-ssY" secondAttribute="trailing" id="7Cf-pF-r6M"/>
+                            <constraint firstItem="6Nc-HL-6kQ" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="9Vh-DH-e6o"/>
+                            <constraint firstItem="6Nc-HL-6kQ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="9it-Dp-W9C"/>
+                            <constraint firstItem="6Nc-HL-6kQ" firstAttribute="leading" secondItem="8CD-M7-E25" secondAttribute="leading" id="PWh-9X-4rw"/>
+                            <constraint firstItem="CBF-xR-ssY" firstAttribute="leading" secondItem="vHN-At-bKa" secondAttribute="leading" id="R2s-MR-UTz"/>
+                            <constraint firstItem="CBF-xR-ssY" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="10" id="SXF-4p-ylL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vHN-At-bKa" secondAttribute="bottom" constant="82" id="YVs-UF-pbJ"/>
+                            <constraint firstItem="8CD-M7-E25" firstAttribute="leading" secondItem="CBF-xR-ssY" secondAttribute="leading" id="bhF-Dd-mg3"/>
+                            <constraint firstItem="8CD-M7-E25" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="riJ-EE-IEb"/>
+                            <constraint firstItem="6Nc-HL-6kQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="150" id="sPF-hA-CwK"/>
+                            <constraint firstItem="8CD-M7-E25" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="217" id="sr0-TT-Bke"/>
+                            <constraint firstItem="CBF-xR-ssY" firstAttribute="trailing" secondItem="vHN-At-bKa" secondAttribute="trailing" id="wLq-Am-wGi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8CD-M7-E25" secondAttribute="trailing" constant="16" id="xxt-oC-9wJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="CBF-xR-ssY" id="zfD-1D-2Yy"/>
+                        <segue destination="QPx-Du-zCE" kind="show" identifier="NameToHomeSegue" id="rv9-sz-nk0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35.877862595419849" y="4.9295774647887329"/>
+        </scene>
+        <!--NavigationViewController-->
+        <scene sceneID="hWA-IN-7IW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationViewController" id="QPx-Du-zCE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RdS-MM-Imh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXH-cg-JZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="392"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Purple">
+            <color red="0.84705882352941175" green="0.24313725490196078" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

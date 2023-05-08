@@ -24,6 +24,7 @@
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QJ-dO-n5F">
                                 <rect key="frame" x="16" y="648" width="361" height="52"/>
+                                <color key="backgroundColor" name="Purple"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Fry-Ch-qVP"/>
                                 </constraints>
@@ -84,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="-2.1126760563380285"/>
         </scene>
-        <!--NavigationViewController-->
+        <!--NameViewController-->
         <scene sceneID="vEM-W5-a8L">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationViewController" id="cGD-Am-MQg" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Name" referencedIdentifier="NameViewController" id="cGD-Am-MQg" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="672-CK-Wdi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqG-z0-LvI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -97,10 +98,10 @@
     </scenes>
     <resources>
         <namedColor name="Background">
-            <color red="0.10199999809265137" green="0.10199999809265137" blue="0.10199999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
-            <color red="0.3449999988079071" green="0.18000000715255737" blue="0.56499999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84705882352941175" green="0.24313725490196078" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

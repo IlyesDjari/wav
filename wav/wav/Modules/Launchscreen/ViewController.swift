@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     private func checkAuthorizationStatus() {
-        let segueIdentifier = MusicAuthorization.currentStatus == .authorized ? "HomeSegue" : "LoginSegue"
+        let segueIdentifier = MusicAuthorization.currentStatus == .authorized ? "LoginSegue" : "LoginSegue"
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: segueIdentifier, sender: self)
         }
