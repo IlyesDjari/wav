@@ -32,15 +32,6 @@ extension SearchViewController: UITableViewDataSource {
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("callled")
-        print("callled")
-        print("callled")
-        print("callled")
-        print("callled")
-        print("callled")
-        print("callled")
-        print("callled")
-
         // Dequeue the custom cell
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as? SearchViewCell else {
             fatalError("Unable to dequeue CustomTableViewCell")
@@ -53,5 +44,20 @@ extension SearchViewController: UITableViewDataSource {
         cell.artistLabel.text = song.artistName
         cell.coverImage.kf.setImage(with: song.artwork?.url(width: 200, height: 200))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let song = searchResults[indexPath.row]
+        let songID = song.id.rawValue
+        performSegue(withIdentifier: "searchPlayerSegue", sender: songID)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "searchPlayerSegue",
+              let songID = sender as? String else {
+            return
+        }
+        let destinationVC = segue.destination as? PlayerViewController
+        destinationVC?.songID = songID
     }
 }

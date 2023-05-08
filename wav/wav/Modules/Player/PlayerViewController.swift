@@ -42,11 +42,18 @@ class PlayerViewController: UIViewController {
     internal var timelineEditing = false
     let player = ApplicationMusicPlayer.shared
     let musicPlaybackControl = MusicPlaybackControl()
-    var songID: String?
+    var songID: String? {
+        didSet {
+            if songID != nil {
+                // Fetch the song with the given ID
+                fetchPlayingSong(songID: songID!)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        fetchPlayingSong(songID: songID)
     }
 
     override func viewDidAppear(_ animated: Bool) {

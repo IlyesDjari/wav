@@ -8,13 +8,13 @@
 import UIKit
 import MusadoraKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate {
 
-    
     // Outlets
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            tableView.delegate = self
         }
     }
     @IBOutlet weak var searchBar: UISearchBar! {

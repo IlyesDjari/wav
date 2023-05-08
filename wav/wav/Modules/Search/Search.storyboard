@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="igZ-gA-fPN">
-                                <rect key="frame" x="0.0" y="225" width="393" height="627"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="igZ-gA-fPN">
+                                <rect key="frame" x="0.0" y="225" width="393" height="588"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <color key="sectionIndexBackgroundColor" name="Background"/>
                                 <prototypes>
@@ -45,9 +45,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUH-6p-Gu0">
-                                                    <rect key="frame" x="20" y="5" width="60" height="60"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evW-b0-YYi" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                     <rect key="frame" x="105" y="33" width="268" height="20"/>
                                                     <constraints>
@@ -65,6 +62,18 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUH-6p-Gu0">
+                                                    <rect key="frame" x="20" y="8" width="54" height="54"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="54" id="90S-SA-2wG"/>
+                                                        <constraint firstAttribute="width" constant="54" id="H3e-S5-Ira"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YUH-6p-Gu0" firstAttribute="leading" secondItem="7rH-mo-U58" secondAttribute="leadingMargin" id="8zb-yd-p0q"/>
@@ -75,8 +84,8 @@
                                                 <constraint firstItem="Y15-ZC-5v1" firstAttribute="centerX" secondItem="7rH-mo-U58" secondAttribute="centerX" constant="42.5" id="Z7q-hI-RHs"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="evW-b0-YYi" secondAttribute="bottom" constant="6" id="fRv-Iq-r7O"/>
                                                 <constraint firstItem="Y15-ZC-5v1" firstAttribute="top" secondItem="7rH-mo-U58" secondAttribute="topMargin" constant="6" id="g3v-RO-fWm"/>
-                                                <constraint firstItem="YUH-6p-Gu0" firstAttribute="top" secondItem="7rH-mo-U58" secondAttribute="topMargin" constant="-6" id="k5T-Ah-2m4"/>
-                                                <constraint firstItem="Y15-ZC-5v1" firstAttribute="leading" secondItem="YUH-6p-Gu0" secondAttribute="trailing" constant="25" id="wqo-rP-JXg"/>
+                                                <constraint firstItem="YUH-6p-Gu0" firstAttribute="top" secondItem="7rH-mo-U58" secondAttribute="topMargin" constant="-3" id="k5T-Ah-2m4"/>
+                                                <constraint firstItem="Y15-ZC-5v1" firstAttribute="leading" secondItem="YUH-6p-Gu0" secondAttribute="trailing" constant="31" id="wqo-rP-JXg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
@@ -103,7 +112,7 @@
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" id="9RD-3a-dDf"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="TdI-9Q-feU"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" constant="16" id="X60-Ze-5TN"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="igZ-gA-fPN" secondAttribute="bottom" constant="-34" id="ZiM-hA-6hs"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="igZ-gA-fPN" secondAttribute="bottom" constant="5" id="ZiM-hA-6hs"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="kgk-PS-6e3"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="igZ-gA-fPN" secondAttribute="trailing" constant="-16" id="oBx-of-K63"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="67" id="oac-6K-zsC"/>
@@ -119,11 +128,22 @@
                     <connections>
                         <outlet property="searchBar" destination="yMo-jz-6Mx" id="5mC-C8-LCV"/>
                         <outlet property="tableView" destination="igZ-gA-fPN" id="GVa-3I-SF4"/>
+                        <segue destination="3i8-gf-0pW" kind="show" identifier="searchPlayerSegue" id="EvG-FO-61v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPl-r0-po0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="-2.1126760563380285"/>
+        </scene>
+        <!--PlayerViewController-->
+        <scene sceneID="FqQ-SG-rUG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" referencedIdentifier="PlayerViewController" id="3i8-gf-0pW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iO1-gl-3Yv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZT-ef-E2M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066" y="411"/>
         </scene>
     </scenes>
     <resources>
