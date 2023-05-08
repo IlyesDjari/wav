@@ -20,7 +20,7 @@ struct MusicPlaybackControl {
             stateButton.animateImageTransition(to: newImage, withBounce: true)
         }
     }
-    
+
     public func togglePlayback() {
         let playbackState = musicPlayer.state.playbackStatus
         switch playbackState {
@@ -47,8 +47,8 @@ struct MusicPlaybackControl {
     }
     public func skipToPreviousSong() async {
         if musicPlayer.playbackTime > 3 {
-                musicPlayer.restartCurrentEntry()
-                return
+            musicPlayer.restartCurrentEntry()
+            return
         }
         do {
             try await musicPlayer.skipToPreviousEntry()
@@ -79,7 +79,7 @@ struct MusicPlaybackControl {
             break
         }
     }
-    
+
     public func toggleShuffleMode(shuffleModeButton: UIImageView) {
         switch musicPlayer.state.shuffleMode {
         case .off:
@@ -95,6 +95,38 @@ struct MusicPlaybackControl {
             let shuffleOffImage = UIImage(named: "shuffleOff")
             shuffleModeButton.animateImageTransition(to: shuffleOffImage, withBounce: true)
         @unknown default:
+            break
+        }
+    }
+
+    public func setRepeatModeButtonImage(repeatModeButton: UIImageView) {
+        switch musicPlayer.state.repeatMode {
+        case .all:
+            let repeatOnImage = UIImage(named: "repeatOn")
+            repeatModeButton.animateImageTransition(to: repeatOnImage, withBounce: true)
+        case .one:
+            let repeatOneImage = UIImage(named: "repeatOnce")
+            repeatModeButton.animateImageTransition(to: repeatOneImage, withBounce: true)
+        case .none?:
+            let repeatImage = UIImage(named: "repeat")
+            repeatModeButton.animateImageTransition(to: repeatImage, withBounce: true)
+        default:
+            break
+        }
+    }
+
+    public func setShuffleModeButtonImage(shuffleModeButton: UIImageView) {
+        switch musicPlayer.state.shuffleMode {
+        case .off:
+            let shuffleOffImage = UIImage(named: "shuffleOff")
+            shuffleModeButton.animateImageTransition(to: shuffleOffImage, withBounce: true)
+        case .songs:
+            let shuffleOnImage = UIImage(named: "shuffleOn")
+            shuffleModeButton.animateImageTransition(to: shuffleOnImage, withBounce: true)
+        case .none:
+            let shuffleOffImage = UIImage(named: "shuffleOff")
+            shuffleModeButton.animateImageTransition(to: shuffleOffImage, withBounce: true)
+        default:
             break
         }
     }

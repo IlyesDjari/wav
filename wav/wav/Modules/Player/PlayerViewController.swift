@@ -89,6 +89,8 @@ class PlayerViewController: UIViewController {
 
     private func configureUI() {
         addShadow(to: coverView)
+        musicPlaybackControl.setShuffleModeButtonImage(shuffleModeButton: shuffleButton)
+        musicPlaybackControl.setRepeatModeButtonImage(repeatModeButton: repeatOnce)
     }
 
     private func setupRemoteTransportControls() {
