@@ -15,12 +15,111 @@
                     <view key="view" contentMode="scaleToFill" id="d6P-uP-xbS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="igZ-gA-fPN">
+                                <rect key="frame" x="0.0" y="225" width="393" height="627"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <color key="sectionIndexBackgroundColor" name="Background"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="70" id="eoG-gd-aaU" customClass="SearchViewCell" customModule="wav" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eoG-gd-aaU" id="7rH-mo-U58">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y15-ZC-5v1" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                                    <rect key="frame" x="105" y="17" width="268" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="268" id="RDC-na-6J9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUH-6p-Gu0">
+                                                    <rect key="frame" x="20" y="5" width="60" height="60"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evW-b0-YYi" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                                    <rect key="frame" x="105" y="33" width="268" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="268" id="ZTT-8v-zU1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YUH-6p-Gu0" firstAttribute="leading" secondItem="7rH-mo-U58" secondAttribute="leadingMargin" id="8zb-yd-p0q"/>
+                                                <constraint firstItem="evW-b0-YYi" firstAttribute="top" secondItem="7rH-mo-U58" secondAttribute="topMargin" constant="22" id="JhE-pp-87A"/>
+                                                <constraint firstItem="YUH-6p-Gu0" firstAttribute="centerY" secondItem="Y15-ZC-5v1" secondAttribute="centerY" constant="8" id="L0N-sE-Qfr"/>
+                                                <constraint firstItem="Y15-ZC-5v1" firstAttribute="leading" secondItem="evW-b0-YYi" secondAttribute="leading" id="MfE-Zh-78M"/>
+                                                <constraint firstItem="Y15-ZC-5v1" firstAttribute="centerY" secondItem="7rH-mo-U58" secondAttribute="centerY" constant="-8" id="Wng-fG-Fvh"/>
+                                                <constraint firstItem="Y15-ZC-5v1" firstAttribute="centerX" secondItem="7rH-mo-U58" secondAttribute="centerX" constant="42.5" id="Z7q-hI-RHs"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="evW-b0-YYi" secondAttribute="bottom" constant="6" id="fRv-Iq-r7O"/>
+                                                <constraint firstItem="Y15-ZC-5v1" firstAttribute="top" secondItem="7rH-mo-U58" secondAttribute="topMargin" constant="6" id="g3v-RO-fWm"/>
+                                                <constraint firstItem="YUH-6p-Gu0" firstAttribute="top" secondItem="7rH-mo-U58" secondAttribute="topMargin" constant="-6" id="k5T-Ah-2m4"/>
+                                                <constraint firstItem="Y15-ZC-5v1" firstAttribute="leading" secondItem="YUH-6p-Gu0" secondAttribute="trailing" constant="25" id="wqo-rP-JXg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                        <connections>
+                                            <outlet property="artistLabel" destination="evW-b0-YYi" id="9AS-a4-G7x"/>
+                                            <outlet property="coverImage" destination="YUH-6p-Gu0" id="Q4A-nm-yTJ"/>
+                                            <outlet property="songLabel" destination="Y15-ZC-5v1" id="N1e-CN-iEN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-jz-6Mx">
+                                <rect key="frame" x="16" y="126" width="361" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5CU-Bv-IQF" id="cJ9-Na-UVz"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Wf5-ie-MzV"/>
                         <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" constant="-16" id="5fr-6q-qX9"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" id="9RD-3a-dDf"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="TdI-9Q-feU"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" constant="16" id="X60-Ze-5TN"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="igZ-gA-fPN" secondAttribute="bottom" constant="-34" id="ZiM-hA-6hs"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="kgk-PS-6e3"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="igZ-gA-fPN" secondAttribute="trailing" constant="-16" id="oBx-of-K63"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="67" id="oac-6K-zsC"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="centerX" secondItem="d6P-uP-xbS" secondAttribute="centerX" id="our-rn-CZO"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="166" id="p4r-gM-SuM"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="igZ-gA-fPN" secondAttribute="leading" constant="16" id="xvh-j2-JWl"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="yMo-jz-6Mx" secondAttribute="bottom" constant="55" id="yX9-B5-9ec"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" id="1te-Ty-Re0">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchBar" destination="yMo-jz-6Mx" id="5mC-C8-LCV"/>
+                        <outlet property="tableView" destination="igZ-gA-fPN" id="GVa-3I-SF4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPl-r0-po0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
