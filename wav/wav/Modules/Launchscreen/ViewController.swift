@@ -7,6 +7,7 @@
 
 import UIKit
 import MusicKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -16,7 +17,24 @@ class ViewController: UIViewController {
     }
     
     private func checkAuthorizationStatus() {
-        let segueIdentifier = MusicAuthorization.currentStatus == .authorized ? "LoginSegue" : "LoginSegue"
+        let segueIdentifier: String
+        switch MusicAuthorization.currentStatus {
+        case .authorized:
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+            do {
+                let results = try context.fetch(fetchRequest)
+                if let user = results.first, let username = user.username, !username.isEmpty {
+                    segueIdentifier = "HomeSegue"
+                } else {
+                    segueIdentifier = "LoginSegue"
+                }
+            } catch {
+                segueIdentifier = "LoginSegue"
+            }
+        default:
+            segueIdentifier = "LoginSegue"
+        }
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: segueIdentifier, sender: self)
         }

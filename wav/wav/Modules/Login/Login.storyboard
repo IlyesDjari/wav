@@ -79,6 +79,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="tSx-PU-oXA"/>
                     <connections>
                         <segue destination="cGD-Am-MQg" kind="show" identifier="LoginToHomeSegue" id="YFH-ah-HKw"/>
+                        <segue destination="pLX-35-bXK" kind="show" identifier="LoginToNameSegue" id="la3-hj-Zls"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -93,7 +94,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqG-z0-LvI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="424"/>
+            <point key="canvasLocation" x="868" y="424"/>
+        </scene>
+        <!--NameViewController-->
+        <scene sceneID="5c5-kR-l8c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Name" referencedIdentifier="NameViewController" id="pLX-35-bXK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lW7-7m-U1J"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Rd-hk-aQ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="424"/>
         </scene>
     </scenes>
     <resources>
