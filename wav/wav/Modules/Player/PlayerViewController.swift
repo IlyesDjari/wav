@@ -10,7 +10,7 @@ import MusicKit
 import MarqueeLabel
 import MusadoraKit
 import MediaPlayer
-import Combine
+import NotificationBannerSwift
 
 protocol PlayerViewControllerDelegate: AnyObject {
     func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?)
@@ -31,6 +31,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var skipButton: UIImageView!
     @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var repeatOnce: UIImageView!
+    @IBOutlet weak var liveShareButton: UIImageView!
+    @IBOutlet weak var liveShareLabel: MarqueeLabel!
     @IBOutlet weak var shuffleButton: UIImageView!
     // Properties
     weak var homeViewController: HomeViewController?
@@ -40,14 +42,32 @@ class PlayerViewController: UIViewController {
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
     internal var lastPlayedSongID: String?
     internal var timelineEditing = false
-    internal var sharePlay = false
+    public var sharePlay: Bool {
+        get {
+            return UserDefaultsManager.shared.getSharePlayStatus()
+        }
+        set {
+            UserDefaultsManager.shared.saveSharePlayStatus(status: newValue)
+        }
+    }
     let player = ApplicationMusicPlayer.shared
     let musicPlaybackControl = MusicPlaybackControl()
     var songID: String? {
         didSet {
-            if songID != nil {
+            if let unwrappedSongID = songID {
                 // Fetch the song with the given ID
-                fetchPlayingSong(songID: songID!)
+                fetchPlayingSong(songID: unwrappedSongID)
+                // Call startLiveShareSession when songID changes and sharePlay is true
+                if sharePlay {
+                    startLiveShareSession(songID: unwrappedSongID) { result in
+                        switch result {
+                        case .success:
+                            print("Live share session started.")
+                        case .failure(let error):
+                            print("Failed to start live share session: \(error)")
+                        }
+                    }
+                }
             }
         }
     }
@@ -59,6 +79,7 @@ class PlayerViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: liveShareButton, liveSessionLabel: liveShareLabel, sharePlayStatus: sharePlay)
         // Fetch skipping songs
         NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { _ in
             if let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID {
@@ -129,7 +150,6 @@ class PlayerViewController: UIViewController {
         // Skip to the next song
         Task { @MainActor in
             await musicPlaybackControl.skipToNextSong()
-            animateCoverImage(self.cover, isNext: true)
         }
     }
 
@@ -144,7 +164,6 @@ class PlayerViewController: UIViewController {
         animator.startAnimation()
         Task { @MainActor in
             await musicPlaybackControl.skipToPreviousSong()
-            animateCoverImage(self.cover, isNext: false)
         }
     }
     
@@ -163,7 +182,8 @@ class PlayerViewController: UIViewController {
         startLiveShareSession(songID: unwrappedSongID) { result in
             switch result {
             case .success:
-                print("Live share session started.")
+                self.sharePlay = true
+                self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
             case .failure(let error):
                 print("Failed to start live share session: \(error)")
             }

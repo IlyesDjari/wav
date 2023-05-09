@@ -259,6 +259,8 @@
                         <outlet property="cover" destination="pNF-fW-Di4" id="Phi-f2-mnk"/>
                         <outlet property="coverView" destination="cAq-7B-8h0" id="b2H-QL-k67"/>
                         <outlet property="currentTime" destination="9mh-Zy-E8f" id="01X-wq-3nD"/>
+                        <outlet property="liveShareButton" destination="IPm-Kf-fsE" id="B4K-jh-aAy"/>
+                        <outlet property="liveShareLabel" destination="BJX-01-Jfx" id="AdJ-FV-F5k"/>
                         <outlet property="repeatOnce" destination="PKa-fN-aRB" id="9ET-5Q-V01"/>
                         <outlet property="shuffleButton" destination="JCC-G1-w21" id="UO4-tO-MYM"/>
                         <outlet property="skipButton" destination="tCV-MW-b1H" id="Fvz-hM-Oyr"/>

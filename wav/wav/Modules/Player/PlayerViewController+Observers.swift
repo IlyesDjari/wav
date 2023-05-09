@@ -13,13 +13,13 @@ import MediaPlayer
 extension PlayerViewController {
 
     func songChanged(nextSongID: String) {
-        print("Skipped to next song with ID: \(nextSongID)")
         if nextSongID != lastPlayedSongID {
             lastPlayedSongID = nextSongID
+            songID = nextSongID
             fetchPlayingSong(songID: nextSongID)
         }
     }
-
+    
     @objc func playbackStatusChanged() {
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
     }
