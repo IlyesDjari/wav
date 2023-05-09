@@ -64,6 +64,8 @@
 		7EF5587B2A0A911700D1FE8F /* loadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5587A2A0A911700D1FE8F /* loadingIndicator.swift */; };
 		7EF5587E2A0A95CB00D1FE8F /* startLiveShareSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */; };
 		7EF558802A0AA04C00D1FE8F /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5587F2A0AA04C00D1FE8F /* UserDefaultManager.swift */; };
+		7EF558822A0AA57A00D1FE8F /* getUserIDFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558812A0AA57A00D1FE8F /* getUserIDFromCoreData.swift */; };
+		7EF558842A0AA5BE00D1FE8F /* stopLiveShareSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,8 @@
 		7EF5587A2A0A911700D1FE8F /* loadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingIndicator.swift; sourceTree = "<group>"; };
 		7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startLiveShareSession.swift; sourceTree = "<group>"; };
 		7EF5587F2A0AA04C00D1FE8F /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		7EF558812A0AA57A00D1FE8F /* getUserIDFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUserIDFromCoreData.swift; sourceTree = "<group>"; };
+		7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stopLiveShareSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,7 @@
 				7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */,
 				7EF5583D2A06F4EB00D1FE8F /* formatPlaybackTime.swift */,
 				7EF5587F2A0AA04C00D1FE8F /* UserDefaultManager.swift */,
+				7EF558812A0AA57A00D1FE8F /* getUserIDFromCoreData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */,
+				7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */,
 			);
 			path = LiveShare;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
 				7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */,
+				7EF558842A0AA5BE00D1FE8F /* stopLiveShareSession.swift in Sources */,
 				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,
 				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
 				7EF558402A06F89000D1FE8F /* updateTimelineGradient.swift in Sources */,
@@ -501,6 +508,7 @@
 				7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */,
 				7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */,
 				7EF558642A09337200D1FE8F /* SearchViewCell.swift in Sources */,
+				7EF558822A0AA57A00D1FE8F /* getUserIDFromCoreData.swift in Sources */,
 				7EF5584A2A08610300D1FE8F /* animateImageTransition.swift in Sources */,
 				7E418B632A03155C007B9863 /* shadowView.swift in Sources */,
 				7EAB3EDE2A0162D500BB2E0B /* SceneDelegate.swift in Sources */,

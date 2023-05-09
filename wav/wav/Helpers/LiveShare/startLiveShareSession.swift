@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 import FirebaseFirestore
 
 internal func startLiveShareSession(songID: String, completion: @escaping (Result<Void, Error>) -> Void) {
@@ -41,24 +40,4 @@ internal func startLiveShareSession(songID: String, completion: @escaping (Resul
             }
         }
     }
-}
-
-private func getUserIDFromCoreData() -> String? {
-    // Access the Core Data context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
-    let context = appDelegate.persistentContainer.viewContext
-    
-    // Fetch the user ID
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-    
-    do {
-        let result = try context.fetch(fetchRequest)
-        if let user = result.first as? User {
-            return user.id
-        }
-    } catch {
-        print("Failed to fetch user ID from Core Data: \(error)")
-    }
-    
-    return nil
 }

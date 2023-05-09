@@ -58,16 +58,7 @@ class PlayerViewController: UIViewController {
                 // Fetch the song with the given ID
                 fetchPlayingSong(songID: unwrappedSongID)
                 // Call startLiveShareSession when songID changes and sharePlay is true
-                if sharePlay {
-                    startLiveShareSession(songID: unwrappedSongID) { result in
-                        switch result {
-                        case .success:
-                            print("Live share session started.")
-                        case .failure(let error):
-                            print("Failed to start live share session: \(error)")
-                        }
-                    }
-                }
+                updateLiveShare()
             }
         }
     }
@@ -79,7 +70,6 @@ class PlayerViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: liveShareButton, liveSessionLabel: liveShareLabel, sharePlayStatus: sharePlay)
         // Fetch skipping songs
         NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { _ in
             if let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID {
@@ -132,6 +122,33 @@ class PlayerViewController: UIViewController {
             self.songChanged(nextSongID: nowPlayingSongID)
         }
     }
+    
+    private func updateLiveShare() {
+        guard let unwrappedSongID = songID else {
+            print("Error: songID is nil.")
+            return
+        }
+        if sharePlay {
+            startLiveShareSession(songID: unwrappedSongID) { result in
+                switch result {
+                case .success:
+                    self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
+                case .failure(let error):
+                    print("Failed to start live share session: \(error)")
+                }
+            }
+        } else {
+            stopLiveShareSession{ result in
+                switch result {
+                case .success:
+                    self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
+                case .failure(let error):
+                    print("Failed to stop live share session: \(error)")
+                }
+            }
+        }
+    }
+
 
     @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
         musicPlaybackControl.togglePlayback()
@@ -175,18 +192,7 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func tappedLiveShare(_ sender: Any) {
-        guard let unwrappedSongID = songID else {
-            print("Error: songID is nil.")
-            return
-        }
-        startLiveShareSession(songID: unwrappedSongID) { result in
-            switch result {
-            case .success:
-                self.sharePlay = true
-                self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
-            case .failure(let error):
-                print("Failed to start live share session: \(error)")
-            }
-        }
+        sharePlay.toggle()
+        updateLiveShare()
     }
 }
