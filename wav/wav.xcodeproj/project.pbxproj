@@ -62,6 +62,8 @@
 		7EF558732A098FED00D1FE8F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF558722A098FED00D1FE8F /* FirebaseStorage */; };
 		7EF558762A09A39500D1FE8F /* createUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558752A09A39500D1FE8F /* createUser.swift */; };
 		7EF558792A09A5B300D1FE8F /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF558782A09A5B300D1FE8F /* NotificationBannerSwift */; };
+		7EF5587B2A0A911700D1FE8F /* loadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5587A2A0A911700D1FE8F /* loadingIndicator.swift */; };
+		7EF5587E2A0A95CB00D1FE8F /* startLiveShareSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,8 @@
 		7EF558682A098BC200D1FE8F /* Name.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Name.storyboard; sourceTree = "<group>"; };
 		7EF5586B2A098F8B00D1FE8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7EF558752A09A39500D1FE8F /* createUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createUser.swift; sourceTree = "<group>"; };
+		7EF5587A2A0A911700D1FE8F /* loadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingIndicator.swift; sourceTree = "<group>"; };
+		7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startLiveShareSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,7 @@
 		7EAB3EF32A0162E500BB2E0B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7EF5587C2A0A95BB00D1FE8F /* LiveShare */,
 				7EF558742A09A31600D1FE8F /* DatabaseUsers */,
 				7E91E62F2A0681B300ADB0EE /* MusicPlaybackControl.swift */,
 				7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */,
@@ -258,6 +263,7 @@
 				7EF5583F2A06F89000D1FE8F /* updateTimelineGradient.swift */,
 				7EF558432A083C5300D1FE8F /* animateCoverImage.swift */,
 				7EF558492A08610300D1FE8F /* animateImageTransition.swift */,
+				7EF5587A2A0A911700D1FE8F /* loadingIndicator.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -356,6 +362,14 @@
 				7EF558752A09A39500D1FE8F /* createUser.swift */,
 			);
 			path = DatabaseUsers;
+			sourceTree = "<group>";
+		};
+		7EF5587C2A0A95BB00D1FE8F /* LiveShare */ = {
+			isa = PBXGroup;
+			children = (
+				7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */,
+			);
+			path = LiveShare;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +494,7 @@
 				7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */,
 				7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */,
 				7EAB3EE62A0162D500BB2E0B /* wav.xcdatamodeld in Sources */,
+				7EF5587B2A0A911700D1FE8F /* loadingIndicator.swift in Sources */,
 				7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */,
 				7EAB3EFB2A01637800BB2E0B /* LoginViewController.swift in Sources */,
 				7EF558662A098B9F00D1FE8F /* NameViewController.swift in Sources */,
@@ -490,6 +505,7 @@
 				7E418B632A03155C007B9863 /* shadowView.swift in Sources */,
 				7EAB3EDE2A0162D500BB2E0B /* SceneDelegate.swift in Sources */,
 				7EAB3EFD2A0165F100BB2E0B /* HomeViewController.swift in Sources */,
+				7EF5587E2A0A95CB00D1FE8F /* startLiveShareSession.swift in Sources */,
 				7EF558542A087F2100D1FE8F /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

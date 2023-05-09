@@ -21,13 +21,8 @@ extension PlayerViewController {
     }
 
     @objc func playbackStatusChanged() {
-        if let lastPlaybackStatus = lastPlaybackStatus,
-           player.state.playbackStatus != lastPlaybackStatus {
-            musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
-        }
-        lastPlaybackStatus = player.state.playbackStatus
+        musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
     }
-
 
     @objc internal func timelineValueChanged(_ sender: UISlider) {
         if !timelineEditing {

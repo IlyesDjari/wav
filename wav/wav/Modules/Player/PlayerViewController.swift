@@ -40,6 +40,7 @@ class PlayerViewController: UIViewController {
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
     internal var lastPlayedSongID: String?
     internal var timelineEditing = false
+    internal var sharePlay = false
     let player = ApplicationMusicPlayer.shared
     let musicPlaybackControl = MusicPlaybackControl()
     var songID: String? {
@@ -152,5 +153,20 @@ class PlayerViewController: UIViewController {
     }
     @IBAction func tapRepeat(_ sender: Any) {
         musicPlaybackControl.toggleRepeatMode(repeatModeButton: repeatOnce)
+    }
+    
+    @IBAction func tappedLiveShare(_ sender: Any) {
+        guard let unwrappedSongID = songID else {
+            print("Error: songID is nil.")
+            return
+        }
+        startLiveShareSession(songID: unwrappedSongID) { result in
+            switch result {
+            case .success:
+                print("Live share session started.")
+            case .failure(let error):
+                print("Failed to start live share session: \(error)")
+            }
+        }
     }
 }

@@ -41,7 +41,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsb-ld-Khk" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                        <rect key="frame" x="22" y="560" width="345" height="33"/>
+                                        <rect key="frame" x="22" y="560" width="260" height="33"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ygn-eF-zaa" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                        <rect key="frame" x="22" y="585" width="345" height="22"/>
+                                        <rect key="frame" x="22" y="590" width="260" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="6go-0o-6lb"/>
                                         </constraints>
@@ -71,7 +71,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePause" translatesAutoresizingMaskIntoConstraints="NO" id="hm1-r1-xhh">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePlay" translatesAutoresizingMaskIntoConstraints="NO" id="hm1-r1-xhh">
                                         <rect key="frame" x="182" y="756" width="50" height="50"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -115,6 +115,17 @@
                                             <outletCollection property="gestureRecognizers" destination="LED-5X-PyA" appends="YES" id="J7n-h6-k3p"/>
                                         </connections>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuffleOff" translatesAutoresizingMaskIntoConstraints="NO" id="JCC-G1-w21">
+                                        <rect key="frame" x="22" y="765" width="32" height="32"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="GGc-aA-Lfk"/>
+                                            <constraint firstAttribute="width" constant="32" id="wk5-wi-5Wl"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="14I-hZ-phS" appends="YES" id="e9e-PT-wXp"/>
+                                        </connections>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carret-down" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-Ww-TV0">
                                         <rect key="frame" x="191" y="102" width="32" height="32"/>
                                         <gestureRecognizers/>
@@ -150,17 +161,44 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuffleOff" translatesAutoresizingMaskIntoConstraints="NO" id="JCC-G1-w21">
-                                        <rect key="frame" x="22" y="765" width="32" height="32"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NyE-D7-TKa">
+                                        <rect key="frame" x="333" y="560" width="59" height="52"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJX-01-Jfx" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                                <rect key="frame" x="0.0" y="30" width="59" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="IMf-64-SN6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="liveShare" translatesAutoresizingMaskIntoConstraints="NO" id="IPm-Kf-fsE">
+                                                <rect key="frame" x="10" y="8" width="38" height="21"/>
+                                            </imageView>
+                                        </subviews>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="GGc-aA-Lfk"/>
-                                            <constraint firstAttribute="width" constant="32" id="wk5-wi-5Wl"/>
+                                            <constraint firstItem="BJX-01-Jfx" firstAttribute="top" secondItem="NyE-D7-TKa" secondAttribute="top" constant="30" id="7pO-gc-7cU"/>
+                                            <constraint firstItem="IPm-Kf-fsE" firstAttribute="leading" secondItem="NyE-D7-TKa" secondAttribute="leading" constant="10" id="EjN-Kc-9J4"/>
+                                            <constraint firstItem="BJX-01-Jfx" firstAttribute="centerX" secondItem="NyE-D7-TKa" secondAttribute="centerX" id="FdR-Qb-6uy"/>
+                                            <constraint firstItem="BJX-01-Jfx" firstAttribute="top" secondItem="IPm-Kf-fsE" secondAttribute="bottom" constant="1" id="KJC-3D-G0J"/>
+                                            <constraint firstItem="IPm-Kf-fsE" firstAttribute="top" secondItem="NyE-D7-TKa" secondAttribute="topMargin" id="Z3a-9y-npo"/>
+                                            <constraint firstItem="BJX-01-Jfx" firstAttribute="leading" secondItem="NyE-D7-TKa" secondAttribute="leading" id="g2D-fk-svu"/>
+                                            <constraint firstItem="IPm-Kf-fsE" firstAttribute="centerX" secondItem="BJX-01-Jfx" secondAttribute="centerX" id="lmT-fv-0ei"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="14I-hZ-phS" appends="YES" id="e9e-PT-wXp"/>
+                                            <outletCollection property="gestureRecognizers" destination="Xkj-Cd-gdV" appends="YES" id="MZu-dz-mZO"/>
                                         </connections>
-                                    </imageView>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="Background"/>
                                 <constraints>
@@ -174,18 +212,22 @@
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="trailing" secondItem="pNF-fW-Di4" secondAttribute="trailing" id="DFD-QG-CZh"/>
                                     <constraint firstItem="pNF-fW-Di4" firstAttribute="leading" secondItem="PEX-RC-qvs" secondAttribute="leading" constant="22" id="Dc9-Y8-0yK"/>
                                     <constraint firstItem="0bU-ob-O8m" firstAttribute="centerX" secondItem="hm1-r1-xhh" secondAttribute="centerX" id="FIs-1g-qpw"/>
+                                    <constraint firstItem="NyE-D7-TKa" firstAttribute="bottom" secondItem="Ygn-eF-zaa" secondAttribute="bottom" id="Fbe-CN-AFN"/>
                                     <constraint firstItem="pNF-fW-Di4" firstAttribute="leading" secondItem="jsb-ld-Khk" secondAttribute="leading" id="HZC-xt-PT9"/>
+                                    <constraint firstItem="NyE-D7-TKa" firstAttribute="top" secondItem="jsb-ld-Khk" secondAttribute="top" id="IIB-nh-DUv"/>
                                     <constraint firstItem="hm1-r1-xhh" firstAttribute="leading" secondItem="hyv-7Q-N7T" secondAttribute="trailing" constant="47" id="JTZ-Tp-Txv"/>
                                     <constraint firstItem="jsb-ld-Khk" firstAttribute="top" secondItem="cAq-7B-8h0" secondAttribute="bottom" constant="26.5" id="Jxd-9m-1gb"/>
+                                    <constraint firstItem="NyE-D7-TKa" firstAttribute="trailing" secondItem="0bU-ob-O8m" secondAttribute="trailing" id="K9x-Sz-blI"/>
                                     <constraint firstItem="9mh-Zy-E8f" firstAttribute="leading" secondItem="JCC-G1-w21" secondAttribute="leading" id="KL5-17-Cof"/>
                                     <constraint firstItem="hm1-r1-xhh" firstAttribute="top" secondItem="0bU-ob-O8m" secondAttribute="bottom" constant="87" id="KWk-fv-Sbs"/>
                                     <constraint firstItem="pNF-fW-Di4" firstAttribute="centerX" secondItem="PEX-RC-qvs" secondAttribute="centerX" id="LRz-qc-ZCD"/>
-                                    <constraint firstItem="0bU-ob-O8m" firstAttribute="top" secondItem="Ygn-eF-zaa" secondAttribute="bottom" constant="33" id="LcT-Px-gXc"/>
+                                    <constraint firstItem="0bU-ob-O8m" firstAttribute="top" secondItem="Ygn-eF-zaa" secondAttribute="bottom" constant="28" id="LcT-Px-gXc"/>
                                     <constraint firstItem="tCV-MW-b1H" firstAttribute="top" secondItem="hm1-r1-xhh" secondAttribute="top" constant="3" id="LcX-8f-9DG"/>
-                                    <constraint firstAttribute="trailing" secondItem="jsb-ld-Khk" secondAttribute="trailing" constant="47" id="Nb7-rE-8Be"/>
-                                    <constraint firstItem="OYX-W7-cA3" firstAttribute="top" secondItem="Ygn-eF-zaa" secondAttribute="bottom" constant="54" id="O8I-Tn-wsZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="jsb-ld-Khk" secondAttribute="trailing" constant="132" id="Nb7-rE-8Be"/>
+                                    <constraint firstItem="OYX-W7-cA3" firstAttribute="top" secondItem="Ygn-eF-zaa" secondAttribute="bottom" constant="49" id="O8I-Tn-wsZ"/>
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="top" secondItem="mBE-Ww-TV0" secondAttribute="bottom" constant="29.5" id="OUe-H9-x76"/>
                                     <constraint firstItem="jsb-ld-Khk" firstAttribute="leading" secondItem="Ygn-eF-zaa" secondAttribute="leading" id="Pxc-53-gcc"/>
+                                    <constraint firstItem="NyE-D7-TKa" firstAttribute="leading" secondItem="jsb-ld-Khk" secondAttribute="trailing" constant="51" id="Quq-cK-rns"/>
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="trailing" secondItem="0bU-ob-O8m" secondAttribute="trailing" id="UwE-W1-GcB"/>
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="top" secondItem="pNF-fW-Di4" secondAttribute="top" id="X1T-YS-fOo"/>
                                     <constraint firstItem="0bU-ob-O8m" firstAttribute="top" secondItem="jsb-ld-Khk" secondAttribute="bottom" constant="47" id="aKX-sD-kLO"/>
@@ -196,7 +238,7 @@
                                     <constraint firstItem="9mh-Zy-E8f" firstAttribute="baseline" secondItem="OYX-W7-cA3" secondAttribute="baseline" id="jB0-7H-1yo"/>
                                     <constraint firstItem="OYX-W7-cA3" firstAttribute="trailing" secondItem="0bU-ob-O8m" secondAttribute="trailing" id="q0S-gW-VzM"/>
                                     <constraint firstItem="jsb-ld-Khk" firstAttribute="trailing" secondItem="Ygn-eF-zaa" secondAttribute="trailing" id="uUr-Wm-IXt"/>
-                                    <constraint firstItem="Ygn-eF-zaa" firstAttribute="top" secondItem="cAq-7B-8h0" secondAttribute="bottom" constant="51.5" id="xCE-8G-ZNu"/>
+                                    <constraint firstItem="Ygn-eF-zaa" firstAttribute="top" secondItem="cAq-7B-8h0" secondAttribute="bottom" constant="56.5" id="xCE-8G-ZNu"/>
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="leading" secondItem="pNF-fW-Di4" secondAttribute="leading" id="xed-rG-NhW"/>
                                 </constraints>
                             </view>
@@ -252,11 +294,19 @@
                         <action selector="tapShuffle:" destination="Y6W-OH-hqX" id="juo-f1-uGm"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="Xkj-Cd-gdV" userLabel="tapLiveShare">
+                    <connections>
+                        <action selector="tappedLiveShare:" destination="Y6W-OH-hqX" id="AKM-XF-ewp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="139.13043478260872" y="-2.6785714285714284"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="BJX-01-Jfx">
+            <size key="intrinsicContentSize" width="50.5" height="12"/>
+        </designable>
         <designable name="Ygn-eF-zaa">
             <size key="intrinsicContentSize" width="40.5" height="19.5"/>
         </designable>
@@ -266,7 +316,8 @@
     </designables>
     <resources>
         <image name="carret-down" width="32" height="32"/>
-        <image name="homePause" width="32" height="32"/>
+        <image name="homePlay" width="32" height="32"/>
+        <image name="liveShare" width="32" height="32"/>
         <image name="previous" width="32" height="32"/>
         <image name="repeat" width="32" height="32"/>
         <image name="shuffleOff" width="32" height="32"/>
