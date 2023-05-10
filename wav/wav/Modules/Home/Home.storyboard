@@ -583,6 +583,7 @@
                         <outlet property="homePlayer" destination="Ycr-fA-5NN" id="mSn-1I-HZG"/>
                         <outlet property="noSongLabel" destination="WjT-lu-JrJ" id="4dn-o4-cmQ"/>
                         <outlet property="stateButton" destination="uRi-Zh-IL8" id="8nA-Rm-yJk"/>
+                        <segue destination="TTK-HR-YLb" kind="show" identifier="homeToPlaylistSegue" id="tky-PB-KLP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -605,7 +606,17 @@
                 <viewControllerPlaceholder storyboardName="Player" referencedIdentifier="PlayerViewController" id="aZT-MN-hud" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGr-Hg-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1986" y="627"/>
+            <point key="canvasLocation" x="1717" y="612"/>
+        </scene>
+        <!--ListViewController-->
+        <scene sceneID="FQo-yW-6AM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="List" referencedIdentifier="ListViewController" id="TTK-HR-YLb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="std-Ur-KXI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkY-Oe-iHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2278" y="612"/>
         </scene>
         <!--SearchViewController-->
         <scene sceneID="xrm-M6-JiM">
@@ -662,6 +673,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="8gR-c0-O88">
+            <size key="intrinsicContentSize" width="36.666666666666664" height="17"/>
+        </designable>
         <designable name="9x5-cu-gxP">
             <size key="intrinsicContentSize" width="36.666666666666664" height="17"/>
         </designable>
@@ -700,7 +714,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
-            <color red="0.84705882352941175" green="0.24313725490196078" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

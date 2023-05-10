@@ -16,8 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Catch the WAV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-Hd-IoP">
-                                <rect key="frame" x="16" y="121" width="361" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catch the WAV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-Hd-IoP">
+                                <rect key="frame" x="16" y="121" width="361" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="xAN-OD-6NU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -52,7 +55,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore, Listen, Unite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXq-6N-gma">
-                                <rect key="frame" x="16" y="172" width="361" height="39"/>
+                                <rect key="frame" x="16" y="177" width="361" height="39"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -62,18 +65,20 @@
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="EDq-Lh-jM4" firstAttribute="leading" secondItem="2QJ-dO-n5F" secondAttribute="leading" id="CVr-aR-dQ2"/>
+                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="XXq-6N-gma" secondAttribute="leading" id="DSZ-zc-mZV"/>
+                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="LKh-KK-qr2"/>
                             <constraint firstItem="2QJ-dO-n5F" firstAttribute="trailing" secondItem="XXq-6N-gma" secondAttribute="trailing" id="NMd-dp-pPC"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="Ul2-yr-REc"/>
+                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="ZTd-gF-vqs"/>
                             <constraint firstItem="2QJ-dO-n5F" firstAttribute="leading" secondItem="XXq-6N-gma" secondAttribute="leading" id="ZbI-Eq-ReD"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="XXq-6N-gma" secondAttribute="leading" id="aSr-KM-qF4"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="bax-d2-IYd"/>
+                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="ZpH-Fb-dsO"/>
                             <constraint firstItem="EDq-Lh-jM4" firstAttribute="top" secondItem="2QJ-dO-n5F" secondAttribute="bottom" constant="10" id="cuE-xz-92k"/>
-                            <constraint firstItem="XXq-6N-gma" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="113" id="d7H-Ui-E0I"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="62" id="mJT-t8-cAX"/>
+                            <constraint firstItem="XXq-6N-gma" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="118" id="d7H-Ui-E0I"/>
+                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="62" id="i7R-m6-g1h"/>
+                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="trailing" secondItem="XXq-6N-gma" secondAttribute="trailing" id="qP2-Mr-d4q"/>
                             <constraint firstItem="EDq-Lh-jM4" firstAttribute="trailing" secondItem="2QJ-dO-n5F" secondAttribute="trailing" id="qwr-Qy-rbP"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="trailing" secondItem="XXq-6N-gma" secondAttribute="trailing" id="u2P-Gu-fLH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TkF-Hd-IoP" secondAttribute="trailing" constant="16" id="xaS-2C-fgZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2QJ-dO-n5F" secondAttribute="bottom" constant="118" id="z7H-pv-N76"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XXq-6N-gma" secondAttribute="bottom" constant="607" id="zz0-ot-opv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XXq-6N-gma" secondAttribute="bottom" constant="602" id="zz0-ot-opv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="tSx-PU-oXA"/>

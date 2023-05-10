@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MusadoraKit
 
 
 extension HomeViewController {
@@ -24,6 +25,10 @@ extension HomeViewController {
             }
             // Perform the segue
             performSegue(withIdentifier: "showPlayer", sender: self)
+        } else if collectionView == ForYouCollectionView {
+            let playlist = recommendedStations[indexPath.row]
+            performSegue(withIdentifier: "homeToPlaylistSegue", sender: playlist)
+
         }
     }
 
@@ -72,14 +77,12 @@ extension HomeViewController {
             }
             return cell
         } else if collectionView == RecommendedArtistCollectionView {
-    
             // Dequeue a reusable cell and cast it to your custom collection view cell class
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedArtistCell", for: indexPath) as! RecommendedArtistCollectionViewCell
             // Get the corresponding recommended station
             let recommendedArtists = fetchedArtists[indexPath.row]
             // Set the station name to the cell label
             cell.title.text = recommendedArtists.name
-            print(recommendedArtists.name)
             // Set the station image to the cell image view
             let artworkURL = recommendedArtists.artwork?.url(width: 200, height: 200)
             if let imageData = try? Data(contentsOf: artworkURL ?? URL(string: "NoCoverImage")!),
@@ -99,6 +102,10 @@ extension HomeViewController {
                 playerViewController.songID = songID
                 playerViewController.homeViewController = self
             }
+        } else if segue.identifier == "homeToPlaylistSegue" {
+            guard let playlistVC = segue.destination as? ListViewController else { return }
+            guard let playlist = sender as? Playlist else { return }
+            playlistVC.playlist = playlist
         }
     }
 }

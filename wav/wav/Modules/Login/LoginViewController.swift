@@ -53,6 +53,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func NotSubscribed(_ sender: Any) {
-        let appleMusicAppStoreURL = URL(string: "https://apps.apple.com/app/apple-music/id1108187390")!
+        _ = URL(string: "https://apps.apple.com/app/apple-music/id1108187390")!
     }
 }
