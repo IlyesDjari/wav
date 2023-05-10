@@ -43,6 +43,7 @@ extension SearchViewController: UITableViewDataSource {
         cell.songLabel.text = song.title
         cell.artistLabel.text = song.artistName
         cell.coverImage.kf.setImage(with: song.artwork?.url(width: 200, height: 200))
+        cell.selectionStyle = .none
         return cell
     }
     

@@ -50,18 +50,16 @@ class PlayerViewController: UIViewController {
             UserDefaultsManager.shared.saveSharePlayStatus(status: newValue)
         }
     }
-    let player = ApplicationMusicPlayer.shared
-    let musicPlaybackControl = MusicPlaybackControl()
-    var songID: String? {
+    public var playlistIDs: [String]? {
         didSet {
-            if let unwrappedSongID = songID {
-                // Fetch the song with the given ID
-                fetchPlayingSong(songID: unwrappedSongID)
-                // Call startLiveShareSession when songID changes and sharePlay is true
-                updateLiveShare()
+            if let unwrappedPlaylistIDs = playlistIDs {
+                // Fetch the playlist and play it
+                fetchPlayingPlaylist(songIDs: unwrappedPlaylistIDs)
             }
         }
     }
+    let player = ApplicationMusicPlayer.shared
+    let musicPlaybackControl = MusicPlaybackControl() 
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,6 +13,11 @@ import MediaPlayer
 
 extension PlayerViewController {
     internal func fetchPlayingSong(songID: String? = nil) {
+        // If playlistIDs is not nil, return early and let the playlist logic handle playback
+        print(playlistIDs)
+        if playlistIDs != nil {
+            return
+        }
         if let songID = songID {
             // Fetch song details
             Task {
@@ -44,19 +49,19 @@ extension PlayerViewController {
                             }
                         }
                     }
-                    
+
                     // Check if the song is already playing
                     if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
-                       nowPlayingItem.playbackStoreID == songID {
-                       // The song is already playing, add recommendation to the queue
-                       print("Song is already playing. Adding recommendation to the queue...")
-                       queueRecommendation(songID: songID)
+                        nowPlayingItem.playbackStoreID == songID {
+                        // The song is already playing, add recommendation to the queue
+                        print("Song is already playing. Adding recommendation to the queue...")
+                        queueRecommendation(songID: songID)
                     } else {
-                       // The song is not playing, play it and add recommendation to the queue
-                       print("Song is not playing. Playing and adding recommendation to the queue...")
-                       player.queue = [song]
-                       try await player.play()
-                       queueRecommendation(songID: songID)
+                        // The song is not playing, play it and add recommendation to the queue
+                        print("Song is not playing. Playing and adding recommendation to the queue...")
+                        player.queue = [song]
+                        try await player.play()
+                        queueRecommendation(songID: songID)
                     }
                 } catch {
                     print("Error fetching song details: \(error)")
@@ -67,7 +72,7 @@ extension PlayerViewController {
         }
     }
 
-    
+
     internal func queueRecommendation(songID: String) {
         Task {
             do {
@@ -84,8 +89,13 @@ extension PlayerViewController {
     }
 
 
-    private func playSong(songID: String) {
-        fetchPlayingSong(songID: songID)
+    private func playSong(songID: String? = nil, playlistIDs: [String]? = nil) {
+        if let songID = songID {
+            fetchPlayingSong(songID: songID)
+        } else if let playlistIDs = playlistIDs {
+            fetchPlayingPlaylist(songIDs: playlistIDs)
+        }
+
         play()
     }
 

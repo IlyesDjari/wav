@@ -18,7 +18,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             TrackCollectionView.dataSource = self
         }
     }
-    @IBOutlet weak var heightConstant: NSLayoutConstraint! 
+    @IBOutlet weak var heightConstant: NSLayoutConstraint!
 
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var playlistTitle: MarqueeLabel!
@@ -32,7 +32,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-    
+
     var tracks: MusicItemCollection<Track> = MusicItemCollection([]) {
         didSet {
             TrackCollectionView.reloadData()
@@ -63,6 +63,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let uiColor = UIColor(cgColor: color)
                         if let backgroundView = self!.backgroundGradient {
                             addGradient(to: backgroundView, with: uiColor)
+                        }
+                        if let superview = self!.view.superview {
+                            self!.backgroundGradient.frame = superview.bounds
                         }
                     }
                 }

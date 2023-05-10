@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="1300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="392" height="1209"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGj-Ct-u0e">
-                                <rect key="frame" x="0.0" y="0.0" width="392" height="1300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="392" height="1209"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0KB-yC-CgZ">
                                         <rect key="frame" x="0.0" y="5" width="392" height="1300"/>
@@ -455,8 +455,8 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="d9n-ht-FXo"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KGf-gY-gIc"/>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-fA-5NN">
-                                <rect key="frame" x="0.0" y="1147" width="392" height="70"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-fA-5NN">
+                                <rect key="frame" x="0.0" y="1056" width="392" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-pS-TTF">
                                         <rect key="frame" x="15" y="8" width="55" height="55"/>
@@ -568,9 +568,7 @@
                             <constraint firstItem="UGj-Ct-u0e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vfF-0c-9Ra"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home" id="jT6-9T-lsL">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="G7V-5L-rG4"/>
                     <size key="freeformSize" width="392" height="1300"/>
                     <connections>
                         <outlet property="ForYouCollectionView" destination="gxI-kV-SAV" id="nSm-0C-X6v"/>
@@ -598,7 +596,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1985.5999999999999" y="1.4778325123152709"/>
+            <point key="canvasLocation" x="2928" y="1.4778325123152709"/>
         </scene>
         <!--PlayerViewController-->
         <scene sceneID="hTV-pC-83S">
@@ -661,7 +659,7 @@
                         <color key="selectedImageTintColor" name="Purple"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="Rfz-bf-rtQ"/>
+                        <segue destination="kny-CN-6Jr" kind="relationship" relationship="viewControllers" id="Rfz-bf-rtQ"/>
                         <segue destination="yMY-PV-g36" kind="relationship" relationship="viewControllers" id="GIm-VU-icw"/>
                         <segue destination="AAo-6x-vv9" kind="relationship" relationship="viewControllers" id="jRU-xn-USm"/>
                         <segue destination="rel-Ea-gG0" kind="relationship" relationship="viewControllers" id="Ws4-DG-r1K"/>
@@ -670,6 +668,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yeo-47-JAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1061.8320610687022" y="4.9295774647887329"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EQe-p8-HmO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kny-CN-6Jr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home" id="jT6-9T-lsL">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="D4Q-Zn-0zd">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <color key="tintColor" name="Purple"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="tmz-Iv-Qip"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPS-jD-YeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984.8" y="1.4778325123152709"/>
         </scene>
     </scenes>
     <designables>
