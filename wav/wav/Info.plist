@@ -21,7 +21,17 @@
             </array>
         </dict>
     </dict>
-    <key>com.apple.developer.apples-music.account-monitoring</key>
-    <false/>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Allow access to location data in the background to provide you with live session listening.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Allow access to location data in the background to provide you with live session listening.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Allow access to location data while you are using the app to provide you with live session listening.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+        <string>location</string>
+    </array>
 </dict>
 </plist>

@@ -11,21 +11,21 @@ import MusadoraKit
 import MarqueeLabel
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerViewControllerDelegate {
-
+    
     // Outlets
     @IBOutlet weak var HistoryCollectionView: UICollectionView! {
         didSet {
             HistoryCollectionView.dataSource = self
             HistoryCollectionView.delegate = self
-
+            
         }
     }
-
+    
     @IBOutlet weak var ForYouCollectionView: UICollectionView! {
         didSet {
             ForYouCollectionView.dataSource = self
             ForYouCollectionView.delegate = self
-
+            
         }
     }
     @IBOutlet weak var noSongLabel: MarqueeLabel!
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     @IBOutlet weak var currentSong: MarqueeLabel!
     @IBOutlet weak var currentCover: UIImageView!
     @IBOutlet weak var stateButton: UIImageView!
-
+    
     // Properties
     public var recentItems: [RecentItem] = []
     public var recommendedStations: [Playlist] = []
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
     public let musicPlaybackControl = MusicPlaybackControl()
     public let player = ApplicationMusicPlayer.shared
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -54,12 +54,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?) {
         self.songID = songID
     }
-
+    
     private func configureUI() {
         addShadow(to: homePlayer)
         addShadow(to: SeeMoreButton)
     }
-
+    
     private func fetchAllData() {
         // Show the loading view
         let loadingView = showLoadingView(on: view)
@@ -80,7 +80,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
             }
         }
     }
-
+    
     @IBAction func stateTapped(_ sender: Any) {
         musicPlaybackControl.togglePlayback()
     }

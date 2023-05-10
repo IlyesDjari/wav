@@ -12,7 +12,7 @@
         <!--Name View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="NameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="NameViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NameViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="NameViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="35.877862595419849" y="4.9295774647887329"/>
         </scene>
-        <!--NavigationViewController-->
+        <!--LocationViewController-->
         <scene sceneID="hWA-IN-7IW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationViewController" id="QPx-Du-zCE" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Location" referencedIdentifier="LocationViewController" id="QPx-Du-zCE" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="RdS-MM-Imh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXH-cg-JZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

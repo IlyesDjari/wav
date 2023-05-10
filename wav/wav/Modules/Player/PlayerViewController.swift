@@ -79,7 +79,7 @@ class PlayerViewController: UIViewController {
         // Set the initial state of the state button
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
         // Check playback status
-        playbackStatusTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
+        playbackStatusTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
             self.playbackStatusChanged()
         }
         // Add timeline observers
@@ -87,7 +87,7 @@ class PlayerViewController: UIViewController {
         timeline.addTarget(self, action: #selector(timelineEditingBegan(_:)), for: .touchDown)
         timeline.addTarget(self, action: #selector(timelineEditingEnded(_:)), for: [.touchUpInside, .touchUpOutside])
         // Start the timer to update the playback time every 0.5 second
-        timelineTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+        timelineTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.updatePlaybackTime()
         }
     }

@@ -50,13 +50,13 @@ extension PlayerViewController {
                        nowPlayingItem.playbackStoreID == songID {
                        // The song is already playing, add recommendation to the queue
                        print("Song is already playing. Adding recommendation to the queue...")
-                       await queueRecommendation(songID: songID)
+                       queueRecommendation(songID: songID)
                     } else {
                        // The song is not playing, play it and add recommendation to the queue
                        print("Song is not playing. Playing and adding recommendation to the queue...")
                        player.queue = [song]
                        try await player.play()
-                       await queueRecommendation(songID: songID)
+                       queueRecommendation(songID: songID)
                     }
                 } catch {
                     print("Error fetching song details: \(error)")
@@ -68,16 +68,18 @@ extension PlayerViewController {
     }
 
     
-    internal func queueRecommendation(songID: String) async {
-        do {
-            let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
-            let recommendations = try await MRecommendation.continuousSongs(for: song)
-            if let recommendedSong = recommendations.first {
-                try await player.queue.insert(recommendedSong, position: .tail)
-                print(player.queue.entries.count)
+    internal func queueRecommendation(songID: String) {
+        Task {
+            do {
+                let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
+                let recommendations = try await MRecommendation.continuousSongs(for: song)
+                if let recommendedSong = recommendations.first {
+                    try await player.queue.insert(recommendedSong, position: .tail)
+                    print(player.queue.entries.count)
+                }
+            } catch {
+                print("Error fetching song recommendation: \(error)")
             }
-        } catch {
-            print("Error fetching song recommendation: \(error)")
         }
     }
 

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Location View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LocationViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LocationViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tb5-0F-qbg">
+                                <rect key="frame" x="16" y="209" width="361" height="51"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
+                                <color key="textColor" name="Purple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Could we acces your Location?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4B-90-WwG">
+                                <rect key="frame" x="16" y="278" width="361" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHY-7o-bIq">
+                                <rect key="frame" x="16" y="684" width="361" height="52"/>
+                                <color key="backgroundColor" name="Purple"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="gRv-F7-Jio"/>
+                                </constraints>
+                                <color key="tintColor" name="Purple"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Grant location access">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="grantLocation:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gs2-s1-Jif"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="tb5-0F-qbg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="150" id="6Af-9F-nKv"/>
+                            <constraint firstItem="tb5-0F-qbg" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="74C-qC-ix7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DHY-7o-bIq" secondAttribute="bottom" constant="82" id="ETx-Dr-inw"/>
+                            <constraint firstItem="DHY-7o-bIq" firstAttribute="leading" secondItem="i4B-90-WwG" secondAttribute="leading" id="Kmp-RV-5v1"/>
+                            <constraint firstItem="tb5-0F-qbg" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="Qyo-0c-3wz"/>
+                            <constraint firstItem="i4B-90-WwG" firstAttribute="top" secondItem="tb5-0F-qbg" secondAttribute="bottom" constant="18" id="Tvr-z4-YVS"/>
+                            <constraint firstItem="i4B-90-WwG" firstAttribute="trailing" secondItem="tb5-0F-qbg" secondAttribute="trailing" id="Uch-ku-5DF"/>
+                            <constraint firstItem="i4B-90-WwG" firstAttribute="leading" secondItem="tb5-0F-qbg" secondAttribute="leading" id="nnh-WZ-Faf"/>
+                            <constraint firstItem="DHY-7o-bIq" firstAttribute="trailing" secondItem="i4B-90-WwG" secondAttribute="trailing" id="pja-Zq-17t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="greetingLabel" destination="tb5-0F-qbg" id="tgR-dw-QjJ"/>
+                        <segue destination="t76-G2-gtM" kind="show" identifier="locationToHomeSegue" id="zn6-TE-dil"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35.877862595419849" y="4.9295774647887329"/>
+        </scene>
+        <!--NavigationViewController-->
+        <scene sceneID="Xde-Uk-cJt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationViewController" id="t76-G2-gtM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="VKz-Ud-xE7"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j8i-pr-K6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="399"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Purple">
+            <color red="0.84705882352941175" green="0.24313725490196078" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

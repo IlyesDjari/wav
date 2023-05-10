@@ -6,24 +6,24 @@
 //
 
 import UIKit
+import MusadoraKit
 
-class LibraryViewController: UIViewController {
+class LibraryViewController: UIViewController, UICollectionViewDelegate {
+
+    // Outlets
+
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.dataSource = self
+            collectionView.delegate = self
+        }
+    }
+
+    // Properties
+    internal var playlists: MusicItemCollection<Playlist> = MusicItemCollection([])
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fetchLibrary()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

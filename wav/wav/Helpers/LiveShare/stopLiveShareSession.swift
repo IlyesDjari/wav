@@ -21,11 +21,11 @@ internal func stopLiveShareSession(completion: @escaping (Result<Void, Error>) -
     let userDocRef = usersRef.document(userID)
     
     // Remove the currentSong field
-    userDocRef.updateData(["currentSong": FieldValue.delete()]) { error in
+    userDocRef.updateData(["currentSong": FieldValue.delete(), "location": FieldValue.delete()]) { error in
         if let error = error {
             completion(.failure(error))
         } else {
-            print("User document updated with currentSong field removed")
+            print("User document updated with currentSong and location fields removed")
             completion(.success(()))
         }
     }

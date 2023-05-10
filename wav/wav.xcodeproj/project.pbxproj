@@ -66,6 +66,10 @@
 		7EF558802A0AA04C00D1FE8F /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5587F2A0AA04C00D1FE8F /* UserDefaultManager.swift */; };
 		7EF558822A0AA57A00D1FE8F /* getUserIDFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558812A0AA57A00D1FE8F /* getUserIDFromCoreData.swift */; };
 		7EF558842A0AA5BE00D1FE8F /* stopLiveShareSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */; };
+		7EF558872A0AED7100D1FE8F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558862A0AED7100D1FE8F /* LocationViewController.swift */; };
+		7EF558892A0AED7B00D1FE8F /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF558882A0AED7B00D1FE8F /* Location.storyboard */; };
+		7EF5588B2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5588A2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift */; };
+		7EF5588E2A0B240200D1FE8F /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5588D2A0B240200D1FE8F /* LibraryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +126,10 @@
 		7EF5587F2A0AA04C00D1FE8F /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		7EF558812A0AA57A00D1FE8F /* getUserIDFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUserIDFromCoreData.swift; sourceTree = "<group>"; };
 		7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stopLiveShareSession.swift; sourceTree = "<group>"; };
+		7EF558862A0AED7100D1FE8F /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		7EF558882A0AED7B00D1FE8F /* Location.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
+		7EF5588A2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryViewController+fetchLibrary.swift"; sourceTree = "<group>"; };
+		7EF5588D2A0B240200D1FE8F /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +242,7 @@
 				7EAB3EF52A0162FB00BB2E0B /* Launchscreen */,
 				7EAB3EF72A01635100BB2E0B /* Login */,
 				7EF558672A098BA400D1FE8F /* Name */,
+				7EF558852A0AED5700D1FE8F /* Location */,
 				7EAB3EF62A01634B00BB2E0B /* Home */,
 				7E91E6262A05AA9400ADB0EE /* Player */,
 				7EF558502A087EF500D1FE8F /* Search */,
@@ -338,8 +347,10 @@
 		7EF5585A2A08839E00D1FE8F /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7EF5588C2A0B23EA00D1FE8F /* Models */,
 				7EF5585B2A0883B400D1FE8F /* LibraryViewController.swift */,
 				7EF5585D2A0883C200D1FE8F /* Library.storyboard */,
+				7EF5588A2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -376,6 +387,23 @@
 				7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */,
 			);
 			path = LiveShare;
+			sourceTree = "<group>";
+		};
+		7EF558852A0AED5700D1FE8F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				7EF558862A0AED7100D1FE8F /* LocationViewController.swift */,
+				7EF558882A0AED7B00D1FE8F /* Location.storyboard */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		7EF5588C2A0B23EA00D1FE8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7EF5588D2A0B240200D1FE8F /* LibraryCollectionViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,6 +488,7 @@
 				7EF5586C2A098F8B00D1FE8F /* GoogleService-Info.plist in Resources */,
 				7EF558592A0881D200D1FE8F /* Nearby.storyboard in Resources */,
 				7EAB3EFF2A0165F800BB2E0B /* Home.storyboard in Resources */,
+				7EF558892A0AED7B00D1FE8F /* Location.storyboard in Resources */,
 				7EAB3EEB2A0162D700BB2E0B /* LaunchScreen.storyboard in Resources */,
 				7EAB3EE82A0162D700BB2E0B /* Assets.xcassets in Resources */,
 				7EAB3EE32A0162D500BB2E0B /* Main.storyboard in Resources */,
@@ -476,6 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF5588B2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift in Sources */,
 				7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */,
 				7EF558602A092F5D00D1FE8F /* SearchViewController+TableView.swift in Sources */,
 				7EF558762A09A39500D1FE8F /* createUser.swift in Sources */,
@@ -491,11 +521,13 @@
 				7EF5585C2A0883B400D1FE8F /* LibraryViewController.swift in Sources */,
 				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
+				7EF558872A0AED7100D1FE8F /* LocationViewController.swift in Sources */,
 				7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */,
 				7EF558842A0AA5BE00D1FE8F /* stopLiveShareSession.swift in Sources */,
 				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,
 				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
 				7EF558402A06F89000D1FE8F /* updateTimelineGradient.swift in Sources */,
+				7EF5588E2A0B240200D1FE8F /* LibraryCollectionViewCell.swift in Sources */,
 				7EAB3EDC2A0162D500BB2E0B /* AppDelegate.swift in Sources */,
 				7EF558572A0881CA00D1FE8F /* NearbyViewController.swift in Sources */,
 				7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */,
