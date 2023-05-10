@@ -13,10 +13,16 @@ import MediaPlayer
 extension PlayerViewController {
 
     func songChanged(nextSongID: String) {
-        if nextSongID != lastPlayedSongID {
-            lastPlayedSongID = nextSongID
-            songID = nextSongID
-            fetchPlayingSong(songID: nextSongID)
+        DispatchQueue.main.async {
+            if nextSongID != self.lastPlayedSongID {
+                self.lastPlayedSongID = nextSongID
+                DispatchQueue.main.async {
+                    self.songID = nextSongID
+                    DispatchQueue.main.async {
+                        self.fetchPlayingSong(songID: nextSongID)
+                    }
+                }
+            }
         }
     }
     

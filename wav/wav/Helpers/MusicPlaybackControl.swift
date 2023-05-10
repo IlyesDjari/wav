@@ -57,6 +57,7 @@ struct MusicPlaybackControl {
             print("Error skipping to previous song: \(error)")
         }
     }
+    
     public func toggleRepeatMode(repeatModeButton: UIImageView) {
         switch musicPlayer.state.repeatMode {
         case .all:

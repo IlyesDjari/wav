@@ -14,7 +14,6 @@ import MediaPlayer
 extension PlayerViewController {
     internal func fetchPlayingSong(songID: String? = nil) {
         // If playlistIDs is not nil, return early and let the playlist logic handle playback
-        print(playlistIDs)
         if playlistIDs != nil {
             return
         }
@@ -54,14 +53,16 @@ extension PlayerViewController {
                     if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
                         nowPlayingItem.playbackStoreID == songID {
                         // The song is already playing, add recommendation to the queue
-                        print("Song is already playing. Adding recommendation to the queue...")
-                        queueRecommendation(songID: songID)
+                        Task {
+                            queueRecommendation(songID: songID)
+                        }
                     } else {
                         // The song is not playing, play it and add recommendation to the queue
-                        print("Song is not playing. Playing and adding recommendation to the queue...")
-                        player.queue = [song]
-                        try await player.play()
-                        queueRecommendation(songID: songID)
+                        Task {
+                            player.queue = [song]
+                            try await player.play()
+                            queueRecommendation(songID: songID)
+                        }
                     }
                 } catch {
                     print("Error fetching song details: \(error)")
@@ -71,7 +72,6 @@ extension PlayerViewController {
             // Fallback to the original implementation of fetching the now playing song
         }
     }
-
 
     internal func queueRecommendation(songID: String) {
         Task {
@@ -86,17 +86,6 @@ extension PlayerViewController {
                 print("Error fetching song recommendation: \(error)")
             }
         }
-    }
-
-
-    private func playSong(songID: String? = nil, playlistIDs: [String]? = nil) {
-        if let songID = songID {
-            fetchPlayingSong(songID: songID)
-        } else if let playlistIDs = playlistIDs {
-            fetchPlayingPlaylist(songIDs: playlistIDs)
-        }
-
-        play()
     }
 
     public func play() {

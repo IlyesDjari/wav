@@ -35,10 +35,23 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var liveShareLabel: MarqueeLabel!
     @IBOutlet weak var shuffleButton: UIImageView!
     // Properties
+    private lazy var debouncedSkipButtonTapped: (() -> Void) = {
+        debounce(interval: 300, queue: .main) { [weak self] in
+            Task {
+                await self?.performSkipButtonTapped()
+            }
+        }
+    }()
+    private lazy var debouncedBackButtonTapped: (() -> Void) = {
+        debounce(interval: 300, queue: .main) { [weak self] in
+            Task {
+                await self?.performBackButtonTapped()
+            }
+        }
+    }()
     weak var homeViewController: HomeViewController?
     weak var delegate: PlayerViewControllerDelegate?
-    internal var playbackStatusTimer: Timer?
-    internal var timelineTimer: Timer?
+    var playbackAndTimelineTimer: Timer?
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
     internal var lastPlayedSongID: String?
     internal var timelineEditing = false
@@ -59,8 +72,18 @@ class PlayerViewController: UIViewController {
         }
     }
     let player = ApplicationMusicPlayer.shared
-    let musicPlaybackControl = MusicPlaybackControl() 
-    
+    let musicPlaybackControl = MusicPlaybackControl()
+    var songID: String? {
+        didSet {
+            if let unwrappedSongID = songID {
+                // Fetch the song with the given ID
+                fetchPlayingSong(songID: unwrappedSongID)
+                // Call startLiveShareSession when songID changes and sharePlay is true
+                updateLiveShare()
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -77,24 +100,25 @@ class PlayerViewController: UIViewController {
         // Set the initial state of the state button
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
         // Check playback status
-        playbackStatusTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
-            self.playbackStatusChanged()
-        }
+        startUpdateTimers()
+
         // Add timeline observers
         timeline.addTarget(self, action: #selector(timelineValueChanged(_:)), for: .valueChanged)
         timeline.addTarget(self, action: #selector(timelineEditingBegan(_:)), for: .touchDown)
         timeline.addTarget(self, action: #selector(timelineEditingEnded(_:)), for: [.touchUpInside, .touchUpOutside])
-        // Start the timer to update the playback time every 0.5 second
-        timelineTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            self.updatePlaybackTime()
-        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Remove the observer for playback status changes
-        playbackStatusTimer?.invalidate()
-        timelineTimer?.invalidate()
+        playbackAndTimelineTimer?.invalidate()
+    }
+
+    internal func startUpdateTimers() {
+        playbackAndTimelineTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.playbackStatusChanged()
+            self.updatePlaybackTime()
+        }
     }
 
     private func configureUI() {
@@ -120,7 +144,7 @@ class PlayerViewController: UIViewController {
             self.songChanged(nextSongID: nowPlayingSongID)
         }
     }
-    
+
     private func updateLiveShare() {
         guard let unwrappedSongID = songID else {
             print("Error: songID is nil.")
@@ -136,7 +160,7 @@ class PlayerViewController: UIViewController {
                 }
             }
         } else {
-            stopLiveShareSession{ result in
+            stopLiveShareSession { result in
                 switch result {
                 case .success:
                     self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
@@ -147,12 +171,7 @@ class PlayerViewController: UIViewController {
         }
     }
 
-
-    @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
-        musicPlaybackControl.togglePlayback()
-    }
-
-    @IBAction func skipButtonTapped(_ sender: Any) {
+    private func performSkipButtonTapped() async {
         // Animate the button
         let animator = UIViewPropertyAnimator(duration: 0.0, dampingRatio: 0.8) {
             self.skipButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -161,14 +180,11 @@ class PlayerViewController: UIViewController {
             self.skipButton.transform = CGAffineTransform.identity
         }, delayFactor: 0.5)
         animator.startAnimation()
-
         // Skip to the next song
-        Task { @MainActor in
-            await musicPlaybackControl.skipToNextSong()
-        }
+        await self.musicPlaybackControl.skipToNextSong()
     }
-
-    @IBAction func tapPrevious(_ sender: Any) {
+    
+    private func performBackButtonTapped() async {
         // Animate the button
         let animator = UIViewPropertyAnimator(duration: 0.0, dampingRatio: 0.8) {
             self.backButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -177,18 +193,30 @@ class PlayerViewController: UIViewController {
             self.backButton.transform = CGAffineTransform.identity
         }, delayFactor: 0.5)
         animator.startAnimation()
-        Task { @MainActor in
-            await musicPlaybackControl.skipToPreviousSong()
-        }
+        // Skip to the next song
+        await self.musicPlaybackControl.skipToPreviousSong()
     }
-    
+
+    @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
+        musicPlaybackControl.togglePlayback()
+        musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
+    }
+
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        debouncedSkipButtonTapped()
+    }
+
+    @IBAction func tapPrevious(_ sender: Any) {
+        debouncedBackButtonTapped()
+    }
+
     @IBAction func tapShuffle(_ sender: Any) {
         musicPlaybackControl.toggleShuffleMode(shuffleModeButton: shuffleButton)
     }
     @IBAction func tapRepeat(_ sender: Any) {
         musicPlaybackControl.toggleRepeatMode(repeatModeButton: repeatOnce)
     }
-    
+
     @IBAction func tappedLiveShare(_ sender: Any) {
         sharePlay.toggle()
         updateLiveShare()

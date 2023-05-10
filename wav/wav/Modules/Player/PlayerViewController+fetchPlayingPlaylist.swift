@@ -14,7 +14,6 @@ extension PlayerViewController {
         Task {
             do {
                 let songItems = try await MCatalog.songs(ids: songIDs.map { MusicItemID(rawValue: $0) })
-                
                 // Insert songs into the queue
                 for (_, song) in songItems.enumerated() {
                     try await player.queue.insert(song, position: .tail)
