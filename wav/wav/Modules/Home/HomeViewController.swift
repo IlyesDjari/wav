@@ -28,6 +28,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
             
         }
     }
+    
+    @IBOutlet weak var RecommendedArtistCollectionView: UICollectionView! {
+        didSet {
+            RecommendedArtistCollectionView.dataSource = self
+            RecommendedArtistCollectionView.delegate = self
+        }
+    }
+    
     @IBOutlet weak var noSongLabel: MarqueeLabel!
     @IBOutlet weak var SeeMoreButton: UIView!
     @IBOutlet weak var homePlayer: UIView!
@@ -39,6 +47,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     // Properties
     public var recentItems: [RecentItem] = []
     public var recommendedStations: [Playlist] = []
+    var fetchedArtists: MusicItemCollection<Artist> = MusicItemCollection([])
     public var songID: String?
     internal var playbackStatusTimer: Timer?
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
@@ -72,6 +81,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
                     fetchCurrentlyPlaying(songID: nil)
                 }
                 try await fetchRecommendedStations()
+                fetchRecommendedArtists()
                 // Remove the loading view when the data is loaded
                 loadingView.removeFromSuperview()
                 view.isUserInteractionEnabled = true

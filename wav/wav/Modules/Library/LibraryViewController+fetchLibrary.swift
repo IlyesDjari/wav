@@ -11,10 +11,12 @@ import UIKit
 
 extension LibraryViewController: UICollectionViewDataSource {
     internal func fetchLibrary() {
+        activityIndicator.startAnimating()
         Task {
             let library = try await MLibrary.playlists()
             playlists = library
             collectionView.reloadData()
+            activityIndicator.stopAnimating()
         }
     }
 
@@ -26,7 +28,7 @@ extension LibraryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "libraryCell", for: indexPath) as! LibraryCollectionViewCell
         let playlist = playlists[indexPath.row]
         cell.title.text = playlist.name
-        if let artworkURL = playlist.artwork?.url(width: 170, height: 170),
+        if let artworkURL = playlist.artwork?.url(width: 500, height: 500),
            let imageData = try? Data(contentsOf: artworkURL),
            let image = UIImage(data: imageData) {
                cell.cover.image = image

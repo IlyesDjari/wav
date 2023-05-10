@@ -70,6 +70,8 @@
 		7EF558892A0AED7B00D1FE8F /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF558882A0AED7B00D1FE8F /* Location.storyboard */; };
 		7EF5588B2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5588A2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift */; };
 		7EF5588E2A0B240200D1FE8F /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5588D2A0B240200D1FE8F /* LibraryCollectionViewCell.swift */; };
+		7EF558902A0B2D0A00D1FE8F /* RecommendedArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5588F2A0B2D0A00D1FE8F /* RecommendedArtistCollectionViewCell.swift */; };
+		7EF558922A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558912A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,8 @@
 		7EF558882A0AED7B00D1FE8F /* Location.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
 		7EF5588A2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryViewController+fetchLibrary.swift"; sourceTree = "<group>"; };
 		7EF5588D2A0B240200D1FE8F /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EF5588F2A0B2D0A00D1FE8F /* RecommendedArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedArtistCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EF558912A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+fetchRecommendedArtists.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,7 @@
 				7EA183A22A01B1B600F658E4 /* RecentItems.swift */,
 				7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */,
 				7E91E6242A05A48500ADB0EE /* ForYouCollectionViewCell.swift */,
+				7EF5588F2A0B2D0A00D1FE8F /* RecommendedArtistCollectionViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				7E91E61F2A05A35F00ADB0EE /* CollectionView */,
 				7E418B572A02F42B007B9863 /* History */,
 				7E91E61C2A059C4400ADB0EE /* Stations */,
+				7EF558932A0B323900D1FE8F /* Artists */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -404,6 +410,14 @@
 				7EF5588D2A0B240200D1FE8F /* LibraryCollectionViewCell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7EF558932A0B323900D1FE8F /* Artists */ = {
+			isa = PBXGroup;
+			children = (
+				7EF558912A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift */,
+			);
+			path = Artists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +530,7 @@
 				7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */,
 				7EF5584D2A087E3700D1FE8F /* ListViewController.swift in Sources */,
 				7E418B662A0320C0007B9863 /* HomePlayer.swift in Sources */,
+				7EF558902A0B2D0A00D1FE8F /* RecommendedArtistCollectionViewCell.swift in Sources */,
 				7EAB3EE02A0162D500BB2E0B /* ViewController.swift in Sources */,
 				7E91E62C2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift in Sources */,
 				7EF5585C2A0883B400D1FE8F /* LibraryViewController.swift in Sources */,
@@ -537,6 +552,7 @@
 				7EBBEAFB2A057D1300A2970C /* updateBackgroundColor.swift in Sources */,
 				7EAB3EFB2A01637800BB2E0B /* LoginViewController.swift in Sources */,
 				7EF558662A098B9F00D1FE8F /* NameViewController.swift in Sources */,
+				7EF558922A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift in Sources */,
 				7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */,
 				7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */,
 				7EF558642A09337200D1FE8F /* SearchViewCell.swift in Sources */,
