@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import MarqueeLabel
 
 class TracksTableViewCell: UITableViewCell {
     
-    
-    @IBOutlet weak var songLabel: UILabel!
+    @IBOutlet weak var songLabel: MarqueeLabel!
+    @IBOutlet weak var artistLabel: MarqueeLabel!
+    @IBOutlet weak var cover: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

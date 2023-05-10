@@ -10,26 +10,6 @@ import MusadoraKit
 import MarqueeLabel
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(tracks.count)
-        return tracks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("called")
-        print("called")
-        print("called")
-        print("called")
-        print("called")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell") as! TracksTableViewCell
-        let track = tracks[indexPath.row]
-        print(track)
-        // cell.songLabel.text = track.title
-        //print(cell.songLabel.text)
-        return cell
-    }
-    
 
     // Outlets
     @IBOutlet weak var TrackCollectionView: UITableView! {
@@ -46,7 +26,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Properties
     var playlist: Playlist? {
         didSet {
-            if let playlist = playlist {
+            if let playlist {
                 fetchPlaylist(playlist)
             }
         }
@@ -56,7 +36,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tracks: MusicItemCollection<Track> = MusicItemCollection([]) {
         didSet {
             TrackCollectionView.reloadData()
-            heightConstant.constant = CGFloat(Double(tracks.count) * 50)
+            heightConstant.constant = CGFloat(Double(tracks.count) * 80)
         }
     }
 

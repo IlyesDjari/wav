@@ -18,6 +18,7 @@
 		7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B6C2A056FDB007B9863 /* showLoadingView.swift */; };
 		7E567B5D2A0C003B00172755 /* ListViewController+fetchPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567B5C2A0C003B00172755 /* ListViewController+fetchPlaylist.swift */; };
 		7E567B5F2A0C052200172755 /* addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567B5E2A0C052200172755 /* addGradient.swift */; };
+		7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */; };
 		7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */; };
 		7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E6202A05A37200ADB0EE /* HomeViewController+CollectionView.swift */; };
 		7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E6242A05A48500ADB0EE /* ForYouCollectionViewCell.swift */; };
@@ -86,6 +87,7 @@
 		7E418B6C2A056FDB007B9863 /* showLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showLoadingView.swift; sourceTree = "<group>"; };
 		7E567B5C2A0C003B00172755 /* ListViewController+fetchPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+fetchPlaylist.swift"; sourceTree = "<group>"; };
 		7E567B5E2A0C052200172755 /* addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGradient.swift; sourceTree = "<group>"; };
+		7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+tableView.swift"; sourceTree = "<group>"; };
 		7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Stations.swift"; sourceTree = "<group>"; };
 		7E91E6202A05A37200ADB0EE /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		7E91E6242A05A48500ADB0EE /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +178,14 @@
 				7E91E62D2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift */,
 			);
 			path = HomePlayer;
+			sourceTree = "<group>";
+		};
+		7E6AD29E2A0C43A80068027A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		7E91E61C2A059C4400ADB0EE /* Stations */ = {
@@ -339,6 +349,7 @@
 		7EF5584B2A087E1400D1FE8F /* ListSongView */ = {
 			isa = PBXGroup;
 			children = (
+				7E6AD29E2A0C43A80068027A /* TableView */,
 				7EC2404F2A0C3B3900029BC7 /* Models */,
 				7EF558942A0BFA1000D1FE8F /* Playlist */,
 				7EF5584C2A087E3700D1FE8F /* ListViewController.swift */,
@@ -558,6 +569,7 @@
 				7EF558902A0B2D0A00D1FE8F /* RecommendedArtistCollectionViewCell.swift in Sources */,
 				7EAB3EE02A0162D500BB2E0B /* ViewController.swift in Sources */,
 				7E91E62C2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift in Sources */,
+				7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */,
 				7EF5585C2A0883B400D1FE8F /* LibraryViewController.swift in Sources */,
 				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
