@@ -99,7 +99,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-jz-6Mx">
-                                <rect key="frame" x="16" y="180" width="361" height="44"/>
+                                <rect key="frame" x="8" y="180" width="376" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="5CU-Bv-IQF" id="cJ9-Na-UVz"/>
@@ -116,21 +116,21 @@
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="Wf5-ie-MzV" firstAttribute="trailing" secondItem="GiZ-py-kQt" secondAttribute="trailing" constant="16" id="2NQ-GO-hnH"/>
-                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" constant="-16" id="5fr-6q-qX9"/>
-                            <constraint firstItem="GiZ-py-kQt" firstAttribute="trailing" secondItem="yMo-jz-6Mx" secondAttribute="trailing" id="79r-bI-mbr"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" constant="-9" id="5fr-6q-qX9"/>
+                            <constraint firstItem="GiZ-py-kQt" firstAttribute="trailing" secondItem="yMo-jz-6Mx" secondAttribute="trailing" constant="-7" id="79r-bI-mbr"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" id="9RD-3a-dDf"/>
                             <constraint firstItem="GiZ-py-kQt" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="61" id="HF3-KF-b9U"/>
                             <constraint firstItem="GiZ-py-kQt" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" constant="16" id="K06-ae-6Q8"/>
-                            <constraint firstItem="GiZ-py-kQt" firstAttribute="leading" secondItem="yMo-jz-6Mx" secondAttribute="leading" id="PP8-3p-V6h"/>
+                            <constraint firstItem="GiZ-py-kQt" firstAttribute="leading" secondItem="yMo-jz-6Mx" secondAttribute="leading" constant="8" id="PP8-3p-V6h"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="TdI-9Q-feU"/>
-                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" constant="16" id="X60-Ze-5TN"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" constant="8" id="X60-Ze-5TN"/>
                             <constraint firstAttribute="bottomMargin" secondItem="igZ-gA-fPN" secondAttribute="bottom" constant="6" id="ZiM-hA-6hs"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="kgk-PS-6e3"/>
-                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="igZ-gA-fPN" secondAttribute="trailing" constant="-16" id="oBx-of-K63"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="igZ-gA-fPN" secondAttribute="trailing" constant="-9" id="oBx-of-K63"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="121" id="oac-6K-zsC"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="centerX" secondItem="d6P-uP-xbS" secondAttribute="centerX" id="our-rn-CZO"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="196" id="p4r-gM-SuM"/>
-                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="igZ-gA-fPN" secondAttribute="leading" constant="16" id="xvh-j2-JWl"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="igZ-gA-fPN" secondAttribute="leading" constant="8" id="xvh-j2-JWl"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="yMo-jz-6Mx" secondAttribute="bottom" constant="31" id="yX9-B5-9ec"/>
                         </constraints>
                     </view>

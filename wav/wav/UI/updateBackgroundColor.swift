@@ -22,7 +22,7 @@ public func updateBackgroundColor(from image: UIImage?, in view: UIView) {
         } else if !secondaryColor.isLight {
             finalColor = secondaryColor
         } else {
-            finalColor = UIColor(named: "Background")!
+            finalColor = UIColor(named: "defaultPlayerBackground")!
         }
         UIView.animate(withDuration: 1) {
             view.backgroundColor = finalColor

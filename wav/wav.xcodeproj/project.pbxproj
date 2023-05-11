@@ -44,6 +44,7 @@
 		7EC797B72A0C612A003DEB15 /* debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797B62A0C612A003DEB15 /* debounce.swift */; };
 		7EEA00302A0D58B500B7304F /* ListViewController+fetchPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA002F2A0D58B500B7304F /* ListViewController+fetchPlaylist.swift */; };
 		7EEA00332A0D6A1E00B7304F /* HomeViewController+Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA00322A0D6A1E00B7304F /* HomeViewController+Albums.swift */; };
+		7EEA00362A0D74FE00B7304F /* NearbyViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA00352A0D74FE00B7304F /* NearbyViewController+Map.swift */; };
 		7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */; };
 		7EF5583C2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */; };
 		7EF5583E2A06F4EB00D1FE8F /* formatPlaybackTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5583D2A06F4EB00D1FE8F /* formatPlaybackTime.swift */; };
@@ -116,6 +117,7 @@
 		7EC797B62A0C612A003DEB15 /* debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debounce.swift; sourceTree = "<group>"; };
 		7EEA002F2A0D58B500B7304F /* ListViewController+fetchPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListViewController+fetchPlaylist.swift"; sourceTree = "<group>"; };
 		7EEA00322A0D6A1E00B7304F /* HomeViewController+Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Albums.swift"; sourceTree = "<group>"; };
+		7EEA00352A0D74FE00B7304F /* NearbyViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearbyViewController+Map.swift"; sourceTree = "<group>"; };
 		7EF558312A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.name+selectedSongIDChanged.swift"; sourceTree = "<group>"; };
 		7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Observers.swift"; sourceTree = "<group>"; };
 		7EF5583D2A06F4EB00D1FE8F /* formatPlaybackTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = formatPlaybackTime.swift; sourceTree = "<group>"; };
@@ -368,6 +370,14 @@
 			path = Albums;
 			sourceTree = "<group>";
 		};
+		7EEA00342A0D74EF00B7304F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				7EEA00352A0D74FE00B7304F /* NearbyViewController+Map.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		7EF5584B2A087E1400D1FE8F /* ListSongView */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +404,7 @@
 		7EF558552A0881A600D1FE8F /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
+				7EEA00342A0D74EF00B7304F /* Map */,
 				7EF558562A0881CA00D1FE8F /* NearbyViewController.swift */,
 				7EF558582A0881D200D1FE8F /* Nearby.storyboard */,
 			);
@@ -609,6 +620,7 @@
 				7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */,
 				7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */,
 				7EF558642A09337200D1FE8F /* SearchViewCell.swift in Sources */,
+				7EEA00362A0D74FE00B7304F /* NearbyViewController+Map.swift in Sources */,
 				7EF558822A0AA57A00D1FE8F /* getUserIDFromCoreData.swift in Sources */,
 				7EF5584A2A08610300D1FE8F /* animateImageTransition.swift in Sources */,
 				7EC240532A0C3BB500029BC7 /* TracksTableViewCell.swift in Sources */,

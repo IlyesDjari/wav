@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -199,7 +200,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="Background"/>
+                                <color key="backgroundColor" name="defaultPlayerBackground"/>
                                 <constraints>
                                     <constraint firstItem="PKa-fN-aRB" firstAttribute="top" secondItem="tCV-MW-b1H" secondAttribute="top" constant="6" id="1pl-zI-JTo"/>
                                     <constraint firstItem="9mh-Zy-E8f" firstAttribute="leading" secondItem="0bU-ob-O8m" secondAttribute="leading" id="3f9-BG-YEr"/>
@@ -325,11 +326,11 @@
         <image name="repeat" width="32" height="32"/>
         <image name="shuffleOff" width="32" height="32"/>
         <image name="skip" width="32" height="32"/>
-        <namedColor name="Background">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Purple">
-            <color red="0.84705882352941175" green="0.24313725490196078" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="defaultPlayerBackground">
+            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
