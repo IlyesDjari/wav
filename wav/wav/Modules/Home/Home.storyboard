@@ -346,10 +346,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hUL-AS-fU5">
-                                                <rect key="frame" x="0.0" y="1368" width="392" height="227"/>
+                                                <rect key="frame" x="0.0" y="1363" width="392" height="201"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="227" id="4md-Ab-sYU"/>
+                                                    <constraint firstAttribute="height" constant="201" id="4md-Ab-sYU"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LOr-LG-4Sr">
                                                     <size key="itemSize" width="131" height="192"/>
@@ -359,7 +359,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="recommendedArtistCell" id="k3u-S4-Yfh" customClass="RecommendedArtistCollectionViewCell" customModule="wav" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="17.666666666666668" width="131" height="192"/>
+                                                        <rect key="frame" x="16" y="4.666666666666667" width="131" height="192"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ynG-rN-lij">
                                                             <rect key="frame" x="0.0" y="0.0" width="131" height="192"/>
@@ -458,7 +458,7 @@
                                             <constraint firstAttribute="height" constant="1800" id="8Vs-Ku-Xtm"/>
                                             <constraint firstItem="554-2B-RNo" firstAttribute="leading" secondItem="xcD-K8-9P4" secondAttribute="leading" id="93x-Yo-acI"/>
                                             <constraint firstAttribute="trailing" secondItem="bKS-Dm-lq0" secondAttribute="trailing" constant="16" id="AAu-wA-qLX"/>
-                                            <constraint firstItem="hUL-AS-fU5" firstAttribute="top" secondItem="lW6-1v-Iaa" secondAttribute="bottom" constant="8" id="AX2-H6-xdR"/>
+                                            <constraint firstItem="hUL-AS-fU5" firstAttribute="top" secondItem="lW6-1v-Iaa" secondAttribute="bottom" constant="3" id="AX2-H6-xdR"/>
                                             <constraint firstItem="nv5-yI-07D" firstAttribute="top" secondItem="nqO-Sa-agl" secondAttribute="bottom" constant="32" id="B5e-iN-p1M"/>
                                             <constraint firstItem="Mh8-YJ-giA" firstAttribute="top" secondItem="nv5-yI-07D" secondAttribute="bottom" constant="14" id="BbH-OO-cnc"/>
                                             <constraint firstItem="xcD-K8-9P4" firstAttribute="top" secondItem="0KB-yC-CgZ" secondAttribute="top" constant="140" id="CNT-OI-EIK"/>
@@ -525,10 +525,10 @@
                                 <rect key="frame" x="0.0" y="1553" width="392" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-pS-TTF">
-                                        <rect key="frame" x="15" y="8" width="55" height="55"/>
+                                        <rect key="frame" x="18" y="9" width="52" height="52"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="AV2-4b-kFD"/>
-                                            <constraint firstAttribute="width" constant="55" id="kPk-7E-EE3"/>
+                                            <constraint firstAttribute="height" constant="52" id="AV2-4b-kFD"/>
+                                            <constraint firstAttribute="width" constant="52" id="kPk-7E-EE3"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -606,7 +606,7 @@
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="leading" secondItem="eXe-pS-TTF" secondAttribute="trailing" constant="23" id="5Sb-vG-FoG"/>
                                     <constraint firstAttribute="height" constant="70" id="9fh-RQ-6aW"/>
                                     <constraint firstItem="uRi-Zh-IL8" firstAttribute="top" secondItem="9x5-cu-gxP" secondAttribute="top" constant="8" id="BQb-9a-FIv"/>
-                                    <constraint firstItem="eXe-pS-TTF" firstAttribute="leading" secondItem="Ycr-fA-5NN" secondAttribute="leading" constant="15" id="M49-T0-Ia3"/>
+                                    <constraint firstItem="eXe-pS-TTF" firstAttribute="leading" secondItem="Ycr-fA-5NN" secondAttribute="leading" constant="18" id="M49-T0-Ia3"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="15" id="NvF-iB-Phj"/>
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="leading" secondItem="LGt-CC-jmm" secondAttribute="leading" id="eZD-Hc-75k"/>
                                     <constraint firstAttribute="trailing" secondItem="uRi-Zh-IL8" secondAttribute="trailing" constant="34" id="heT-Cw-gc4"/>
@@ -614,7 +614,7 @@
                                     <constraint firstItem="9x5-cu-gxP" firstAttribute="trailing" secondItem="LGt-CC-jmm" secondAttribute="trailing" id="l6E-NY-PbT"/>
                                     <constraint firstItem="WjT-lu-JrJ" firstAttribute="leading" secondItem="LGt-CC-jmm" secondAttribute="leading" id="neQ-Z7-OI5"/>
                                     <constraint firstItem="WjT-lu-JrJ" firstAttribute="centerY" secondItem="uRi-Zh-IL8" secondAttribute="centerY" id="rIR-Vv-hWh"/>
-                                    <constraint firstItem="eXe-pS-TTF" firstAttribute="bottom" secondItem="Ycr-fA-5NN" secondAttribute="bottomMargin" constant="1" id="tup-8J-Fs5"/>
+                                    <constraint firstItem="eXe-pS-TTF" firstAttribute="bottom" secondItem="Ycr-fA-5NN" secondAttribute="bottomMargin" constant="-1" id="tup-8J-Fs5"/>
                                     <constraint firstItem="WjT-lu-JrJ" firstAttribute="top" secondItem="Ycr-fA-5NN" secondAttribute="top" constant="24" id="wTa-Ya-3Fh"/>
                                 </constraints>
                                 <connections>

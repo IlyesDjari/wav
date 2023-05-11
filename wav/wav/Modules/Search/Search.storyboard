@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="igZ-gA-fPN">
-                                <rect key="frame" x="0.0" y="225" width="393" height="588"/>
+                                <rect key="frame" x="0.0" y="255" width="393" height="557"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <color key="sectionIndexBackgroundColor" name="Background"/>
                                 <prototypes>
@@ -98,28 +99,39 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-jz-6Mx">
-                                <rect key="frame" x="16" y="126" width="361" height="44"/>
+                                <rect key="frame" x="16" y="180" width="361" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="5CU-Bv-IQF" id="cJ9-Na-UVz"/>
                                 </connections>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiZ-py-kQt">
+                                <rect key="frame" x="16" y="120" width="361" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" name="Purple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wf5-ie-MzV"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
+                            <constraint firstItem="Wf5-ie-MzV" firstAttribute="trailing" secondItem="GiZ-py-kQt" secondAttribute="trailing" constant="16" id="2NQ-GO-hnH"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" constant="-16" id="5fr-6q-qX9"/>
+                            <constraint firstItem="GiZ-py-kQt" firstAttribute="trailing" secondItem="yMo-jz-6Mx" secondAttribute="trailing" id="79r-bI-mbr"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="trailing" secondItem="Wf5-ie-MzV" secondAttribute="trailing" id="9RD-3a-dDf"/>
+                            <constraint firstItem="GiZ-py-kQt" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="61" id="HF3-KF-b9U"/>
+                            <constraint firstItem="GiZ-py-kQt" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" constant="16" id="K06-ae-6Q8"/>
+                            <constraint firstItem="GiZ-py-kQt" firstAttribute="leading" secondItem="yMo-jz-6Mx" secondAttribute="leading" id="PP8-3p-V6h"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="TdI-9Q-feU"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" constant="16" id="X60-Ze-5TN"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="igZ-gA-fPN" secondAttribute="bottom" constant="5" id="ZiM-hA-6hs"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="igZ-gA-fPN" secondAttribute="bottom" constant="6" id="ZiM-hA-6hs"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="leading" secondItem="Wf5-ie-MzV" secondAttribute="leading" id="kgk-PS-6e3"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="trailing" secondItem="igZ-gA-fPN" secondAttribute="trailing" constant="-16" id="oBx-of-K63"/>
-                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="67" id="oac-6K-zsC"/>
+                            <constraint firstItem="yMo-jz-6Mx" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="121" id="oac-6K-zsC"/>
                             <constraint firstItem="igZ-gA-fPN" firstAttribute="centerX" secondItem="d6P-uP-xbS" secondAttribute="centerX" id="our-rn-CZO"/>
-                            <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="166" id="p4r-gM-SuM"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="Wf5-ie-MzV" secondAttribute="top" constant="196" id="p4r-gM-SuM"/>
                             <constraint firstItem="yMo-jz-6Mx" firstAttribute="leading" secondItem="igZ-gA-fPN" secondAttribute="leading" constant="16" id="xvh-j2-JWl"/>
-                            <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="yMo-jz-6Mx" secondAttribute="bottom" constant="55" id="yX9-B5-9ec"/>
+                            <constraint firstItem="igZ-gA-fPN" firstAttribute="top" secondItem="yMo-jz-6Mx" secondAttribute="bottom" constant="31" id="yX9-B5-9ec"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" id="1te-Ty-Re0">
@@ -146,10 +158,21 @@
             <point key="canvasLocation" x="1066" y="411"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Y15-ZC-5v1">
+            <size key="intrinsicContentSize" width="37.666666666666664" height="17"/>
+        </designable>
+        <designable name="evW-b0-YYi">
+            <size key="intrinsicContentSize" width="32.333333333333336" height="14.333333333333334"/>
+        </designable>
+    </designables>
     <resources>
         <image name="search" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Purple">
+            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

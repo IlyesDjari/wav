@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "NoCoverImage.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "NoCoverImage 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "NoCoverImage 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -17,7 +17,7 @@ extension HomeViewController {
             noSongLabel.isHidden = false
             currentSong.text = ""
             currentArtist.text = ""
-            currentCover.image = UIImage(named: "NoSongImage")
+            currentCover.image = UIImage(named: "NoCoverImage")
             homePlayer.isUserInteractionEnabled = false
             return
         }
@@ -46,7 +46,7 @@ extension HomeViewController {
                     }
                 } else {
                     // Show a placeholder image if no artwork is available
-                    currentCover.image = UIImage(named: "NoSongImage")
+                    currentCover.image = UIImage(named: "NoCoverImage")
                     updateBackgroundColor(from: nil, in: self.homePlayer)
                 }
             } catch {
