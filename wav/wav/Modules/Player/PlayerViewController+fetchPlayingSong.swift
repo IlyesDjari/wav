@@ -17,73 +17,70 @@ extension PlayerViewController {
         if playlistIDs != nil {
             return
         }
-        if let songID = songID {
-            // Fetch song details
-            Task {
-                do {
-                    let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
-                    DispatchQueue.main.async {
-                        self.song.text = song.title
-                        self.artist.text = song.artistName
-                        if let artworkURL = song.artwork?.url(width: 500, height: 500) {
-                            self.cover.kf.setImage(
-                                with: artworkURL,
-                                placeholder: UIImage(named: "loading_placeholder"),
-                                options: [.cacheOriginalImage]
-                            ) { result in
-                                switch result {
-                                case .success(let value):
-                                    let coverImage = value.image
-                                    self.cover.image = coverImage
-                                    if let duration = song.duration {
-                                        self.timeline.maximumValue = Float(duration)
-                                        let formattedSongTime = formatPlaybackTime(duration)
-                                        self.songTime.text = formattedSongTime
-                                    }
-                                    updateTimelineGradient(from: coverImage, in: self.timeline)
-                                    updateBackgroundColor(from: coverImage, in: self.background)
-                                case .failure:
-                                    break
-                                }
-                            }
-                        }
-                    }
 
-                    // Check if the song is already playing
-                    if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
-                        nowPlayingItem.playbackStoreID == songID {
-                        // The song is already playing, add recommendation to the queue
-                        Task {
-                            queueRecommendation(songID: songID)
-                        }
-                    } else {
-                        // The song is not playing, play it and add recommendation to the queue
-                        Task {
-                            player.queue = [song]
-                            try await player.play()
-                            queueRecommendation(songID: songID)
-                        }
-                    }
-                } catch {
-                    print("Error fetching song details: \(error)")
-                }
-            }
-        } else {
+        guard let songID = songID else {
             // Fallback to the original implementation of fetching the now playing song
+            return
         }
-    }
-
-    internal func queueRecommendation(songID: String) {
         Task {
             do {
                 let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
                 let recommendations = try await MRecommendation.continuousSongs(for: song)
-                if let recommendedSong = recommendations.first {
-                    try await player.queue.insert(recommendedSong, position: .tail)
-                    print(player.queue.entries.count)
+                DispatchQueue.main.async {
+                    self.updateUI(with: song)
+                }
+                if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
+                    nowPlayingItem.playbackStoreID == songID {
+                    queueRecommendation(recommendations: recommendations)
+                } else {
+                    player.queue = [song]
+                    try await player.play()
+                    queueRecommendation(recommendations: recommendations)
                 }
             } catch {
-                print("Error fetching song recommendation: \(error)")
+                print("Error fetching song details: \(error)")
+            }
+        }
+    }
+
+    private func updateUI(with song: Song) {
+        self.song.text = song.title
+        self.artist.text = song.artistName
+        if let artworkURL = song.artwork?.url(width: 500, height: 500) {
+            self.cover.kf.setImage(
+                with: artworkURL,
+                placeholder: UIImage(named: "loading_placeholder"),
+                options: [.cacheOriginalImage]
+            ) { result in
+                switch result {
+                case .success(let value):
+                    let coverImage = value.image
+                    self.cover.image = coverImage
+                    if let duration = song.duration {
+                        self.timeline.maximumValue = Float(duration)
+                        let formattedSongTime = formatPlaybackTime(duration)
+                        self.songTime.text = formattedSongTime
+                    }
+                    updateTimelineGradient(from: coverImage, in: self.timeline)
+                    updateBackgroundColor(from: coverImage, in: self.background)
+                case .failure:
+                    break
+                }
+            }
+        }
+    }
+
+    internal func queueRecommendation(recommendations: MusicItemCollection<Song>) {
+        if let recommendedSong = recommendations.first {
+            Task {
+                do {
+                    try await player.queue.insert(recommendedSong, position: .tail)
+                    print(player.queue.entries.count)
+                    print(player.queue.entries)
+                    print(recommendedSong)
+                } catch {
+                    print("Error fetching song recommendation: \(error)")
+                }
             }
         }
     }

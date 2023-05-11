@@ -39,7 +39,7 @@ struct MusicPlaybackControl {
 
     public func skipToNextSong() async {
         do {
-            try await musicPlayer.skipToNextEntry()
+            try await musicPlayer.skipToNextEntry() 
         } catch {
             // Handle error here
             print("Error skipping to next song: \(error)")

@@ -17,7 +17,6 @@ protocol PlayerViewControllerDelegate: AnyObject {
 }
 
 class PlayerViewController: UIViewController {
-
     // Outlets
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var cover: UIImageView!
