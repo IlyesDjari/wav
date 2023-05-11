@@ -13,37 +13,38 @@ import MediaPlayer
 
 extension PlayerViewController {
     internal func fetchPlayingSong(songID: String? = nil) {
-        // If playlistIDs is not nil, return early and let the playlist logic handle playback
-        if playlistIDs != nil {
-            return
-        }
-
-        guard let songID = songID else {
-            // Fallback to the original implementation of fetching the now playing song
-            return
-        }
-        Task {
-            do {
-                let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
-                let recommendations = try await MRecommendation.continuousSongs(for: song)
-                DispatchQueue.main.async {
-                    self.updateUI(with: song)
+        if playlistIDs == nil {
+            Task {
+                do {
+                    let song = try await MCatalog.song(id: MusicItemID(rawValue: songID!))
+                    DispatchQueue.main.async {
+                        self.updateUI(with: song)
+                    }
+                    
+                    let recommendations = try await MRecommendation.continuousSongs(for: song)
+                    if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
+                       nowPlayingItem.playbackStoreID == songID {
+                        queueRecommendation(recommendations: recommendations)
+                    } else {
+                        player.queue = [song]
+                        try await player.play()
+                        queueRecommendation(recommendations: recommendations)
+                    }
+                } catch {
+                    print("Error fetching song details: \(error)")
                 }
-                if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
-                    nowPlayingItem.playbackStoreID == songID {
-                    queueRecommendation(recommendations: recommendations)
-                } else {
-                    player.queue = [song]
-                    try await player.play()
-                    queueRecommendation(recommendations: recommendations)
+            }
+        } else if playlistIDs != nil {
+            if let currentEntry = player.queue.currentEntry, case let .song(song) = currentEntry.item {
+                Task {
+                    let song = try await MCatalog.song(id: song.id)
+                    updateUI(with: song)
                 }
-            } catch {
-                print("Error fetching song details: \(error)")
             }
         }
     }
 
-    private func updateUI(with song: Song) {
+    internal func updateUI(with song: Song) {
         self.song.text = song.title
         self.artist.text = song.artistName
         if let artworkURL = song.artwork?.url(width: 500, height: 500) {
@@ -75,9 +76,6 @@ extension PlayerViewController {
             Task {
                 do {
                     try await player.queue.insert(recommendedSong, position: .tail)
-                    print(player.queue.entries.count)
-                    print(player.queue.entries)
-                    print(recommendedSong)
                 } catch {
                     print("Error fetching song recommendation: \(error)")
                 }

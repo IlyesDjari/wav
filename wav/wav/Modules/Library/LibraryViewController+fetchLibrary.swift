@@ -35,4 +35,27 @@ extension LibraryViewController: UICollectionViewDataSource {
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let playlist = playlists[indexPath.row]
+        Task {
+            do {
+                let id = try await playlist.catalog.id
+                let detailedPlaylist = try await MCatalog.playlist(id: id, fetch: .tracks)
+                let tracks = detailedPlaylist.tracks ?? []
+                let songIDs = tracks.map { $0.id.rawValue }
+                // Instantiate PlayerViewController from storyboard
+                let storyboard = UIStoryboard(name: "Player", bundle: nil)
+                guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
+                    return
+                }
+                // Fetch and play the playlist
+                // playerViewController.playlistIDs = songIDs
+                // Present PlayerViewController modally
+                self.present(playerViewController, animated: true, completion: nil)
+            } catch {
+                print("Error fetching playlist: \(error)")
+            }
+        }
+    }
 }

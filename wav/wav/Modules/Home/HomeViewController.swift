@@ -43,6 +43,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     @IBOutlet weak var currentSong: MarqueeLabel!
     @IBOutlet weak var currentCover: UIImageView!
     @IBOutlet weak var stateButton: UIImageView!
+    @IBOutlet weak var album1: UIImageView!
+    @IBOutlet weak var album2: UIImageView!
+    @IBOutlet weak var album3: UIImageView!
     
     // Properties
     public var recentItems: [RecentItem] = []
@@ -81,6 +84,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
                     fetchCurrentlyPlaying(songID: nil)
                 }
                 try await fetchRecommendedStations()
+                try await fetchRecommendedAlbums()
                 fetchRecommendedArtists()
                 // Remove the loading view when the data is loaded
                 loadingView.removeFromSuperview()

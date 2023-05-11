@@ -12,6 +12,8 @@ import MusicKit
 struct MusicPlaybackControl {
 
     let musicPlayer = ApplicationMusicPlayer.shared
+    var playerViewController: PlayerViewController?
+
 
     public func setStateButtonImage(stateButton: UIImageView) {
         let isPlaying = musicPlayer.state.playbackStatus == .playing
@@ -39,7 +41,7 @@ struct MusicPlaybackControl {
 
     public func skipToNextSong() async {
         do {
-            try await musicPlayer.skipToNextEntry() 
+            try await musicPlayer.skipToNextEntry()
         } catch {
             // Handle error here
             print("Error skipping to next song: \(error)")
@@ -57,7 +59,7 @@ struct MusicPlaybackControl {
             print("Error skipping to previous song: \(error)")
         }
     }
-    
+
     public func toggleRepeatMode(repeatModeButton: UIImageView) {
         switch musicPlayer.state.repeatMode {
         case .all:
@@ -131,7 +133,7 @@ struct MusicPlaybackControl {
             break
         }
     }
-    
+
     public func setLiveShareSessionButton(liveSessionButton: UIImageView, liveSessionLabel: UILabel, sharePlayStatus: Bool) {
         if sharePlayStatus {
             // Perform actions when sharePlayStatus is true

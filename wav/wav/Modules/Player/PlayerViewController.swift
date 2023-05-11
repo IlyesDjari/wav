@@ -62,17 +62,20 @@ class PlayerViewController: UIViewController {
             UserDefaultsManager.shared.saveSharePlayStatus(status: newValue)
         }
     }
-    public var playlistIDs: [String]? {
+    public var playlistIDs: Playlist? {
         didSet {
-            if let unwrappedPlaylistIDs = playlistIDs {
-                // Fetch the playlist and play it
-                fetchPlayingPlaylist(songIDs: unwrappedPlaylistIDs)
+            if playlistIDs != nil {
+                Task {
+                    // Fetch the playlist and play it
+                    try await player.play(playlist: playlistIDs!)
+                    fetchPlayingSong(songID: songID)
+                }
             }
         }
     }
-    let player = ApplicationMusicPlayer.shared
+    public let player = ApplicationMusicPlayer.shared
     let musicPlaybackControl = MusicPlaybackControl()
-    var songID: String? {
+    public var songID: String? {
         didSet {
             if let unwrappedSongID = songID {
                 // Fetch the song with the given ID
@@ -112,7 +115,7 @@ class PlayerViewController: UIViewController {
         // Remove the observer for playback status changes
         playbackAndTimelineTimer?.invalidate()
     }
-
+    
     internal func startUpdateTimers() {
         playbackAndTimelineTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.playbackStatusChanged()
@@ -182,7 +185,7 @@ class PlayerViewController: UIViewController {
         // Skip to the next song
         await self.musicPlaybackControl.skipToNextSong()
     }
-    
+
     private func performBackButtonTapped() async {
         // Animate the button
         let animator = UIViewPropertyAnimator(duration: 0.0, dampingRatio: 0.8) {

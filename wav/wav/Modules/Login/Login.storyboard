@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catch the WAV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-Hd-IoP">
-                                <rect key="frame" x="16" y="121" width="361" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="xAN-OD-6NU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QJ-dO-n5F">
                                 <rect key="frame" x="16" y="648" width="361" height="52"/>
                                 <color key="backgroundColor" name="Purple"/>
@@ -54,31 +46,48 @@
                                     <action selector="NotSubscribed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YMc-cI-KGU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore, Listen, Unite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXq-6N-gma">
-                                <rect key="frame" x="16" y="177" width="361" height="39"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoSvg" translatesAutoresizingMaskIntoConstraints="NO" id="8hJ-i5-vIU">
+                                <rect key="frame" x="92" y="158" width="209" height="74"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUi-T8-Lot">
+                                <rect key="frame" x="16" y="336" width="361" height="196"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="196" id="CNz-7H-wXV"/>
+                                </constraints>
+                                <string key="text">Immerse yourself in a world of pristine sound with our lossless audio music app. Connect with like-minded music enthusiasts, exploring the vast symphony of human expression. Let the universal language of music unite us all.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore, Listen, Unite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXq-6N-gma">
+                                <rect key="frame" x="16" y="254" width="361" height="39"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
+                            <constraint firstItem="XXq-6N-gma" firstAttribute="top" secondItem="8hJ-i5-vIU" secondAttribute="bottom" constant="22" id="1Ab-t1-bQy"/>
                             <constraint firstItem="EDq-Lh-jM4" firstAttribute="leading" secondItem="2QJ-dO-n5F" secondAttribute="leading" id="CVr-aR-dQ2"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="XXq-6N-gma" secondAttribute="leading" id="DSZ-zc-mZV"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="LKh-KK-qr2"/>
+                            <constraint firstItem="8hJ-i5-vIU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="99" id="Fqd-cB-vEJ"/>
+                            <constraint firstItem="jUi-T8-Lot" firstAttribute="leading" secondItem="XXq-6N-gma" secondAttribute="leading" id="JdX-ef-tHd"/>
+                            <constraint firstItem="XXq-6N-gma" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="KEf-ny-5mX"/>
+                            <constraint firstItem="jUi-T8-Lot" firstAttribute="top" secondItem="XXq-6N-gma" secondAttribute="bottom" constant="43" id="MAB-Qg-MZA"/>
                             <constraint firstItem="2QJ-dO-n5F" firstAttribute="trailing" secondItem="XXq-6N-gma" secondAttribute="trailing" id="NMd-dp-pPC"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="ZTd-gF-vqs"/>
+                            <constraint firstItem="XXq-6N-gma" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="WN1-ij-0gV"/>
                             <constraint firstItem="2QJ-dO-n5F" firstAttribute="leading" secondItem="XXq-6N-gma" secondAttribute="leading" id="ZbI-Eq-ReD"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="ZpH-Fb-dsO"/>
                             <constraint firstItem="EDq-Lh-jM4" firstAttribute="top" secondItem="2QJ-dO-n5F" secondAttribute="bottom" constant="10" id="cuE-xz-92k"/>
-                            <constraint firstItem="XXq-6N-gma" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="118" id="d7H-Ui-E0I"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="62" id="i7R-m6-g1h"/>
-                            <constraint firstItem="TkF-Hd-IoP" firstAttribute="trailing" secondItem="XXq-6N-gma" secondAttribute="trailing" id="qP2-Mr-d4q"/>
+                            <constraint firstItem="XXq-6N-gma" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="195" id="d7H-Ui-E0I"/>
+                            <constraint firstItem="8hJ-i5-vIU" firstAttribute="centerX" secondItem="XXq-6N-gma" secondAttribute="centerX" id="f0O-lJ-Xxm"/>
+                            <constraint firstItem="8hJ-i5-vIU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="92" id="gTL-Eu-7qG"/>
+                            <constraint firstItem="jUi-T8-Lot" firstAttribute="trailing" secondItem="XXq-6N-gma" secondAttribute="trailing" id="pot-0d-VQt"/>
                             <constraint firstItem="EDq-Lh-jM4" firstAttribute="trailing" secondItem="2QJ-dO-n5F" secondAttribute="trailing" id="qwr-Qy-rbP"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TkF-Hd-IoP" secondAttribute="trailing" constant="16" id="xaS-2C-fgZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XXq-6N-gma" secondAttribute="trailing" constant="16" id="ucg-Ip-Wr8"/>
+                            <constraint firstItem="XXq-6N-gma" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="yhE-lX-0cu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2QJ-dO-n5F" secondAttribute="bottom" constant="118" id="z7H-pv-N76"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XXq-6N-gma" secondAttribute="bottom" constant="602" id="zz0-ot-opv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XXq-6N-gma" secondAttribute="bottom" constant="525" id="zz0-ot-opv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="tSx-PU-oXA"/>
@@ -113,11 +122,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LogoSvg" width="2615" height="851.8900146484375"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
-            <color red="0.84705882352941175" green="0.24313725490196078" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

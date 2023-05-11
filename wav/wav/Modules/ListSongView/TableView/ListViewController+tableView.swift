@@ -27,22 +27,12 @@ extension ListViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let track = tracks[indexPath.row]
-        let songID = track.id.rawValue
-
-        // Create a playlistSongIDs array
-        let playlistSongIDs = tracks
-        
         // Instantiate PlayerViewController from storyboard
         let storyboard = UIStoryboard(name: "Player", bundle: nil)
         guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
             return
         }
-        // Set the songID and the playlistSongIDs
-        playerViewController.songID = songID
-        // Fetch and play the playlist
-        let songIDs = playlistSongIDs.map { $0.id.rawValue }
-        playerViewController.fetchPlayingPlaylist(songIDs: songIDs)
+        playerViewController.playlistIDs = playlist
         // Present PlayerViewController modally
         self.present(playerViewController, animated: true, completion: nil)
     }
