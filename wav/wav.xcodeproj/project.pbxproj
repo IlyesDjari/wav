@@ -19,6 +19,7 @@
 		7E5132DF2A12DE7200E68533 /* getNearbyUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */; };
 		7E5132E52A12E8CD00E68533 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5132E42A12E8CD00E68533 /* GeoFire */; };
 		7E5132E72A12E8CD00E68533 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5132E62A12E8CD00E68533 /* GeoFireUtils */; };
+		7E5132E92A12F0A500E68533 /* NearbyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5132E82A12F0A500E68533 /* NearbyUser.swift */; };
 		7E567B5F2A0C052200172755 /* addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567B5E2A0C052200172755 /* addGradient.swift */; };
 		7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */; };
 		7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */; };
@@ -92,6 +93,7 @@
 		7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+isDark.swift"; sourceTree = "<group>"; };
 		7E418B6C2A056FDB007B9863 /* showLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showLoadingView.swift; sourceTree = "<group>"; };
 		7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNearbyUsers.swift; sourceTree = "<group>"; };
+		7E5132E82A12F0A500E68533 /* NearbyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUser.swift; sourceTree = "<group>"; };
 		7E567B5E2A0C052200172755 /* addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGradient.swift; sourceTree = "<group>"; };
 		7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+tableView.swift"; sourceTree = "<group>"; };
 		7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Stations.swift"; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 				7E91E62D2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift */,
 			);
 			path = HomePlayer;
+			sourceTree = "<group>";
+		};
+		7E5132EA2A12F0AD00E68533 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E5132E82A12F0A500E68533 /* NearbyUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7E6AD29E2A0C43A80068027A /* TableView */ = {
@@ -456,6 +466,7 @@
 		7EF5587C2A0A95BB00D1FE8F /* LiveShare */ = {
 			isa = PBXGroup;
 			children = (
+				7E5132EA2A12F0AD00E68533 /* Models */,
 				7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */,
 				7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */,
 				7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */,
@@ -592,6 +603,7 @@
 			files = (
 				7EF5588B2A0B212500D1FE8F /* LibraryViewController+fetchLibrary.swift in Sources */,
 				7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */,
+				7E5132E92A12F0A500E68533 /* NearbyUser.swift in Sources */,
 				7EF558602A092F5D00D1FE8F /* SearchViewController+TableView.swift in Sources */,
 				7EF558762A09A39500D1FE8F /* createUser.swift in Sources */,
 				7EF5583C2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift in Sources */,

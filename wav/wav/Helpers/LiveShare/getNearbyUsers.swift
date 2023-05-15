@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import CoreLocation
 
-func getNearbyUsers(completion: @escaping (Result<[String], Error>) -> Void) {
+func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void) {
     guard let userID = getUserIDFromCoreData() else {
         completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
         return
@@ -44,7 +44,7 @@ func getNearbyUsers(completion: @escaping (Result<[String], Error>) -> Void) {
                 return
             }
             
-            var nearbyUsers: [String] = []
+            var nearbyUsers: [NearbyUser] = []
             
             for document in snapshot.documents {
                 guard let otherUserLocation = document.data()["location"] as? GeoPoint else {
@@ -52,16 +52,17 @@ func getNearbyUsers(completion: @escaping (Result<[String], Error>) -> Void) {
                 }
                 
                 let otherUserID = document.documentID
+                let otherLongitude = otherUserLocation.longitude
+                let otherLatitude = otherUserLocation.latitude
+                let otherUsername = document.data()["username"] as? String ?? ""
                 
                 if otherUserID != userID {
                     // Calculate the distance between the current user's location and other users' location
                     let distance = calculateDistance(currentUserLocation, otherUserLocation)
                     
                     if distance <= 500 {
-                        guard let songID = document.data()["currentSong"] as? String else {
-                            continue
-                        }
-                        nearbyUsers.append(songID)
+                        let nearbyUser = NearbyUser(userID: otherUserID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername)
+                        nearbyUsers.append(nearbyUser)
                     }
                 }
             }

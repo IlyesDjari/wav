@@ -19,23 +19,28 @@ class NearbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         getNearbyUser()
     }
     
     func getNearbyUser() {
-        getNearbyUsers() { result in
+        getNearbyUsers() { [weak self] result in
             switch result {
             case .success(let usersData):
-                for userData in usersData {
-                    print(userData)
+                DispatchQueue.main.async {
+                    self?.addPointsOnMap(usersData)
                 }
             case .failure(let error):
                 print("Error getting nearby users: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func addPointsOnMap(_ usersData: [NearbyUser]) {
+        for userData in usersData {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: userData.latitude, longitude: userData.longitude)
+            annotation.title = userData.username
+            mapView.addAnnotation(annotation)
         }
     }
 }
