@@ -16,6 +16,9 @@
 		7E418B692A03259F007B9863 /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = 7E418B682A03259F007B9863 /* UIImageColors */; };
 		7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */; };
 		7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B6C2A056FDB007B9863 /* showLoadingView.swift */; };
+		7E5132DF2A12DE7200E68533 /* getNearbyUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */; };
+		7E5132E52A12E8CD00E68533 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5132E42A12E8CD00E68533 /* GeoFire */; };
+		7E5132E72A12E8CD00E68533 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5132E62A12E8CD00E68533 /* GeoFireUtils */; };
 		7E567B5F2A0C052200172755 /* addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567B5E2A0C052200172755 /* addGradient.swift */; };
 		7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */; };
 		7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */; };
@@ -88,6 +91,7 @@
 		7E418B652A0320C0007B9863 /* HomePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePlayer.swift; sourceTree = "<group>"; };
 		7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+isDark.swift"; sourceTree = "<group>"; };
 		7E418B6C2A056FDB007B9863 /* showLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showLoadingView.swift; sourceTree = "<group>"; };
+		7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNearbyUsers.swift; sourceTree = "<group>"; };
 		7E567B5E2A0C052200172755 /* addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGradient.swift; sourceTree = "<group>"; };
 		7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+tableView.swift"; sourceTree = "<group>"; };
 		7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Stations.swift"; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				7EF5586F2A098FED00D1FE8F /* FirebaseDatabase in Frameworks */,
 				7EF558792A09A5B300D1FE8F /* NotificationBannerSwift in Frameworks */,
 				7E418B692A03259F007B9863 /* UIImageColors in Frameworks */,
+				7E5132E52A12E8CD00E68533 /* GeoFire in Frameworks */,
+				7E5132E72A12E8CD00E68533 /* GeoFireUtils in Frameworks */,
 				7E418B5E2A02F793007B9863 /* Kingfisher in Frameworks */,
 				7EA183A02A01AC0500F658E4 /* MusadoraKit in Frameworks */,
 				7EF558732A098FED00D1FE8F /* FirebaseStorage in Frameworks */,
@@ -452,6 +458,7 @@
 			children = (
 				7EF5587D2A0A95CB00D1FE8F /* startLiveShareSession.swift */,
 				7EF558832A0AA5BE00D1FE8F /* stopLiveShareSession.swift */,
+				7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */,
 			);
 			path = LiveShare;
 			sourceTree = "<group>";
@@ -506,6 +513,8 @@
 				7EF558702A098FED00D1FE8F /* FirebaseFirestore */,
 				7EF558722A098FED00D1FE8F /* FirebaseStorage */,
 				7EF558782A09A5B300D1FE8F /* NotificationBannerSwift */,
+				7E5132E42A12E8CD00E68533 /* GeoFire */,
+				7E5132E62A12E8CD00E68533 /* GeoFireUtils */,
 			);
 			productName = wav;
 			productReference = 7EAB3ED82A0162D500BB2E0B /* wav.app */;
@@ -542,6 +551,7 @@
 				7E418B672A03259F007B9863 /* XCRemoteSwiftPackageReference "UIImageColors" */,
 				7EF5586D2A098FED00D1FE8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7EF558772A09A5B300D1FE8F /* XCRemoteSwiftPackageReference "NotificationBanner" */,
+				7E5132E32A12E8CD00E68533 /* XCRemoteSwiftPackageReference "geofire-objc" */,
 			);
 			productRefGroup = 7EAB3ED92A0162D500BB2E0B /* Products */;
 			projectDirPath = "";
@@ -618,6 +628,7 @@
 				7EF558662A098B9F00D1FE8F /* NameViewController.swift in Sources */,
 				7EF558922A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift in Sources */,
 				7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */,
+				7E5132DF2A12DE7200E68533 /* getNearbyUsers.swift in Sources */,
 				7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */,
 				7EF558642A09337200D1FE8F /* SearchViewCell.swift in Sources */,
 				7EEA00362A0D74FE00B7304F /* NearbyViewController+Map.swift in Sources */,
@@ -882,6 +893,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		7E5132E32A12E8CD00E68533 /* XCRemoteSwiftPackageReference "geofire-objc" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/geofire-objc.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7EA1839E2A01AC0500F658E4 /* XCRemoteSwiftPackageReference "MusadoraKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rryam/MusadoraKit";
@@ -923,6 +942,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7E418B672A03259F007B9863 /* XCRemoteSwiftPackageReference "UIImageColors" */;
 			productName = UIImageColors;
+		};
+		7E5132E42A12E8CD00E68533 /* GeoFire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E5132E32A12E8CD00E68533 /* XCRemoteSwiftPackageReference "geofire-objc" */;
+			productName = GeoFire;
+		};
+		7E5132E62A12E8CD00E68533 /* GeoFireUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E5132E32A12E8CD00E68533 /* XCRemoteSwiftPackageReference "geofire-objc" */;
+			productName = GeoFireUtils;
 		};
 		7EA1839F2A01AC0500F658E4 /* MusadoraKit */ = {
 			isa = XCSwiftPackageProductDependency;
