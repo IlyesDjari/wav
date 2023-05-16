@@ -17,6 +17,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             tableView.delegate = self
         }
     }
+    
     @IBOutlet weak var radarView: RadarView! {
         didSet {
             radarView.delegate = self
@@ -28,12 +29,23 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     internal var usersData: [NearbyUser] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor(named: "Purple")
+        UITableViewCell.appearance().selectedBackgroundView = selectedView
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         getNearbyUser()
         setRadar()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        for user in usersData {
+            let item = Item(uniqueKey: user.id, value: user)
+            radarView.remove(item: item)
+        }
     }
     
     func getNearbyUser() {
@@ -45,7 +57,8 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
                     self?.tableView.reloadData()
                     for user in usersData {
                         let item = Item(uniqueKey: user.id, value: user)
-                        self?.radarView.add(item: item)                    }
+                        self?.radarView.add(item: item)
+                    }
                 }
             case .failure(let error):
                 print("Error getting nearby users: \(error.localizedDescription)")

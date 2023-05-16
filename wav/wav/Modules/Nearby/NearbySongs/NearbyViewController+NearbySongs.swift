@@ -34,7 +34,6 @@ extension NearbyViewController {
                 print("Error retrieving song: \(error)")
             }
         }
-        
         return cell
     }
 }
