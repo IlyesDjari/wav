@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		7B320631CABAF821C5A00C9C /* Pods_wav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC1A1F33F472DD13734BB7B /* Pods_wav.framework */; };
 		7E004AB32A13E0170024CDBC /* NearbyViewController+radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AB22A13E0170024CDBC /* NearbyViewController+radar.swift */; };
+		7E004AB62A13FB5D0024CDBC /* LocationViewController+getUserFavoriteGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AB52A13FB5D0024CDBC /* LocationViewController+getUserFavoriteGenre.swift */; };
+		7E004AB82A13FBFF0024CDBC /* addGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AB72A13FBFF0024CDBC /* addGenre.swift */; };
+		7E004ABB2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004ABA2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift */; };
+		7E004ABD2A1401BA0024CDBC /* addFavoriteSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004ABC2A1401BA0024CDBC /* addFavoriteSong.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -88,6 +92,10 @@
 
 /* Begin PBXFileReference section */
 		7E004AB22A13E0170024CDBC /* NearbyViewController+radar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearbyViewController+radar.swift"; sourceTree = "<group>"; };
+		7E004AB52A13FB5D0024CDBC /* LocationViewController+getUserFavoriteGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationViewController+getUserFavoriteGenre.swift"; sourceTree = "<group>"; };
+		7E004AB72A13FBFF0024CDBC /* addGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGenre.swift; sourceTree = "<group>"; };
+		7E004ABA2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationViewController+getUserFavoriteSong.swift"; sourceTree = "<group>"; };
+		7E004ABC2A1401BA0024CDBC /* addFavoriteSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFavoriteSong.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -197,6 +205,22 @@
 				AD6C4A0622EBBF81252B1729 /* Pods-wav.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7E004AB42A13FB3E0024CDBC /* FavoriteGenre */ = {
+			isa = PBXGroup;
+			children = (
+				7E004AB52A13FB5D0024CDBC /* LocationViewController+getUserFavoriteGenre.swift */,
+			);
+			path = FavoriteGenre;
+			sourceTree = "<group>";
+		};
+		7E004AB92A13FD4E0024CDBC /* FavoriteSong */ = {
+			isa = PBXGroup;
+			children = (
+				7E004ABA2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift */,
+			);
+			path = FavoriteSong;
 			sourceTree = "<group>";
 		};
 		7E418B572A02F42B007B9863 /* History */ = {
@@ -501,6 +525,8 @@
 			isa = PBXGroup;
 			children = (
 				7EF558752A09A39500D1FE8F /* createUser.swift */,
+				7E004AB72A13FBFF0024CDBC /* addGenre.swift */,
+				7E004ABC2A1401BA0024CDBC /* addFavoriteSong.swift */,
 			);
 			path = DatabaseUsers;
 			sourceTree = "<group>";
@@ -519,6 +545,8 @@
 		7EF558852A0AED5700D1FE8F /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				7E004AB92A13FD4E0024CDBC /* FavoriteSong */,
+				7E004AB42A13FB3E0024CDBC /* FavoriteGenre */,
 				7EF558862A0AED7100D1FE8F /* LocationViewController.swift */,
 				7EF558882A0AED7B00D1FE8F /* Location.storyboard */,
 			);
@@ -702,6 +730,7 @@
 				7E91E62C2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift in Sources */,
 				7E5132ED2A13ABED00E68533 /* NearbyViewController+NearbySongs.swift in Sources */,
 				7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */,
+				7E004ABB2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift in Sources */,
 				7EF5585C2A0883B400D1FE8F /* LibraryViewController.swift in Sources */,
 				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
@@ -715,6 +744,7 @@
 				7EF5588E2A0B240200D1FE8F /* LibraryCollectionViewCell.swift in Sources */,
 				7EAB3EDC2A0162D500BB2E0B /* AppDelegate.swift in Sources */,
 				7EEA00332A0D6A1E00B7304F /* HomeViewController+Albums.swift in Sources */,
+				7E004AB82A13FBFF0024CDBC /* addGenre.swift in Sources */,
 				7EF558572A0881CA00D1FE8F /* NearbyViewController.swift in Sources */,
 				7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */,
 				7EF558322A06A42000D1FE8F /* NSNotification.name+selectedSongIDChanged.swift in Sources */,
@@ -730,6 +760,7 @@
 				7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */,
 				7EF558642A09337200D1FE8F /* SearchViewCell.swift in Sources */,
 				7EF558822A0AA57A00D1FE8F /* getUserIDFromCoreData.swift in Sources */,
+				7E004ABD2A1401BA0024CDBC /* addFavoriteSong.swift in Sources */,
 				7EF5584A2A08610300D1FE8F /* animateImageTransition.swift in Sources */,
 				7EC240532A0C3BB500029BC7 /* TracksTableViewCell.swift in Sources */,
 				7E418B632A03155C007B9863 /* shadowView.swift in Sources */,
@@ -739,6 +770,7 @@
 				7EAB3EFD2A0165F100BB2E0B /* HomeViewController.swift in Sources */,
 				7EF5587E2A0A95CB00D1FE8F /* startLiveShareSession.swift in Sources */,
 				7EF558542A087F2100D1FE8F /* SearchViewController.swift in Sources */,
+				7E004AB62A13FB5D0024CDBC /* LocationViewController+getUserFavoriteGenre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

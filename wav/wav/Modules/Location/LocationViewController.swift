@@ -10,15 +10,58 @@ import CoreData
 import CoreLocation
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate {
-
+    
+    // Outlets
     @IBOutlet weak var greetingLabel: UILabel!
+    
+    // Properties
     var username: String?
     let locationManager = CLLocationManager()
+    let activityIndicator = UIActivityIndicatorView(style: .large)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchUserData()
         configureUI()
         locationManager.delegate = self
+    }
+    private func fetchUserData() {
+        
+        activityIndicator.startAnimating()
+        Task {
+            getUserFavoriteGenre { genre in
+                if let favoriteGenre = genre {
+                    addUserFavoriteGenre(genre: favoriteGenre) { result in
+                        switch result {
+                        case .success:
+                            print("Favorite genre added successfully.")
+                        case .failure(let error):
+                            print("Error adding favorite genre: \(error.localizedDescription)")
+                        }
+                    }
+                } else {
+                    print("Unable to retrieve user's favorite genre.")
+                }
+            }
+            getUserFavoriteSong { favoriteSong in
+                if let song = favoriteSong {
+                    let id = song.playbackStoreID
+                    addUserFavoriteSong(songID: id) { result in
+                        switch result {
+                        case .success:
+                            print("Favorite song added successfully.")
+                        case .failure(let error):
+                            print("Error adding favorite genre: \(error.localizedDescription)")
+                        }
+                    }
+                } else {
+                    print("Unable to retrieve user's favorite song.")
+                }
+            }
+            DispatchQueue.main.async {
+                            self.activityIndicator.stopAnimating()
+            }
+        }
     }
 
     func configureUI() {
