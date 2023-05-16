@@ -52,6 +52,7 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
                 }
                 
                 let otherUserID = document.documentID
+                let otherSongID = document.data()["currentSong"] as? String ?? ""
                 let otherLongitude = otherUserLocation.longitude
                 let otherLatitude = otherUserLocation.latitude
                 let otherUsername = document.data()["username"] as? String ?? ""
@@ -61,7 +62,7 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
                     let distance = calculateDistance(currentUserLocation, otherUserLocation)
                     
                     if distance <= 500 {
-                        let nearbyUser = NearbyUser(userID: otherUserID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername)
+                        let nearbyUser = NearbyUser(songID: otherSongID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername, id: otherUserID)
                         nearbyUsers.append(nearbyUser)
                     }
                 }

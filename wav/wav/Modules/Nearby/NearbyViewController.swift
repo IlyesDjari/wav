@@ -6,20 +6,34 @@
 //
 
 import UIKit
-import MapKit
+import HGRippleRadarView
 
-class NearbyViewController: UIViewController {
+class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // Outlets
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+        }
+    }
+    @IBOutlet weak var radarView: RadarView! {
+        didSet {
+            radarView.delegate = self
+            radarView.dataSource = self
+        }
+    }
     
     // Properties
-    internal let locationManager = CLLocationManager()
-    
+    internal var usersData: [NearbyUser] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMapView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         getNearbyUser()
+        setRadar()
     }
     
     func getNearbyUser() {
@@ -27,20 +41,15 @@ class NearbyViewController: UIViewController {
             switch result {
             case .success(let usersData):
                 DispatchQueue.main.async {
-                    self?.addPointsOnMap(usersData)
+                    self?.usersData = usersData
+                    self?.tableView.reloadData()
+                    for user in usersData {
+                        let item = Item(uniqueKey: user.id, value: user)
+                        self?.radarView.add(item: item)                    }
                 }
             case .failure(let error):
                 print("Error getting nearby users: \(error.localizedDescription)")
             }
-        }
-    }
-    
-    func addPointsOnMap(_ usersData: [NearbyUser]) {
-        for userData in usersData {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: userData.latitude, longitude: userData.longitude)
-            annotation.title = userData.username
-            mapView.addAnnotation(annotation)
         }
     }
 }

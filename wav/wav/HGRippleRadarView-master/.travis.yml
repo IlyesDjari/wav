@@ -1,0 +1,24 @@
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
+
+osx_image: xcode9
+language: objective-c
+
+env:
+  global:
+    - WORKSPACE="Example/HGRippleRadarView.xcworkspace"
+  matrix:
+    - DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=11.0" PLATFORM="iOS"
+
+before_install:
+   - gem install cocoapods # Since Travis is not always on latest version
+   - pod install --project-directory=Example
+   - gem install xcpretty
+   
+before_script:
+  - open -b com.apple.iphonesimulator
+
+script:
+  - set -o pipefail && xcodebuild clean build -workspace "$WORKSPACE" -scheme HGRippleRadarView-Example -destination "$DESTINATION" | xcpretty
+  - pod lib lint --swift-version=4.0

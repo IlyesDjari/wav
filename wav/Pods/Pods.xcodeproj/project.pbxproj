@@ -1,0 +1,647 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		219BCECD655E462547A8EC64C1AA53B0 /* HGRippleRadarView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1D12E398D8A50812313FD05B12B4F5 /* HGRippleRadarView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2251F99D888CE8C19F9C37B267786323 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDFD5D65439D82D13400EC8CE82327C /* Item.swift */; };
+		540CA4995469994A7A23A683B6DA2E7D /* Pods-wav-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C9F4DBE9AF8C1DF2D1A9A1D6D9C4EF /* Pods-wav-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A0AE0A9787AFCBDC2B401B48B6508E6 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7087070E9319F0984851BCE1E1694E /* Geometry.swift */; };
+		648CAEDFBC304A17FD4324FC1129EA9F /* HGRippleRadarView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A518874DFF8078D1F2BFAECED86BC6A /* HGRippleRadarView-dummy.m */; };
+		66BB6759E70C49E9765C8387B97AA6BC /* RippleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70243969CF36D7D1EC4FEDD9874B298E /* RippleView.swift */; };
+		8988135A52A713B1EFB9216CD71077FD /* Pods-wav-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F34CFBC7266716D06CC76479D0E25231 /* Pods-wav-dummy.m */; };
+		98136F21B3497B1F30F41A024C2E87A5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79636A5257B7080FDE4D9DB0717FB65A /* UIColor.swift */; };
+		A5F75EE062B72C7E5B0777C22EAE8B85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		A68B48ADE2DD336993FEF410B979BF49 /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E894F8FD6797985090DCF6364E4ADA91 /* RadarView.swift */; };
+		B5E470D957A559BC42DE7078344B4535 /* RadarViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02394A5F8AE70016B26A9664A3D8C0E /* RadarViewProtocol.swift */; };
+		D35439C0DF08C78090F6CC542A5A2C2F /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C755DAB62BCC608381F8E48D7A4E8F /* Animation.swift */; };
+		E24F4BAD7CFF9A0655625E72627DD5B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F0DFEA6BECBB5F013836B31E9B58E3EB /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C6BE3A2B98CD08D858342CEC987717 /* ItemView.swift */; };
+		FDC4B6D66A1A77F2CA61DAACF763562A /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EA5A9DFBFEB50852DE0354ED9BBCDD /* Drawer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDDF41308ACE07B0182CCD8EA80D78B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD3A46F6BA83BC350FBC948C7F8D498F;
+			remoteInfo = HGRippleRadarView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1186F6DA169D9D0706BA7CE3AB92CC45 /* Pods_wav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C755DAB62BCC608381F8E48D7A4E8F /* Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = HGRippleRadarView/Classes/Utilities/Animation.swift; sourceTree = "<group>"; };
+		4397FD9DA2FAFA9C0712213D21570B60 /* Pods-wav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-wav.debug.xcconfig"; sourceTree = "<group>"; };
+		50C31DFFBB27EA84E01C1F5702AEB7F0 /* Pods-wav.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-wav.modulemap"; sourceTree = "<group>"; };
+		58EA5A9DFBFEB50852DE0354ED9BBCDD /* Drawer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Drawer.swift; path = HGRippleRadarView/Classes/Utilities/Drawer.swift; sourceTree = "<group>"; };
+		6A235D363162BDD8DEC013D7AEAF98C4 /* HGRippleRadarView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HGRippleRadarView.modulemap; sourceTree = "<group>"; };
+		6A518874DFF8078D1F2BFAECED86BC6A /* HGRippleRadarView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HGRippleRadarView-dummy.m"; sourceTree = "<group>"; };
+		6D7087070E9319F0984851BCE1E1694E /* Geometry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = HGRippleRadarView/Classes/Utilities/Geometry.swift; sourceTree = "<group>"; };
+		70243969CF36D7D1EC4FEDD9874B298E /* RippleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RippleView.swift; path = HGRippleRadarView/Classes/RippleView.swift; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		79636A5257B7080FDE4D9DB0717FB65A /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = HGRippleRadarView/Classes/Utilities/UIColor.swift; sourceTree = "<group>"; };
+		8588FC5EFDC4D10A66F4C4C6818017BB /* HGRippleRadarView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HGRippleRadarView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89C9F4DBE9AF8C1DF2D1A9A1D6D9C4EF /* Pods-wav-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-wav-umbrella.h"; sourceTree = "<group>"; };
+		908B057DFD20EE8DE842EA2EBCD4AA72 /* Pods-wav-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-wav-Info.plist"; sourceTree = "<group>"; };
+		991727769988AEAE32CBE6610EF1AF43 /* HGRippleRadarView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HGRippleRadarView.release.xcconfig; sourceTree = "<group>"; };
+		9D1D12E398D8A50812313FD05B12B4F5 /* HGRippleRadarView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HGRippleRadarView-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A02394A5F8AE70016B26A9664A3D8C0E /* RadarViewProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadarViewProtocol.swift; path = HGRippleRadarView/Classes/RadarViewProtocol.swift; sourceTree = "<group>"; };
+		A0E4E9B46956A0C9FD7DD56336F739E4 /* Pods-wav-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-wav-frameworks.sh"; sourceTree = "<group>"; };
+		B0C6BE3A2B98CD08D858342CEC987717 /* ItemView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ItemView.swift; path = HGRippleRadarView/Classes/ItemView.swift; sourceTree = "<group>"; };
+		C4D5F1060C9153D9E82EEED519BDB846 /* HGRippleRadarView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HGRippleRadarView.debug.xcconfig; sourceTree = "<group>"; };
+		D2453A45E9B66D4DC772888F37F4CA80 /* HGRippleRadarView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HGRippleRadarView-prefix.pch"; sourceTree = "<group>"; };
+		DB59FCAB347A14F5010819C5A6E70304 /* Pods-wav-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-wav-acknowledgements.plist"; sourceTree = "<group>"; };
+		E767919A392C9301B2CAC40EB84EFD60 /* HGRippleRadarView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HGRippleRadarView-Info.plist"; sourceTree = "<group>"; };
+		E894F8FD6797985090DCF6364E4ADA91 /* RadarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadarView.swift; path = HGRippleRadarView/Classes/RadarView.swift; sourceTree = "<group>"; };
+		EC66C9E8A3647E94AC6E2D5B833197EF /* Pods-wav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-wav.release.xcconfig"; sourceTree = "<group>"; };
+		EFDFD5D65439D82D13400EC8CE82327C /* Item.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Item.swift; path = HGRippleRadarView/Classes/Item.swift; sourceTree = "<group>"; };
+		F34CFBC7266716D06CC76479D0E25231 /* Pods-wav-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-wav-dummy.m"; sourceTree = "<group>"; };
+		FDECA78C2614D049172CF8829FB2C754 /* Pods-wav-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-wav-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		101FFE1C1223FF3AA3972B7747B91693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E24F4BAD7CFF9A0655625E72627DD5B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D65C7939632A6A877666FC04AC871AA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F75EE062B72C7E5B0777C22EAE8B85 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		074F2A893A48A2BA61FBF784F4BCA535 /* Pods-wav */ = {
+			isa = PBXGroup;
+			children = (
+				50C31DFFBB27EA84E01C1F5702AEB7F0 /* Pods-wav.modulemap */,
+				FDECA78C2614D049172CF8829FB2C754 /* Pods-wav-acknowledgements.markdown */,
+				DB59FCAB347A14F5010819C5A6E70304 /* Pods-wav-acknowledgements.plist */,
+				F34CFBC7266716D06CC76479D0E25231 /* Pods-wav-dummy.m */,
+				A0E4E9B46956A0C9FD7DD56336F739E4 /* Pods-wav-frameworks.sh */,
+				908B057DFD20EE8DE842EA2EBCD4AA72 /* Pods-wav-Info.plist */,
+				89C9F4DBE9AF8C1DF2D1A9A1D6D9C4EF /* Pods-wav-umbrella.h */,
+				4397FD9DA2FAFA9C0712213D21570B60 /* Pods-wav.debug.xcconfig */,
+				EC66C9E8A3647E94AC6E2D5B833197EF /* Pods-wav.release.xcconfig */,
+			);
+			name = "Pods-wav";
+			path = "Target Support Files/Pods-wav";
+			sourceTree = "<group>";
+		};
+		24FE879410860E25C0202343D730A7B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8588FC5EFDC4D10A66F4C4C6818017BB /* HGRippleRadarView.framework */,
+				1186F6DA169D9D0706BA7CE3AB92CC45 /* Pods_wav.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		257E7193FF8F0BF127C5078012EE0AC7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				074F2A893A48A2BA61FBF784F4BCA535 /* Pods-wav */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C707B0743DE67C0E68A123059798310B /* HGRippleRadarView */ = {
+			isa = PBXGroup;
+			children = (
+				38C755DAB62BCC608381F8E48D7A4E8F /* Animation.swift */,
+				58EA5A9DFBFEB50852DE0354ED9BBCDD /* Drawer.swift */,
+				6D7087070E9319F0984851BCE1E1694E /* Geometry.swift */,
+				EFDFD5D65439D82D13400EC8CE82327C /* Item.swift */,
+				B0C6BE3A2B98CD08D858342CEC987717 /* ItemView.swift */,
+				E894F8FD6797985090DCF6364E4ADA91 /* RadarView.swift */,
+				A02394A5F8AE70016B26A9664A3D8C0E /* RadarViewProtocol.swift */,
+				70243969CF36D7D1EC4FEDD9874B298E /* RippleView.swift */,
+				79636A5257B7080FDE4D9DB0717FB65A /* UIColor.swift */,
+				DCDC728CC71AAD75075637212D8A6063 /* Support Files */,
+			);
+			path = HGRippleRadarView;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				DD4E565CED83F06C73DFB986CAE8DE76 /* Pods */,
+				24FE879410860E25C0202343D730A7B4 /* Products */,
+				257E7193FF8F0BF127C5078012EE0AC7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCDC728CC71AAD75075637212D8A6063 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6A235D363162BDD8DEC013D7AEAF98C4 /* HGRippleRadarView.modulemap */,
+				6A518874DFF8078D1F2BFAECED86BC6A /* HGRippleRadarView-dummy.m */,
+				E767919A392C9301B2CAC40EB84EFD60 /* HGRippleRadarView-Info.plist */,
+				D2453A45E9B66D4DC772888F37F4CA80 /* HGRippleRadarView-prefix.pch */,
+				9D1D12E398D8A50812313FD05B12B4F5 /* HGRippleRadarView-umbrella.h */,
+				C4D5F1060C9153D9E82EEED519BDB846 /* HGRippleRadarView.debug.xcconfig */,
+				991727769988AEAE32CBE6610EF1AF43 /* HGRippleRadarView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HGRippleRadarView";
+			sourceTree = "<group>";
+		};
+		DD4E565CED83F06C73DFB986CAE8DE76 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C707B0743DE67C0E68A123059798310B /* HGRippleRadarView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A42C2290C6CEC5DF4E7601BE604401A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219BCECD655E462547A8EC64C1AA53B0 /* HGRippleRadarView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F84382302D02CCB6597B01C195476510 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				540CA4995469994A7A23A683B6DA2E7D /* Pods-wav-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		542939E1BDF5B92EA47B29560F137375 /* Pods-wav */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C13029A0DAB121513453834A0B974F5E /* Build configuration list for PBXNativeTarget "Pods-wav" */;
+			buildPhases = (
+				F84382302D02CCB6597B01C195476510 /* Headers */,
+				15752E6245766655E87EB11AC44CCA40 /* Sources */,
+				D65C7939632A6A877666FC04AC871AA3 /* Frameworks */,
+				5D35C6969AC64B89E65FDD5089F39BAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06DFBA44F1635D0728B42AE086BD32E7 /* PBXTargetDependency */,
+			);
+			name = "Pods-wav";
+			productName = Pods_wav;
+			productReference = 1186F6DA169D9D0706BA7CE3AB92CC45 /* Pods_wav.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AD3A46F6BA83BC350FBC948C7F8D498F /* HGRippleRadarView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D079C70B93630545D406757CBEF1739B /* Build configuration list for PBXNativeTarget "HGRippleRadarView" */;
+			buildPhases = (
+				A42C2290C6CEC5DF4E7601BE604401A2 /* Headers */,
+				49C53FCD8615629384C89CBC17EA05DE /* Sources */,
+				101FFE1C1223FF3AA3972B7747B91693 /* Frameworks */,
+				46F83B9AFEBDF0C3A31362036AB7EF65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HGRippleRadarView;
+			productName = HGRippleRadarView;
+			productReference = 8588FC5EFDC4D10A66F4C4C6818017BB /* HGRippleRadarView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					AD3A46F6BA83BC350FBC948C7F8D498F = {
+						LastSwiftMigration = "";
+					};
+				};
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 24FE879410860E25C0202343D730A7B4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD3A46F6BA83BC350FBC948C7F8D498F /* HGRippleRadarView */,
+				542939E1BDF5B92EA47B29560F137375 /* Pods-wav */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46F83B9AFEBDF0C3A31362036AB7EF65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D35C6969AC64B89E65FDD5089F39BAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15752E6245766655E87EB11AC44CCA40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8988135A52A713B1EFB9216CD71077FD /* Pods-wav-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49C53FCD8615629384C89CBC17EA05DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35439C0DF08C78090F6CC542A5A2C2F /* Animation.swift in Sources */,
+				FDC4B6D66A1A77F2CA61DAACF763562A /* Drawer.swift in Sources */,
+				5A0AE0A9787AFCBDC2B401B48B6508E6 /* Geometry.swift in Sources */,
+				648CAEDFBC304A17FD4324FC1129EA9F /* HGRippleRadarView-dummy.m in Sources */,
+				2251F99D888CE8C19F9C37B267786323 /* Item.swift in Sources */,
+				F0DFEA6BECBB5F013836B31E9B58E3EB /* ItemView.swift in Sources */,
+				A68B48ADE2DD336993FEF410B979BF49 /* RadarView.swift in Sources */,
+				B5E470D957A559BC42DE7078344B4535 /* RadarViewProtocol.swift in Sources */,
+				66BB6759E70C49E9765C8387B97AA6BC /* RippleView.swift in Sources */,
+				98136F21B3497B1F30F41A024C2E87A5 /* UIColor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06DFBA44F1635D0728B42AE086BD32E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HGRippleRadarView;
+			target = AD3A46F6BA83BC350FBC948C7F8D498F /* HGRippleRadarView */;
+			targetProxy = FDDF41308ACE07B0182CCD8EA80D78B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1A0125245BE295D7EB9B8EE16E941EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC66C9E8A3647E94AC6E2D5B833197EF /* Pods-wav.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-wav/Pods-wav-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-wav/Pods-wav.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		30E0B9EFD9A5C45D0D351231E81B30B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		65924D5A37ED25DADCF327EFD5F0C428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D5F1060C9153D9E82EEED519BDB846 /* HGRippleRadarView.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HGRippleRadarView/HGRippleRadarView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HGRippleRadarView/HGRippleRadarView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HGRippleRadarView/HGRippleRadarView.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				PRODUCT_MODULE_NAME = HGRippleRadarView;
+				PRODUCT_NAME = HGRippleRadarView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		910208AEB5C2E9475D7A82996B386AC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 991727769988AEAE32CBE6610EF1AF43 /* HGRippleRadarView.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HGRippleRadarView/HGRippleRadarView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HGRippleRadarView/HGRippleRadarView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HGRippleRadarView/HGRippleRadarView.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				PRODUCT_MODULE_NAME = HGRippleRadarView;
+				PRODUCT_NAME = HGRippleRadarView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F4FF6A0D1970CA9705974E3CB2134802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		FB53DBE88BB113A8D5DC5F4A138761A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4397FD9DA2FAFA9C0712213D21570B60 /* Pods-wav.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-wav/Pods-wav-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-wav/Pods-wav.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4FF6A0D1970CA9705974E3CB2134802 /* Debug */,
+				30E0B9EFD9A5C45D0D351231E81B30B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C13029A0DAB121513453834A0B974F5E /* Build configuration list for PBXNativeTarget "Pods-wav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB53DBE88BB113A8D5DC5F4A138761A1 /* Debug */,
+				1A0125245BE295D7EB9B8EE16E941EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D079C70B93630545D406757CBEF1739B /* Build configuration list for PBXNativeTarget "HGRippleRadarView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65924D5A37ED25DADCF327EFD5F0C428 /* Debug */,
+				910208AEB5C2E9475D7A82996B386AC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

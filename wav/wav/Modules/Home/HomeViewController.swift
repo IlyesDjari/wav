@@ -37,7 +37,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     }
     
     @IBOutlet weak var noSongLabel: MarqueeLabel!
-    @IBOutlet weak var SeeMoreButton: UIView!
     @IBOutlet weak var homePlayer: UIView!
     @IBOutlet weak var currentArtist: MarqueeLabel!
     @IBOutlet weak var currentSong: MarqueeLabel!
@@ -69,7 +68,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     
     private func configureUI() {
         addShadow(to: homePlayer)
-        addShadow(to: SeeMoreButton)
     }
     
     private func fetchAllData() {

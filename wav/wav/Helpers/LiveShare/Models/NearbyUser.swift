@@ -8,8 +8,9 @@
 import Foundation
 
 struct NearbyUser {
-    let userID: String
+    let songID: String
     let longitude: Double
     let latitude: Double
     let username: String
+    let id: String
 }
