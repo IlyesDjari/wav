@@ -542,10 +542,10 @@
             </objects>
             <point key="canvasLocation" x="715" y="434"/>
         </scene>
-        <!--NearbyViewController-->
+        <!--NearbyNavigationViewController-->
         <scene sceneID="xYm-RR-x16">
             <objects>
-                <viewControllerPlaceholder storyboardName="Nearby" referencedIdentifier="NearbyViewController" id="AAo-6x-vv9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Nearby" referencedIdentifier="NearbyNavigationViewController" id="AAo-6x-vv9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="yGT-gX-qVZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V91-su-vU9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

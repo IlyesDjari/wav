@@ -17,6 +17,8 @@
 		7E004AC22A152E810024CDBC /* LiveSessionPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E004AC12A152E810024CDBC /* LiveSessionPlayer.storyboard */; };
 		7E004AC42A15314E0024CDBC /* updateLocationDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AC32A15314E0024CDBC /* updateLocationDB.swift */; };
 		7E004AC62A1538260024CDBC /* getSongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AC52A1538260024CDBC /* getSongInfo.swift */; };
+		7E004AC92A154A320024CDBC /* UserInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AC82A154A320024CDBC /* UserInteractionViewController.swift */; };
+		7E004ACB2A154A570024CDBC /* UserInteraction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E004ACA2A154A570024CDBC /* UserInteraction.storyboard */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -104,6 +106,8 @@
 		7E004AC12A152E810024CDBC /* LiveSessionPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LiveSessionPlayer.storyboard; sourceTree = "<group>"; };
 		7E004AC32A15314E0024CDBC /* updateLocationDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateLocationDB.swift; sourceTree = "<group>"; };
 		7E004AC52A1538260024CDBC /* getSongInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSongInfo.swift; sourceTree = "<group>"; };
+		7E004AC82A154A320024CDBC /* UserInteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionViewController.swift; sourceTree = "<group>"; };
+		7E004ACA2A154A570024CDBC /* UserInteraction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInteraction.storyboard; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -241,6 +245,15 @@
 			path = LiveSessionPlayer;
 			sourceTree = "<group>";
 		};
+		7E004AC72A154A140024CDBC /* UserInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				7E004AC82A154A320024CDBC /* UserInteractionViewController.swift */,
+				7E004ACA2A154A570024CDBC /* UserInteraction.storyboard */,
+			);
+			path = UserInteraction;
+			sourceTree = "<group>";
+		};
 		7E418B572A02F42B007B9863 /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +388,7 @@
 				7EF5584B2A087E1400D1FE8F /* ListSongView */,
 				7EF558552A0881A600D1FE8F /* Nearby */,
 				7E004ABE2A152E530024CDBC /* LiveSessionPlayer */,
+				7E004AC72A154A140024CDBC /* UserInteraction */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -674,6 +688,7 @@
 				7EF558592A0881D200D1FE8F /* Nearby.storyboard in Resources */,
 				7EAB3EFF2A0165F800BB2E0B /* Home.storyboard in Resources */,
 				7E004AC22A152E810024CDBC /* LiveSessionPlayer.storyboard in Resources */,
+				7E004ACB2A154A570024CDBC /* UserInteraction.storyboard in Resources */,
 				7EF558892A0AED7B00D1FE8F /* Location.storyboard in Resources */,
 				7EAB3EEB2A0162D700BB2E0B /* LaunchScreen.storyboard in Resources */,
 				7EAB3EE82A0162D700BB2E0B /* Assets.xcassets in Resources */,
@@ -745,6 +760,7 @@
 				7E004AB32A13E0170024CDBC /* NearbyViewController+radar.swift in Sources */,
 				7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */,
 				7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */,
+				7E004AC92A154A320024CDBC /* UserInteractionViewController.swift in Sources */,
 				7EF5584D2A087E3700D1FE8F /* ListViewController.swift in Sources */,
 				7E418B662A0320C0007B9863 /* HomePlayer.swift in Sources */,
 				7EF558902A0B2D0A00D1FE8F /* RecommendedArtistCollectionViewCell.swift in Sources */,

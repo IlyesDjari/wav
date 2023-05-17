@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-RN-yxO">
-                                <rect key="frame" x="16" y="120" width="361" height="43"/>
+                                <rect key="frame" x="16" y="108" width="361" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" name="Purple"/>
                                 <nil key="highlightedColor"/>
@@ -113,28 +113,26 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmA-yz-SbY" customClass="RadarView" customModule="HGRippleRadarView">
-                                <rect key="frame" x="0.0" y="182" width="393" height="345"/>
+                                <rect key="frame" x="0.0" y="196" width="393" height="301"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="jmA-yz-SbY" firstAttribute="top" secondItem="1nh-RN-yxO" secondAttribute="bottom" constant="19" id="4ZP-IE-Chn"/>
+                            <constraint firstItem="jmA-yz-SbY" firstAttribute="top" secondItem="1nh-RN-yxO" secondAttribute="bottom" constant="45" id="4ZP-IE-Chn"/>
                             <constraint firstItem="jmA-yz-SbY" firstAttribute="centerX" secondItem="aEf-uc-87i" secondAttribute="centerX" id="DGM-fV-1IM"/>
                             <constraint firstItem="1nh-RN-yxO" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="Nqy-In-UHJ"/>
                             <constraint firstItem="jmA-yz-SbY" firstAttribute="centerX" secondItem="1nh-RN-yxO" secondAttribute="centerX" id="dvp-fK-31v"/>
                             <constraint firstItem="1nh-RN-yxO" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="rw1-2N-g8l"/>
                             <constraint firstItem="jmA-yz-SbY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="s5b-2V-AJ1"/>
                             <constraint firstItem="aEf-uc-87i" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="wXO-GY-cFx"/>
-                            <constraint firstItem="1nh-RN-yxO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="61" id="xgx-hb-UtG"/>
-                            <constraint firstItem="aEf-uc-87i" firstAttribute="top" secondItem="jmA-yz-SbY" secondAttribute="bottom" constant="-3" id="z0b-TO-Uwv"/>
+                            <constraint firstItem="1nh-RN-yxO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="xgx-hb-UtG"/>
+                            <constraint firstItem="aEf-uc-87i" firstAttribute="top" secondItem="jmA-yz-SbY" secondAttribute="bottom" constant="27" id="z0b-TO-Uwv"/>
                             <constraint firstItem="aEf-uc-87i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="z1i-gb-obE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="nearby" id="vFC-dS-SjD">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="bvP-cf-tod"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="radarView" destination="jmA-yz-SbY" id="qwQ-XV-rkp"/>
@@ -151,7 +149,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="1066.4122137404579" y="4.9295774647887329"/>
         </scene>
         <!--LiveSessionPlayerViewController-->
         <scene sceneID="0sD-3v-lL9">
@@ -161,7 +159,29 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oEy-1x-Uoe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="387"/>
+            <point key="canvasLocation" x="1066" y="420"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bWA-Kt-GhQ">
+            <objects>
+                <navigationController storyboardIdentifier="NearbyNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T6n-S8-4qc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="nearby" id="vFC-dS-SjD">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DdT-YU-NvC">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Purple"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="8Cv-IV-shc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GmD-5B-zlT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
         </scene>
     </scenes>
     <designables>

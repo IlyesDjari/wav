@@ -61,7 +61,7 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
                     // Calculate the distance between the current user's location and other users' location
                     let distance = calculateDistance(currentUserLocation, otherUserLocation)
                     if distance <= 500 {
-                        let nearbyUser = NearbyUser(songID: otherSongID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername, favoriteGenre: otherUserID, favoriteSong: otherSong, id: otherGenre)
+                        let nearbyUser = NearbyUser(songID: otherSongID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername, favoriteGenre: otherGenre, favoriteSong: otherSong, id: otherUserID)
                         nearbyUsers.append(nearbyUser)
                     }
                 }
