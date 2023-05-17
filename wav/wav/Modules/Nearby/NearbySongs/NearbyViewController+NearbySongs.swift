@@ -9,17 +9,17 @@ import Foundation
 import MusadoraKit
 import UIKit
 
-extension NearbyViewController {    
-    
+extension NearbyViewController {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // Return the number of rows in the table view
-            return usersData.count
-        }
-        
+        // Return the number of rows in the table view
+        return usersData.count
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyUserCell", for: indexPath) as! NearbyUsersTableViewCell
         let userData = usersData[indexPath.row]
-        
+
         Task {
             do {
                 let song = try await MCatalog.song(id: MusicItemID(rawValue: userData.songID))
@@ -35,5 +35,18 @@ extension NearbyViewController {
             }
         }
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "LiveSharePlayerSegue", sender: usersData[indexPath.row])
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LiveSharePlayerSegue" {
+            let destinationVC = segue.destination as! LiveSessionPlayerViewController
+            if let userData = sender as? NearbyUser {
+                destinationVC.usersData = userData
+            }
+        }
     }
 }

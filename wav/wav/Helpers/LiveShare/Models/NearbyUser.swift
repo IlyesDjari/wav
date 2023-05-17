@@ -12,5 +12,7 @@ struct NearbyUser {
     let longitude: Double
     let latitude: Double
     let username: String
+    let favoriteGenre: String
+    let favoriteSong: String
     let id: String
 }

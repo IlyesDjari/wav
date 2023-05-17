@@ -139,6 +139,7 @@
                     <connections>
                         <outlet property="radarView" destination="jmA-yz-SbY" id="qwQ-XV-rkp"/>
                         <outlet property="tableView" destination="aEf-uc-87i" id="eeO-WP-J5e"/>
+                        <segue destination="qNR-9T-C0F" kind="show" identifier="LiveSharePlayerSegue" id="XrZ-QF-aqw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,6 +152,16 @@
                 </label>
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+        </scene>
+        <!--LiveSessionPlayerViewController-->
+        <scene sceneID="0sD-3v-lL9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LiveSessionPlayer" referencedIdentifier="LiveSessionPlayerViewController" id="qNR-9T-C0F" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rfc-0J-iU4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oEy-1x-Uoe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="387"/>
         </scene>
     </scenes>
     <designables>

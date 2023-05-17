@@ -50,24 +50,22 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
                 guard let otherUserLocation = document.data()["location"] as? GeoPoint else {
                     continue
                 }
-                
                 let otherUserID = document.documentID
                 let otherSongID = document.data()["currentSong"] as? String ?? ""
                 let otherLongitude = otherUserLocation.longitude
                 let otherLatitude = otherUserLocation.latitude
                 let otherUsername = document.data()["username"] as? String ?? ""
-                
+                let otherSong = document.data()["favoriteSong"] as? String ?? ""
+                let otherGenre = document.data()["favoriteGenre"] as? String ?? ""
                 if otherUserID != userID {
                     // Calculate the distance between the current user's location and other users' location
                     let distance = calculateDistance(currentUserLocation, otherUserLocation)
-                    
                     if distance <= 500 {
-                        let nearbyUser = NearbyUser(songID: otherSongID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername, id: otherUserID)
+                        let nearbyUser = NearbyUser(songID: otherSongID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername, favoriteGenre: otherUserID, favoriteSong: otherSong, id: otherGenre)
                         nearbyUsers.append(nearbyUser)
                     }
                 }
             }
-            
             completion(.success(nearbyUsers))
         }
     }
