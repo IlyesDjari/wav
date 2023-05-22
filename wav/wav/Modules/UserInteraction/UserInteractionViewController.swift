@@ -63,7 +63,6 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     func animate(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
         // If the app transitions from unavailable, present the app's display
         // and hide the user instructions.
-        let azimuth = peer.direction.map(azimuth(from:))
         if currentState == .unknown && nextState != .unknown {
         }
         // Set the app's display based on peer state.
@@ -80,21 +79,17 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         print("wow")
         
         if let direction = peer.direction {
-            // Calculate azimuth (rotation around z axis) and elevation (rotation around x axis)
+            // Calculate azimuth (rotation around y axis)
             NearbyArrow.isHidden = false
-            let azimuth = atan2(direction.z, direction.x)
-            let elevation = asin(-direction.y) // negative to make up point towards the sky
+            let azimuth = atan2(direction.x, direction.y)
+            let degrees = azimuth.radiansToDegrees
             DispatchQueue.main.async {
-                var transform = CATransform3DIdentity
-                // Apply rotation around z axis
-                transform = CATransform3DRotate(transform, CGFloat(azimuth), 0, 0, 1)
-                // Apply rotation around x axis
-                transform = CATransform3DRotate(transform, CGFloat(elevation), 1, 0, 0)
-                // Apply the 3D transformation
-                self.NearbyArrow.layer.transform = transform
+                // Apply rotation
+                self.NearbyArrow.transform = CGAffineTransform(rotationAngle: CGFloat(degrees.degreesToRadians))
             }
-            print("Azimuth: \(azimuth.radiansToDegrees)°, Elevation: \(elevation.radiansToDegrees)°")
+            print("Azimuth: \(azimuth.radiansToDegrees)°")
         }
+
         
         if peer.distance != nil {
             detailDistanceLabel.text = String(format: "%0.2f m", peer.distance!)
@@ -103,8 +98,7 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         // Don't update visuals if the peer device is unavailable or out of the
         // U1 chip's field of view.
         if nextState == .outOfFOV || nextState == .unknown {
-            detailDistanceLabel.text = ""
-            NearbyArrow.isHidden = true
+            detailDistanceLabel.text = "Move your phone around"
             return
         }
     }
