@@ -19,6 +19,11 @@
 		7E004AC62A1538260024CDBC /* getSongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AC52A1538260024CDBC /* getSongInfo.swift */; };
 		7E004AC92A154A320024CDBC /* UserInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AC82A154A320024CDBC /* UserInteractionViewController.swift */; };
 		7E004ACB2A154A570024CDBC /* UserInteraction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E004ACA2A154A570024CDBC /* UserInteraction.storyboard */; };
+		7E004ACE2A1551340024CDBC /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004ACD2A1551340024CDBC /* MPCSession.swift */; };
+		7E004AD22A15529E0024CDBC /* UserInteractionViewController+MPCTokenSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD12A15529E0024CDBC /* UserInteractionViewController+MPCTokenSharing.swift */; };
+		7E004AD42A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD32A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift */; };
+		7E004AD72A1AA5010024CDBC /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD62A1AA5010024CDBC /* MathUtilities.swift */; };
+		7E004AD92A1AB0940024CDBC /* DistanceDirectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD82A1AB0940024CDBC /* DistanceDirectionState.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -108,6 +113,12 @@
 		7E004AC52A1538260024CDBC /* getSongInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSongInfo.swift; sourceTree = "<group>"; };
 		7E004AC82A154A320024CDBC /* UserInteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionViewController.swift; sourceTree = "<group>"; };
 		7E004ACA2A154A570024CDBC /* UserInteraction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInteraction.storyboard; sourceTree = "<group>"; };
+		7E004ACD2A1551340024CDBC /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
+		7E004AD02A15519C0024CDBC /* MPCSession License.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "MPCSession License.md"; sourceTree = "<group>"; };
+		7E004AD12A15529E0024CDBC /* UserInteractionViewController+MPCTokenSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInteractionViewController+MPCTokenSharing.swift"; sourceTree = "<group>"; };
+		7E004AD32A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInteractionViewController+NISessionDelegate.swift"; sourceTree = "<group>"; };
+		7E004AD62A1AA5010024CDBC /* MathUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtilities.swift; sourceTree = "<group>"; };
+		7E004AD82A1AB0940024CDBC /* DistanceDirectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceDirectionState.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -250,8 +261,28 @@
 			children = (
 				7E004AC82A154A320024CDBC /* UserInteractionViewController.swift */,
 				7E004ACA2A154A570024CDBC /* UserInteraction.storyboard */,
+				7E004AD12A15529E0024CDBC /* UserInteractionViewController+MPCTokenSharing.swift */,
+				7E004AD32A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift */,
 			);
 			path = UserInteraction;
+			sourceTree = "<group>";
+		};
+		7E004ACC2A1551130024CDBC /* MPCSupport */ = {
+			isa = PBXGroup;
+			children = (
+				7E004ACD2A1551340024CDBC /* MPCSession.swift */,
+				7E004AD62A1AA5010024CDBC /* MathUtilities.swift */,
+				7E004AD82A1AB0940024CDBC /* DistanceDirectionState.swift */,
+			);
+			path = MPCSupport;
+			sourceTree = "<group>";
+		};
+		7E004ACF2A1551770024CDBC /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				7E004AD02A15519C0024CDBC /* MPCSession License.md */,
+			);
+			path = Licenses;
 			sourceTree = "<group>";
 		};
 		7E418B572A02F42B007B9863 /* History */ = {
@@ -344,6 +375,7 @@
 		7EAB3ECF2A0162D500BB2E0B = {
 			isa = PBXGroup;
 			children = (
+				7E004ACF2A1551770024CDBC /* Licenses */,
 				7EAB3EDA2A0162D500BB2E0B /* wav */,
 				7EAB3ED92A0162D500BB2E0B /* Products */,
 				6D597328551C88A651B90988 /* Pods */,
@@ -396,6 +428,7 @@
 		7EAB3EF32A0162E500BB2E0B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7E004ACC2A1551130024CDBC /* MPCSupport */,
 				7EF5587C2A0A95BB00D1FE8F /* LiveShare */,
 				7EF558742A09A31600D1FE8F /* DatabaseUsers */,
 				7E91E62F2A0681B300ADB0EE /* MusicPlaybackControl.swift */,
@@ -769,6 +802,7 @@
 				7E5132ED2A13ABED00E68533 /* NearbyViewController+NearbySongs.swift in Sources */,
 				7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */,
 				7E004ABB2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift in Sources */,
+				7E004AD42A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift in Sources */,
 				7EF5585C2A0883B400D1FE8F /* LibraryViewController.swift in Sources */,
 				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
@@ -779,10 +813,12 @@
 				7E567B5F2A0C052200172755 /* addGradient.swift in Sources */,
 				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
 				7EF558402A06F89000D1FE8F /* updateTimelineGradient.swift in Sources */,
+				7E004AD92A1AB0940024CDBC /* DistanceDirectionState.swift in Sources */,
 				7EF5588E2A0B240200D1FE8F /* LibraryCollectionViewCell.swift in Sources */,
 				7EAB3EDC2A0162D500BB2E0B /* AppDelegate.swift in Sources */,
 				7EEA00332A0D6A1E00B7304F /* HomeViewController+Albums.swift in Sources */,
 				7E004AB82A13FBFF0024CDBC /* addGenre.swift in Sources */,
+				7E004AD72A1AA5010024CDBC /* MathUtilities.swift in Sources */,
 				7E004AC42A15314E0024CDBC /* updateLocationDB.swift in Sources */,
 				7EF558572A0881CA00D1FE8F /* NearbyViewController.swift in Sources */,
 				7EA183A32A01B1B600F658E4 /* RecentItems.swift in Sources */,
@@ -795,7 +831,9 @@
 				7E5132F02A13B2C500E68533 /* NearbyUsersTableViewCell.swift in Sources */,
 				7EF558662A098B9F00D1FE8F /* NameViewController.swift in Sources */,
 				7EF558922A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift in Sources */,
+				7E004ACE2A1551340024CDBC /* MPCSession.swift in Sources */,
 				7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */,
+				7E004AD22A15529E0024CDBC /* UserInteractionViewController+MPCTokenSharing.swift in Sources */,
 				7E5132DF2A12DE7200E68533 /* getNearbyUsers.swift in Sources */,
 				7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */,
 				7EF558642A09337200D1FE8F /* SearchViewCell.swift in Sources */,
@@ -956,6 +994,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = wav/wav.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L36Z6K6Q9J;
@@ -989,6 +1028,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = wav/wav.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L36Z6K6Q9J;

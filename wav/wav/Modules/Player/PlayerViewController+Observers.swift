@@ -19,7 +19,7 @@ extension PlayerViewController {
                 DispatchQueue.main.async {
                     self.songID = nextSongID
                     DispatchQueue.main.async {
-                        self.fetchPlayingSong(songID: nextSongID)
+                        self.fetchPlayingSong(songID: self.songID)
                     }
                 }
             }

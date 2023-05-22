@@ -16,17 +16,53 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching user..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTY-Dj-Hnu">
+                                <rect key="frame" x="0.0" y="161" width="393" height="102"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBB-0f-1Ar">
+                                <rect key="frame" x="38" y="596" width="316" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="W8j-8h-JsW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                <color key="textColor" name="Purple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qR0-jb-AHl">
+                                <rect key="frame" x="76" y="310" width="240" height="233"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" name="Purple"/>
+                        <constraints>
+                            <constraint firstItem="aTY-Dj-Hnu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="27k-Oe-0NY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aTY-Dj-Hnu" secondAttribute="bottom" constant="555" id="2da-0Q-N0i"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="JBB-0f-1Ar" secondAttribute="bottom" constant="156" id="5Jm-F4-jol"/>
+                            <constraint firstItem="aTY-Dj-Hnu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="102" id="EuX-3d-7Oj"/>
+                            <constraint firstItem="JBB-0f-1Ar" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="38" id="Pzj-uZ-Tak"/>
+                            <constraint firstItem="aTY-Dj-Hnu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZQq-HI-8aR"/>
+                            <constraint firstItem="JBB-0f-1Ar" firstAttribute="centerX" secondItem="aTY-Dj-Hnu" secondAttribute="centerX" id="xIw-8F-cTw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="NearbyArrow" destination="qR0-jb-AHl" id="07z-tA-YSE"/>
+                        <outlet property="detailDistanceLabel" destination="JBB-0f-1Ar" id="5Hw-cy-GkP"/>
+                        <outlet property="searchLabel" destination="aTY-Dj-Hnu" id="z3K-eP-KDG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="5"/>
+            <point key="canvasLocation" x="67.938931297709928" y="4.9295774647887329"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up" catalog="system" width="118" height="128"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

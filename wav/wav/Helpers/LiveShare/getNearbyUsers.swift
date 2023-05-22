@@ -20,12 +20,12 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
     
     // Retrieve current user's location
     usersRef.document(userID).getDocument { (document, error) in
-        if let error = error {
+        if let error {
             completion(.failure(error))
             return
         }
         
-        guard let document = document,
+        guard let document,
               document.exists,
               let currentUserLocation = document.data()?["location"] as? GeoPoint else {
             completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User document not found or missing location field"])))
@@ -34,12 +34,12 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
         
         // Query for users within the 500-meter radius
         usersRef.getDocuments { (snapshot, error) in
-            if let error = error {
+            if let error {
                 completion(.failure(error))
                 return
             }
             
-            guard let snapshot = snapshot else {
+            guard let snapshot else {
                 completion(.failure(NSError(domain: "ilyesdjari.wav", code: 500, userInfo: [NSLocalizedDescriptionKey: "Snapshot is nil"])))
                 return
             }
@@ -57,6 +57,11 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
                 let otherUsername = document.data()["username"] as? String ?? ""
                 let otherSong = document.data()["favoriteSong"] as? String ?? ""
                 let otherGenre = document.data()["favoriteGenre"] as? String ?? ""
+                
+                guard !otherSongID.isEmpty else {
+                       continue
+                   }
+                
                 if otherUserID != userID {
                     // Calculate the distance between the current user's location and other users' location
                     let distance = calculateDistance(currentUserLocation, otherUserLocation)

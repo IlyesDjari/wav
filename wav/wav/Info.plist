@@ -2,36 +2,50 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>UIApplicationSceneManifest</key>
-    <dict>
-        <key>UIApplicationSupportsMultipleScenes</key>
-        <false/>
-        <key>UISceneConfigurations</key>
-        <dict>
-            <key>UIWindowSceneSessionRoleApplication</key>
-            <array>
-                <dict>
-                    <key>UISceneConfigurationName</key>
-                    <string>Default Configuration</string>
-                    <key>UISceneDelegateClassName</key>
-                    <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-                    <key>UISceneStoryboardFile</key>
-                    <string>Main</string>
-                </dict>
-            </array>
-        </dict>
-    </dict>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Allow access to location data in the background to provide you with live session listening.</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Allow access to location data in the background to provide you with live session listening.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Allow access to location data while you are using the app to provide you with live session listening.</string>
-    <key>UIBackgroundModes</key>
-    <array>
-        <string>fetch</string>
-        <string>remote-notification</string>
-        <string>location</string>
-    </array>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_nisample._tcp</string>
+	</array>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow access to location data in the background to provide you with live session listening.</string>
+	<key>NSNearbyInteractionAllowOnceUsageDescription</key>
+	<string>Wav uses nearby interaction to let you find the live session holder.</string>
+	<key>NSNearbyInteractionUsageDescription</key>
+	<string>Wav uses nearby interaction to let you find the live session holder.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow access to location data in the background to provide you with live session listening.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow access to location data while you are using the app to provide you with live session listening.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+		<string>location</string>
+	</array>
 </dict>
 </plist>

@@ -20,7 +20,6 @@ extension PlayerViewController {
                     DispatchQueue.main.async {
                         self.updateUI(with: song)
                     }
-                    
                     let recommendations = try await MRecommendation.continuousSongs(for: song)
                     if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
                        nowPlayingItem.playbackStoreID == songID {
