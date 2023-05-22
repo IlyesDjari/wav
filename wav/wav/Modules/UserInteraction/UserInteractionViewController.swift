@@ -21,6 +21,7 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     var peerDisplayName: String?
     let nearbyDistanceThreshold: Float = 0.3
     var currentDistanceDirectionState: DistanceDirectionState = .unknown
+    var lastVibrationDistance: Float?
     
     // Outlets
     @IBOutlet weak var NearbyArrow: UIImageView!
@@ -91,10 +92,24 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         }
 
         
-        if peer.distance != nil {
-            detailDistanceLabel.text = String(format: "%0.2f m", peer.distance!)
+        if let distance = peer.distance {
+            detailDistanceLabel.text = String(format: "%0.2f m", distance)
+            if distance <= 0.75 {
+                // Keep vibrating
+                impactGenerator.impactOccurred()
+            } else if distance <= 1.5 {
+                // Vibrate once
+                // Check if the last vibration was not at this distance to prevent continuous vibrations at this distance
+                if lastVibrationDistance == nil || lastVibrationDistance! > 1.5 {
+                    impactGenerator.impactOccurred()
+                    lastVibrationDistance = distance
+                }
+            } else {
+                // Reset last vibration distance
+                lastVibrationDistance = nil
+            }
         }
-                
+
         // Don't update visuals if the peer device is unavailable or out of the
         // U1 chip's field of view.
         if nextState == .outOfFOV || nextState == .unknown {
