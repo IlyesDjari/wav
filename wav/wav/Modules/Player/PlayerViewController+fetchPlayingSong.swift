@@ -16,13 +16,19 @@ extension PlayerViewController {
         if playlistIDs == nil {
             Task {
                 do {
+                    // Check if the song ID is already playing
+                    if let currentSongID = player.queue.currentEntry?.id, currentSongID == songID {
+                        // Song ID is already playing, no need to fetch the details again
+                        return
+                    }
+
                     let song = try await MCatalog.song(id: MusicItemID(rawValue: songID!))
                     DispatchQueue.main.async {
                         self.updateUI(with: song)
                     }
                     let recommendations = try await MRecommendation.continuousSongs(for: song)
                     if let nowPlayingItem = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem,
-                       nowPlayingItem.playbackStoreID == songID {
+                        nowPlayingItem.playbackStoreID == songID {
                         queueRecommendation(recommendations: recommendations)
                     } else {
                         player.queue = [song]
@@ -42,6 +48,7 @@ extension PlayerViewController {
             }
         }
     }
+
 
     internal func updateUI(with song: Song) {
         self.song.text = song.title
@@ -71,13 +78,12 @@ extension PlayerViewController {
     }
 
     internal func queueRecommendation(recommendations: MusicItemCollection<Song>) {
-        if let recommendedSong = recommendations.first {
-            Task {
-                do {
-                    try await player.queue.insert(recommendedSong, position: .tail)
-                } catch {
-                    print("Error fetching song recommendation: \(error)")
-                }
+        let recommendedSongs = recommendations.prefix(10)
+        Task {
+            do {
+                try await player.queue.insert(recommendedSongs, position: .tail)
+            } catch {
+                print("Error inserting recommended songs to queue: \(error)")
             }
         }
     }

@@ -10,10 +10,8 @@ import UIKit
 import MusicKit
 
 struct MusicPlaybackControl {
-
     let musicPlayer = ApplicationMusicPlayer.shared
     var playerViewController: PlayerViewController?
-
 
     public func setStateButtonImage(stateButton: UIImageView) {
         let isPlaying = musicPlayer.state.playbackStatus == .playing
@@ -28,7 +26,7 @@ struct MusicPlaybackControl {
         switch playbackState {
         case .playing:
             musicPlayer.pause()
-        default:
+        case .paused:
             Task {
                 do {
                     try await musicPlayer.play()
@@ -36,6 +34,8 @@ struct MusicPlaybackControl {
                     print("Failed to prepare to play with error: \(error).")
                 }
             }
+        default:
+            musicPlayer.stop()
         }
     }
 

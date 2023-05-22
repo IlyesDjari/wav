@@ -33,6 +33,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var liveShareButton: UIImageView!
     @IBOutlet weak var liveShareLabel: MarqueeLabel!
     @IBOutlet weak var shuffleButton: UIImageView!
+
     // Properties
     private lazy var debouncedSkipButtonTapped: (() -> Void) = {
         debounce(interval: 300, queue: .main) { [weak self] in
@@ -48,12 +49,19 @@ class PlayerViewController: UIViewController {
             }
         }
     }()
+    internal lazy var debouncedSongChanged: (() -> Void) = {
+        debounce(interval: 500, queue: .main) { [weak self] in
+            self?.performSongChanged()
+        }
+    }()
+
     weak var homeViewController: HomeViewController?
     weak var delegate: PlayerViewControllerDelegate?
     var playbackAndTimelineTimer: Timer?
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
     internal var lastPlayedSongID: String?
     internal var timelineEditing = false
+    private var observer: NSObjectProtocol?
     public var sharePlay: Bool {
         get {
             return UserDefaultsManager.shared.getSharePlayStatus()
@@ -94,16 +102,15 @@ class PlayerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Fetch skipping songs
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { _ in
+        observer = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { [weak self] _ in
             if let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID {
-                self.songChanged(nextSongID: nextSongID)
+                self?.songChanged(nextSongID: nextSongID)
             }
         }
         // Set the initial state of the state button
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
         // Check playback status
         startUpdateTimers()
-
         // Add timeline observers
         timeline.addTarget(self, action: #selector(timelineValueChanged(_:)), for: .valueChanged)
         timeline.addTarget(self, action: #selector(timelineEditingBegan(_:)), for: .touchDown)
@@ -112,10 +119,13 @@ class PlayerViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        if let observer = observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
         // Remove the observer for playback status changes
         playbackAndTimelineTimer?.invalidate()
     }
-    
+
     internal func startUpdateTimers() {
         playbackAndTimelineTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.playbackStatusChanged()
