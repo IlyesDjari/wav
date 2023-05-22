@@ -472,6 +472,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
+                        <color key="tintColor" name="Purple"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Ycr-fA-5NN" secondAttribute="bottom" id="DAV-7c-q57"/>
                             <constraint firstItem="UGj-Ct-u0e" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="N0N-7n-yNL"/>
@@ -598,6 +599,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" name="Purple"/>
+                        <color key="barTintColor" name="Background"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -158,18 +158,18 @@ class PlayerViewController: UIViewController {
     }
 
     private func updateLiveShare() {
-        guard let unwrappedSongID = songID else {
-            print("Error: songID is nil.")
-            return
-        }
         if sharePlay {
-            startLiveShareSession(songID: unwrappedSongID) { result in
-                switch result {
-                case .success:
-                    self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
-                case .failure(let error):
-                    print("Failed to start live share session: \(error)")
+            if let entryID = player.queue.currentEntry?.id {
+                startLiveShareSession(songID: entryID) { result in
+                    switch result {
+                    case .success:
+                        self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
+                    case .failure(let error):
+                        print("Failed to start live share session: \(error)")
+                    }
                 }
+            } else {
+                print("Error: currentEntry ID is nil.")
             }
         } else {
             stopLiveShareSession { result in
