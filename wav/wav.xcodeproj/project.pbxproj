@@ -24,6 +24,7 @@
 		7E004AD42A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD32A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift */; };
 		7E004AD72A1AA5010024CDBC /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD62A1AA5010024CDBC /* MathUtilities.swift */; };
 		7E004AD92A1AB0940024CDBC /* DistanceDirectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD82A1AB0940024CDBC /* DistanceDirectionState.swift */; };
+		7E004ADE2A1D1C5F0024CDBC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004ADD2A1D1C5F0024CDBC /* TabBarViewController.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -119,6 +120,7 @@
 		7E004AD32A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInteractionViewController+NISessionDelegate.swift"; sourceTree = "<group>"; };
 		7E004AD62A1AA5010024CDBC /* MathUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtilities.swift; sourceTree = "<group>"; };
 		7E004AD82A1AB0940024CDBC /* DistanceDirectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceDirectionState.swift; sourceTree = "<group>"; };
+		7E004ADD2A1D1C5F0024CDBC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,14 @@
 				7E004AD02A15519C0024CDBC /* MPCSession License.md */,
 			);
 			path = Licenses;
+			sourceTree = "<group>";
+		};
+		7E004ADA2A1D1BEE0024CDBC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7E004ADD2A1D1C5F0024CDBC /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		7E418B572A02F42B007B9863 /* History */ = {
@@ -470,6 +480,7 @@
 		7EAB3EF62A01634B00BB2E0B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7E004ADA2A1D1BEE0024CDBC /* TabBar */,
 				7EA183A12A01B1A600F658E4 /* Models */,
 				7EAB3EFE2A0165F800BB2E0B /* Home.storyboard */,
 				7EAB3EFC2A0165F100BB2E0B /* HomeViewController.swift */,
@@ -842,6 +853,7 @@
 				7EF5584A2A08610300D1FE8F /* animateImageTransition.swift in Sources */,
 				7EC240532A0C3BB500029BC7 /* TracksTableViewCell.swift in Sources */,
 				7E418B632A03155C007B9863 /* shadowView.swift in Sources */,
+				7E004ADE2A1D1C5F0024CDBC /* TabBarViewController.swift in Sources */,
 				7EC797B72A0C612A003DEB15 /* debounce.swift in Sources */,
 				7EAB3EDE2A0162D500BB2E0B /* SceneDelegate.swift in Sources */,
 				7EEA00302A0D58B500B7304F /* ListViewController+fetchPlaylist.swift in Sources */,

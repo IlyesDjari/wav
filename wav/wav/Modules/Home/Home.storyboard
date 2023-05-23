@@ -563,10 +563,10 @@
             </objects>
             <point key="canvasLocation" x="1406" y="434"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="Ot0-FJ-Zac">
             <objects>
-                <tabBarController storyboardIdentifier="NavigationViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="34e-o6-qCd" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NavigationViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="34e-o6-qCd" customClass="TabBarViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="5yG-RF-Chw">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
