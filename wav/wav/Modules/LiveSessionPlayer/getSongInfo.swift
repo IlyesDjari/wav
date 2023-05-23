@@ -28,6 +28,9 @@ extension LiveSessionPlayerViewController {
                                     addShadow(to: self.suggestView)
                                 }
                                 updateBackgroundColor(from: image, in: self.view)
+                                Task {
+                                   try await ApplicationMusicPlayer.shared.play(song: song)
+                                }
                             }
                         }
                     }.resume()
