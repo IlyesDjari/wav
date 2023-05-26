@@ -106,6 +106,10 @@ extension HomeViewController {
             guard let playlistVC = segue.destination as? ListViewController else { return }
             guard let playlist = sender as? Playlist else { return }
             playlistVC.playlist = playlist
+        } else if segue.identifier == "homeToAlbumSegue",
+            let albumViewController = segue.destination as? AlbumViewController,
+            let album = sender as? Album {
+            albumViewController.album = album
         }
     }
 }

@@ -1,40 +1,42 @@
 //
-//  ListViewController.swift
+//  AlbumViewController.swift
 //  wav
 //
-//  Created by Ilyes Djari on 08/05/2023.
+//  Created by Ilyes Djari on 26/05/2023.
 //
 
 import UIKit
-import MusadoraKit
 import MarqueeLabel
+import MusadoraKit
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     // Outlets
-    @IBOutlet weak var TrackCollectionView: UITableView! {
-        didSet {
-            TrackCollectionView.delegate = self
-            TrackCollectionView.dataSource = self
-        }
-    }
-    @IBOutlet weak var heightConstant: NSLayoutConstraint!
+    @IBOutlet weak var albumTitle: MarqueeLabel!
+    @IBOutlet weak var artistName: MarqueeLabel!
     @IBOutlet weak var cover: UIImageView!
-    @IBOutlet weak var playlistTitle: MarqueeLabel!
     @IBOutlet weak var backgroundGradient: UIView!
-    // Properties
-    var playlist: Playlist? {
+    @IBOutlet weak var heightConstant: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView! {
         didSet {
-            if let playlist {
-                fetchPlaylist(playlist)
-            }
+            tableView.delegate = self
+            tableView.dataSource = self
         }
     }
-
+    
+    // Properties
     var tracks: MusicItemCollection<Track> = MusicItemCollection([]) {
         didSet {
-            TrackCollectionView.reloadData()
+            tableView.reloadData()
             heightConstant.constant = CGFloat(Double(tracks.count) * 65)
+        }
+    }
+    
+    var album: Album? {
+        didSet {
+            if let album {
+                fetchAlbum(album)
+            }
         }
     }
 
@@ -42,10 +44,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         configureUI()
     }
-
+   
     private func configureUI() {
-        playlistTitle.text = playlist?.name
-        if let artworkURL = playlist?.artwork?.url(width: 500, height: 500) {
+        albumTitle.text = album?.title
+        artistName.text = album?.artistName
+        if let artworkURL = album?.artwork?.url(width: 500, height: 500) {
             let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, response, error in
                 if let error {
                     print("Error loading image: \(error.localizedDescription)")
@@ -57,7 +60,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 DispatchQueue.main.async {
                     self?.cover.image = UIImage(data: data)
-                    if let color = self?.playlist?.artwork?.backgroundColor {
+                    if let color = self?.album?.artwork?.backgroundColor {
                         let uiColor = UIColor(cgColor: color)
                         if let backgroundView = self!.backgroundGradient {
                             addGradient(to: backgroundView, with: uiColor)
@@ -71,4 +74,5 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             task.resume()
         }
     }
+
 }

@@ -11,31 +11,31 @@ import MusadoraKit
 import MarqueeLabel
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerViewControllerDelegate {
-    
+
     // Outlets
     @IBOutlet weak var HistoryCollectionView: UICollectionView! {
         didSet {
             HistoryCollectionView.dataSource = self
             HistoryCollectionView.delegate = self
-            
+
         }
     }
-    
+
     @IBOutlet weak var ForYouCollectionView: UICollectionView! {
         didSet {
             ForYouCollectionView.dataSource = self
             ForYouCollectionView.delegate = self
-            
+
         }
     }
-    
+
     @IBOutlet weak var RecommendedArtistCollectionView: UICollectionView! {
         didSet {
             RecommendedArtistCollectionView.dataSource = self
             RecommendedArtistCollectionView.delegate = self
         }
     }
-    
+
     @IBOutlet weak var noSongLabel: MarqueeLabel!
     @IBOutlet weak var homePlayer: UIView!
     @IBOutlet weak var currentArtist: MarqueeLabel!
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     @IBOutlet weak var album1: UIImageView!
     @IBOutlet weak var album2: UIImageView!
     @IBOutlet weak var album3: UIImageView!
-    
+
     // Properties
     public var recentItems: [RecentItem] = []
     public var recommendedStations: [Playlist] = []
@@ -55,21 +55,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     internal var lastPlaybackStatus: ApplicationMusicPlayer.PlaybackStatus?
     public let musicPlaybackControl = MusicPlaybackControl()
     public let player = ApplicationMusicPlayer.shared
-    
+    internal var recommendations: MusicItemCollection<Album> = MusicItemCollection([])
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         fetchAllData()
+        setupAlbumTapGesture()
     }
-    
+
     func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?) {
         self.songID = songID
     }
-    
+
     private func configureUI() {
         addShadow(to: homePlayer)
     }
-    
+
     private func fetchAllData() {
         // Show the loading view
         let loadingView = showLoadingView(on: view)
@@ -92,7 +94,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
             }
         }
     }
-    
+
+    private func setupAlbumTapGesture() {
+        let albumTapGesture1 = UITapGestureRecognizer(target: self, action: #selector(albumTapped(_:)))
+        album1.addGestureRecognizer(albumTapGesture1)
+        album1.isUserInteractionEnabled = true
+
+        let albumTapGesture2 = UITapGestureRecognizer(target: self, action: #selector(albumTapped(_:)))
+        album2.addGestureRecognizer(albumTapGesture2)
+        album2.isUserInteractionEnabled = true
+
+        let albumTapGesture3 = UITapGestureRecognizer(target: self, action: #selector(albumTapped(_:)))
+        album3.addGestureRecognizer(albumTapGesture3)
+        album3.isUserInteractionEnabled = true
+    }
+
     @IBAction func stateTapped(_ sender: Any) {
         musicPlaybackControl.togglePlayback()
     }

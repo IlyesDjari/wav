@@ -499,6 +499,7 @@
                         <outlet property="noSongLabel" destination="WjT-lu-JrJ" id="4dn-o4-cmQ"/>
                         <outlet property="stateButton" destination="uRi-Zh-IL8" id="8nA-Rm-yJk"/>
                         <segue destination="TTK-HR-YLb" kind="show" identifier="homeToPlaylistSegue" id="tky-PB-KLP"/>
+                        <segue destination="qiy-LP-mfH" kind="show" identifier="homeToAlbumSegue" id="TU0-Rn-06f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -521,7 +522,7 @@
                 <viewControllerPlaceholder storyboardName="Player" referencedIdentifier="PlayerViewController" id="aZT-MN-hud" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGr-Hg-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="612"/>
+            <point key="canvasLocation" x="2512" y="686"/>
         </scene>
         <!--ListViewController-->
         <scene sceneID="FQo-yW-6AM">
@@ -531,7 +532,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GkY-Oe-iHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="612"/>
+            <point key="canvasLocation" x="2929" y="695"/>
+        </scene>
+        <!--AlbumViewController-->
+        <scene sceneID="sSh-59-2cz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Album" referencedIdentifier="AlbumViewController" id="qiy-LP-mfH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2jz-jy-ENo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FFd-CM-sUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3382" y="686"/>
         </scene>
         <!--SearchViewController-->
         <scene sceneID="xrm-M6-JiM">

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List View Controller-->
+        <!--Album View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="ListViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ListViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AlbumViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,9 +31,23 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="422" height="759"/>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTb-My-Kg1" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                        <rect key="frame" x="22" y="354.5" width="61.5" height="29"/>
+                                                        <rect key="frame" x="22" y="345" width="279" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udt-yV-cJL" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                                        <rect key="frame" x="22" y="377" width="279" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
@@ -52,7 +66,7 @@
                                                             <constraint firstAttribute="height" constant="300" id="mSS-wg-zZY"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="80" id="slL-CR-Hjy" customClass="TracksTableViewCell" customModule="wav" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumTrackCell" rowHeight="80" id="slL-CR-Hjy" customClass="AlbumTracksTableViewCell" customModule="wav" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="50" width="349" height="80"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="slL-CR-Hjy" id="pBo-LA-VcE">
@@ -60,8 +74,8 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-t4-dqA" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                            <rect key="frame" x="70" y="23" width="279" height="19"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                            <rect key="frame" x="25" y="25" width="279" height="29"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <userDefinedRuntimeAttributes>
@@ -73,51 +87,27 @@
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atr-Fk-ZZZ" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                            <rect key="frame" x="70" y="45" width="279" height="11"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhR-AQ-gVQ">
+                                                                            <rect key="frame" x="0.0" y="25" width="25" height="29"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
-                                                                                    <real key="value" value="10"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
-                                                                                    <real key="value" value="2"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                            </userDefinedRuntimeAttributes>
                                                                         </label>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v76-Le-APu">
-                                                                            <rect key="frame" x="0.0" y="15" width="50" height="50"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="50" id="Sqk-Gm-d2W"/>
-                                                                                <constraint firstAttribute="width" constant="50" id="vZf-Mm-Znz"/>
-                                                                            </constraints>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                    <integer key="value" value="10"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                            </userDefinedRuntimeAttributes>
-                                                                        </imageView>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="Atr-Fk-ZZZ" secondAttribute="leading" id="55h-2n-i5n"/>
-                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="centerX" secondItem="pBo-LA-VcE" secondAttribute="centerX" constant="35" id="F1R-Ow-EbP"/>
-                                                                        <constraint firstItem="v76-Le-APu" firstAttribute="leading" secondItem="pBo-LA-VcE" secondAttribute="leadingMargin" constant="-20" id="Fhk-fp-HBB"/>
-                                                                        <constraint firstAttribute="bottomMargin" secondItem="Atr-Fk-ZZZ" secondAttribute="bottom" constant="13" id="HcN-Bv-Efw"/>
-                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="v76-Le-APu" secondAttribute="trailing" constant="20" id="NU2-hM-Bfa"/>
-                                                                        <constraint firstAttribute="bottomMargin" secondItem="iU5-t4-dqA" secondAttribute="bottom" constant="27" id="O87-iU-zJx"/>
-                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="12" id="Zvc-6U-xAs"/>
-                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="trailing" secondItem="Atr-Fk-ZZZ" secondAttribute="trailing" id="b2q-OL-ffY"/>
-                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="pBo-LA-VcE" secondAttribute="leadingMargin" constant="50" id="eLL-z5-tKd"/>
-                                                                        <constraint firstItem="v76-Le-APu" firstAttribute="centerY" secondItem="pBo-LA-VcE" secondAttribute="centerY" id="m1j-EK-00g"/>
-                                                                        <constraint firstItem="Atr-Fk-ZZZ" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="34" id="wEb-kM-w1z"/>
+                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="uhR-AQ-gVQ" secondAttribute="trailing" id="Bxi-B3-lb9"/>
+                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="centerX" secondItem="pBo-LA-VcE" secondAttribute="centerX" constant="-10" id="F1R-Ow-EbP"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="iU5-t4-dqA" secondAttribute="bottom" constant="15" id="O87-iU-zJx"/>
+                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="14" id="Zvc-6U-xAs"/>
+                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="pBo-LA-VcE" secondAttribute="leadingMargin" constant="5" id="eLL-z5-tKd"/>
+                                                                        <constraint firstItem="uhR-AQ-gVQ" firstAttribute="centerY" secondItem="iU5-t4-dqA" secondAttribute="centerY" id="iHh-26-SCe"/>
+                                                                        <constraint firstItem="uhR-AQ-gVQ" firstAttribute="leading" secondItem="pBo-LA-VcE" secondAttribute="leadingMargin" constant="-20" id="kW0-pm-dyv"/>
+                                                                        <constraint firstItem="uhR-AQ-gVQ" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="14" id="qLH-FX-dAo"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="artistLabel" destination="Atr-Fk-ZZZ" id="llz-cI-YDW"/>
-                                                                    <outlet property="cover" destination="v76-Le-APu" id="ya9-lC-ITJ"/>
-                                                                    <outlet property="songLabel" destination="iU5-t4-dqA" id="MjD-Ya-P82"/>
+                                                                    <outlet property="songNumber" destination="uhR-AQ-gVQ" id="Idv-wp-LBe"/>
+                                                                    <outlet property="songTitle" destination="iU5-t4-dqA" id="D8k-Zx-qz0"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -139,15 +129,19 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="28j-oK-0VT" secondAttribute="bottom" constant="40" id="0lO-I3-7OG"/>
                                                     <constraint firstAttribute="trailing" secondItem="qqV-AK-uta" secondAttribute="trailing" constant="-29" id="13a-RE-IBw"/>
-                                                    <constraint firstItem="VTb-My-Kg1" firstAttribute="top" secondItem="huj-PH-Qfe" secondAttribute="bottom" constant="54.5" id="4Fd-uZ-PTB"/>
+                                                    <constraint firstItem="VTb-My-Kg1" firstAttribute="trailing" secondItem="udt-yV-cJL" secondAttribute="trailing" id="41L-cZ-Cha"/>
+                                                    <constraint firstItem="VTb-My-Kg1" firstAttribute="top" secondItem="huj-PH-Qfe" secondAttribute="bottom" constant="45" id="4Fd-uZ-PTB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VTb-My-Kg1" secondAttribute="trailing" constant="92" id="Bos-3b-qqj"/>
                                                     <constraint firstItem="VTb-My-Kg1" firstAttribute="leading" secondItem="j2B-W7-WNu" secondAttribute="leading" constant="22" id="Igg-7A-KAS"/>
                                                     <constraint firstItem="28j-oK-0VT" firstAttribute="centerX" secondItem="huj-PH-Qfe" secondAttribute="centerX" id="JiL-Ho-5qS"/>
                                                     <constraint firstAttribute="bottom" secondItem="qqV-AK-uta" secondAttribute="bottom" id="VIt-ZH-lIg"/>
                                                     <constraint firstItem="28j-oK-0VT" firstAttribute="centerX" secondItem="j2B-W7-WNu" secondAttribute="centerX" id="dTf-Pb-Mow"/>
-                                                    <constraint firstItem="28j-oK-0VT" firstAttribute="top" secondItem="VTb-My-Kg1" secondAttribute="bottom" constant="35.5" id="eUv-H2-drM"/>
+                                                    <constraint firstItem="28j-oK-0VT" firstAttribute="top" secondItem="VTb-My-Kg1" secondAttribute="bottom" constant="45" id="eUv-H2-drM"/>
                                                     <constraint firstItem="28j-oK-0VT" firstAttribute="leading" secondItem="j2B-W7-WNu" secondAttribute="leading" constant="22" id="f8Q-1t-KgJ"/>
                                                     <constraint firstItem="qqV-AK-uta" firstAttribute="top" secondItem="j2B-W7-WNu" secondAttribute="top" id="g7L-MU-g6u"/>
                                                     <constraint firstItem="qqV-AK-uta" firstAttribute="leading" secondItem="j2B-W7-WNu" secondAttribute="leading" id="ooi-Lh-NfA"/>
+                                                    <constraint firstItem="VTb-My-Kg1" firstAttribute="leading" secondItem="udt-yV-cJL" secondAttribute="leading" id="r6s-Hs-eYG"/>
+                                                    <constraint firstItem="udt-yV-cJL" firstAttribute="top" secondItem="VTb-My-Kg1" secondAttribute="bottom" constant="3" id="u5c-bR-ylN"/>
                                                     <constraint firstItem="28j-oK-0VT" firstAttribute="top" secondItem="j2B-W7-WNu" secondAttribute="top" constant="419" id="vwe-za-efL"/>
                                                     <constraint firstItem="28j-oK-0VT" firstAttribute="leading" secondItem="VTb-My-Kg1" secondAttribute="leading" id="yru-y6-Fya"/>
                                                 </constraints>
@@ -179,11 +173,12 @@
                     </view>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
-                        <outlet property="TrackCollectionView" destination="28j-oK-0VT" id="CyC-z9-T7O"/>
-                        <outlet property="backgroundGradient" destination="qqV-AK-uta" id="Vmb-jg-Cw7"/>
-                        <outlet property="cover" destination="huj-PH-Qfe" id="e5l-WV-7hC"/>
+                        <outlet property="albumTitle" destination="VTb-My-Kg1" id="J3w-tS-Acw"/>
+                        <outlet property="artistName" destination="udt-yV-cJL" id="b4M-Gq-v3f"/>
+                        <outlet property="backgroundGradient" destination="qqV-AK-uta" id="9Pf-17-BD8"/>
+                        <outlet property="cover" destination="huj-PH-Qfe" id="rWr-jp-Y43"/>
                         <outlet property="heightConstant" destination="mSS-wg-zZY" id="MGL-Qq-3yg"/>
-                        <outlet property="playlistTitle" destination="VTb-My-Kg1" id="x1v-NC-DJo"/>
+                        <outlet property="tableView" destination="28j-oK-0VT" id="zQA-4S-OUl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -192,14 +187,14 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="Atr-Fk-ZZZ">
-            <size key="intrinsicContentSize" width="32.5" height="14.5"/>
-        </designable>
         <designable name="VTb-My-Kg1">
             <size key="intrinsicContentSize" width="61.5" height="29"/>
         </designable>
         <designable name="iU5-t4-dqA">
-            <size key="intrinsicContentSize" width="37.5" height="17"/>
+            <size key="intrinsicContentSize" width="42.5" height="19.5"/>
+        </designable>
+        <designable name="udt-yV-cJL">
+            <size key="intrinsicContentSize" width="41.5" height="19.5"/>
         </designable>
     </designables>
     <resources>
