@@ -15,17 +15,17 @@
             <objects>
                 <viewController storyboardIdentifier="LibraryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LibraryViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Maw-xp-Wxl">
-                                <rect key="frame" x="16" y="120" width="361" height="43"/>
+                                <rect key="frame" x="16" y="11" width="361" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" name="Purple"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hKK-Ns-v0a">
-                                <rect key="frame" x="16" y="215" width="361" height="554"/>
+                                <rect key="frame" x="16" y="106" width="361" height="560"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sgx-qd-rD7">
                                     <size key="itemSize" width="169" height="191"/>
@@ -96,21 +96,43 @@
                             <constraint firstItem="Maw-xp-Wxl" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="2ho-nv-E8l"/>
                             <constraint firstItem="Maw-xp-Wxl" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="43O-IL-U4k"/>
                             <constraint firstItem="hKK-Ns-v0a" firstAttribute="trailing" secondItem="Maw-xp-Wxl" secondAttribute="trailing" id="BQy-Dv-88b"/>
-                            <constraint firstItem="Maw-xp-Wxl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="61" id="Fgl-uV-b6r"/>
+                            <constraint firstItem="Maw-xp-Wxl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="11" id="Fgl-uV-b6r"/>
                             <constraint firstItem="hKK-Ns-v0a" firstAttribute="leading" secondItem="Maw-xp-Wxl" secondAttribute="leading" id="d1Z-Le-8en"/>
                             <constraint firstItem="hKK-Ns-v0a" firstAttribute="top" secondItem="Maw-xp-Wxl" secondAttribute="bottom" constant="52" id="dxv-eK-rqv"/>
                             <constraint firstItem="hKK-Ns-v0a" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="fgg-4Y-s9f"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="library" id="5iL-Vf-Tgr">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="tWs-EF-N1d"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="hKK-Ns-v0a" id="C4L-ox-x1k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066.4122137404579" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vDZ-mb-tPG">
+            <objects>
+                <navigationController storyboardIdentifier="LibraryNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jKy-Xd-iXM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="library" id="5iL-Vf-Tgr">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="BOi-bt-bE5">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <color key="tintColor" name="Purple"/>
+                        <color key="barTintColor" name="Background"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="EHy-dC-sjg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ny1-rA-LIC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
         </scene>

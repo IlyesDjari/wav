@@ -564,15 +564,15 @@
             </objects>
             <point key="canvasLocation" x="1061" y="434"/>
         </scene>
-        <!--LibraryViewController-->
+        <!--LibraryNavigationViewController-->
         <scene sceneID="gAy-2s-Kfh">
             <objects>
-                <viewControllerPlaceholder storyboardName="Library" referencedIdentifier="LibraryViewController" id="rel-Ea-gG0" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Library" referencedIdentifier="LibraryNavigationViewController" id="rel-Ea-gG0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ofP-lB-ZdH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MH-Wi-TtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="434"/>
+            <point key="canvasLocation" x="1469" y="434"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Ot0-FJ-Zac">

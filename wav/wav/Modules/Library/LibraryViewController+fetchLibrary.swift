@@ -29,33 +29,21 @@ extension LibraryViewController: UICollectionViewDataSource {
         let playlist = playlists[indexPath.row]
         cell.title.text = playlist.name
         if let artworkURL = playlist.artwork?.url(width: 500, height: 500),
-           let imageData = try? Data(contentsOf: artworkURL),
-           let image = UIImage(data: imageData) {
-               cell.cover.image = image
+            let imageData = try? Data(contentsOf: artworkURL),
+            let image = UIImage(data: imageData) {
+            cell.cover.image = image
         }
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let playlist = playlists[indexPath.row]
-        Task {
-            do {
-                let id = try await playlist.catalog.id
-                let detailedPlaylist = try await MCatalog.playlist(id: id, fetch: .tracks)
-                let tracks = detailedPlaylist.tracks ?? []
-                let songIDs = tracks.map { $0.id.rawValue }
-                // Instantiate PlayerViewController from storyboard
-                let storyboard = UIStoryboard(name: "Player", bundle: nil)
-                guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
-                    return
-                }
-                // Fetch and play the playlist
-                // playerViewController.playlistIDs = songIDs
-                // Present PlayerViewController modally
-                self.present(playerViewController, animated: true, completion: nil)
-            } catch {
-                print("Error fetching playlist: \(error)")
-            }
+        
+        let storyboard = UIStoryboard(name: "List", bundle: nil)
+        guard let playlistViewController = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController else {
+            return
         }
+        playlistViewController.playlist = playlist
+        navigationController?.pushViewController(playlistViewController, animated: true)
     }
 }

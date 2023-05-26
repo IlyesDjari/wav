@@ -34,7 +34,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tracks: MusicItemCollection<Track> = MusicItemCollection([]) {
         didSet {
             TrackCollectionView.reloadData()
-            heightConstant.constant = CGFloat(Double(tracks.count) * 65)
+            heightConstant.constant = CGFloat(Double(tracks.count) * 80)
         }
     }
 
