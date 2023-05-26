@@ -9,21 +9,21 @@ import Foundation
 import UIKit
 
 class LoadingIndicatorView: UIView {
-
+    
     private let activityIndicator = UIActivityIndicatorView(style: .large)
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureView()
     }
-
+    
     private func configureView() {
-        backgroundColor = .clear
+        backgroundColor = UIColor(white: 0, alpha: 0.6)
         activityIndicator.color = .white
         activityIndicator.hidesWhenStopped = true
         addSubview(activityIndicator)
@@ -33,22 +33,22 @@ class LoadingIndicatorView: UIView {
             activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-
+    
     func show(on view: UIView) {
         frame = view.bounds
         view.addSubview(self)
         startLoading()
     }
-
+    
     func hide() {
         stopLoading()
         removeFromSuperview()
     }
-
+    
     private func startLoading() {
         activityIndicator.startAnimating()
     }
-
+    
     private func stopLoading() {
         activityIndicator.stopAnimating()
     }

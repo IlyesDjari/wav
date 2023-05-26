@@ -22,6 +22,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var playlistTitle: MarqueeLabel!
     @IBOutlet weak var backgroundGradient: UIView!
+    
     // Properties
     var playlist: Playlist? {
         didSet {
@@ -30,16 +31,17 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-
     var tracks: MusicItemCollection<Track> = MusicItemCollection([]) {
         didSet {
             TrackCollectionView.reloadData()
             heightConstant.constant = CGFloat(Double(tracks.count) * 80)
         }
     }
+    private var loadingIndicatorView: LoadingIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoadingView()
         configureUI()
     }
 
@@ -70,5 +72,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             task.resume()
         }
+    }
+    
+    private func showLoadingView() {
+        loadingIndicatorView = LoadingIndicatorView()
+        loadingIndicatorView?.show(on: view)
+    }
+
+    internal func hideLoadingView() {
+        loadingIndicatorView?.hide()
+        loadingIndicatorView = nil
     }
 }

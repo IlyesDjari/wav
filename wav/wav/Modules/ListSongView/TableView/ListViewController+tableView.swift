@@ -19,6 +19,7 @@ extension ListViewController {
         cell.cover.kf.setImage(with: artworkURL)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
+        hideLoadingView()
         return cell
     }
 
