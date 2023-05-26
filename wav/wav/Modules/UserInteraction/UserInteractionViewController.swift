@@ -28,8 +28,9 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     @IBOutlet weak var searchLabel: UILabel!
     @IBOutlet weak var detailDistanceLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         startup()
     }
     
@@ -66,19 +67,6 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         // and hide the user instructions.
         if currentState == .unknown && nextState != .unknown {
         }
-        // Set the app's display based on peer state.
-        switch nextState {
-        case .closeUpInFOV:
-            print("close")
-        case .notCloseUpInFOV:
-            print("far")
-        case .outOfFOV:
-            print("out of fov")
-        case .unknown:
-            print("no info")
-        }
-        print("wow")
-        
         if let direction = peer.direction {
             // Calculate azimuth (rotation around y axis)
             NearbyArrow.isHidden = false
@@ -88,7 +76,6 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
                 // Apply rotation
                 self.NearbyArrow.transform = CGAffineTransform(rotationAngle: CGFloat(degrees.degreesToRadians))
             }
-            print("Azimuth: \(azimuth.radiansToDegrees)°")
         }
 
         

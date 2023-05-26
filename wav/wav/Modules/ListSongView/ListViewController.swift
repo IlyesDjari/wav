@@ -19,7 +19,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     @IBOutlet weak var heightConstant: NSLayoutConstraint!
-
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var playlistTitle: MarqueeLabel!
     @IBOutlet weak var backgroundGradient: UIView!
@@ -49,11 +48,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         playlistTitle.text = playlist?.name
         if let artworkURL = playlist?.artwork?.url(width: 500, height: 500) {
             let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, response, error in
-                if let error = error {
+                if let error {
                     print("Error loading image: \(error.localizedDescription)")
                     return
                 }
-                guard let data = data else {
+                guard let data else {
                     print("Error loading image: no data")
                     return
                 }

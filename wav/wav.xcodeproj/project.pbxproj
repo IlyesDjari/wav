@@ -25,6 +25,7 @@
 		7E004AD72A1AA5010024CDBC /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD62A1AA5010024CDBC /* MathUtilities.swift */; };
 		7E004AD92A1AB0940024CDBC /* DistanceDirectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004AD82A1AB0940024CDBC /* DistanceDirectionState.swift */; };
 		7E004ADE2A1D1C5F0024CDBC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004ADD2A1D1C5F0024CDBC /* TabBarViewController.swift */; };
+		7E004AE02A20E6300024CDBC /* PlayerViewController+MPCTokenSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E004ADF2A20E6300024CDBC /* PlayerViewController+MPCTokenSharing.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -121,6 +122,7 @@
 		7E004AD62A1AA5010024CDBC /* MathUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtilities.swift; sourceTree = "<group>"; };
 		7E004AD82A1AB0940024CDBC /* DistanceDirectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceDirectionState.swift; sourceTree = "<group>"; };
 		7E004ADD2A1D1C5F0024CDBC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7E004ADF2A20E6300024CDBC /* PlayerViewController+MPCTokenSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+MPCTokenSharing.swift"; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				7E91E6292A05AAB300ADB0EE /* PlayerViewController.swift */,
 				7E91E62B2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift */,
 				7EF5583B2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift */,
+				7E004ADF2A20E6300024CDBC /* PlayerViewController+MPCTokenSharing.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,
 				7E567B5F2A0C052200172755 /* addGradient.swift in Sources */,
 				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
+				7E004AE02A20E6300024CDBC /* PlayerViewController+MPCTokenSharing.swift in Sources */,
 				7EF558402A06F89000D1FE8F /* updateTimelineGradient.swift in Sources */,
 				7E004AD92A1AB0940024CDBC /* DistanceDirectionState.swift in Sources */,
 				7EF5588E2A0B240200D1FE8F /* LibraryCollectionViewCell.swift in Sources */,

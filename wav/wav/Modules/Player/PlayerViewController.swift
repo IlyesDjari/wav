@@ -11,12 +11,14 @@ import MarqueeLabel
 import MusadoraKit
 import MediaPlayer
 import NotificationBannerSwift
+import NearbyInteraction
+import MultipeerConnectivity
 
 protocol PlayerViewControllerDelegate: AnyObject {
     func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?)
 }
 
-class PlayerViewController: UIViewController {
+class PlayerViewController: UIViewController, NISessionDelegate {
     // Outlets
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var cover: UIImageView!
@@ -33,6 +35,17 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var liveShareButton: UIImageView!
     @IBOutlet weak var liveShareLabel: MarqueeLabel!
     @IBOutlet weak var shuffleButton: UIImageView!
+    
+    var session: NISession?
+    var peerDiscoveryToken: NIDiscoveryToken?
+    var mpc: MPCSession?
+    var connectedPeer: MCPeerID?
+    let impactGenerator = UIImpactFeedbackGenerator(style: .medium)
+    var sharedTokenWithPeer = false
+    var peerDisplayName: String?
+    let nearbyDistanceThreshold: Float = 0.3
+    var currentDistanceDirectionState: DistanceDirectionState = .unknown
+    var lastVibrationDistance: Float?
 
     // Properties
     private lazy var debouncedSkipButtonTapped: (() -> Void) = {
@@ -68,6 +81,9 @@ class PlayerViewController: UIViewController {
         }
         set {
             UserDefaultsManager.shared.saveSharePlayStatus(status: newValue)
+            if newValue {
+                startup()
+            }
         }
     }
     public var playlistIDs: Playlist? {
@@ -116,7 +132,7 @@ class PlayerViewController: UIViewController {
         timeline.addTarget(self, action: #selector(timelineEditingBegan(_:)), for: .touchDown)
         timeline.addTarget(self, action: #selector(timelineEditingEnded(_:)), for: [.touchUpInside, .touchUpOutside])
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let observer = observer {
@@ -159,8 +175,8 @@ class PlayerViewController: UIViewController {
 
     private func updateLiveShare() {
         if sharePlay {
-            if let entryID = player.queue.currentEntry?.id {
-                startLiveShareSession(songID: entryID) { result in
+            if let entryID = player.queue.currentEntry?.item?.id {
+                startLiveShareSession(songID: entryID.rawValue) { result in
                     switch result {
                     case .success:
                         self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
@@ -207,6 +223,34 @@ class PlayerViewController: UIViewController {
         animator.startAnimation()
         // Skip to the next song
         await self.musicPlaybackControl.skipToPreviousSong()
+    }
+    
+    private func startup() {
+        print("called")
+        // Create the NISession.
+        session = NISession()
+        // Set the delegate.
+        session?.delegate = self
+        // Because the session is new, reset the token-shared flag.
+        sharedTokenWithPeer = false
+        // If `connectedPeer` exists, share the discovery token, if needed.
+        if connectedPeer != nil && mpc != nil {
+            if let myToken = session?.discoveryToken {
+                if !sharedTokenWithPeer {
+                    shareMyDiscoveryToken(token: myToken)
+                }
+                guard let peerToken = peerDiscoveryToken else {
+                    return
+                }
+                let config = NINearbyPeerConfiguration(peerToken: peerToken)
+                session?.run(config)
+            } else {
+                fatalError("Unable to get self discovery token, is this session invalidated?")
+            }
+        } else {
+            startupMPC()
+            currentDistanceDirectionState = .unknown
+        }
     }
 
     @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {

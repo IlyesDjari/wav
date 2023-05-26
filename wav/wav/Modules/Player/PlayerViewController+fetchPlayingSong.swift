@@ -49,7 +49,6 @@ extension PlayerViewController {
         }
     }
 
-
     internal func updateUI(with song: Song) {
         self.song.text = song.title
         self.artist.text = song.artistName
