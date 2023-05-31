@@ -112,4 +112,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     @IBAction func stateTapped(_ sender: Any) {
         musicPlaybackControl.togglePlayback()
     }
+    
+    @IBAction func tapPlayer(_ sender: Any) {
+        if UserDefaultsManager.shared.isLiveSessionListening() {
+            performSegue(withIdentifier: "showSharePlay", sender: self)
+        } else {
+            performSegue(withIdentifier: "showPlayer", sender: self)
+        }
+    }
 }

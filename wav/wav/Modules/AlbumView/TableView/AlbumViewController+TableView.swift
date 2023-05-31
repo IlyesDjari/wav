@@ -30,7 +30,7 @@ extension AlbumViewController {
         guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
             return
         }
-        //playerViewController.playlistIDs = playlist
+        playerViewController.albumIDs = album
         // Present PlayerViewController modally
         self.present(playerViewController, animated: true, completion: nil)
     }

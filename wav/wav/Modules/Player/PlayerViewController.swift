@@ -97,6 +97,17 @@ class PlayerViewController: UIViewController, NISessionDelegate {
             }
         }
     }
+    public var albumIDs: Album? {
+        didSet {
+            if albumIDs != nil {
+                Task {
+                    // Fetch the playlist and play it
+                    try await player.play(album: albumIDs!)
+                    fetchPlayingSong(songID: songID)
+                }
+            }
+        }
+    }
     public let player = ApplicationMusicPlayer.shared
     let musicPlaybackControl = MusicPlaybackControl()
     public var songID: String? {
@@ -117,6 +128,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        UserDefaultsManager.shared.setLiveSessionListening(false)
         // Fetch skipping songs
         observer = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { [weak self] _ in
             if let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID {

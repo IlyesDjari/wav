@@ -13,7 +13,25 @@ import MediaPlayer
 
 extension PlayerViewController {
     internal func fetchPlayingSong(songID: String? = nil) {
-        if playlistIDs == nil {
+        if (playlistIDs != nil), let currentEntry = player.queue.currentEntry, case let .song(song) = currentEntry.item {
+            Task {
+                do {
+                    let updatedSong = try await MCatalog.song(id: song.id)
+                    updateUI(with: updatedSong)
+                } catch {
+                    print("Error fetching song details: \(error)")
+                }
+            }
+        } else if (albumIDs != nil), let currentEntry = player.queue.currentEntry, case let .song(song) = currentEntry.item {
+            Task {
+                do {
+                    let updatedSong = try await MCatalog.song(id: song.id)
+                    updateUI(with: updatedSong)
+                } catch {
+                    print("Error fetching song details: \(error)")
+                }
+            }
+        } else {
             Task {
                 do {
                     // Check if the song ID is already playing
@@ -21,7 +39,7 @@ extension PlayerViewController {
                         // Song ID is already playing, no need to fetch the details again
                         return
                     }
-
+                    
                     let song = try await MCatalog.song(id: MusicItemID(rawValue: songID!))
                     DispatchQueue.main.async {
                         self.updateUI(with: song)
@@ -39,15 +57,9 @@ extension PlayerViewController {
                     print("Error fetching song details: \(error)")
                 }
             }
-        } else if playlistIDs != nil {
-            if let currentEntry = player.queue.currentEntry, case let .song(song) = currentEntry.item {
-                Task {
-                    let song = try await MCatalog.song(id: song.id)
-                    updateUI(with: song)
-                }
-            }
         }
     }
+
 
     internal func updateUI(with song: Song) {
         self.song.text = song.title

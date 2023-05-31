@@ -500,6 +500,8 @@
                         <outlet property="stateButton" destination="uRi-Zh-IL8" id="8nA-Rm-yJk"/>
                         <segue destination="TTK-HR-YLb" kind="show" identifier="homeToPlaylistSegue" id="tky-PB-KLP"/>
                         <segue destination="qiy-LP-mfH" kind="show" identifier="homeToAlbumSegue" id="TU0-Rn-06f"/>
+                        <segue destination="aZT-MN-hud" kind="presentation" identifier="showPlayer" id="syq-Hq-UT5"/>
+                        <segue destination="p4x-46-rLK" kind="show" identifier="showSharePlay" id="4Q9-8V-QIM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -510,7 +512,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="5AE-qh-OO1" userLabel="tapPlayer">
                     <connections>
-                        <segue destination="aZT-MN-hud" kind="presentation" identifier="showPlayer" id="czL-0O-cIF"/>
+                        <action selector="tapPlayer:" destination="Y6W-OH-hqX" id="0Xt-g4-ULs"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -519,7 +521,9 @@
         <!--PlayerViewController-->
         <scene sceneID="hTV-pC-83S">
             <objects>
-                <viewControllerPlaceholder storyboardName="Player" referencedIdentifier="PlayerViewController" id="aZT-MN-hud" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Player" referencedIdentifier="PlayerViewController" id="aZT-MN-hud" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lP1-gL-jd0"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGr-Hg-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2512" y="686"/>
@@ -542,7 +546,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFd-CM-sUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3382" y="686"/>
+            <point key="canvasLocation" x="3348" y="686"/>
+        </scene>
+        <!--NearbyViewController-->
+        <scene sceneID="QPg-Bo-0G8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Nearby" referencedIdentifier="NearbyViewController" id="p4x-46-rLK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="B28-PC-4fF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jvt-1P-u3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3652" y="686"/>
         </scene>
         <!--SearchViewController-->
         <scene sceneID="xrm-M6-JiM">
