@@ -39,7 +39,6 @@ extension PlayerViewController {
                         // Song ID is already playing, no need to fetch the details again
                         return
                     }
-                    
                     let song = try await MCatalog.song(id: MusicItemID(rawValue: songID!))
                     DispatchQueue.main.async {
                         self.updateUI(with: song)

@@ -22,6 +22,7 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     let nearbyDistanceThreshold: Float = 0.3
     var currentDistanceDirectionState: DistanceDirectionState = .unknown
     var lastVibrationDistance: Float?
+    var viewIsSeen: Bool = false
     
     // Outlets
     @IBOutlet weak var NearbyArrow: UIImageView!
@@ -32,10 +33,15 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         startup()
+        viewIsSeen = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        viewIsSeen = false
     }
     
     func startup() {
-        print("called")
         // Create the NISession.
         session = NISession()
         // Set the delegate.
@@ -81,10 +87,10 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         
         if let distance = peer.distance {
             detailDistanceLabel.text = String(format: "%0.2f m", distance)
-            if distance <= 0.75 {
+            if distance <= 0.75, viewIsSeen {
                 // Keep vibrating
                 impactGenerator.impactOccurred()
-            } else if distance <= 1.5 {
+            } else if distance <= 1.5, viewIsSeen {
                 // Vibrate once
                 // Check if the last vibration was not at this distance to prevent continuous vibrations at this distance
                 if lastVibrationDistance == nil || lastVibrationDistance! > 1.5 {

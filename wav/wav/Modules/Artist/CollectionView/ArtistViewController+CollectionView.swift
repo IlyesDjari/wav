@@ -19,7 +19,10 @@ extension ArtistViewController {
             return 4
         } else if collectionView == albumCollectionView {
             return artistData?.fullAlbums?.count ?? 0
-        } else {
+        } else if collectionView == playlistCollectionView {
+            return artistData?.featuredPlaylists?.count ?? 0
+        }
+        else {
             return 0
         }
     }
@@ -33,8 +36,12 @@ extension ArtistViewController {
             return cell
         } else if collectionView == albumCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumsArtistCell", for: indexPath) as! ArtistAlbumCollectionViewCell
-            cell.cover.kf.setImage(with: artistData?.fullAlbums?[indexPath.row].artwork?.url(width: 200, height: 200))
+            cell.cover.kf.setImage(with: artistData?.fullAlbums?[indexPath.row].artwork?.url(width: 500, height: 500))
             cell.albumName.text = artistData?.fullAlbums?[indexPath.row].title
+            return cell
+        } else if collectionView == playlistCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistArtistCell", for: indexPath) as! ArtistPlaylistCollectionViewCell
+            cell.cover.kf.setImage(with: artistData?.featuredPlaylists?[indexPath.row].artwork?.url(width: 500, height: 500))
             return cell
         }
         return UICollectionViewCell()
@@ -45,10 +52,13 @@ extension ArtistViewController {
             if let songID = artistData?.topSongs?[indexPath.row].id.rawValue {
                 performSegue(withIdentifier: "playSong", sender: songID)
             }
-        }
-        if collectionView == albumCollectionView {
+        } else if collectionView == albumCollectionView {
             if let album = artistData?.fullAlbums?[indexPath.row] {
                 performSegue(withIdentifier: "playAlbum", sender: album)
+            }
+        } else if collectionView == playlistCollectionView {
+            if let playlist = artistData?.featuredPlaylists?[indexPath.row] {
+                performSegue(withIdentifier: "playPlaylist", sender: playlist)
             }
         }
     }
@@ -59,11 +69,15 @@ extension ArtistViewController {
                 let playerViewController = segue.destination as? PlayerViewController {
                 playerViewController.songID = songID
             }
-        }
-        if segue.identifier == "playAlbum" {
+        } else if segue.identifier == "playAlbum" {
             if let album = sender as? Album,
                 let albumViewController = segue.destination as? AlbumViewController {
                 albumViewController.album = album
+            }
+        } else if segue.identifier == "playPlaylist" {
+            if let playlist = sender as? Playlist,
+                let playlistViewController = segue.destination as? ListViewController {
+                playlistViewController.playlist = playlist
             }
         }
     }

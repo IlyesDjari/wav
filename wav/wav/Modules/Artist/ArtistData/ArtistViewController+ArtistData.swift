@@ -21,6 +21,7 @@ extension ArtistViewController {
             artistData = try await MCatalog.artist(id: artistID[0].id, fetch: .all)
             topCollectionView.reloadData()
             albumCollectionView.reloadData()
+            playlistCollectionView.reloadData()
         }
     }
 }
