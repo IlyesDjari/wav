@@ -502,6 +502,7 @@
                         <segue destination="qiy-LP-mfH" kind="show" identifier="homeToAlbumSegue" id="TU0-Rn-06f"/>
                         <segue destination="aZT-MN-hud" kind="presentation" identifier="showPlayer" id="syq-Hq-UT5"/>
                         <segue destination="p4x-46-rLK" kind="show" identifier="showSharePlay" id="4Q9-8V-QIM"/>
+                        <segue destination="diR-bO-G58" kind="show" identifier="showArtist" id="cjp-zd-zhF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -517,6 +518,16 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2928" y="1.4778325123152709"/>
+        </scene>
+        <!--ArtistViewController-->
+        <scene sceneID="cFk-Le-D0o">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Artist" referencedIdentifier="ArtistViewController" id="diR-bO-G58" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YV2-vR-Rer"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5R-Nl-tIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="686"/>
         </scene>
         <!--PlayerViewController-->
         <scene sceneID="hTV-pC-83S">

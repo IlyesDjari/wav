@@ -28,6 +28,9 @@ extension HomeViewController {
         } else if collectionView == ForYouCollectionView {
             let playlist = recommendedStations[indexPath.row]
             performSegue(withIdentifier: "homeToPlaylistSegue", sender: playlist)
+        } else if collectionView == RecommendedArtistCollectionView {
+            let artist = fetchedArtists[indexPath.row]
+            performSegue(withIdentifier: "showArtist", sender: artist)
         }
     }
 
@@ -110,6 +113,10 @@ extension HomeViewController {
             let albumViewController = segue.destination as? AlbumViewController,
             let album = sender as? Album {
             albumViewController.album = album
+        } else if segue.identifier == "showArtist",
+            let artistViewController = segue.destination as? ArtistViewController,
+            let artist = sender as? Artist {
+            artistViewController.artist = artist
         }
     }
 }
