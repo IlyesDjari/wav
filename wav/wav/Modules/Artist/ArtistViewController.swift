@@ -15,7 +15,8 @@ class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollec
     // Properties
     internal var artist: Artist?
     internal var artistData: Artist?
-    
+    private var loadingIndicatorView: LoadingIndicatorView?
+
     // Outlets
     @IBOutlet weak var artistImageView: UIImageView!
     @IBOutlet weak var artistName: UILabel!
@@ -39,6 +40,7 @@ class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoadingView()
         fetchAllData()
     }
     
@@ -75,5 +77,15 @@ class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollec
             artistImageView.image = UIImage(named: "NoCoverImage")
             completion?()
         }
+    }
+    
+    private func showLoadingView() {
+        loadingIndicatorView = LoadingIndicatorView()
+        loadingIndicatorView?.show(on: view)
+    }
+
+    internal func hideLoadingView() {
+        loadingIndicatorView?.hide()
+        loadingIndicatorView = nil
     }
 }

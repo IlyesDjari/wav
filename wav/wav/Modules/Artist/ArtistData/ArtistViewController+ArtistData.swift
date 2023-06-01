@@ -8,9 +8,6 @@
 import Foundation
 import MusadoraKit
 
-import Foundation
-import MusadoraKit
-
 extension ArtistViewController {
     public func getArtistData() {
         Task {
@@ -22,6 +19,7 @@ extension ArtistViewController {
             topCollectionView.reloadData()
             albumCollectionView.reloadData()
             playlistCollectionView.reloadData()
+            hideLoadingView()
         }
     }
 }
