@@ -26,6 +26,12 @@ class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    @IBOutlet weak var albumCollectionView: UICollectionView! {
+        didSet {
+            albumCollectionView.dataSource = self
+            albumCollectionView.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

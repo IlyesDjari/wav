@@ -17,6 +17,8 @@ extension ArtistViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == topCollectionView {
             return 4
+        } else if collectionView == albumCollectionView {
+            return artistData?.fullAlbums?.count ?? 0
         } else {
             return 0
         }
@@ -29,6 +31,11 @@ extension ArtistViewController {
             cell.songName.text = artistData?.topSongs?[indexPath.row].title
             cell.artistName.text = artistData?.topSongs?[indexPath.row].artistName
             return cell
+        } else if collectionView == albumCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumsArtistCell", for: indexPath) as! ArtistAlbumCollectionViewCell
+            cell.cover.kf.setImage(with: artistData?.fullAlbums?[indexPath.row].artwork?.url(width: 200, height: 200))
+            cell.albumName.text = artistData?.fullAlbums?[indexPath.row].title
+            return cell
         }
         return UICollectionViewCell()
     }
@@ -39,6 +46,11 @@ extension ArtistViewController {
                 performSegue(withIdentifier: "playSong", sender: songID)
             }
         }
+        if collectionView == albumCollectionView {
+            if let album = artistData?.fullAlbums?[indexPath.row] {
+                performSegue(withIdentifier: "playAlbum", sender: album)
+            }
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,6 +58,12 @@ extension ArtistViewController {
             if let songID = sender as? String,
                 let playerViewController = segue.destination as? PlayerViewController {
                 playerViewController.songID = songID
+            }
+        }
+        if segue.identifier == "playAlbum" {
+            if let album = sender as? Album,
+                let albumViewController = segue.destination as? AlbumViewController {
+                albumViewController.album = album
             }
         }
     }
