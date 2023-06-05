@@ -132,6 +132,13 @@
                                     <segue destination="jb7-mr-T3o" kind="show" id="BxR-H3-Zox"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePause" translatesAutoresizingMaskIntoConstraints="NO" id="7yQ-js-XIK">
+                                <rect key="frame" x="274" y="402" width="35" height="35"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tHH-k2-Iz6" appends="YES" id="bHD-Bn-azs"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="defaultPlayerBackground"/>
@@ -146,6 +153,8 @@
                             <constraint firstItem="pVP-oJ-XDe" firstAttribute="trailing" secondItem="Jyy-Zq-mZ5" secondAttribute="trailing" id="IG0-iR-5Wa"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PLm-qg-Krz" secondAttribute="bottom" constant="162" id="IJs-oI-c1b"/>
                             <constraint firstItem="PLm-qg-Krz" firstAttribute="top" secondItem="RXr-s4-1Im" secondAttribute="bottom" constant="68" id="Juf-XN-7sY"/>
+                            <constraint firstItem="7yQ-js-XIK" firstAttribute="centerX" secondItem="pVP-oJ-XDe" secondAttribute="centerX" id="OKQ-mK-e2b"/>
+                            <constraint firstItem="7yQ-js-XIK" firstAttribute="top" secondItem="pVP-oJ-XDe" secondAttribute="bottom" constant="20" id="Rc9-4d-c47"/>
                             <constraint firstItem="pVP-oJ-XDe" firstAttribute="top" secondItem="Yj3-aV-rJA" secondAttribute="bottom" constant="27" id="Ty5-pg-e87"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="h5R-eg-Dqa" secondAttribute="bottom" constant="562" id="WfJ-GS-oBi"/>
                             <constraint firstItem="h5R-eg-Dqa" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="cbu-3Z-KfG"/>
@@ -159,14 +168,17 @@
                             <constraint firstItem="Yj3-aV-rJA" firstAttribute="trailing" secondItem="h5R-eg-Dqa" secondAttribute="trailing" id="qDH-z3-5Js"/>
                             <constraint firstItem="Yj3-aV-rJA" firstAttribute="leading" secondItem="Jyy-Zq-mZ5" secondAttribute="leading" id="sB2-Wq-PWL"/>
                             <constraint firstItem="Jyy-Zq-mZ5" firstAttribute="top" secondItem="Yj3-aV-rJA" secondAttribute="bottom" constant="5" id="t9X-jE-b9l"/>
+                            <constraint firstItem="7yQ-js-XIK" firstAttribute="bottom" secondItem="RXr-s4-1Im" secondAttribute="bottom" id="vMC-9D-R4q"/>
                             <constraint firstItem="060-wa-Gff" firstAttribute="top" secondItem="PLm-qg-Krz" secondAttribute="bottom" constant="57" id="vaX-cg-XVy"/>
                             <constraint firstItem="pVP-oJ-XDe" firstAttribute="leading" secondItem="Jyy-Zq-mZ5" secondAttribute="leading" id="x8Q-zL-7Js"/>
+                            <constraint firstItem="7yQ-js-XIK" firstAttribute="leading" secondItem="RXr-s4-1Im" secondAttribute="trailing" constant="99" id="zVf-oK-URd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="currentArtist" destination="pVP-oJ-XDe" id="hKw-Fp-uq7"/>
                         <outlet property="currentSongName" destination="Jyy-Zq-mZ5" id="7iG-Zc-Uly"/>
                         <outlet property="playingCover" destination="RXr-s4-1Im" id="pOD-Kb-Q33"/>
+                        <outlet property="stateButton" destination="7yQ-js-XIK" id="Nyp-pw-Cmn"/>
                         <outlet property="suggestCover" destination="BUw-er-3CI" id="oV2-i9-7XF"/>
                         <outlet property="suggestLabel" destination="11C-4n-7u5" id="K9A-4y-Am4"/>
                         <outlet property="suggestView" destination="PLm-qg-Krz" id="jWY-9h-lT9"/>
@@ -174,6 +186,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tHH-k2-Iz6" userLabel="tapState">
+                    <connections>
+                        <action selector="stateButtonTapped:" destination="Y6W-OH-hqX" id="6k5-pn-ogn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="67.938931297709928" y="4.9295774647887329"/>
         </scene>
@@ -197,6 +214,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="homePause" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

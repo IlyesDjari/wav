@@ -10,20 +10,23 @@ import MarqueeLabel
 import FirebaseFirestore
 
 class LiveSessionPlayerViewController: UIViewController {
+    
     // Properties
+    var playbackTimer: Timer?
+    private var firestoreListener: ListenerRegistration?
+    private var firestoreRef: DocumentReference?
+    let musicPlaybackControl = MusicPlaybackControl()
     internal var usersData: NearbyUser? = nil
+    
+    // Outlets
     @IBOutlet weak var playingCover: UIImageView!
     @IBOutlet weak var currentSongName: MarqueeLabel!
     @IBOutlet weak var currentArtist: MarqueeLabel!
     @IBOutlet weak var suggestView: UIView!
     @IBOutlet weak var suggestCover: UIImageView!
     @IBOutlet weak var suggestLabel: UILabel!
-
-    // Outlets
+    @IBOutlet weak var stateButton: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
-
-    private var firestoreListener: ListenerRegistration?
-    private var firestoreRef: DocumentReference?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,28 @@ class LiveSessionPlayerViewController: UIViewController {
         handleLiveSessionListening()
         UserDefaultsManager.shared.setLiveSessionListening(true)
         TabBarViewController.shared.liveSessionPlayerViewController = self
+        // Set the initial state of the state button
+        musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
+        // Check playback status
+        startUpdateTimers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        playbackTimer?.invalidate()
+    
+    }
+    
+    internal func startUpdateTimers() {
+        playbackTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.playbackStatusChanged()
+        }
     }
 
+    @objc func playbackStatusChanged() {
+        musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
+    }
+    
     private func fetchAllData() {
         guard let usersData = usersData else { return }
         getSongInfo(songID: usersData.songID)
@@ -87,5 +110,9 @@ class LiveSessionPlayerViewController: UIViewController {
     private func handleSongChanged(_ songID: String) {
         getSongInfo(songID: songID)
     }
-
+    
+    @IBAction func stateButtonTapped(_ sender: Any) {
+        musicPlaybackControl.togglePlayback()
+        musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
+    }
 }
