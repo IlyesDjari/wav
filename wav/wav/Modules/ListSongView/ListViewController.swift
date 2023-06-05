@@ -8,6 +8,7 @@
 import UIKit
 import MusadoraKit
 import MarqueeLabel
+import NotificationBannerSwift
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -56,11 +57,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let artworkURL = playlist?.artwork?.url(width: 500, height: 500) {
             let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, response, error in
                 if let error {
-                    print("Error loading image: \(error.localizedDescription)")
+                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error loading image: \(error.localizedDescription)")
                     return
                 }
                 guard let data else {
-                    print("Error loading image: no data")
+                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error loading image: no data")
                     return
                 }
                 DispatchQueue.main.async {

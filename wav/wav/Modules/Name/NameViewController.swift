@@ -50,11 +50,8 @@ class NameViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "NameToHomeSegue", sender: self)
                 }
             case .failure(let error):
-                print("Failed to create user: \(error)")
-                DispatchQueue.main.async {
-                    let banner = StatusBarNotificationBanner(title: "Failed to create user", style: .danger)
-                    banner.show()
-                }
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to create user: \(error)")
+
             }
         }
     }

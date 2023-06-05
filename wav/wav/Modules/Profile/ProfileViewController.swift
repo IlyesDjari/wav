@@ -42,7 +42,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func tapOn(_ sender: Any) {
         Task {
-            print("tapped On")
             UserDefaultsManager.shared.saveDiscoverabilityStatus(status: true)
             discoverabilityStatus()
         }
@@ -50,7 +49,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func tapOff(_ sender: Any) {
         Task {
-            print("tapped Off")
             UserDefaultsManager.shared.saveDiscoverabilityStatus(status: false)
             discoverabilityStatus()
         }
@@ -65,7 +63,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     self.username.text = username
                 }
             case .failure(let error):
-                print("Error retrieving username: \(error)")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error retrieving username: \(error)")
+
             }
         }
     }
@@ -80,8 +79,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     print("Username updated in Firestore")
                     self.showSuccessNotification()
                 case .failure(let error):
-                    print("Error updating username in Firestore: \(error)")
-                    self.showErrorNotification()
+                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error updating username in Firestore: \(error)")
+
                 }
             }
         }
@@ -89,12 +88,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     private func showSuccessNotification() {
         let banner = NotificationBanner(title: "Success", subtitle: "Username updated", style: .success)
-        banner.show()
-        banner.autoDismiss = true
-    }
-
-    private func showErrorNotification() {
-        let banner = NotificationBanner(title: "Error", subtitle: "Failed to update username, try again", style: .danger)
         banner.show()
         banner.autoDismiss = true
     }
@@ -120,9 +113,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "removedAccount", sender: nil)
                 }
             case .failure(let error):
-                let banner = NotificationBanner(title: "Error", subtitle: "Error removing account: \(error)", style: .danger)
-                banner.show()
-                banner.autoDismiss = true
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error removing account: \(error)")
+
             }
         }
     }

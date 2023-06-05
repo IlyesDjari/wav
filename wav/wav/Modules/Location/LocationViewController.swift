@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import CoreLocation
+import NotificationBannerSwift
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -35,7 +36,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                         case .success:
                             print("Favorite genre added successfully.")
                         case .failure(let error):
-                            print("Error adding favorite genre: \(error.localizedDescription)")
+                            NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error adding favorite genre: \(error.localizedDescription)")
                         }
                     }
                 } else {
@@ -50,7 +51,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                         case .success:
                             print("Favorite song added successfully.")
                         case .failure(let error):
-                            print("Error adding favorite genre: \(error.localizedDescription)")
+                            NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error adding favorite genre: \(error.localizedDescription)")
                         }
                     }
                 } else {
@@ -85,7 +86,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                 configureUI()
             }
         } catch {
-            print("Error retrieving user from Core Data: \(error.localizedDescription)")
+            NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error retrieving user from Core Data: \(error.localizedDescription)")
+
         }
     }
 

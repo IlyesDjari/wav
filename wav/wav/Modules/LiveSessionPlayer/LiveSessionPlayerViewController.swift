@@ -8,6 +8,7 @@
 import UIKit
 import MarqueeLabel
 import FirebaseFirestore
+import NotificationBannerSwift
 
 class LiveSessionPlayerViewController: UIViewController {
     
@@ -84,7 +85,6 @@ class LiveSessionPlayerViewController: UIViewController {
         // Start listening to changes in the currentlyPlaying field
         firestoreListener = firestoreRef?.addSnapshotListener { [weak self] documentSnapshot, error in
             guard let self = self else { return }
-
             if let document = documentSnapshot, document.exists {
                 if let songID = document.get("currentSong") as? String {
                     print("Document data: \(document.data() ?? [:])")
@@ -93,10 +93,10 @@ class LiveSessionPlayerViewController: UIViewController {
                 } else {
                     print("No 'currentlyPlaying' field found in the document")
                 }
-            } else if let error = error {
-                print("Error fetching document: \(error)")
+            } else if let error {
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error fetching document: \(error)")
             } else {
-                print("Document does not exist")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Something went wrong!")
             }
         }
     }

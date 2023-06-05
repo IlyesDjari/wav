@@ -208,11 +208,14 @@ class PlayerViewController: UIViewController, NISessionDelegate {
                     case .success:
                         self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
                     case .failure(let error):
-                        print("Failed to start live share session: \(error)")
+                        NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to start live share session: \(error)")
+
+                        
                     }
                 }
             } else {
-                print("Error: currentEntry ID is nil.")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error: currentEntry ID is nil.")
+
             }
         } else {
             stopLiveShareSession { result in
@@ -220,7 +223,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
                 case .success:
                     self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
                 case .failure(let error):
-                    print("Failed to stop live share session: \(error)")
+                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to stop live share session: \(error)")
                 }
             }
         }
@@ -272,7 +275,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
                 let config = NINearbyPeerConfiguration(peerToken: peerToken)
                 session?.run(config)
             } else {
-                fatalError("Unable to get self discovery token, is this session invalidated?")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Unable to get self discovery token, is this session invalidated?")
             }
         } else {
             startupMPC()

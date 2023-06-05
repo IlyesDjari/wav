@@ -8,6 +8,7 @@
 import UIKit
 import NearbyInteraction
 import MultipeerConnectivity
+import NotificationBannerSwift
 
 class UserInteractionViewController: UIViewController, NISessionDelegate {
     
@@ -60,7 +61,7 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
                 let config = NINearbyPeerConfiguration(peerToken: peerToken)
                 session?.run(config)
             } else {
-                fatalError("Unable to get self discovery token, is this session invalidated?")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Unable to get self discovery token, is this session invalidated?")
             }
         } else {
             startupMPC()

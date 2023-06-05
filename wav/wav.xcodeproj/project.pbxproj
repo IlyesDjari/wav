@@ -46,6 +46,7 @@
 		7E2812022A2D6F03006D9925 /* removeUserIDFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812012A2D6F03006D9925 /* removeUserIDFromCoreData.swift */; };
 		7E2812052A2E37FA006D9925 /* playSongFromAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812042A2E37FA006D9925 /* playSongFromAlbum.swift */; };
 		7E2812082A2E3A62006D9925 /* playSongFromPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812072A2E3A62006D9925 /* playSongFromPlaylist.swift */; };
+		7E28120A2A2E425B006D9925 /* errorNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812092A2E425B006D9925 /* errorNotification.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -163,6 +164,7 @@
 		7E2812012A2D6F03006D9925 /* removeUserIDFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = removeUserIDFromCoreData.swift; sourceTree = "<group>"; };
 		7E2812042A2E37FA006D9925 /* playSongFromAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playSongFromAlbum.swift; sourceTree = "<group>"; };
 		7E2812072A2E3A62006D9925 /* playSongFromPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playSongFromPlaylist.swift; sourceTree = "<group>"; };
+		7E2812092A2E425B006D9925 /* errorNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorNotification.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 				7EF558492A08610300D1FE8F /* animateImageTransition.swift */,
 				7EF5587A2A0A911700D1FE8F /* loadingIndicator.swift */,
 				7E567B5E2A0C052200172755 /* addGradient.swift */,
+				7E2812092A2E425B006D9925 /* errorNotification.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -981,6 +984,7 @@
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
 				7EF558872A0AED7100D1FE8F /* LocationViewController.swift in Sources */,
 				7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */,
+				7E28120A2A2E425B006D9925 /* errorNotification.swift in Sources */,
 				7EF558842A0AA5BE00D1FE8F /* stopLiveShareSession.swift in Sources */,
 				7E2811E72A278C81006D9925 /* ArtistViewController.swift in Sources */,
 				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,

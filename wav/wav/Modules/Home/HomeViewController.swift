@@ -9,6 +9,7 @@ import UIKit
 import MusicKit
 import MusadoraKit
 import MarqueeLabel
+import NotificationBannerSwift
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerViewControllerDelegate {
 
@@ -91,7 +92,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
                 loadingView.removeFromSuperview()
                 view.isUserInteractionEnabled = true
             } catch {
-                print("Error fetching data: \(error.localizedDescription)")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error fetching data: \(error.localizedDescription)")
+
             }
         }
     }

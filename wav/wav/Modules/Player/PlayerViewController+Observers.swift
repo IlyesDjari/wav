@@ -20,7 +20,6 @@ extension PlayerViewController {
         guard let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID else {
             return
         }
-        
         if nextSongID != self.lastPlayedSongID {
             self.lastPlayedSongID = nextSongID
             self.songID = nextSongID

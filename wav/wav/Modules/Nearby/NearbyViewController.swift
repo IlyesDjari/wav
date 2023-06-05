@@ -8,6 +8,7 @@
 import UIKit
 import HGRippleRadarView
 import CoreLocation
+import NotificationBannerSwift
 
 class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
 
@@ -62,7 +63,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     private func updateLocation() {
         guard let location = locationManager.location else {
-            print("Unable to fetch location.")
+            NotificationBanner.showErrorBanner(title: "Error", subtitle: "Unable to fetch location.")
             return
         }
         currentLocation = location
@@ -72,7 +73,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             case .success:
                 print("Location updated successfully in the database.")
             case .failure(let error):
-                print("Failed to update location: \(error.localizedDescription)")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to update location: \(error.localizedDescription)")
             }
         }
     }
@@ -90,7 +91,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 }
             case .failure(let error):
-                print("Error getting nearby users: \(error.localizedDescription)")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error getting nearby users: \(error.localizedDescription)")
             }
         }
     }

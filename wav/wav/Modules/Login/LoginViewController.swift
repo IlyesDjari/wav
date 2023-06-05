@@ -9,6 +9,7 @@ import UIKit
 import MusicKit
 import StoreKit
 import CoreData
+import NotificationBannerSwift
 
 class LoginViewController: UIViewController {
     
@@ -29,7 +30,7 @@ class LoginViewController: UIViewController {
                     performSegue(withIdentifier: "LoginToNameSegue", sender: self)
                 }
             } catch {
-                print("Failed to fetch users: \(error)")
+                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to fetch users: \(error)")
             }
         }
     }
