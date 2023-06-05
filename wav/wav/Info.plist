@@ -6,12 +6,6 @@
 	<array>
 		<string>_nisample._tcp</string>
 	</array>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -31,21 +25,15 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow access to location data in the background to provide you with live session listening.</string>
-	<key>NSNearbyInteractionAllowOnceUsageDescription</key>
-	<string>Wav uses nearby interaction to let you find the live session holder.</string>
-	<key>NSNearbyInteractionUsageDescription</key>
-	<string>Wav uses nearby interaction to let you find the live session holder.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Allow access to location data in the background to provide you with live session listening.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow access to location data while you are using the app to provide you with live session listening.</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
+		<string>external-accessory</string>
 		<string>fetch</string>
-		<string>remote-notification</string>
 		<string>location</string>
+		<string>nearby-interaction</string>
+		<string>remote-notification</string>
 	</array>
 </dict>
 </plist>

@@ -24,11 +24,13 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     var currentDistanceDirectionState: DistanceDirectionState = .unknown
     var lastVibrationDistance: Float?
     var viewIsSeen: Bool = false
+    var user: String?
 
     // Outlets
     @IBOutlet weak var nearbyArrow: UIImageView!
     @IBOutlet weak var searchLabel: UILabel!
     @IBOutlet weak var detailDistanceLabel: UILabel!
+    @IBOutlet weak var directionLabel: UILabel!
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -83,9 +85,23 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
             nearbyArrow.isHidden = false
             let azimuth = atan2(direction.x, direction.y)
             let degrees = azimuth.radiansToDegrees
+            var directionText = ""
+            let directionThreshold: CGFloat = 15.0
+
+            if CGFloat(degrees) < -directionThreshold {
+                directionText = "To your left"
+            } else if CGFloat(degrees) > directionThreshold {
+                directionText = "To your right"
+            } else if abs(CGFloat(degrees)) <= directionThreshold {
+                directionText = "In front of you"
+            } else {
+                directionText = "Behind you"
+            }
             DispatchQueue.main.async {
                 // Apply rotation
                 self.nearbyArrow.transform = CGAffineTransform(rotationAngle: CGFloat(degrees.degreesToRadians))
+                // Update directionLabel text
+                self.directionLabel.text = directionText
             }
         }
 
@@ -111,6 +127,7 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         // U1 chip's field of view.
         if nextState == .outOfFOV || nextState == .unknown {
             detailDistanceLabel.text = "Move your phone around"
+            directionLabel.text = ""
             return
         }
     }

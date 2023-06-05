@@ -10,7 +10,8 @@ import NearbyInteraction
 import NotificationBannerSwift
 
 extension PlayerViewController {
-    internal func startup() {
+    public func startup() {
+        print("called")
         // Create the NISession.
         session = NISession()
         // Set the delegate.

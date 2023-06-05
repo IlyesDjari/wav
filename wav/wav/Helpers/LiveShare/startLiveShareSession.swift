@@ -35,7 +35,6 @@ internal func startLiveShareSession(
             }
 
             handleFirestoreDocument(document, location: location, songID: songID, completion: completion)
-
         case .failure(let error):
             completion(.failure(error))
         }
@@ -106,7 +105,7 @@ private func updateUserDocument(
     completion: @escaping (Result<Void, Error>) -> Void
 ) {
     documentRef.updateData(data) { error in
-        if let error = error {
+        if let error {
             completion(.failure(error))
         } else {
             completion(.success(()))

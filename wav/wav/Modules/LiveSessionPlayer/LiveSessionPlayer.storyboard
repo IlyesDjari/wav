@@ -129,7 +129,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="jb7-mr-T3o" kind="show" id="BxR-H3-Zox"/>
+                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="m8c-DF-TT2"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePause" translatesAutoresizingMaskIntoConstraints="NO" id="7yQ-js-XIK">
@@ -183,6 +183,7 @@
                         <outlet property="suggestLabel" destination="11C-4n-7u5" id="K9A-4y-Am4"/>
                         <outlet property="suggestView" destination="PLm-qg-Krz" id="jWY-9h-lT9"/>
                         <outlet property="userLabel" destination="h5R-eg-Dqa" id="Ncz-cy-b5A"/>
+                        <segue destination="jb7-mr-T3o" kind="show" identifier="UserInteractionSegue" id="4v5-Qg-oO3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

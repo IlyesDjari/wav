@@ -83,7 +83,11 @@ extension UserInteractionViewController {
             // Create a valid configuration.
             startup()
         }
-        searchLabel.text = peerDisplayName
+        if let peerDisplayName, let user {
+            searchLabel.text = "\(peerDisplayName) of \(user)"
+        } else {
+            searchLabel.text = "User is neary!"
+        }
     }
 
     func session(_ session: NISession, didInvalidateWith error: Error) {

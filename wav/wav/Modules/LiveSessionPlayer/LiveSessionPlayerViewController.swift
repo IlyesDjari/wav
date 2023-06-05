@@ -108,4 +108,16 @@ class LiveSessionPlayerViewController: UIViewController {
         musicPlaybackControl.togglePlayback()
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
     }
+
+    @IBAction func buttonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "UserInteractionSegue", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserInteractionSegue" {
+            if let destinationVC = segue.destination as? UserInteractionViewController {
+                destinationVC.user = usersData?.username
+            }
+        }
+    }
 }

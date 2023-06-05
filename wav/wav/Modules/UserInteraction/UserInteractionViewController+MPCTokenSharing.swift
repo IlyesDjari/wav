@@ -36,7 +36,11 @@ extension UserInteractionViewController {
         }
         connectedPeer = peer
         peerDisplayName = peer.displayName
-        searchLabel.text = peerDisplayName
+        if let peerDisplayName, let user {
+            searchLabel.text = "\(peerDisplayName) of \(user)"
+        } else {
+            searchLabel.text = "User is nearby!"
+        }
     }
 
     func disconnectedFromPeer(peer: MCPeerID) {

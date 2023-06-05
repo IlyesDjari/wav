@@ -8,17 +8,26 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseMessaging
+import FirebaseFirestore
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
 
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions:
-            [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+        )
+        application.registerForRemoteNotifications()
         return true
     }
 
@@ -62,4 +71,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Register the device token with Firebase Cloud Messaging
+        Messaging.messaging().apnsToken = deviceToken
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    }
+
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let userID = getUserIDFromCoreData() else {
+            return
+        }
+        // Store the FCM token in Firestore
+        let usersRef = Firestore.firestore().collection("Users")
+        let userDocRef = usersRef.document(userID)
+        userDocRef.setData(["fcmToken": fcmToken ?? ""], merge: true) { error in
+            if let error {
+                print("Error storing FCM token in Firestore: \(error)")
+            } else {
+                print("FCM token stored in Firestore")
+            }
+        }
+    }
+
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // Handle the received remote notification
+        // You can customize the handling based on the userInfo payload
+        // completionHandler(UIBackgroundFetchResult) should be called when the processing is completed
+        completionHandler(.noData)
+    }
 }
