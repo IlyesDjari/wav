@@ -20,8 +20,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
         setUserData()
     }
 
@@ -39,10 +37,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    @objc private func handleTap() {
-        view.endEditing(true)
-        updateUsername()
-    }
 
     private func updateUsername() {
         if let updatedText = username.text {
@@ -72,7 +66,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         banner.show()
         banner.autoDismiss = true
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == username {
             textField.resignFirstResponder()

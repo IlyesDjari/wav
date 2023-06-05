@@ -10,10 +10,10 @@ import CoreData
 import CoreLocation
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate {
-    
+
     // Outlets
     @IBOutlet weak var greetingLabel: UILabel!
-    
+
     // Properties
     var username: String?
     let locationManager = CLLocationManager()
@@ -24,8 +24,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         fetchUserData()
         configureUI()
         locationManager.delegate = self
-        checkLocationAuthorization()
-
     }
     private func fetchUserData() {
         activityIndicator.startAnimating()
@@ -60,7 +58,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                 }
             }
             DispatchQueue.main.async {
-                            self.activityIndicator.stopAnimating()
+                self.activityIndicator.stopAnimating()
+                self.checkLocationAuthorization()
             }
         }
     }
@@ -89,7 +88,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             print("Error retrieving user from Core Data: \(error.localizedDescription)")
         }
     }
-    
+
     @IBAction func grantLocation(_ sender: Any) {
         locationManager.requestAlwaysAuthorization()
     }
@@ -97,6 +96,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - CLLocationManagerDelegate methods
 
     func checkLocationAuthorization() {
+        print("called")
         let locationManager = CLLocationManager()
         let authorizationStatus = locationManager.authorizationStatus
         switch authorizationStatus {
@@ -112,12 +112,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             print("Unknown location access status")
         }
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-        case .authorizedAlways:
-            performSegue(withIdentifier: "locationToHomeSegue", sender: nil)
-        case .authorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             performSegue(withIdentifier: "locationToHomeSegue", sender: nil)
         case .denied:
             print("Location access denied")
