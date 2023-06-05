@@ -179,11 +179,11 @@
                     </view>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
-                        <outlet property="TrackCollectionView" destination="28j-oK-0VT" id="CyC-z9-T7O"/>
                         <outlet property="backgroundGradient" destination="qqV-AK-uta" id="Vmb-jg-Cw7"/>
                         <outlet property="cover" destination="huj-PH-Qfe" id="e5l-WV-7hC"/>
                         <outlet property="heightConstant" destination="mSS-wg-zZY" id="MGL-Qq-3yg"/>
                         <outlet property="playlistTitle" destination="VTb-My-Kg1" id="x1v-NC-DJo"/>
+                        <outlet property="trackCollectionView" destination="28j-oK-0VT" id="Myc-u6-DVF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

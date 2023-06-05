@@ -55,7 +55,7 @@ extension UserInteractionViewController {
             // Update the app's display.
             print("Peer ended")
         case .timeout:
-            
+
             // The peer timed out, but the session is valid.
             // If the configuration is valid, run the session again.
             if let config = session.configuration {

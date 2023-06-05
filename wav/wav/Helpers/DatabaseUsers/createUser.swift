@@ -10,12 +10,10 @@ import UIKit
 import FirebaseFirestore
 import CoreData
 
-
 func createUser(userName: String, completion: @escaping (Result<String, Error>) -> Void) {
     let db = Firestore.firestore()
-    
     // Create a new document in the "Users" collection with a unique ID
-    var ref: DocumentReference? = nil
+    var ref: DocumentReference?
     ref = db.collection("Users").addDocument(data: [
         "username": userName,
         "createdAt": FieldValue.serverTimestamp()
@@ -26,9 +24,12 @@ func createUser(userName: String, completion: @escaping (Result<String, Error>) 
             completion(.success(ref!.documentID))
         }
     }
-    
     // Save the ID and username in Core Data
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        // Handle the case when the app delegate cannot be cast properly
+        fatalError("AppDelegate not found")
+    }
+    let context = appDelegate.persistentContainer.viewContext
     let user = User(context: context)
     user.id = ref!.documentID
     user.username = userName

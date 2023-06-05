@@ -10,7 +10,7 @@ import UIKit
 
 public func updateTimelineGradient(from image: UIImage?, in slider: UISlider) {
     guard let image = image else { return }
-    
+
     // Get the primary color from the image
     image.getColors { [weak slider] colors in
         guard let slider = slider, let primaryColor = colors?.detail else { return }

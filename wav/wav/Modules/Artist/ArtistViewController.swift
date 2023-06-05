@@ -10,7 +10,6 @@ import MusadoraKit
 import Kingfisher
 
 class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
 
     // Properties
     internal var artist: Artist?
@@ -43,14 +42,14 @@ class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollec
         showLoadingView()
         fetchAllData()
     }
-    
+
     private func fetchAllData() {
         Task {
             setArtistInfo()
             getArtistData()
         }
     }
-    
+
     private func setArtistInfo(completion: (() -> Void)? = nil) {
         guard let artist = artist else {
             return
@@ -78,7 +77,7 @@ class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollec
             completion?()
         }
     }
-    
+
     private func showLoadingView() {
         loadingIndicatorView = LoadingIndicatorView()
         loadingIndicatorView?.show(on: view)

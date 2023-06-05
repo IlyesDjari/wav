@@ -11,7 +11,7 @@ import MusadoraKit
 import NotificationBannerSwift
 
 class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     // Outlets
     @IBOutlet weak var albumTitle: MarqueeLabel!
     @IBOutlet weak var artistName: MarqueeLabel!
@@ -37,7 +37,7 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
             heightConstant.constant = CGFloat(Double(tracks.count) * 65)
         }
     }
-    
+
     var album: Album? {
         didSet {
             if let album {
@@ -50,12 +50,12 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         configureUI()
     }
-   
+
     private func configureUI() {
         albumTitle.text = album?.title
         artistName.text = album?.artistName
         if let artworkURL = album?.artwork?.url(width: 500, height: 500) {
-            let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, response, error in
+            let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, _, error in
                 if let error {
                     NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error loading image: \(error.localizedDescription)")
 

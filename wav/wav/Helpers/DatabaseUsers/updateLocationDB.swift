@@ -14,12 +14,12 @@ public func updateLocationDB(location: CLLocation?, completion: @escaping (Resul
         completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
         return
     }
-    
+
     guard let location = location else {
         completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "No location available"])))
         return
     }
-    
+
     let db = Firestore.firestore()
     let geoPoint = GeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     db.collection("Users").document(userID).updateData([

@@ -17,24 +17,26 @@ extension NearbyViewController {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyUserCell", for: indexPath) as! NearbyUsersTableViewCell
-        let userData = usersData[indexPath.row]
-
-        Task {
-            do {
-                let song = try await MCatalog.song(id: MusicItemID(rawValue: userData.songID))
-                // Update the UI on the main queue
-                DispatchQueue.main.async {
-                    //cell.textLabel?.text = userData.username
-                    cell.cover.kf.setImage(with: song.artwork?.url(width: 200, height: 200))
-                    cell.songName.text = song.title
-                    cell.artist.text = song.artistName
+        if let cell = tableView.dequeueReusableCell(
+                withIdentifier: "nearbyUserCell",
+                for: indexPath) as? NearbyUsersTableViewCell {
+            let userData = usersData[indexPath.row]
+            Task {
+                do {
+                    let song = try await MCatalog.song(id: MusicItemID(rawValue: userData.songID))
+                    DispatchQueue.main.async {
+                        cell.cover.kf.setImage(with: song.artwork?.url(width: 200, height: 200))
+                        cell.songName.text = song.title
+                        cell.artist.text = song.artistName
+                    }
+                } catch {
+                    print("Error retrieving song: \(error)")
                 }
-            } catch {
-                print("Error retrieving song: \(error)")
             }
+            return cell
         }
-        return cell
+
+        return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -43,8 +45,8 @@ extension NearbyViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LiveSharePlayerSegue" {
-            let destinationVC = segue.destination as! LiveSessionPlayerViewController
-            if let userData = sender as? NearbyUser {
+            if let destinationVC = segue.destination as? LiveSessionPlayerViewController,
+                let userData = sender as? NearbyUser {
                 destinationVC.usersData = userData
             }
         }

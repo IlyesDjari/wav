@@ -51,8 +51,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="NearbyArrow" destination="qR0-jb-AHl" id="07z-tA-YSE"/>
                         <outlet property="detailDistanceLabel" destination="JBB-0f-1Ar" id="5Hw-cy-GkP"/>
+                        <outlet property="nearbyArrow" destination="qR0-jb-AHl" id="h98-pW-gyF"/>
                         <outlet property="searchLabel" destination="aTY-Dj-Hnu" id="z3K-eP-KDG"/>
                     </connections>
                 </viewController>

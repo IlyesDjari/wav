@@ -16,7 +16,7 @@ func removeUser(completion: @escaping (Result<Void, Error>) -> Void) {
         }
         let db = Firestore.firestore()
         let usersRef = db.collection("Users")
-        
+
         usersRef.document(userID).delete { error in
             if let error {
                 completion(.failure(error))

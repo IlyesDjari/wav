@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 func addUserFavoriteSong(songID: String, completion: @escaping (Result<Void, Error>) -> Void) {
-    
+
     DispatchQueue.main.async {
         guard let userID = getUserIDFromCoreData() else {
             completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
@@ -17,9 +17,9 @@ func addUserFavoriteSong(songID: String, completion: @escaping (Result<Void, Err
         }
         let db = Firestore.firestore()
         let usersRef = db.collection("Users")
-        
+
         usersRef.document(userID).setData(["favoriteSong": songID], merge: true) { error in
-            if let error  {
+            if let error {
                 completion(.failure(error))
             } else {
                 completion(.success(()))

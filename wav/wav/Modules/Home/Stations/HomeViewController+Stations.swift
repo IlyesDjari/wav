@@ -23,7 +23,7 @@ extension HomeViewController: UICollectionViewDataSource {
             recommendedStations = recommendations.flatMap { $0.playlists }
             // Reload the collection view data on the main thread
             DispatchQueue.main.async {
-                self.ForYouCollectionView.reloadData()
+                self.forYouCollectionView.reloadData()
             }
         }
     }

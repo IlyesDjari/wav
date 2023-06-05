@@ -12,30 +12,32 @@ import CoreData
 import NotificationBannerSwift
 
 class LoginViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     private func checkAuthorizationStatus() {
         if MusicAuthorization.currentStatus == .authorized {
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let request = NSFetchRequest<User>(entityName: "User")
-            request.fetchLimit = 1
-            do {
-                let users = try context.fetch(request)
-                if users.first != nil {
-                    performSegue(withIdentifier: "LoginToHomeSegue", sender: self)
-                } else {
-                    performSegue(withIdentifier: "LoginToNameSegue", sender: self)
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                let context = appDelegate.persistentContainer.viewContext
+                let request = NSFetchRequest<User>(entityName: "User")
+                request.fetchLimit = 1
+                do {
+                    let users = try context.fetch(request)
+                    if users.first != nil {
+                        performSegue(withIdentifier: "LoginToHomeSegue", sender: self)
+                    } else {
+                        performSegue(withIdentifier: "LoginToNameSegue", sender: self)
+                    }
+                } catch {
+                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to fetch users: \(error)")
                 }
-            } catch {
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to fetch users: \(error)")
             }
         }
     }
-    
-    @IBAction func LoginButton(_ sender: Any) {
+
+    @IBAction func loginButton(_ sender: Any) {
         Task {
             let authorizationStatus = await MusicAuthorization.request()
             switch authorizationStatus {
@@ -52,8 +54,8 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func NotSubscribed(_ sender: Any) {
+
+    @IBAction func notSubscribed(_ sender: Any) {
         _ = URL(string: "https://apps.apple.com/app/apple-music/id1108187390")!
     }
 }

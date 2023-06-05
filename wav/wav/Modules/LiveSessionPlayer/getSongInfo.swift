@@ -10,14 +10,14 @@ import MusadoraKit
 import UIKit
 
 extension LiveSessionPlayerViewController {
-    
+
     internal func getSongInfo(songID: String) {
         Task { [weak self] in
             guard let self = self else { return }
             do {
                 let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
                 if let artworkURL = song.artwork?.url(width: 200, height: 200) {
-                    URLSession.shared.dataTask(with: artworkURL) { (data, response, error) in
+                    URLSession.shared.dataTask(with: artworkURL) { (data, _, _) in
                         if let data = data, let image = UIImage(data: data) {
                             DispatchQueue.main.async {
                                 self.playingCover.image = image
@@ -40,14 +40,14 @@ extension LiveSessionPlayerViewController {
             }
         }
     }
-    
+
     internal func setSuggestion(songID: String) {
         Task { [weak self] in
             guard let self = self else { return }
             do {
                 let song = try await MCatalog.song(id: MusicItemID(rawValue: songID))
                 if let artworkURL = song.artwork?.url(width: 200, height: 200) {
-                    URLSession.shared.dataTask(with: artworkURL) { (data, response, error) in
+                    URLSession.shared.dataTask(with: artworkURL) { (data, _, _) in
                         if let data = data, let image = UIImage(data: data) {
                             DispatchQueue.main.async { [self] in
                                 self.suggestCover.image = image

@@ -14,12 +14,12 @@ internal func stopLiveShareSession(completion: @escaping (Result<Void, Error>) -
         completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
         return
     }
-    
+
     // Access Firestore to find the correct user
     let db = Firestore.firestore()
     let usersRef = db.collection("Users")
     let userDocRef = usersRef.document(userID)
-    
+
     // Remove the currentSong field
     userDocRef.updateData(["currentSong": FieldValue.delete(), "location": FieldValue.delete()]) { error in
         if let error = error {

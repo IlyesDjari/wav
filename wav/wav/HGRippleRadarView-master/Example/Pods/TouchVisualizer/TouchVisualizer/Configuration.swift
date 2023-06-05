@@ -50,5 +50,5 @@ public struct Configuration {
     */
     public var showsLog = false
 
-    public init(){}
+    public init() {}
 }

@@ -11,23 +11,31 @@ import MarqueeLabel
 
 extension AlbumViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "albumTrackCell", for: indexPath) as! AlbumTracksTableViewCell
-        let track = tracks[indexPath.row]
-        cell.songNumber.text = "\(indexPath.row + 1)."
-        cell.songTitle.text = track.title
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "albumTrackCell",
+                                                 for: indexPath) as? AlbumTracksTableViewCell
+        if let cell {
+            let track = tracks[indexPath.row]
+            cell.songNumber.text = "\(indexPath.row + 1)."
+            cell.songTitle.text = track.title
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            // Handle the case when the cell cannot be dequeued or cast properly
+            return UITableViewCell()
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Instantiate PlayerViewController from storyboard
         let storyboard = UIStoryboard(name: "Player", bundle: nil)
-        guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
+        guard let playerViewController =
+            storyboard.instantiateViewController(withIdentifier: "PlayerViewController")
+        as? PlayerViewController else {
             return
         }
         playerViewController.albumSongSelected = indexPath.row

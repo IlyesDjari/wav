@@ -55,7 +55,6 @@ extension HomeViewController {
         performSegue(withIdentifier: "homeToAlbumSegue", sender: album)
     }
 
-
     private func loadImage(with url: URL, into imageView: UIImageView) {
         imageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder")) { result in
             switch result {

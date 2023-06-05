@@ -41,7 +41,7 @@ class NameViewController: UIViewController, UITextFieldDelegate {
             banner.show()
             return
         }
-        
+
         createUser(userName: name) { result in
             switch result {
             case .success(let userID):

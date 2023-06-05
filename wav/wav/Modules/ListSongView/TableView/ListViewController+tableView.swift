@@ -11,22 +11,24 @@ import Kingfisher
 
 extension ListViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell", for: indexPath) as! TracksTableViewCell
-        let track = tracks[indexPath.row]
-        cell.songLabel.text = track.title
-        cell.artistLabel.text = track.artistName
-        let artworkURL = track.artwork?.url(width: 200, height: 200)
-        cell.cover.kf.setImage(with: artworkURL)
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-        hideLoadingView()
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell", for: indexPath) as? TracksTableViewCell {
+            let track = tracks[indexPath.row]
+            cell.songLabel.text = track.title
+            cell.artistLabel.text = track.artistName
+            let artworkURL = track.artwork?.url(width: 200, height: 200)
+            cell.cover.kf.setImage(with: artworkURL)
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            hideLoadingView()
+            return cell
+        }
+        return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Instantiate PlayerViewController from storyboard
         let storyboard = UIStoryboard(name: "Player", bundle: nil)

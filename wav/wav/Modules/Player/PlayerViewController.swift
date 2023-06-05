@@ -18,7 +18,6 @@ protocol PlayerViewControllerDelegate: AnyObject {
     func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?)
 }
 
-
 class PlayerViewController: UIViewController, NISessionDelegate {
     // Outlets
     @IBOutlet weak var background: UIView!
@@ -96,7 +95,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
             }
         }
     }
-    
+
     public var playlistSongSelected: Int?
     public var playlistSong: MusicItemCollection<Track>? {
         didSet {
@@ -109,7 +108,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
             }
         }
     }
-    
+
     public var albumSongSelected: Int?
     public var albumSongs: MusicItemCollection<Track>? {
         didSet {
@@ -184,15 +183,15 @@ class PlayerViewController: UIViewController, NISessionDelegate {
 
     private func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
-        commandCenter.skipForwardCommand.addTarget { event in
+        commandCenter.skipForwardCommand.addTarget { _ in
             // Handle skip forward command here
             return .success
         }
-        commandCenter.skipBackwardCommand.addTarget { event in
+        commandCenter.skipBackwardCommand.addTarget { _ in
             // Handle skip backward command here
             return .success
         }
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main) { [weak self] notification in
+        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main) { [weak self] _ in
             guard let self = self else { return }
             guard let nowPlayingItem = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem else { return }
             let nowPlayingSongID = nowPlayingItem.playbackStoreID
@@ -210,7 +209,6 @@ class PlayerViewController: UIViewController, NISessionDelegate {
                     case .failure(let error):
                         NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to start live share session: \(error)")
 
-                        
                     }
                 }
             } else {
@@ -318,7 +316,10 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         if !sharePlay {
             if !isLiveSharePopupShown {
                 // Create the alert controller
-                let alertController = UIAlertController(title: "Live Sharing", message: "Your location and current song will be shared for live sharing. This data will only be used during the session and will be removed immediately after it ends.", preferredStyle: .alert)
+                let alertController = UIAlertController(
+                    title: "Live Sharing",
+                    message: "Your location and current song will be shared for live sharing. This data will only be used during the session and will be removed immediately after it ends.",
+                    preferredStyle: .alert)
                 // Add an OK action to dismiss the alert
                 let okAction = UIAlertAction(title: "OK", style: .default) { _ in
                     self.isLiveSharePopupShown = true

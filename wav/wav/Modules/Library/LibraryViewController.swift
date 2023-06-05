@@ -18,10 +18,10 @@ class LibraryViewController: UIViewController, UICollectionViewDelegate {
             collectionView.delegate = self
         }
     }
-    
+
     // Properties
     internal var playlists: MusicItemCollection<Playlist> = MusicItemCollection([])
-    
+
     // Loading spinner
     let activityIndicator = UIActivityIndicatorView(style: .medium)
 
@@ -30,7 +30,7 @@ class LibraryViewController: UIViewController, UICollectionViewDelegate {
         setupActivityIndicator()
         fetchLibrary()
     }
-    
+
     func setupActivityIndicator() {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activityIndicator)
@@ -39,5 +39,5 @@ class LibraryViewController: UIViewController, UICollectionViewDelegate {
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
-    
+
 }

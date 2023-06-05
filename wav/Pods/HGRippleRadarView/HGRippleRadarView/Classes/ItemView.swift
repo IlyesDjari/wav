@@ -14,7 +14,7 @@ class ItemView {
     let item: Item
     /// the position of the item, stored to deraw the layer in the same place if needed (rotation for example)
     var index: Int
-    
+
     init(view: UIView, item: Item, index: Int) {
         self.view = view
         self.item = item

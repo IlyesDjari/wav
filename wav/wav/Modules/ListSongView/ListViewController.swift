@@ -13,17 +13,17 @@ import NotificationBannerSwift
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Outlets
-    @IBOutlet weak var TrackCollectionView: UITableView! {
+    @IBOutlet weak var trackCollectionView: UITableView! {
         didSet {
-            TrackCollectionView.delegate = self
-            TrackCollectionView.dataSource = self
+            trackCollectionView.delegate = self
+            trackCollectionView.dataSource = self
         }
     }
     @IBOutlet weak var heightConstant: NSLayoutConstraint!
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var playlistTitle: MarqueeLabel!
     @IBOutlet weak var backgroundGradient: UIView!
-    
+
     // Properties
     var playlist: Playlist? {
         didSet {
@@ -34,12 +34,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     var tracks: MusicItemCollection<Track> = MusicItemCollection([]) {
         didSet {
-            UIView.transition(with: TrackCollectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                self.TrackCollectionView.reloadData()
+            UIView.transition(with: trackCollectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.trackCollectionView.reloadData()
             }, completion: { _ in
                 let indexPaths = (0..<self.tracks.count).map { IndexPath(row: $0, section: 0) }
-                self.TrackCollectionView.reloadRows(at: indexPaths, with: .fade)
-                self.TrackCollectionView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                self.trackCollectionView.reloadRows(at: indexPaths, with: .fade)
+                self.trackCollectionView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             })
             heightConstant.constant = CGFloat(Double(tracks.count) * 80)
         }
@@ -55,7 +55,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func configureUI() {
         playlistTitle.text = playlist?.name
         if let artworkURL = playlist?.artwork?.url(width: 500, height: 500) {
-            let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, response, error in
+            let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, _, error in
                 if let error {
                     NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error loading image: \(error.localizedDescription)")
                     return
@@ -80,7 +80,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             task.resume()
         }
     }
-    
+
     private func showLoadingView() {
         loadingIndicatorView = LoadingIndicatorView()
         loadingIndicatorView?.show(on: view)

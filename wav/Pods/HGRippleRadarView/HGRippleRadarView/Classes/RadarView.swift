@@ -8,13 +8,12 @@
 
 import UIKit
 
-
 /// A radar view with ripple animation
 @IBDesignable
 final public class RadarView: RippleView {
-    
+
     // MARK: public properties
-    
+
     /// the maximum number of items that can be shown in the radar view, if you use more, some layers will overlaying other layers
     public var radarCapacity: Int {
         if allPossiblePositions.isEmpty {
@@ -22,17 +21,17 @@ final public class RadarView: RippleView {
         }
         return allPossiblePositions.count
     }
-    
+
     /// The padding between items, the default value is 10
     @IBInspectable public var paddingBetweenItems: CGFloat = 10 {
         didSet {
             redrawItems()
         }
     }
-    
+
     /// the background color of items, by default is turquoise
     @IBInspectable public var itemBackgroundColor = UIColor.turquoise
-    
+
     /// The bounds rectangle, which describes the view’s location and size in its own coordinate system.
     public override var bounds: CGRect {
         didSet {
@@ -42,7 +41,7 @@ final public class RadarView: RippleView {
             redrawItems()
         }
     }
-    
+
     /// The frame rectangle, which describes the view’s location and size in its superview’s coordinate system.
     public override var frame: CGRect {
         didSet {
@@ -52,43 +51,42 @@ final public class RadarView: RippleView {
             redrawItems()
         }
     }
-    
+
     /// The delegate of the radar view
     public weak var delegate: RadarViewDelegate?
-    
+
     /// The data source of the radar view
     public weak var dataSource: RadarViewDataSource?
-    
+
     /// The current selected item
     public var selectedItem: Item? {
         return currentItemView?.item
     }
-    
+
     // MARK: private properties
-    
+
     /// All possible positions to draw item in the radar view, you can have more positions if you have more circles
     private var allPossiblePositions = [CGPoint]()
-    
+
     /// All available position to draw items
     private var availablePositions = [CGPoint]()
-    
+
     /// items drawn in the radar view
     private var itemsViews = [ItemView]()
-    
+
     /// layer to remove after hidden animation
     private var viewToRemove: UIView?
-    
+
     /// the preferable radius of an item
     private var itemRadius: CGFloat {
         return paddingBetweenCircles / 3
     }
-    
+
     private var currentItemView: ItemView? {
         didSet {
             if oldValue != nil && currentItemView != nil {
                 delegate?.radarView(radarView: self, didDeselect: oldValue!.item)
-            }
-            else if oldValue != nil && currentItemView == nil {
+            } else if oldValue != nil && currentItemView == nil {
                 delegate?.radarView(radarView: self, didDeselectAllItems: oldValue!.item)
             }
             if currentItemView != nil {
@@ -96,34 +94,33 @@ final public class RadarView: RippleView {
             }
         }
     }
-    
-    
+
     // MARK: View Life Cycle
-    
+
     override func setup() {
         paddingBetweenCircles = 40
         let viewRadius = min(bounds.midX, bounds.midY)
         minimumCircleRadius = viewRadius > 120 ? 60 : diskRadius + 15
-        
+
         super.setup()
     }
-    
+
     override func redrawCircles() {
         super.redrawCircles()
-        
+
         redrawItems()
     }
-    
+
     private func redrawItems() {
         // remove all items and redraw them in the right positions
         let items = itemsViews
         allPossiblePositions.removeAll()
         availablePositions.removeAll()
         itemsViews.removeAll()
-        
+
         findPossiblePositions()
         availablePositions = allPossiblePositions
-        
+
         items.forEach {
             let view = $0.view
             view.layer.removeAllAnimations()
@@ -132,19 +129,19 @@ final public class RadarView: RippleView {
             add(item: $0.item, at: &index, using: nil)
         }
     }
-    
+
     // MARK: Utilities methods
-    
+
     /// browse circles and find possible position to draw layer
     private func findPossiblePositions() {
         for (index, layer) in circlesLayer.enumerated() {
             let origin = layer.position
             let radius = radiusOfCircle(at: index)
-            let circle = Circle(origin: origin, radius:radius)
-            
+            let circle = Circle(origin: origin, radius: radius)
+
             // we calculate the capacity using: (2π * r1 / 2 * r2) ; r2 = (itemRadius + padding/2)
             let capicity = (radius * CGFloat.pi) / (itemRadius + paddingBetweenItems/2)
-            
+
             /*
              Random Angle is used  to don't have the gap in the same place, we should find a better solution
              for example, dispatch the gap as padding between items
@@ -157,7 +154,7 @@ final public class RadarView: RippleView {
             }
         }
     }
-    
+
     /// Add item layer to radar view
     ///
     /// - Parameters:
@@ -165,7 +162,7 @@ final public class RadarView: RippleView {
     ///   - index: the index of the item layer (position)
     ///   - animation: the animation used to show the item layer
     private func add(item: Item, at index: inout Int, using animation: CAAnimation? = Animation.transform()) {
-        
+
         if allPossiblePositions.isEmpty {
             findPossiblePositions()
         }
@@ -173,14 +170,14 @@ final public class RadarView: RippleView {
             print("HGRipplerRadarView Warning: you use more than the capacity of the radar view, some layers will overlaying other layers")
             availablePositions = allPossiblePositions
         }
-        
+
         // try to draw the item in a precise position, if it's not possible, a random index is used
         if index >= availablePositions.count {
             index = Int(arc4random_uniform(UInt32(availablePositions.count)))
         }
         let origin = availablePositions[index]
         availablePositions.remove(at: index)
-        
+
         let preferredSize = CGSize(width: itemRadius*2, height: itemRadius*2)
         let customView = dataSource?.radarView(radarView: self, viewFor: item, preferredSize: preferredSize)
         let itemView = addItem(view: customView, with: origin, and: animation)
@@ -188,21 +185,21 @@ final public class RadarView: RippleView {
         self.addSubview(itemView)
         itemsViews.append(itemLayer)
     }
-    
+
     private func addItem(view: UIView?, with origin: CGPoint, and animation: CAAnimation?) -> UIView {
         let itemView = view ?? Drawer.diskView(radius: itemRadius, origin: origin, color: itemBackgroundColor)
         itemView.center = origin
         itemView.isUserInteractionEnabled = false
-        
+
         guard let anim = animation else { return itemView }
         let hide = Animation.transform(to: 0.0)
         hide.duration = anim.beginTime - CACurrentMediaTime()
         itemView.layer.add(hide, forKey: nil)
         itemView.layer.add(anim, forKey: nil)
-        
+
         return itemView
     }
-    
+
     /// Remove layer from radar view
     ///
     /// - Parameter layer: the layer to remove
@@ -210,12 +207,12 @@ final public class RadarView: RippleView {
         viewToRemove = view
         let hideAnimation = Animation.hide()
         hideAnimation.delegate = self
-        
+
         view.layer.add(hideAnimation, forKey: nil)
     }
-    
+
     // MARK: manage user interaction
-    
+
     /// Tells this object that one or more new touches occurred in a view or window.
     ///
     /// - Parameters:
@@ -230,11 +227,11 @@ final public class RadarView: RippleView {
             currentItemView = nil
             return
         }
-        
+
         let item = itemsViews[index]
         if item === currentItemView { return }
         currentItemView = item
-        
+
         let itemView = item.view
         self.bringSubviewToFront(itemView)
         let animation = Animation.opacity(from: 0.3, to: 1.0)
@@ -243,7 +240,7 @@ final public class RadarView: RippleView {
 }
 
 extension RadarView: CAAnimationDelegate {
-    
+
     /// Tells the delegate the animation has ended.
     ///
     /// - Parameters:
@@ -268,7 +265,7 @@ extension RadarView {
             self.add(item: items[index], using: animation)
         }
     }
-    
+
     /// Add item randomly in the radar view
     ///
     /// - Parameters:
@@ -278,12 +275,12 @@ extension RadarView {
         if allPossiblePositions.isEmpty {
             findPossiblePositions()
         }
-        
+
         let count = availablePositions.count == 0 ? allPossiblePositions.count : availablePositions.count
         var randomIndex = Int(arc4random_uniform(UInt32(count)))
         add(item: item, at: &randomIndex, using: animation)
     }
-    
+
     /// Remove item layer from the radar view
     ///
     /// - Parameter item: the item to remove from Radar View
@@ -296,7 +293,7 @@ extension RadarView {
         removeWithAnimation(view: item.view)
         itemsViews.remove(at: index)
     }
-    
+
     /// Returns the view of the item
     ///
     /// - Parameter item: the item
@@ -322,6 +319,6 @@ extension Drawer {
         view.layer.cornerRadius = radius
         view.clipsToBounds = true
         view.backgroundColor = color
-        
+
         return view
     }}

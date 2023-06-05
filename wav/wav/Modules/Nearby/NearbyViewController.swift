@@ -79,7 +79,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     private func getNearbyUser() {
-        getNearbyUsers() { [weak self] result in
+        getNearbyUsers { [weak self] result in
             switch result {
             case .success(let usersData):
                 DispatchQueue.main.async {

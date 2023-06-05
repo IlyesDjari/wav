@@ -9,9 +9,8 @@ import Foundation
 import NearbyInteraction
 import MultipeerConnectivity
 
-
 extension UserInteractionViewController {
-    
+
     func startupMPC() {
         if mpc == nil {
             mpc = MPCSession(service: "nisample", identity: "ilyesdjari.wav", maxPeers: 1)
@@ -73,7 +72,7 @@ extension UserInteractionViewController {
         // Run the session.
         session?.run(config)
     }
-    
+
     func isNearby(_ distance: Float) -> Bool {
         return distance < nearbyDistanceThreshold
     }
@@ -101,5 +100,5 @@ extension UserInteractionViewController {
 
         return .outOfFOV
     }
-    
+
 }

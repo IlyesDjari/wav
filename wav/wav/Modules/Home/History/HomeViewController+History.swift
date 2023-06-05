@@ -19,7 +19,7 @@ extension HomeViewController {
         }
         // Reload the collection view data on the main thread
         DispatchQueue.main.async {
-            self.HistoryCollectionView.reloadData()
+            self.historyCollectionView.reloadData()
         }
     }
 }

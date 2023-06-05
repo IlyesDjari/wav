@@ -11,8 +11,7 @@ import MusadoraKit
 import Kingfisher
 
 extension SearchViewController: UITableViewDataSource {
-    
-    
+
     func searchSong(searchText: String) async {
         do {
             // Search for songs with the given text
@@ -25,12 +24,12 @@ extension SearchViewController: UITableViewDataSource {
             print("Error searching for songs: \(error)")
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of songs in the search response
         return searchResults.count
     }
-        
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue the custom cell
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as? SearchViewCell else {
@@ -46,7 +45,7 @@ extension SearchViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let song = searchResults[indexPath.row]
         let songID = song.id.rawValue

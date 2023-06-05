@@ -13,7 +13,6 @@ import MarqueeLabel
 
 extension ArtistViewController {
 
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == topCollectionView {
             return 4
@@ -21,28 +20,33 @@ extension ArtistViewController {
             return artistData?.fullAlbums?.count ?? 0
         } else if collectionView == playlistCollectionView {
             return artistData?.featuredPlaylists?.count ?? 0
-        }
-        else {
+        } else {
             return 0
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == topCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topSongCell", for: indexPath) as! TopsSongsCollectionViewCell
-            cell.cover.kf.setImage(with: artistData?.topSongs?[indexPath.row].artwork?.url(width: 200, height: 200))
-            cell.songName.text = artistData?.topSongs?[indexPath.row].title
-            cell.artistName.text = artistData?.topSongs?[indexPath.row].artistName
-            return cell
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topSongCell",
+                                                             for: indexPath) as? TopsSongsCollectionViewCell {
+                cell.cover.kf.setImage(with: artistData?.topSongs?[indexPath.row].artwork?.url(width: 200, height: 200))
+                cell.songName.text = artistData?.topSongs?[indexPath.row].title
+                cell.artistName.text = artistData?.topSongs?[indexPath.row].artistName
+                return cell
+            }
         } else if collectionView == albumCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumsArtistCell", for: indexPath) as! ArtistAlbumCollectionViewCell
-            cell.cover.kf.setImage(with: artistData?.fullAlbums?[indexPath.row].artwork?.url(width: 500, height: 500))
-            cell.albumName.text = artistData?.fullAlbums?[indexPath.row].title
-            return cell
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumsArtistCell",
+                                                             for: indexPath) as? ArtistAlbumCollectionViewCell {
+                cell.cover.kf.setImage(with: artistData?.fullAlbums?[indexPath.row].artwork?.url(width: 500, height: 500))
+                cell.albumName.text = artistData?.fullAlbums?[indexPath.row].title
+                return cell
+            }
         } else if collectionView == playlistCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistArtistCell", for: indexPath) as! ArtistPlaylistCollectionViewCell
-            cell.cover.kf.setImage(with: artistData?.featuredPlaylists?[indexPath.row].artwork?.url(width: 500, height: 500))
-            return cell
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistArtistCell",
+                                                             for: indexPath) as? ArtistPlaylistCollectionViewCell {
+                cell.cover.kf.setImage(with: artistData?.featuredPlaylists?[indexPath.row].artwork?.url(width: 500, height: 500))
+                return cell
+            }
         }
         return UICollectionViewCell()
     }

@@ -7,11 +7,9 @@
 
 import Foundation
 
-import Foundation
 import UIKit
 import FirebaseFirestore
 import CoreData
-
 
 func getUser(completion: @escaping (Result<String, Error>) -> Void) {
     DispatchQueue.main.async {
@@ -21,7 +19,7 @@ func getUser(completion: @escaping (Result<String, Error>) -> Void) {
         }
         let db = Firestore.firestore()
         let usersRef = db.collection("Users")
-    
+
         usersRef.document(userID).getDocument { (document, error) in
             if let error = error {
                 completion(.failure(error))

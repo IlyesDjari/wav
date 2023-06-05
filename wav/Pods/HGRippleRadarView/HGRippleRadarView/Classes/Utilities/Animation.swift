@@ -10,7 +10,7 @@ import UIKit
 
 /// Statics methods for CAAnimation
 public struct Animation {
-    
+
     /// Animation by changing the opacity
     ///
     /// - Parameters:
@@ -21,10 +21,10 @@ public struct Animation {
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
         opacityAnimation.fromValue = fromValue
         opacityAnimation.toValue = toValue
-        
+
         return opacityAnimation
     }
-    
+
     /// Animation by changing the scale using transform
     ///
     /// - Parameters:
@@ -35,10 +35,10 @@ public struct Animation {
         let transformAnimation = CABasicAnimation(keyPath: "transform")
         transformAnimation.fromValue = NSValue(caTransform3D: CATransform3DMakeScale(fromValue, fromValue, fromValue))
         transformAnimation.toValue = NSValue(caTransform3D: CATransform3DMakeScale(toValue, toValue, toValue))
-        
+
         return transformAnimation
     }
-    
+
     /// Animation by changing the color
     ///
     /// - Parameters:
@@ -50,10 +50,10 @@ public struct Animation {
         colorAnimation.fromValue = fromColor
         colorAnimation.toValue = toColor
         colorAnimation.autoreverses = true
-        
+
         return colorAnimation
     }
-    
+
     /// Animation by changing the scale using transform
     ///
     /// - Parameters:
@@ -72,10 +72,10 @@ public struct Animation {
         transformAnimation.keyTimes = times
         transformAnimation.fillMode = CAMediaTimingFillMode.forwards
         transformAnimation.isRemovedOnCompletion = false
-        
+
         return transformAnimation
     }
-    
+
     /// Animation to hide views, using transform and changing the scale to 0.0
     ///
     /// - Returns: a CAKeyframeAnimation object
@@ -84,7 +84,7 @@ public struct Animation {
         hideAnimation.duration = 1.2
         return hideAnimation
     }
-    
+
     /// Allows multiple animations to be grouped and run concurrently.
     ///
     /// - Parameters:
@@ -95,7 +95,7 @@ public struct Animation {
         let animationGroup = CAAnimationGroup()
         animationGroup.animations = animations
         animationGroup.duration = duration
-        
+
         return animationGroup
     }
 }

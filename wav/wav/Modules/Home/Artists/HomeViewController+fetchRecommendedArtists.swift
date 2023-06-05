@@ -15,7 +15,7 @@ extension HomeViewController {
             do {
                 fetchedArtists = try await MLibrary.artists(limit: 4)
                 DispatchQueue.main.async { [self] in
-                    RecommendedArtistCollectionView.reloadData()
+                    recommendedArtistCollectionView.reloadData()
                 }
             } catch {
                 print("Error fetching artists: \(error)")

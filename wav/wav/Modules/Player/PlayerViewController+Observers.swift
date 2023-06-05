@@ -25,7 +25,7 @@ extension PlayerViewController {
             self.songID = nextSongID
         }
     }
-    
+
     @objc func playbackStatusChanged() {
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
     }

@@ -13,12 +13,12 @@ import MusadoraKit
 import CoreLocation
 
 extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
-    
+
     func radarView(radarView: HGRippleRadarView.RadarView, didSelect item: HGRippleRadarView.Item) {
-        
+
         let view = radarView.view(for: item)
         enlarge(view: view)
-        
+
         guard let user = item.value as? NearbyUser else {
             return
         }
@@ -34,7 +34,7 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
     func radarView(radarView: HGRippleRadarView.RadarView, didDeselectAllItems lastSelectedItem: HGRippleRadarView.Item) {
         let view = radarView.view(for: lastSelectedItem)
         reduce(view: view)
-        
+
         guard let user = lastSelectedItem.value as? NearbyUser,
               let index = usersData.firstIndex(where: { $0.id == user.id }) else {
             return
@@ -42,12 +42,12 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
         let indexPath = IndexPath(row: index, section: 0)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     func radarView(radarView: RadarView, didDeselect item: Item) {
-        
+
         let view = radarView.view(for: item)
         reduce(view: view)
-        
+
         guard let user = item.value as? NearbyUser,
               let index = usersData.firstIndex(where: { $0.id == user.id }) else {
             return
@@ -56,7 +56,6 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    
     func radarView(radarView: RadarView, viewFor item: Item, preferredSize: CGSize) -> UIView {
         let user = item.value as? NearbyUser
         let frame = CGRect(x: 0, y: 0, width: preferredSize.width, height: preferredSize.height)
@@ -81,7 +80,7 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
                 imageView.image = UIImage(named: "NoCoverImage")
             }
         }
-        
+
         return imageView
     }
 
@@ -91,7 +90,7 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
             animation.isRemovedOnCompletion = false
             view?.layer.add(animation, forKey: "transform")
     }
-        
+
     private func reduce(view: UIView?) {
             let animation = Animation.transform(from: 1.5, to: 1.0)
             animation.fillMode = .forwards
@@ -99,8 +98,6 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
             view?.layer.add(animation, forKey: "transform")
     }
 
-    
-    
     func setRadar() {
         radarView.diskRadius = 10.0
         radarView.diskColor = UIColor(named: "Purple")!

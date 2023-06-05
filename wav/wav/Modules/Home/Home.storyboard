@@ -486,17 +486,17 @@
                     <navigationItem key="navigationItem" id="G7V-5L-rG4"/>
                     <size key="freeformSize" width="392" height="1500"/>
                     <connections>
-                        <outlet property="ForYouCollectionView" destination="gxI-kV-SAV" id="nSm-0C-X6v"/>
-                        <outlet property="HistoryCollectionView" destination="Mh8-YJ-giA" id="CRr-8w-Ghj"/>
-                        <outlet property="RecommendedArtistCollectionView" destination="hUL-AS-fU5" id="hxs-xY-rWG"/>
                         <outlet property="album1" destination="Ui8-dz-0Xn" id="b07-MY-2Z9"/>
                         <outlet property="album2" destination="Iuh-dJ-wpD" id="MLc-aD-m1G"/>
                         <outlet property="album3" destination="bKS-Dm-lq0" id="s9I-jG-1Jg"/>
                         <outlet property="currentArtist" destination="9x5-cu-gxP" id="CZW-Az-Lq9"/>
                         <outlet property="currentCover" destination="eXe-pS-TTF" id="epC-QI-SzL"/>
                         <outlet property="currentSong" destination="LGt-CC-jmm" id="MSo-ny-P73"/>
+                        <outlet property="forYouCollectionView" destination="gxI-kV-SAV" id="pQm-UA-6xr"/>
+                        <outlet property="historyCollectionView" destination="Mh8-YJ-giA" id="9cc-TD-BWf"/>
                         <outlet property="homePlayer" destination="Ycr-fA-5NN" id="mSn-1I-HZG"/>
                         <outlet property="noSongLabel" destination="WjT-lu-JrJ" id="4dn-o4-cmQ"/>
+                        <outlet property="recommendedArtistCollectionView" destination="hUL-AS-fU5" id="Dc4-Cg-yLs"/>
                         <outlet property="stateButton" destination="uRi-Zh-IL8" id="8nA-Rm-yJk"/>
                         <segue destination="TTK-HR-YLb" kind="show" identifier="homeToPlaylistSegue" id="tky-PB-KLP"/>
                         <segue destination="qiy-LP-mfH" kind="show" identifier="homeToAlbumSegue" id="TU0-Rn-06f"/>

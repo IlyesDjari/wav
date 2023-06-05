@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import MusadoraKit
 
-
 extension ListViewController {
     internal func fetchPlaylist(_ playlist: Playlist) {
         Task {
@@ -34,4 +33,3 @@ extension ListViewController {
         }
     }
 }
-

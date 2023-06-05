@@ -30,4 +30,3 @@ func azimuth(from direction: simd_float3) -> Float {
 func elevation(from direction: simd_float3) -> Float {
     return atan2(direction.z, direction.y) + .pi / 2
 }
-

@@ -76,10 +76,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Retrieve the username from Core Data
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         do {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
             let result = try context.fetch(request)
             if let user = result.first as? User {
                 self.username = user.username ?? ""
@@ -87,7 +89,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             }
         } catch {
             NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error retrieving user from Core Data: \(error.localizedDescription)")
-
         }
     }
 

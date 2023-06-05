@@ -14,38 +14,31 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
         completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
         return
     }
-    
     let db = Firestore.firestore()
     let usersRef = db.collection("Users")
-    
     // Retrieve current user's location
     usersRef.document(userID).getDocument { (document, error) in
         if let error {
             completion(.failure(error))
             return
         }
-        
         guard let document,
-              document.exists,
-              let currentUserLocation = document.data()?["location"] as? GeoPoint else {
+            document.exists,
+            let currentUserLocation = document.data()?["location"] as? GeoPoint else {
             completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User document not found or missing location field"])))
             return
         }
-        
         // Query for users within the 500-meter radius
         usersRef.getDocuments { (snapshot, error) in
             if let error {
                 completion(.failure(error))
                 return
             }
-            
             guard let snapshot else {
                 completion(.failure(NSError(domain: "ilyesdjari.wav", code: 500, userInfo: [NSLocalizedDescriptionKey: "Snapshot is nil"])))
                 return
             }
-            
             var nearbyUsers: [NearbyUser] = []
-            
             for document in snapshot.documents {
                 guard let otherUserLocation = document.data()["location"] as? GeoPoint else {
                     continue
@@ -57,16 +50,21 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
                 let otherUsername = document.data()["username"] as? String ?? ""
                 let otherSong = document.data()["favoriteSong"] as? String ?? ""
                 let otherGenre = document.data()["favoriteGenre"] as? String ?? ""
-                
                 guard !otherSongID.isEmpty else {
-                       continue
-                   }
-                
+                    continue
+                }
                 if otherUserID != userID {
                     // Calculate the distance between the current user's location and other users' location
                     let distance = calculateDistance(currentUserLocation, otherUserLocation)
                     if distance <= 500 {
-                        let nearbyUser = NearbyUser(songID: otherSongID, longitude: otherLongitude, latitude: otherLatitude, username: otherUsername, favoriteGenre: otherGenre, favoriteSong: otherSong, id: otherUserID)
+                        let nearbyUser = NearbyUser(
+                            songID: otherSongID,
+                            longitude: otherLongitude,
+                            latitude: otherLatitude,
+                            username: otherUsername,
+                            favoriteGenre: otherGenre,
+                            favoriteSong: otherSong,
+                            id: otherUserID)
                         nearbyUsers.append(nearbyUser)
                     }
                 }

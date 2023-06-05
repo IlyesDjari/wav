@@ -13,10 +13,10 @@ internal func getUserIDFromCoreData() -> String? {
     // Access the Core Data context
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
     let context = appDelegate.persistentContainer.viewContext
-    
+
     // Fetch the user ID
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-    
+
     do {
         let result = try context.fetch(fetchRequest)
         if let user = result.first as? User {
@@ -25,6 +25,6 @@ internal func getUserIDFromCoreData() -> String? {
     } catch {
         print("Failed to fetch user ID from Core Data: \(error)")
     }
-    
+
     return nil
 }

@@ -9,7 +9,7 @@ import UIKit
 import MarqueeLabel
 
 class LibraryCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var title: MarqueeLabel!
     @IBOutlet weak var cover: UIImageView!
 }

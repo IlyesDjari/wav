@@ -13,7 +13,7 @@ import MusicKit
 import MediaPlayer
 
 extension HomeViewController {
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Register observers for selected song ID changes and playback state changes
@@ -35,7 +35,7 @@ extension HomeViewController {
             }
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Remove observers for selected song ID changes and playback state changes
@@ -43,7 +43,7 @@ extension HomeViewController {
         // Remove the observer for playback status changes
         playbackStatusTimer?.invalidate()
     }
-    
+
     @objc public func playbackStatusChanged() {
         fetchCurrentlyPlaying(songID: songID)
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
@@ -58,12 +58,12 @@ extension HomeViewController {
             }
         }
     }
-    
+
     func songChanged(nextSongID: String) {
         songID = nextSongID
         fetchCurrentlyPlaying(songID: nextSongID)
     }
-    
+
     @objc func selectedSongIDChanged(_ notification: Notification) {
         if let songID = notification.userInfo?["songID"] as? String {
             self.songID = songID

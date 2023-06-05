@@ -14,26 +14,26 @@ import NotificationBannerSwift
 class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerViewControllerDelegate {
 
     // Outlets
-    @IBOutlet weak var HistoryCollectionView: UICollectionView! {
+    @IBOutlet weak var historyCollectionView: UICollectionView! {
         didSet {
-            HistoryCollectionView.dataSource = self
-            HistoryCollectionView.delegate = self
+            historyCollectionView.dataSource = self
+            historyCollectionView.delegate = self
 
         }
     }
 
-    @IBOutlet weak var ForYouCollectionView: UICollectionView! {
+    @IBOutlet weak var forYouCollectionView: UICollectionView! {
         didSet {
-            ForYouCollectionView.dataSource = self
-            ForYouCollectionView.delegate = self
+            forYouCollectionView.dataSource = self
+            forYouCollectionView.delegate = self
 
         }
     }
 
-    @IBOutlet weak var RecommendedArtistCollectionView: UICollectionView! {
+    @IBOutlet weak var recommendedArtistCollectionView: UICollectionView! {
         didSet {
-            RecommendedArtistCollectionView.dataSource = self
-            RecommendedArtistCollectionView.delegate = self
+            recommendedArtistCollectionView.dataSource = self
+            recommendedArtistCollectionView.delegate = self
         }
     }
 
@@ -115,7 +115,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     @IBAction func stateTapped(_ sender: Any) {
         musicPlaybackControl.togglePlayback()
     }
-    
+
     @IBAction func tapPlayer(_ sender: Any) {
         if UserDefaultsManager.shared.isLiveSessionListening() {
             performSegue(withIdentifier: "showSharePlay", sender: self)

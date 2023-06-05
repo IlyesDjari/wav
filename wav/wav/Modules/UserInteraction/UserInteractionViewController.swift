@@ -11,7 +11,7 @@ import MultipeerConnectivity
 import NotificationBannerSwift
 
 class UserInteractionViewController: UIViewController, NISessionDelegate {
-    
+
     // Properties
     var session: NISession?
     var peerDiscoveryToken: NIDiscoveryToken?
@@ -24,24 +24,23 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     var currentDistanceDirectionState: DistanceDirectionState = .unknown
     var lastVibrationDistance: Float?
     var viewIsSeen: Bool = false
-    
+
     // Outlets
-    @IBOutlet weak var NearbyArrow: UIImageView!
+    @IBOutlet weak var nearbyArrow: UIImageView!
     @IBOutlet weak var searchLabel: UILabel!
     @IBOutlet weak var detailDistanceLabel: UILabel!
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         startup()
         viewIsSeen = true
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         viewIsSeen = false
     }
-    
+
     func startup() {
         // Create the NISession.
         session = NISession()
@@ -61,14 +60,16 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
                 let config = NINearbyPeerConfiguration(peerToken: peerToken)
                 session?.run(config)
             } else {
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Unable to get self discovery token, is this session invalidated?")
+                NotificationBanner.showErrorBanner(
+                    title: "Error",
+                    subtitle: "Unable to get self discovery token, is this session invalidated?")
             }
         } else {
             startupMPC()
             currentDistanceDirectionState = .unknown
         }
     }
-    
+
     func animate(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
         // If the app transitions from unavailable, present the app's display
         // and hide the user instructions.
@@ -76,16 +77,15 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         }
         if let direction = peer.direction {
             // Calculate azimuth (rotation around y axis)
-            NearbyArrow.isHidden = false
+            nearbyArrow.isHidden = false
             let azimuth = atan2(direction.x, direction.y)
             let degrees = azimuth.radiansToDegrees
             DispatchQueue.main.async {
                 // Apply rotation
-                self.NearbyArrow.transform = CGAffineTransform(rotationAngle: CGFloat(degrees.degreesToRadians))
+                self.nearbyArrow.transform = CGAffineTransform(rotationAngle: CGFloat(degrees.degreesToRadians))
             }
         }
 
-        
         if let distance = peer.distance {
             detailDistanceLabel.text = String(format: "%0.2f m", distance)
             if distance <= 0.75, viewIsSeen {
@@ -93,7 +93,7 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
                 impactGenerator.impactOccurred()
             } else if distance <= 1.5, viewIsSeen {
                 // Vibrate once
-                // Check if the last vibration was not at this distance to prevent continuous vibrations at this distance
+                // Check if the last vibration was not at this distance
                 if lastVibrationDistance == nil || lastVibrationDistance! > 1.5 {
                     impactGenerator.impactOccurred()
                     lastVibrationDistance = distance
@@ -111,8 +111,11 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
             return
         }
     }
-    
-    func updateVisualization(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
+
+    func updateVisualization(
+        from currentState: DistanceDirectionState,
+        to nextState: DistanceDirectionState,
+        with peer: NINearbyObject) {
         // Invoke haptics on "peekaboo" or on the first measurement.
         if currentState == .notCloseUpInFOV && nextState == .closeUpInFOV || currentState == .unknown {
             impactGenerator.impactOccurred()

@@ -11,14 +11,12 @@ import FirebaseFirestore
 import NotificationBannerSwift
 
 class LiveSessionPlayerViewController: UIViewController {
-    
     // Properties
     var playbackTimer: Timer?
     private var firestoreListener: ListenerRegistration?
     private var firestoreRef: DocumentReference?
     let musicPlaybackControl = MusicPlaybackControl()
-    internal var usersData: NearbyUser? = nil
-    
+    internal var usersData: NearbyUser?
     // Outlets
     @IBOutlet weak var playingCover: UIImageView!
     @IBOutlet weak var currentSongName: MarqueeLabel!
@@ -40,13 +38,10 @@ class LiveSessionPlayerViewController: UIViewController {
         // Check playback status
         startUpdateTimers()
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         playbackTimer?.invalidate()
-    
     }
-    
     internal func startUpdateTimers() {
         playbackTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.playbackStatusChanged()
@@ -56,7 +51,6 @@ class LiveSessionPlayerViewController: UIViewController {
     @objc func playbackStatusChanged() {
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
     }
-    
     private func fetchAllData() {
         guard let usersData = usersData else { return }
         getSongInfo(songID: usersData.songID)
@@ -110,7 +104,6 @@ class LiveSessionPlayerViewController: UIViewController {
     private func handleSongChanged(_ songID: String) {
         getSongInfo(songID: songID)
     }
-    
     @IBAction func stateButtonTapped(_ sender: Any) {
         musicPlaybackControl.togglePlayback()
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)

@@ -9,12 +9,12 @@ import Foundation
 import MusadoraKit
 
 extension AlbumViewController {
-    
-    internal func fetchAlbum(_ album : Album) {
+
+    internal func fetchAlbum(_ album: Album) {
         Task {
             let detailedPlaylist = try await MCatalog.album(id: album.id, fetch: .tracks)
             tracks = detailedPlaylist.tracks ?? []
         }
     }
-    
+
 }

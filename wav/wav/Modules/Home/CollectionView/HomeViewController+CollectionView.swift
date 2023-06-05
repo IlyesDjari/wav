@@ -9,11 +9,10 @@ import Foundation
 import UIKit
 import MusadoraKit
 
-
 extension HomeViewController {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == HistoryCollectionView {
+        if collectionView == historyCollectionView {
             // Get the corresponding recent item
             let recentItem = recentItems[indexPath.row]
             // Get the song ID and store it in songID
@@ -25,23 +24,23 @@ extension HomeViewController {
             }
             // Perform the segue
             performSegue(withIdentifier: "showPlayer", sender: self)
-        } else if collectionView == ForYouCollectionView {
+        } else if collectionView == forYouCollectionView {
             let playlist = recommendedStations[indexPath.row]
             performSegue(withIdentifier: "homeToPlaylistSegue", sender: playlist)
-        } else if collectionView == RecommendedArtistCollectionView {
+        } else if collectionView == recommendedArtistCollectionView {
             let artist = fetchedArtists[indexPath.row]
             performSegue(withIdentifier: "showArtist", sender: artist)
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == HistoryCollectionView {
+        if collectionView == historyCollectionView {
             // Return the number of recent items
             return recentItems.count
-        } else if collectionView == ForYouCollectionView {
+        } else if collectionView == forYouCollectionView {
             // Return the number of recommended stations
             return recommendedStations.count
-        } else if collectionView == RecommendedArtistCollectionView {
+        } else if collectionView == recommendedArtistCollectionView {
             // Return the number of recommended artists
             return fetchedArtists.count
         } else {
@@ -50,52 +49,42 @@ extension HomeViewController {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == HistoryCollectionView {
-            // Dequeue a reusable cell and cast it to your custom collection view cell class
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentItemCell", for: indexPath) as! RecentItemCollectionViewCell
-            // Get the corresponding recent item
-            let recentItem = recentItems[indexPath.row]
-            // Set the song title to the cell label
-            if let artworkURL = recentItem.song?.artwork?.url(width: 500, height: 500) {
-                cell.cover.kf.setImage(with: artworkURL)
-            } else {
-                cell.cover.image = nil
+        if collectionView == historyCollectionView {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentItemCell", for: indexPath) as? RecentItemCollectionViewCell {
+                let recentItem = recentItems[indexPath.row]
+                if let artworkURL = recentItem.song?.artwork?.url(width: 500, height: 500) {
+                    cell.cover.kf.setImage(with: artworkURL)
+                } else {
+                    cell.cover.image = nil
+                }
+                cell.song.text = recentItem.song?.artistName
+                cell.artist.text = recentItem.song?.title
+                return cell
             }
-            cell.song.text = recentItem.song?.artistName
-            cell.artist.text = recentItem.song?.title
-            return cell
-        } else if collectionView == ForYouCollectionView {
-            // Dequeue a reusable cell and cast it to your custom collection view cell class
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foryouCell", for: indexPath) as! ForYouCollectionViewCell
-            // Get the corresponding recommended station
-            let recommendedStation = recommendedStations[indexPath.row]
-            // Set the station name to the cell label
-            cell.title.text = recommendedStation.name
-            // Set the station image to the cell image view
-            if let imageURL = recommendedStation.artwork?.url(width: 500, height: 500) {
-                cell.cover.kf.setImage(with: imageURL)
-            } else {
-                cell.cover.image = nil
+        } else if collectionView == forYouCollectionView {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foryouCell", for: indexPath) as? ForYouCollectionViewCell {
+                let recommendedStation = recommendedStations[indexPath.row]
+                cell.title.text = recommendedStation.name
+                if let imageURL = recommendedStation.artwork?.url(width: 500, height: 500) {
+                    cell.cover.kf.setImage(with: imageURL)
+                } else {
+                    cell.cover.image = nil
+                }
+                return cell
             }
-            return cell
-        } else if collectionView == RecommendedArtistCollectionView {
-            // Dequeue a reusable cell and cast it to your custom collection view cell class
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedArtistCell", for: indexPath) as! RecommendedArtistCollectionViewCell
-            // Get the corresponding recommended station
-            let recommendedArtists = fetchedArtists[indexPath.row]
-            // Set the station name to the cell label
-            cell.title.text = recommendedArtists.name
-            // Set the station image to the cell image view
-            let artworkURL = recommendedArtists.artwork?.url(width: 200, height: 200)
-            if let imageData = try? Data(contentsOf: artworkURL ?? URL(string: "NoCoverImage")!),
-                let image = UIImage(data: imageData) {
-                cell.cover.image = image
+        } else if collectionView == recommendedArtistCollectionView {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedArtistCell", for: indexPath) as? RecommendedArtistCollectionViewCell {
+                let recommendedArtists = fetchedArtists[indexPath.row]
+                cell.title.text = recommendedArtists.name
+                let artworkURL = recommendedArtists.artwork?.url(width: 200, height: 200)
+                if let imageData = try? Data(contentsOf: artworkURL ?? URL(string: "NoCoverImage")!),
+                    let image = UIImage(data: imageData) {
+                    cell.cover.image = image
+                }
+                return cell
             }
-            return cell
-        } else {
-            // Return an empty cell if the collection view is not recognized
-            return UICollectionViewCell()
         }
+        return UICollectionViewCell()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

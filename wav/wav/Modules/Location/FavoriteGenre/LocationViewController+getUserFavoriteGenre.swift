@@ -15,21 +15,21 @@ extension LocationViewController {
                 completion(nil)
                 return
             }
-            
+
             let query = MPMediaQuery.songs()
             guard let songs = query.items else {
                 completion(nil)
                 return
             }
-            
+
             var genreCounts: [String: Int] = [:]
-            
+
             for song in songs {
                 if let genre = song.genre {
                     genreCounts[genre] = (genreCounts[genre] ?? 0) + 1
                 }
             }
-            
+
             let favoriteGenre = genreCounts.max(by: { $0.value < $1.value })?.key
             completion(favoriteGenre)
         }

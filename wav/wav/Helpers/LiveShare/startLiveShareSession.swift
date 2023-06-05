@@ -15,12 +15,12 @@ internal func startLiveShareSession(songID: String, completion: @escaping (Resul
         completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
         return
     }
-    
+
     // Access Firestore to find the correct user
     let db = Firestore.firestore()
     let usersRef = db.collection("Users")
     let userDocRef = usersRef.document(userID)
-    
+
     // Get user location with CLLocationManager
     let locationManager = CLLocationManager()
     locationManager.requestWhenInUseAuthorization()
@@ -29,7 +29,7 @@ internal func startLiveShareSession(songID: String, completion: @escaping (Resul
         print("Could not get user location")
         return
     }
-    
+
     userDocRef.getDocument { (documentSnapshot, error) in
         if let error = error {
             completion(.failure(error))
@@ -38,7 +38,7 @@ internal func startLiveShareSession(songID: String, completion: @escaping (Resul
                 completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Firestore"])))
                 return
             }
-            
+
             // Check if the location field exists in the document
             if document.data()?["location"] == nil {
                 // If it does not exist, create a new GeoPoint object and add it to the location field
@@ -66,7 +66,7 @@ internal func startLiveShareSession(songID: String, completion: @escaping (Resul
                     }
                 }
             }
-            
+
             // Update the currentSong field with the new songID
             userDocRef.updateData(["currentSong": songID]) { error in
                 if let error = error {

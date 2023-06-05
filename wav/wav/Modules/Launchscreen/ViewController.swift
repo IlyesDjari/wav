@@ -15,21 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         checkAuthorizationStatus()
     }
-    
+
     private func checkAuthorizationStatus() {
         let segueIdentifier: String
         switch MusicAuthorization.currentStatus {
         case .authorized:
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-            do {
-                let results = try context.fetch(fetchRequest)
-                if let user = results.first, let username = user.username, !username.isEmpty {
-                    segueIdentifier = "HomeSegue"
-                } else {
-                    segueIdentifier = "LoginSegue"
-                }
-            } catch {
+            if let user = fetchUserFromPersistentStore(), let username = user.username, !username.isEmpty {
+                segueIdentifier = "HomeSegue"
+            } else {
                 segueIdentifier = "LoginSegue"
             }
         default:
@@ -37,6 +30,20 @@ class ViewController: UIViewController {
         }
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: segueIdentifier, sender: self)
+        }
+    }
+
+    private func fetchUserFromPersistentStore() -> User? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results.first
+        } catch {
+            return nil
         }
     }
 }

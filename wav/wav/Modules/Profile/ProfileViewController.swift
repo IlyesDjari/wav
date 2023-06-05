@@ -11,8 +11,6 @@ import NotificationBannerSwift
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
 
-
-
     // Outlets
     @IBOutlet weak var turnOnDiscoverability: UIView!
     @IBOutlet weak var turnOffDiscoverability: UIView!
