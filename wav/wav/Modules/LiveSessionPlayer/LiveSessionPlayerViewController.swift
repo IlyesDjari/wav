@@ -42,7 +42,7 @@ class LiveSessionPlayerViewController: UIViewController {
 
     private func setUserLabel() {
         guard let usersData = usersData else { return }
-        userLabel.text = "You're listening with \(usersData.username) who is 20 years old and truly loves \(usersData.favoriteGenre)"
+        userLabel.text = "You're listening with \(usersData.username) who truly loves \(usersData.favoriteGenre)"
     }
 
     private func handleLiveSessionListening() {

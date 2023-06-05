@@ -577,7 +577,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVA-9J-qBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="715" y="434"/>
+            <point key="canvasLocation" x="840" y="434"/>
         </scene>
         <!--NearbyNavigationViewController-->
         <scene sceneID="xYm-RR-x16">
@@ -587,7 +587,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V91-su-vU9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="434"/>
+            <point key="canvasLocation" x="389" y="434"/>
         </scene>
         <!--LibraryNavigationViewController-->
         <scene sceneID="gAy-2s-Kfh">
@@ -597,7 +597,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MH-Wi-TtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1469" y="434"/>
+            <point key="canvasLocation" x="1243" y="434"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="a3L-t1-eFa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="S1X-8f-Vxh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="lIJ-8S-Fdv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CuY-nx-apT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1666" y="434"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Ot0-FJ-Zac">
@@ -612,10 +622,11 @@
                         <color key="selectedImageTintColor" name="Purple"/>
                     </tabBar>
                     <connections>
-                        <segue destination="kny-CN-6Jr" kind="relationship" relationship="viewControllers" id="Rfz-bf-rtQ"/>
-                        <segue destination="yMY-PV-g36" kind="relationship" relationship="viewControllers" id="GIm-VU-icw"/>
-                        <segue destination="AAo-6x-vv9" kind="relationship" relationship="viewControllers" id="jRU-xn-USm"/>
-                        <segue destination="rel-Ea-gG0" kind="relationship" relationship="viewControllers" id="Ws4-DG-r1K"/>
+                        <segue destination="AAo-6x-vv9" kind="relationship" relationship="viewControllers" id="CaQ-aH-SuH"/>
+                        <segue destination="kny-CN-6Jr" kind="relationship" relationship="viewControllers" id="sLv-qs-ivP"/>
+                        <segue destination="yMY-PV-g36" kind="relationship" relationship="viewControllers" id="KUK-bd-tYI"/>
+                        <segue destination="rel-Ea-gG0" kind="relationship" relationship="viewControllers" id="DEr-9U-mpG"/>
+                        <segue destination="S1X-8f-Vxh" kind="relationship" relationship="viewControllers" id="6b2-fg-Tyh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yeo-47-JAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -626,7 +637,7 @@
         <scene sceneID="EQe-p8-HmO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kny-CN-6Jr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" id="jT6-9T-lsL">
+                    <tabBarItem key="tabBarItem" title="" image="play-circle" id="jT6-9T-lsL">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -671,7 +682,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="home" width="32" height="32"/>
+        <image name="play-circle" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bw-Cx-V9s">
+                                <rect key="frame" x="16" y="95" width="361" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" name="Purple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwb-3v-edM">
+                                <rect key="frame" x="16" y="200" width="361" height="19.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19.333333333333314" id="BUg-M2-8vB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZe-Kd-er0">
+                                <rect key="frame" x="12" y="240" width="365" height="34"/>
+                                <color key="backgroundColor" name="defaultPlayerBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="zfl-I6-lSL"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <color key="tintColor" name="Purple"/>
+                        <constraints>
+                            <constraint firstItem="3bw-Cx-V9s" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="36" id="18K-eP-xwq"/>
+                            <constraint firstItem="ZZe-Kd-er0" firstAttribute="top" secondItem="Fwb-3v-edM" secondAttribute="bottom" constant="20.666666666666657" id="2H5-vJ-die"/>
+                            <constraint firstItem="Fwb-3v-edM" firstAttribute="leading" secondItem="ZZe-Kd-er0" secondAttribute="leading" constant="4" id="9Hk-jm-nhM"/>
+                            <constraint firstItem="3bw-Cx-V9s" firstAttribute="leading" secondItem="Fwb-3v-edM" secondAttribute="leading" id="Ewv-wz-YOb"/>
+                            <constraint firstItem="3bw-Cx-V9s" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="G00-Ad-b6Z"/>
+                            <constraint firstItem="Fwb-3v-edM" firstAttribute="trailing" secondItem="ZZe-Kd-er0" secondAttribute="trailing" id="I6f-TL-ulO"/>
+                            <constraint firstItem="3bw-Cx-V9s" firstAttribute="trailing" secondItem="Fwb-3v-edM" secondAttribute="trailing" id="IEk-gm-ZdA"/>
+                            <constraint firstItem="3bw-Cx-V9s" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="IJA-HG-uUS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZZe-Kd-er0" secondAttribute="bottom" constant="495" id="d2W-ee-4MY"/>
+                            <constraint firstItem="Fwb-3v-edM" firstAttribute="top" secondItem="3bw-Cx-V9s" secondAttribute="bottom" constant="63" id="hwG-1m-DeS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="userNav" id="irs-Ej-g2t"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="username" destination="ZZe-Kd-er0" id="dCL-KN-IV7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="userNav" width="32" height="32"/>
+        <namedColor name="Background">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Purple">
+            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="defaultPlayerBackground">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

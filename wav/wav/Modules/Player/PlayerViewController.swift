@@ -35,7 +35,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
     @IBOutlet weak var liveShareButton: UIImageView!
     @IBOutlet weak var liveShareLabel: MarqueeLabel!
     @IBOutlet weak var shuffleButton: UIImageView!
-    
+
     var session: NISession?
     var peerDiscoveryToken: NIDiscoveryToken?
     var mpc: MPCSession?
@@ -67,6 +67,14 @@ class PlayerViewController: UIViewController, NISessionDelegate {
             self?.performSongChanged()
         }
     }()
+    var isLiveSharePopupShown: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "isLiveSharePopupShown")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "isLiveSharePopupShown")
+        }
+    }
 
     weak var homeViewController: HomeViewController?
     weak var delegate: PlayerViewControllerDelegate?
@@ -144,7 +152,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         timeline.addTarget(self, action: #selector(timelineEditingBegan(_:)), for: .touchDown)
         timeline.addTarget(self, action: #selector(timelineEditingEnded(_:)), for: [.touchUpInside, .touchUpOutside])
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let observer = observer {
@@ -236,7 +244,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         // Skip to the next song
         await self.musicPlaybackControl.skipToPreviousSong()
     }
-    
+
     private func startup() {
         print("called")
         // Create the NISession.
@@ -265,6 +273,17 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         }
     }
 
+    private func showDataRemovedNotification() {
+        // Create the notification banner
+        let banner = NotificationBanner(title: "Data Removed", subtitle: "All your data has been successfully removed", style: .success)
+        // Customize the banner appearance if needed
+        banner.backgroundColor = .systemGreen
+        // Show the banner
+        banner.show()
+        // Automatically dismiss the banner after a delay
+        banner.autoDismiss = true
+    }
+
     @IBAction func stateButtonTapped(_ sender: UITapGestureRecognizer) {
         musicPlaybackControl.togglePlayback()
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
@@ -286,7 +305,26 @@ class PlayerViewController: UIViewController, NISessionDelegate {
     }
 
     @IBAction func tappedLiveShare(_ sender: Any) {
-        sharePlay.toggle()
-        updateLiveShare()
+        if !sharePlay {
+            if !isLiveSharePopupShown {
+                // Create the alert controller
+                let alertController = UIAlertController(title: "Live Sharing", message: "Your location and current song will be shared for live sharing. This data will only be used during the session and will be removed immediately after it ends.", preferredStyle: .alert)
+                // Add an OK action to dismiss the alert
+                let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                    self.isLiveSharePopupShown = true
+                }
+                alertController.addAction(okAction)
+                // Present the alert controller
+                present(alertController, animated: true, completion: nil)
+            }
+            self.sharePlay.toggle()
+            self.updateLiveShare()
+        } else {
+            self.sharePlay.toggle()
+            self.updateLiveShare()
+            if !sharePlay {
+                showDataRemovedNotification()
+            }
+        }
     }
 }

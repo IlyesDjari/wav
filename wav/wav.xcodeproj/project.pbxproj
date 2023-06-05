@@ -38,6 +38,10 @@
 		7E2811F02A28C175006D9925 /* TopsSongsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811EF2A28C175006D9925 /* TopsSongsCollectionViewCell.swift */; };
 		7E2811F22A28CDAE006D9925 /* ArtistAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811F12A28CDAE006D9925 /* ArtistAlbumCollectionViewCell.swift */; };
 		7E2811F42A28D3E1006D9925 /* ArtistPlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811F32A28D3E1006D9925 /* ArtistPlaylistCollectionViewCell.swift */; };
+		7E2811F72A2B7AB5006D9925 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2811F62A2B7AB5006D9925 /* Profile.storyboard */; };
+		7E2811F92A2B7AC6006D9925 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811F82A2B7AC6006D9925 /* ProfileViewController.swift */; };
+		7E2811FC2A2D615A006D9925 /* getUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811FB2A2D615A006D9925 /* getUser.swift */; };
+		7E2811FE2A2D699F006D9925 /* updateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811FD2A2D699F006D9925 /* updateUsername.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -147,6 +151,10 @@
 		7E2811EF2A28C175006D9925 /* TopsSongsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopsSongsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E2811F12A28CDAE006D9925 /* ArtistAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E2811F32A28D3E1006D9925 /* ArtistPlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E2811F62A2B7AB5006D9925 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		7E2811F82A2B7AC6006D9925 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7E2811FB2A2D615A006D9925 /* getUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUser.swift; sourceTree = "<group>"; };
+		7E2811FD2A2D699F006D9925 /* updateUsername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateUsername.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -395,6 +403,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7E2811F52A2B7A90006D9925 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7E2811F62A2B7AB5006D9925 /* Profile.storyboard */,
+				7E2811F82A2B7AC6006D9925 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7E418B572A02F42B007B9863 /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +550,7 @@
 				7E004AE12A20E9D80024CDBC /* AlbumView */,
 				7E004ABE2A152E530024CDBC /* LiveSessionPlayer */,
 				7E004AC72A154A140024CDBC /* UserInteraction */,
+				7E2811F52A2B7A90006D9925 /* Profile */,
 				7E2811E32A278C4C006D9925 /* Artist */,
 			);
 			path = Modules;
@@ -708,6 +726,8 @@
 				7E004AB72A13FBFF0024CDBC /* addGenre.swift */,
 				7E004ABC2A1401BA0024CDBC /* addFavoriteSong.swift */,
 				7E004AC32A15314E0024CDBC /* updateLocationDB.swift */,
+				7E2811FB2A2D615A006D9925 /* getUser.swift */,
+				7E2811FD2A2D699F006D9925 /* updateUsername.swift */,
 			);
 			path = DatabaseUsers;
 			sourceTree = "<group>";
@@ -834,6 +854,7 @@
 				7EF5586C2A098F8B00D1FE8F /* GoogleService-Info.plist in Resources */,
 				7EF558592A0881D200D1FE8F /* Nearby.storyboard in Resources */,
 				7EAB3EFF2A0165F800BB2E0B /* Home.storyboard in Resources */,
+				7E2811F72A2B7AB5006D9925 /* Profile.storyboard in Resources */,
 				7E004AC22A152E810024CDBC /* LiveSessionPlayer.storyboard in Resources */,
 				7E004ACB2A154A570024CDBC /* UserInteraction.storyboard in Resources */,
 				7E004AE32A20EA340024CDBC /* Album.storyboard in Resources */,
@@ -903,8 +924,10 @@
 				7E5132E92A12F0A500E68533 /* NearbyUser.swift in Sources */,
 				7E004AC62A1538260024CDBC /* getSongInfo.swift in Sources */,
 				7EF558602A092F5D00D1FE8F /* SearchViewController+TableView.swift in Sources */,
+				7E2811F92A2B7AC6006D9925 /* ProfileViewController.swift in Sources */,
 				7EF558762A09A39500D1FE8F /* createUser.swift in Sources */,
 				7EF5583C2A06DE9F00D1FE8F /* PlayerViewController+Observers.swift in Sources */,
+				7E2811FC2A2D615A006D9925 /* getUser.swift in Sources */,
 				7EF5583E2A06F4EB00D1FE8F /* formatPlaybackTime.swift in Sources */,
 				7EF558802A0AA04C00D1FE8F /* UserDefaultManager.swift in Sources */,
 				7E004AB32A13E0170024CDBC /* NearbyViewController+radar.swift in Sources */,
@@ -967,6 +990,7 @@
 				7EF5584A2A08610300D1FE8F /* animateImageTransition.swift in Sources */,
 				7EC240532A0C3BB500029BC7 /* TracksTableViewCell.swift in Sources */,
 				7E418B632A03155C007B9863 /* shadowView.swift in Sources */,
+				7E2811FE2A2D699F006D9925 /* updateUsername.swift in Sources */,
 				7E004ADE2A1D1C5F0024CDBC /* TabBarViewController.swift in Sources */,
 				7EC797B72A0C612A003DEB15 /* debounce.swift in Sources */,
 				7EAB3EDE2A0162D500BB2E0B /* SceneDelegate.swift in Sources */,

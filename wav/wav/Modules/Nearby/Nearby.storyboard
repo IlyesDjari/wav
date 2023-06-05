@@ -170,7 +170,7 @@
         <scene sceneID="bWA-Kt-GhQ">
             <objects>
                 <navigationController storyboardIdentifier="NearbyNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T6n-S8-4qc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="nearby" id="vFC-dS-SjD">
+                    <tabBarItem key="tabBarItem" title="" image="home" id="vFC-dS-SjD">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -198,7 +198,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="nearby" width="32" height="32"/>
+        <image name="home" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

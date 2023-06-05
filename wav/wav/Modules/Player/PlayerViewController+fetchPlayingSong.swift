@@ -34,6 +34,9 @@ extension PlayerViewController {
         } else {
             Task {
                 do {
+                    guard songID != nil else {
+                        return
+                    }
                     // Check if the song ID is already playing
                     if let currentSongID = player.queue.currentEntry?.id, currentSongID == songID {
                         // Song ID is already playing, no need to fetch the details again
