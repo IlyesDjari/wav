@@ -13,7 +13,7 @@ import MediaPlayer
 
 extension PlayerViewController {
     internal func fetchPlayingSong(songID: String? = nil) {
-        if (playlistIDs != nil), let currentEntry = player.queue.currentEntry, case let .song(song) = currentEntry.item {
+        if (playlistSong != nil), let currentEntry = player.queue.currentEntry, case let .song(song) = currentEntry.item {
             Task {
                 do {
                     let updatedSong = try await MCatalog.song(id: song.id)

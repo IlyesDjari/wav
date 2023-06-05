@@ -33,7 +33,8 @@ extension ListViewController {
         guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
             return
         }
-        playerViewController.playlistIDs = playlist
+        playerViewController.playlistSongSelected = indexPath.row
+        playerViewController.playlistSong = tracks
         // Present PlayerViewController modally
         self.present(playerViewController, animated: true, completion: nil)
     }

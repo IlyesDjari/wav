@@ -96,14 +96,16 @@ class PlayerViewController: UIViewController, NISessionDelegate {
             }
         }
     }
-    public var playlistIDs: Playlist? {
+    
+    public var playlistSongSelected: Int?
+    public var playlistSong: MusicItemCollection<Track>? {
         didSet {
-            if playlistIDs != nil {
-                Task {
-                    // Fetch the playlist and play it
-                    try await player.play(playlist: playlistIDs!)
-                    fetchPlayingSong(songID: songID)
+            Task {
+                guard let playlistSong else {
+                    print("playlistSongs is nil")
+                    return
                 }
+                playSongsFromPlaylist(playlistSong)
             }
         }
     }
@@ -112,7 +114,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
     public var albumSongs: MusicItemCollection<Track>? {
         didSet {
             Task {
-                guard let albumSongs = albumSongs else {
+                guard let albumSongs else {
                     print("albumSongs is nil")
                     return
                 }

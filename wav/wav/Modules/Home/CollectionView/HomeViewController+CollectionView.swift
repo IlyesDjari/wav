@@ -102,7 +102,8 @@ extension HomeViewController {
         if segue.identifier == "showPlayer" {
             if let playerViewController = segue.destination as? PlayerViewController {
                 playerViewController.songID = songID
-                playerViewController.playlistIDs = nil
+                playerViewController.playlistSong = nil
+                playerViewController.albumSongs = nil
                 playerViewController.homeViewController = self
             }
         } else if segue.identifier == "homeToPlaylistSegue" {

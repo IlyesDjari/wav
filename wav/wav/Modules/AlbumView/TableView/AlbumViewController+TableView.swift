@@ -30,9 +30,8 @@ extension AlbumViewController {
         guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
             return
         }
-        let song = tracks
         playerViewController.albumSongSelected = indexPath.row
-        playerViewController.albumSongs = song
+        playerViewController.albumSongs = tracks
         // Present PlayerViewController modally
         self.present(playerViewController, animated: true, completion: nil)
     }
