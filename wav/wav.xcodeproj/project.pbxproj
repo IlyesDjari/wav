@@ -42,6 +42,8 @@
 		7E2811F92A2B7AC6006D9925 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811F82A2B7AC6006D9925 /* ProfileViewController.swift */; };
 		7E2811FC2A2D615A006D9925 /* getUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811FB2A2D615A006D9925 /* getUser.swift */; };
 		7E2811FE2A2D699F006D9925 /* updateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811FD2A2D699F006D9925 /* updateUsername.swift */; };
+		7E2812002A2D6EAE006D9925 /* removeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2811FF2A2D6EAE006D9925 /* removeUser.swift */; };
+		7E2812022A2D6F03006D9925 /* removeUserIDFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812012A2D6F03006D9925 /* removeUserIDFromCoreData.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -155,6 +157,8 @@
 		7E2811F82A2B7AC6006D9925 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7E2811FB2A2D615A006D9925 /* getUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUser.swift; sourceTree = "<group>"; };
 		7E2811FD2A2D699F006D9925 /* updateUsername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateUsername.swift; sourceTree = "<group>"; };
+		7E2811FF2A2D6EAE006D9925 /* removeUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = removeUser.swift; sourceTree = "<group>"; };
+		7E2812012A2D6F03006D9925 /* removeUserIDFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = removeUserIDFromCoreData.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -568,6 +572,7 @@
 				7EF5587F2A0AA04C00D1FE8F /* UserDefaultManager.swift */,
 				7EF558812A0AA57A00D1FE8F /* getUserIDFromCoreData.swift */,
 				7EC797B62A0C612A003DEB15 /* debounce.swift */,
+				7E2812012A2D6F03006D9925 /* removeUserIDFromCoreData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -728,6 +733,7 @@
 				7E004AC32A15314E0024CDBC /* updateLocationDB.swift */,
 				7E2811FB2A2D615A006D9925 /* getUser.swift */,
 				7E2811FD2A2D699F006D9925 /* updateUsername.swift */,
+				7E2811FF2A2D6EAE006D9925 /* removeUser.swift */,
 			);
 			path = DatabaseUsers;
 			sourceTree = "<group>";
@@ -955,6 +961,7 @@
 				7EF558842A0AA5BE00D1FE8F /* stopLiveShareSession.swift in Sources */,
 				7E2811E72A278C81006D9925 /* ArtistViewController.swift in Sources */,
 				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,
+				7E2812022A2D6F03006D9925 /* removeUserIDFromCoreData.swift in Sources */,
 				7E567B5F2A0C052200172755 /* addGradient.swift in Sources */,
 				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
 				7E004AE02A20E6300024CDBC /* PlayerViewController+MPCTokenSharing.swift in Sources */,
@@ -978,6 +985,7 @@
 				7E5132F02A13B2C500E68533 /* NearbyUsersTableViewCell.swift in Sources */,
 				7EF558662A098B9F00D1FE8F /* NameViewController.swift in Sources */,
 				7EF558922A0B2FF900D1FE8F /* HomeViewController+fetchRecommendedArtists.swift in Sources */,
+				7E2812002A2D6EAE006D9925 /* removeUser.swift in Sources */,
 				7E004ACE2A1551340024CDBC /* MPCSession.swift in Sources */,
 				7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */,
 				7E004AD22A15529E0024CDBC /* UserInteractionViewController+MPCTokenSharing.swift in Sources */,

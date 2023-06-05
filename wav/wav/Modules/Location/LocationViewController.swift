@@ -24,9 +24,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         fetchUserData()
         configureUI()
         locationManager.delegate = self
+        checkLocationAuthorization()
+
     }
     private func fetchUserData() {
-        
         activityIndicator.startAnimating()
         Task {
             getUserFavoriteGenre { genre in
@@ -95,6 +96,23 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: - CLLocationManagerDelegate methods
 
+    func checkLocationAuthorization() {
+        let locationManager = CLLocationManager()
+        let authorizationStatus = locationManager.authorizationStatus
+        switch authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            performSegue(withIdentifier: "locationToHomeSegue", sender: nil)
+        case .denied:
+            print("Location access denied")
+        case .notDetermined:
+            locationManager.requestAlwaysAuthorization()
+        case .restricted:
+            print("Location access restricted")
+        @unknown default:
+            print("Unknown location access status")
+        }
+    }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedAlways:

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MusicKit
+import NotificationBannerSwift
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
 
@@ -45,15 +47,30 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     private func updateUsername() {
         if let updatedText = username.text {
             print("Updated username: \(updatedText)")
-            updateUsernameInFirestore(newUsername: updatedText) { result in
+            updateUsernameInFirestore(newUsername: updatedText) { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .success:
                     print("Username updated in Firestore")
+                    self.showSuccessNotification()
                 case .failure(let error):
                     print("Error updating username in Firestore: \(error)")
+                    self.showErrorNotification()
                 }
             }
         }
+    }
+
+    private func showSuccessNotification() {
+        let banner = NotificationBanner(title: "Success", subtitle: "Username updated", style: .success)
+        banner.show()
+        banner.autoDismiss = true
+    }
+
+    private func showErrorNotification() {
+        let banner = NotificationBanner(title: "Error", subtitle: "Failed to update username, try again", style: .danger)
+        banner.show()
+        banner.autoDismiss = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -64,6 +81,22 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-
+    @IBAction func removeAccount(_ sender: Any) {
+        removeUser { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                // Remove the user ID from Core Data
+                removeUserIDFromCoreData()
+                // Perform the segue
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "removedAccount", sender: nil)
+                }
+            case .failure(let error):
+                let banner = NotificationBanner(title: "Error", subtitle: "Error removing account: \(error)", style: .danger)
+                banner.show()
+                banner.autoDismiss = true
+            }
+        }
+    }
 }
-
