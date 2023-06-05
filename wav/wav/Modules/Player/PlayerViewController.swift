@@ -18,6 +18,7 @@ protocol PlayerViewControllerDelegate: AnyObject {
     func playerViewController(_ controller: PlayerViewController, didSelectSongWithID songID: String?)
 }
 
+
 class PlayerViewController: UIViewController, NISessionDelegate {
     // Outlets
     @IBOutlet weak var background: UIView!
@@ -106,17 +107,20 @@ class PlayerViewController: UIViewController, NISessionDelegate {
             }
         }
     }
-    public var albumIDs: Album? {
+    
+    public var albumSongSelected: Int?
+    public var albumSongs: MusicItemCollection<Track>? {
         didSet {
-            if albumIDs != nil {
-                Task {
-                    // Fetch the playlist and play it
-                    try await player.play(album: albumIDs!)
-                    fetchPlayingSong(songID: songID)
+            Task {
+                guard let albumSongs = albumSongs else {
+                    print("albumSongs is nil")
+                    return
                 }
+                playSongsFromAlbum(albumSongs)
             }
         }
     }
+
     public let player = ApplicationMusicPlayer.shared
     let musicPlaybackControl = MusicPlaybackControl()
     public var songID: String? {

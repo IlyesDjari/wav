@@ -33,7 +33,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     var tracks: MusicItemCollection<Track> = MusicItemCollection([]) {
         didSet {
-            TrackCollectionView.reloadData()
+            UIView.transition(with: TrackCollectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.TrackCollectionView.reloadData()
+            }, completion: { _ in
+                let indexPaths = (0..<self.tracks.count).map { IndexPath(row: $0, section: 0) }
+                self.TrackCollectionView.reloadRows(at: indexPaths, with: .fade)
+                self.TrackCollectionView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            })
             heightConstant.constant = CGFloat(Double(tracks.count) * 80)
         }
     }
