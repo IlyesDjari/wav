@@ -12,11 +12,14 @@ func addUserFavoriteGenre(genre: String, completion: @escaping (Result<Void, Err
 
     DispatchQueue.main.async {
         guard let userID = getUserIDFromCoreData() else {
-            completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
+            completion(.failure(
+                NSError(
+                    domain: "ilyesdjari.wav",
+                    code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
             return
         }
-        let db = Firestore.firestore()
-        let usersRef = db.collection("Users")
+        let dataBase = Firestore.firestore()
+        let usersRef = dataBase.collection("Users")
 
         usersRef.document(userID).setData(["favoriteGenre": genre], merge: true) { error in
             if let error {

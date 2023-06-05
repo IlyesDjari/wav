@@ -92,8 +92,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
                 loadingView.removeFromSuperview()
                 view.isUserInteractionEnabled = true
             } catch {
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error fetching data: \(error.localizedDescription)")
-
+                NotificationBanner.showErrorBanner(
+                    title: "Error",
+                    subtitle: "Error fetching data: \(error.localizedDescription)")
             }
         }
     }

@@ -77,7 +77,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     print("Username updated in Firestore")
                     self.showSuccessNotification()
                 case .failure(let error):
-                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error updating username in Firestore: \(error)")
+                    NotificationBanner.showErrorBanner(
+                        title: "Error",
+                        subtitle: "Error updating username in Firestore: \(error)")
 
                 }
             }
@@ -118,7 +120,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func removeAccount(_ sender: Any) {
-        let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to remove your account?", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Confirmation",
+            message: "Are you sure you want to remove your account?",
+            preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] (_) in
             self?.performAccountRemoval()
         }

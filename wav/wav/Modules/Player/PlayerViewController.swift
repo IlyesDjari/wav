@@ -144,7 +144,10 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         super.viewDidAppear(animated)
         UserDefaultsManager.shared.setLiveSessionListening(false)
         // Fetch skipping songs
-        observer = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { [weak self] _ in
+        observer = NotificationCenter.default.addObserver(
+            forName: .MPMusicPlayerControllerNowPlayingItemDidChange,
+            object: nil,
+            queue: nil) { [weak self] _ in
             if let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID {
                 self?.songChanged(nextSongID: nextSongID)
             }
@@ -191,39 +194,14 @@ class PlayerViewController: UIViewController, NISessionDelegate {
             // Handle skip backward command here
             return .success
         }
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(
+            forName: .MPMusicPlayerControllerNowPlayingItemDidChange,
+            object: nil,
+            queue: .main) { [weak self] _ in
             guard let self = self else { return }
             guard let nowPlayingItem = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem else { return }
             let nowPlayingSongID = nowPlayingItem.playbackStoreID
             self.songChanged(nextSongID: nowPlayingSongID)
-        }
-    }
-
-    private func updateLiveShare() {
-        if sharePlay {
-            if let entryID = player.queue.currentEntry?.item?.id {
-                startLiveShareSession(songID: entryID.rawValue) { result in
-                    switch result {
-                    case .success:
-                        self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
-                    case .failure(let error):
-                        NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to start live share session: \(error)")
-
-                    }
-                }
-            } else {
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error: currentEntry ID is nil.")
-
-            }
-        } else {
-            stopLiveShareSession { result in
-                switch result {
-                case .success:
-                    self.musicPlaybackControl.setLiveShareSessionButton(liveSessionButton: self.liveShareButton, liveSessionLabel: self.liveShareLabel, sharePlayStatus: self.sharePlay)
-                case .failure(let error):
-                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to stop live share session: \(error)")
-                }
-            }
         }
     }
 
@@ -253,37 +231,11 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         await self.musicPlaybackControl.skipToPreviousSong()
     }
 
-    private func startup() {
-        print("called")
-        // Create the NISession.
-        session = NISession()
-        // Set the delegate.
-        session?.delegate = self
-        // Because the session is new, reset the token-shared flag.
-        sharedTokenWithPeer = false
-        // If `connectedPeer` exists, share the discovery token, if needed.
-        if connectedPeer != nil && mpc != nil {
-            if let myToken = session?.discoveryToken {
-                if !sharedTokenWithPeer {
-                    shareMyDiscoveryToken(token: myToken)
-                }
-                guard let peerToken = peerDiscoveryToken else {
-                    return
-                }
-                let config = NINearbyPeerConfiguration(peerToken: peerToken)
-                session?.run(config)
-            } else {
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Unable to get self discovery token, is this session invalidated?")
-            }
-        } else {
-            startupMPC()
-            currentDistanceDirectionState = .unknown
-        }
-    }
-
     private func showDataRemovedNotification() {
         // Create the notification banner
-        let banner = NotificationBanner(title: "Data Removed", subtitle: "All your data has been successfully removed", style: .success)
+        let banner = NotificationBanner(
+            title: "Data Removed",
+            subtitle: "All your data has been successfully removed", style: .success)
         // Customize the banner appearance if needed
         banner.backgroundColor = .systemGreen
         // Show the banner
@@ -318,7 +270,10 @@ class PlayerViewController: UIViewController, NISessionDelegate {
                 // Create the alert controller
                 let alertController = UIAlertController(
                     title: "Live Sharing",
-                    message: "Your location and current song will be shared for live sharing. This data will only be used during the session and will be removed immediately after it ends.",
+                    message:
+                        "Your location and current song will be shared for live sharing. " +
+                        "This data will only be used during the session and will be removed " +
+                        "immediately after it ends.",
                     preferredStyle: .alert)
                 // Add an OK action to dismiss the alert
                 let okAction = UIAlertAction(title: "OK", style: .default) { _ in

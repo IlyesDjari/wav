@@ -28,7 +28,10 @@ extension UserInteractionViewController {
         currentDistanceDirectionState = nextState
     }
 
-    func session(_ session: NISession, didRemove nearbyObjects: [NINearbyObject], reason: NINearbyObject.RemovalReason) {
+    func session(
+        _ session: NISession,
+        didRemove nearbyObjects: [NINearbyObject],
+        reason: NINearbyObject.RemovalReason) {
         guard let peerToken = peerDiscoveryToken else {
             fatalError("don't have peer token")
         }
@@ -95,13 +98,13 @@ extension UserInteractionViewController {
                 // Create an alert that directs the user to Settings.
                 let accessAlert = UIAlertController(title: "Access Required",
                                                     message: """
-                                                    Wav requires access to Nearby Interactions for this sample app.
-                                                    Use this string to explain to users which functionality will be enabled if they change
+                                                    Wav requires access to Nearby Interactions for this function.
+                                                    This will make it possible to discover other users.
                                                     Nearby Interactions access in Settings.
                                                     """,
                                                     preferredStyle: .alert)
                 accessAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                accessAlert.addAction(UIAlertAction(title: "Go to Settings", style: .default, handler: {_ in
+                accessAlert.addAction(UIAlertAction(title: "Go to Settings", style: .default, handler: { _ in
                     // Send the user to the app's Settings to update Nearby Interactions access.
                     if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
                         UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)

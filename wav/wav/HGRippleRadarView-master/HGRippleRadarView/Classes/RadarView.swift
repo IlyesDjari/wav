@@ -14,7 +14,6 @@ final public class RadarView: RippleView {
 
     // MARK: public properties
 
-    /// the maximum number of items that can be shown in the radar view, if you use more, some layers will overlaying other layers
     public var radarCapacity: Int {
         if allPossiblePositions.isEmpty {
             findPossiblePositions()
@@ -30,8 +29,7 @@ final public class RadarView: RippleView {
     }
 
     /// the background color of items, by default is turquoise
-    @IBInspectable public var itemBackgroundColor = UIColor.turquoise
-
+    @IBInspectable public var itemBackgroundColor: UIColor = .turquoise
     /// The bounds rectangle, which describes the view’s location and size in its own coordinate system.
     public override var bounds: CGRect {
         didSet {
@@ -140,7 +138,7 @@ final public class RadarView: RippleView {
             let circle = Circle(origin: origin, radius: radius)
 
             // we calculate the capacity using: (2π * r1 / 2 * r2) ; r2 = (itemRadius + padding/2)
-            let capicity = (radius * CGFloat.pi) / (itemRadius + paddingBetweenItems/2)
+            let capicity = (radius * CGFloat.pi) / (itemRadius + paddingBetweenItems / 2)
 
             /*
              Random Angle is used  to don't have the gap in the same place, we should find a better solution
@@ -162,23 +160,20 @@ final public class RadarView: RippleView {
     ///   - index: the index of the item layer (position)
     ///   - animation: the animation used to show the item layer
     private func add(item: Item, at index: inout Int, using animation: CAAnimation? = Animation.transform()) {
-
         if allPossiblePositions.isEmpty {
             findPossiblePositions()
         }
         if availablePositions.count == 0 {
-            print("HGRipplerRadarView Warning: you use more than the capacity of the radar view, some layers will overlaying other layers")
             availablePositions = allPossiblePositions
         }
-
         // try to draw the item in a precise position, if it's not possible, a random index is used
         if index >= availablePositions.count {
-            index = Int(arc4random_uniform(UInt32(availablePositions.count)))
+            index = Int.random(in: 0..<availablePositions.count)
         }
         let origin = availablePositions[index]
         availablePositions.remove(at: index)
 
-        let preferredSize = CGSize(width: itemRadius*2, height: itemRadius*2)
+        let preferredSize = CGSize(width: itemRadius * 2, height: itemRadius * 2)
         let customView = dataSource?.radarView(radarView: self, viewFor: item, preferredSize: preferredSize)
         let itemView = addItem(view: customView, with: origin, and: animation)
         let itemLayer = ItemView(view: itemView, item: item, index: index)
@@ -261,7 +256,7 @@ extension RadarView {
     ///   - animation: the animation used to show  items layers
     public func add(items: [Item], using animation: CAAnimation = Animation.transform()) {
         for index in 0 ..< items.count {
-            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(animation.duration/2 * Double(index))
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(animation.duration / 2 * Double(index))
             self.add(item: items[index], using: animation)
         }
     }
@@ -277,7 +272,7 @@ extension RadarView {
         }
 
         let count = availablePositions.count == 0 ? allPossiblePositions.count : availablePositions.count
-        var randomIndex = Int(arc4random_uniform(UInt32(count)))
+        var randomIndex = Int.random(in: 0..<count)
         add(item: item, at: &randomIndex, using: animation)
     }
 
@@ -313,7 +308,7 @@ extension Drawer {
     ///   - color: the color of the disk
     /// - Returns: a disk layer
     static func diskView(radius: CGFloat, origin: CGPoint, color: UIColor) -> UIView {
-        let frame = CGRect(x: 0, y: 0, width: radius*2, height: radius*2)
+        let frame = CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2)
         let view = UIView(frame: frame)
         view.center = origin
         view.layer.cornerRadius = radius
@@ -321,4 +316,4 @@ extension Drawer {
         view.backgroundColor = color
 
         return view
-    }}
+    } }

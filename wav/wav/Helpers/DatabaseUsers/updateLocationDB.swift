@@ -11,18 +11,28 @@ import CoreLocation
 
 public func updateLocationDB(location: CLLocation?, completion: @escaping (Result<Void, Error>) -> Void) {
     guard let userID = getUserIDFromCoreData() else {
-        completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
+        completion(
+                .failure(
+                NSError(
+                    domain: "ilyesdjari.wav",
+                    code: 404,
+                    userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
         return
     }
 
     guard let location = location else {
-        completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "No location available"])))
+        completion(
+                .failure(
+                NSError(
+                    domain: "ilyesdjari.wav",
+                    code: 404,
+                    userInfo: [NSLocalizedDescriptionKey: "No location available"])))
         return
     }
 
-    let db = Firestore.firestore()
+    let dataBase = Firestore.firestore()
     let geoPoint = GeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-    db.collection("Users").document(userID).updateData([
+    dataBase.collection("Users").document(userID).updateData([
         "location": geoPoint
     ]) { err in
         DispatchQueue.main.async {

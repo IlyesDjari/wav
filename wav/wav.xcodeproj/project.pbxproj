@@ -47,6 +47,8 @@
 		7E2812052A2E37FA006D9925 /* playSongFromAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812042A2E37FA006D9925 /* playSongFromAlbum.swift */; };
 		7E2812082A2E3A62006D9925 /* playSongFromPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812072A2E3A62006D9925 /* playSongFromPlaylist.swift */; };
 		7E28120A2A2E425B006D9925 /* errorNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812092A2E425B006D9925 /* errorNotification.swift */; };
+		7E28120F2A2E5E42006D9925 /* updateLiveShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E28120E2A2E5E42006D9925 /* updateLiveShare.swift */; };
+		7E2812122A2E5EA5006D9925 /* startNearbyInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812112A2E5EA5006D9925 /* startNearbyInteraction.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -165,6 +167,8 @@
 		7E2812042A2E37FA006D9925 /* playSongFromAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playSongFromAlbum.swift; sourceTree = "<group>"; };
 		7E2812072A2E3A62006D9925 /* playSongFromPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playSongFromPlaylist.swift; sourceTree = "<group>"; };
 		7E2812092A2E425B006D9925 /* errorNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorNotification.swift; sourceTree = "<group>"; };
+		7E28120E2A2E5E42006D9925 /* updateLiveShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateLiveShare.swift; sourceTree = "<group>"; };
+		7E2812112A2E5EA5006D9925 /* startNearbyInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startNearbyInteraction.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -438,6 +442,22 @@
 			path = Playlist;
 			sourceTree = "<group>";
 		};
+		7E28120D2A2E5E37006D9925 /* LiveShare */ = {
+			isa = PBXGroup;
+			children = (
+				7E28120E2A2E5E42006D9925 /* updateLiveShare.swift */,
+			);
+			path = LiveShare;
+			sourceTree = "<group>";
+		};
+		7E2812102A2E5E97006D9925 /* NearbyInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				7E2812112A2E5EA5006D9925 /* startNearbyInteraction.swift */,
+			);
+			path = NearbyInteraction;
+			sourceTree = "<group>";
+		};
 		7E418B572A02F42B007B9863 /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +526,8 @@
 		7E91E6262A05AA9400ADB0EE /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				7E2812102A2E5E97006D9925 /* NearbyInteraction */,
+				7E28120D2A2E5E37006D9925 /* LiveShare */,
 				7E2812062A2E3A4D006D9925 /* Playlist */,
 				7E2812032A2E37EC006D9925 /* Album */,
 				7E91E6272A05AAA200ADB0EE /* Player.storyboard */,
@@ -981,6 +1003,7 @@
 				7EF558802A0AA04C00D1FE8F /* UserDefaultManager.swift in Sources */,
 				7E004AB32A13E0170024CDBC /* NearbyViewController+radar.swift in Sources */,
 				7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */,
+				7E2812122A2E5EA5006D9925 /* startNearbyInteraction.swift in Sources */,
 				7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */,
 				7E004AC92A154A320024CDBC /* UserInteractionViewController.swift in Sources */,
 				7EF5584D2A087E3700D1FE8F /* ListViewController.swift in Sources */,
@@ -997,6 +1020,7 @@
 				7E004ABB2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift in Sources */,
 				7E2812082A2E3A62006D9925 /* playSongFromPlaylist.swift in Sources */,
 				7E004AD42A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift in Sources */,
+				7E28120F2A2E5E42006D9925 /* updateLiveShare.swift in Sources */,
 				7EF5585C2A0883B400D1FE8F /* LibraryViewController.swift in Sources */,
 				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,

@@ -15,7 +15,8 @@ public func debounce(interval: Int, queue: DispatchQueue, action: @escaping (() 
         lastFireTime = DispatchTime.now()
         queue.asyncAfter(deadline: .now() + dispatchDelay) {
             let now = DispatchTime.now()
-            let elapsed = Int(now.uptimeNanoseconds - lastFireTime.uptimeNanoseconds) / 1_000_000 // Convert to milliseconds
+            let elapsed = Int(
+                now.uptimeNanoseconds - lastFireTime.uptimeNanoseconds) / 1_000_000
             if elapsed >= interval {
                 action()
             }

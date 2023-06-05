@@ -68,9 +68,9 @@ class AnimalsViewController: UIViewController {
         bottomLayoutConstraint.constant = -250
         UIView.animate(withDuration: 0.4, animations: {
             self.view.layoutIfNeeded()
-        }) { (_) in
+        }, completion: { _ in
             completion?()
-        }
+        })
     }
 }
 

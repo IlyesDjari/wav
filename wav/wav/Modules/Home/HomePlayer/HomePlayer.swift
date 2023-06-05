@@ -17,7 +17,11 @@ extension HomeViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Register observers for selected song ID changes and playback state changes
-        NotificationCenter.default.addObserver(self, selector: #selector(selectedSongIDChanged(_:)), name: .songIDChanged, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(selectedSongIDChanged(_:)),
+            name: .songIDChanged,
+            object: nil)
         // Fetch the currently playing item or the selected song
         if let songID = songID {
             fetchCurrentlyPlaying(songID: songID)
@@ -28,8 +32,16 @@ extension HomeViewController {
         // Set the initial state of the state button
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
         // Check playback status
-        playbackStatusTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(playbackStatusChanged), userInfo: nil, repeats: true)
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: nil) { _ in
+        playbackStatusTimer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(playbackStatusChanged),
+            userInfo: nil,
+            repeats: true)
+        NotificationCenter.default.addObserver(
+            forName: .MPMusicPlayerControllerNowPlayingItemDidChange,
+            object: nil,
+            queue: nil) { _ in
             if let nextSongID = MPMusicPlayerController.applicationMusicPlayer.nowPlayingItem?.playbackStoreID {
                 self.songChanged(nextSongID: nextSongID)
             }

@@ -10,12 +10,16 @@ import FirebaseFirestore
 
 func updateUsernameInFirestore(newUsername: String, completion: @escaping (Result<Void, Error>) -> Void) {
     DispatchQueue.main.async {
-        let db = Firestore.firestore()
+        let dataBase = Firestore.firestore()
         guard let userID = getUserIDFromCoreData() else {
-            completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
+            completion(
+                    .failure(
+                    NSError(
+                        domain: "ilyesdjari.wav",
+                        code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
             return
         }
-        let userRef = db.collection("Users").document(userID)
+        let userRef = dataBase.collection("Users").document(userID)
         userRef.updateData(["username": newUsername]) { error in
             if let error = error {
                 completion(.failure(error))

@@ -11,7 +11,9 @@ import Kingfisher
 
 extension ListViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell", for: indexPath) as? TracksTableViewCell {
+        if let cell = tableView.dequeueReusableCell(
+                withIdentifier: "trackCell",
+                for: indexPath) as? TracksTableViewCell {
             let track = tracks[indexPath.row]
             cell.songLabel.text = track.title
             cell.artistLabel.text = track.artistName
@@ -32,7 +34,8 @@ extension ListViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Instantiate PlayerViewController from storyboard
         let storyboard = UIStoryboard(name: "Player", bundle: nil)
-        guard let playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else {
+        guard let playerViewController = storyboard.instantiateViewController(
+            withIdentifier: "PlayerViewController") as? PlayerViewController else {
             return
         }
         playerViewController.playlistSongSelected = indexPath.row

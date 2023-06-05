@@ -17,9 +17,14 @@ extension LocationViewController {
             }
 
             let query = MPMediaQuery.songs()
-            query.addFilterPredicate(MPMediaPropertyPredicate(value: NSNumber(value: true), forProperty: MPMediaItemPropertyIsCloudItem))
-            query.addFilterPredicate(MPMediaPropertyPredicate(value: NSNumber(value: false), forProperty: MPMediaItemPropertyIsExplicit))
-
+            query.addFilterPredicate(
+                MPMediaPropertyPredicate(
+                    value: NSNumber(value: true),
+                    forProperty: MPMediaItemPropertyIsCloudItem))
+            query.addFilterPredicate(
+                MPMediaPropertyPredicate(
+                    value: NSNumber(value: false),
+                    forProperty: MPMediaItemPropertyIsExplicit))
             if let items = query.items {
                 let sortedItems = items.sorted { $0.playCount > $1.playCount }
                 completion(sortedItems.first)

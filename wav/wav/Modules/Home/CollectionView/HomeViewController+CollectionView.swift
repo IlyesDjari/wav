@@ -48,9 +48,13 @@ extension HomeViewController {
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == historyCollectionView {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentItemCell", for: indexPath) as? RecentItemCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "recentItemCell",
+                    for: indexPath) as? RecentItemCollectionViewCell {
                 let recentItem = recentItems[indexPath.row]
                 if let artworkURL = recentItem.song?.artwork?.url(width: 500, height: 500) {
                     cell.cover.kf.setImage(with: artworkURL)
@@ -62,7 +66,9 @@ extension HomeViewController {
                 return cell
             }
         } else if collectionView == forYouCollectionView {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foryouCell", for: indexPath) as? ForYouCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "foryouCell",
+                    for: indexPath) as? ForYouCollectionViewCell {
                 let recommendedStation = recommendedStations[indexPath.row]
                 cell.title.text = recommendedStation.name
                 if let imageURL = recommendedStation.artwork?.url(width: 500, height: 500) {
@@ -73,7 +79,9 @@ extension HomeViewController {
                 return cell
             }
         } else if collectionView == recommendedArtistCollectionView {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedArtistCell", for: indexPath) as? RecommendedArtistCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "recommendedArtistCell",
+                    for: indexPath) as? RecommendedArtistCollectionViewCell {
                 let recommendedArtists = fetchedArtists[indexPath.row]
                 cell.title.text = recommendedArtists.name
                 let artworkURL = recommendedArtists.artwork?.url(width: 200, height: 200)

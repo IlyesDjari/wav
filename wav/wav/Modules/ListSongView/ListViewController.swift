@@ -57,7 +57,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let artworkURL = playlist?.artwork?.url(width: 500, height: 500) {
             let task = URLSession.shared.dataTask(with: artworkURL) { [weak self] data, _, error in
                 if let error {
-                    NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error loading image: \(error.localizedDescription)")
+                    NotificationBanner.showErrorBanner(
+                        title: "Error",
+                        subtitle: "Error loading image: \(error.localizedDescription)")
                     return
                 }
                 guard let data else {

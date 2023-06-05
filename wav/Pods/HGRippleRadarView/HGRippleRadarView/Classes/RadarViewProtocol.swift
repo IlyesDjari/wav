@@ -8,7 +8,6 @@
 
 import UIKit
 
-/// Responsible for providing the views required by a RadarView, if this protocol is not implemented the default view is used
 public protocol RadarViewDataSource: AnyObject {
 
     /// Asks for the view of a particular item

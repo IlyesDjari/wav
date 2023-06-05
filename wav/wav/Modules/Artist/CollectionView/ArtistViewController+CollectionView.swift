@@ -25,7 +25,9 @@ extension ArtistViewController {
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == topCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topSongCell",
                                                              for: indexPath) as? TopsSongsCollectionViewCell {
@@ -37,14 +39,16 @@ extension ArtistViewController {
         } else if collectionView == albumCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumsArtistCell",
                                                              for: indexPath) as? ArtistAlbumCollectionViewCell {
-                cell.cover.kf.setImage(with: artistData?.fullAlbums?[indexPath.row].artwork?.url(width: 500, height: 500))
+                cell.cover.kf.setImage(
+                    with: artistData?.fullAlbums?[indexPath.row].artwork?.url(width: 500, height: 500))
                 cell.albumName.text = artistData?.fullAlbums?[indexPath.row].title
                 return cell
             }
         } else if collectionView == playlistCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistArtistCell",
                                                              for: indexPath) as? ArtistPlaylistCollectionViewCell {
-                cell.cover.kf.setImage(with: artistData?.featuredPlaylists?[indexPath.row].artwork?.url(width: 500, height: 500))
+                cell.cover.kf.setImage(
+                    with: artistData?.featuredPlaylists?[indexPath.row].artwork?.url(width: 500, height: 500))
                 return cell
             }
         }

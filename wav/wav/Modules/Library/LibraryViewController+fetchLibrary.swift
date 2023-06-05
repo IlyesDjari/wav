@@ -24,8 +24,12 @@ extension LibraryViewController: UICollectionViewDataSource {
         return playlists.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "libraryCell", for: indexPath) as? LibraryCollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "libraryCell",
+                for: indexPath) as? LibraryCollectionViewCell {
             let playlist = playlists[indexPath.row]
             cell.title.text = playlist.name
             if let artworkURL = playlist.artwork?.url(width: 500, height: 500),
@@ -42,7 +46,8 @@ extension LibraryViewController: UICollectionViewDataSource {
         let playlist = playlists[indexPath.row]
 
         let storyboard = UIStoryboard(name: "List", bundle: nil)
-        guard let playlistViewController = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController else {
+        guard let playlistViewController = storyboard.instantiateViewController(
+            withIdentifier: "ListViewController") as? ListViewController else {
             return
         }
         playlistViewController.playlist = playlist

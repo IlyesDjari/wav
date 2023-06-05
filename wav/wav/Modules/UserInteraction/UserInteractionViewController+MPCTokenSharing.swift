@@ -48,14 +48,18 @@ extension UserInteractionViewController {
     }
 
     func dataReceivedHandler(data: Data, peer: MCPeerID) {
-        guard let discoveryToken = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NIDiscoveryToken.self, from: data) else {
+        guard let discoveryToken = try? NSKeyedUnarchiver.unarchivedObject(
+            ofClass: NIDiscoveryToken.self,
+            from: data) else {
             fatalError("Unexpectedly failed to decode discovery token.")
         }
         peerDidShareDiscoveryToken(peer: peer, token: discoveryToken)
     }
 
     func shareMyDiscoveryToken(token: NIDiscoveryToken) {
-        guard let encodedData = try?  NSKeyedArchiver.archivedData(withRootObject: token, requiringSecureCoding: true) else {
+        guard let encodedData = try?  NSKeyedArchiver.archivedData(
+            withRootObject: token,
+            requiringSecureCoding: true) else {
             fatalError("Unexpectedly failed to encode discovery token.")
         }
         mpc?.sendDataToAllPeers(data: encodedData)

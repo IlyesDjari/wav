@@ -29,7 +29,7 @@ extension LiveSessionPlayerViewController {
                                 }
                                 updateBackgroundColor(from: image, in: self.view)
                                 Task {
-                                   try await ApplicationMusicPlayer.shared.play(song: song)
+                                    try await ApplicationMusicPlayer.shared.play(song: song)
                                 }
                             }
                         }
@@ -52,7 +52,8 @@ extension LiveSessionPlayerViewController {
                             DispatchQueue.main.async { [self] in
                                 self.suggestCover.image = image
                                 if let userData = self.usersData {
-                                    self.suggestLabel.text = "\(userData.username) adored \(song.title) by \(song.artistName)"
+                                    self.suggestLabel.text =
+                                        "\(userData.username) adored \(song.title) by \(song.artistName)"
                                 }
                             }
                         }

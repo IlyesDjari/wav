@@ -32,7 +32,9 @@ extension SearchViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue the custom cell
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as? SearchViewCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "searchCell",
+            for: indexPath) as? SearchViewCell else {
             fatalError("Unable to dequeue CustomTableViewCell")
         }
         // Get the song at the current index
@@ -54,7 +56,7 @@ extension SearchViewController: UITableViewDataSource {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "searchPlayerSegue",
-              let songID = sender as? String else {
+            let songID = sender as? String else {
             return
         }
         let destinationVC = segue.destination as? PlayerViewController

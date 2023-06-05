@@ -28,7 +28,7 @@ public class RippleView: UIView {
 
     /// The duration to animate one circle
     private var circleAnimationDuration: CFTimeInterval {
-        if circlesLayer.count ==  0 {
+        if circlesLayer.count == 0 {
             return CFTimeInterval(animationDuration)
         }
         return CFTimeInterval(animationDuration) / CFTimeInterval(circlesLayer.count)
@@ -58,8 +58,8 @@ public class RippleView: UIView {
         if paddingBetweenCircles != -1 {
             return paddingBetweenCircles
         }
-        let availableRadius = min(bounds.width, bounds.height)/2 - (minimumCircleRadius)
-        return  availableRadius / CGFloat(numberOfCircles)
+        let availableRadius = min(bounds.width, bounds.height) / 2 - (minimumCircleRadius)
+        return availableRadius / CGFloat(numberOfCircles)
     }
 
     // MARK: Public Properties
@@ -80,7 +80,6 @@ public class RippleView: UIView {
         }
     }
 
-    /// The number of circles to draw around the disk, the default value is 3, if the forcedMaximumCircleRadius is used the number of drawn circles could be less than numberOfCircles
     @IBInspectable public var numberOfCircles: Int = 3 {
         didSet {
             redrawCircles()
@@ -179,8 +178,8 @@ public class RippleView: UIView {
 
     /// Draws disks and circles
     private func drawSublayers() {
-       drawDisks()
-       redrawCircles()
+        drawDisks()
+        redrawCircles()
     }
 
     /// Draw central disk and the disk for the central animation
@@ -188,7 +187,10 @@ public class RippleView: UIView {
         diskLayer = Drawer.diskLayer(radius: diskRadius, origin: bounds.center, color: diskColor.cgColor)
         layer.insertSublayer(diskLayer, at: 0)
 
-        centerAnimatedLayer = Drawer.diskLayer(radius: diskRadius, origin: bounds.center, color: diskColor.cgColor)
+        centerAnimatedLayer = Drawer.diskLayer(
+            radius: diskRadius,
+            origin: bounds.center,
+            color: diskColor.cgColor)
         centerAnimatedLayer.opacity = 0.3
         layer.addSublayer(centerAnimatedLayer)
     }
@@ -201,8 +203,7 @@ public class RippleView: UIView {
         drawDisks()
     }
 
-    /// Redraws circles by deleting old ones and drawing new ones, this method is called, for example, when the number of circles changed
-     func redrawCircles() {
+    func redrawCircles() {
         circlesLayer.forEach {
             $0.removeFromSuperlayer()
         }
@@ -219,7 +220,10 @@ public class RippleView: UIView {
         let radius = radiusOfCircle(at: index)
         if radius > maxCircleRadius { return }
 
-        let circleLayer = Drawer.circleLayer(radius: radius, origin: bounds.center, color: circleOffColor.cgColor)
+        let circleLayer = Drawer.circleLayer(
+            radius: radius,
+            origin: bounds.center,
+            color: circleOffColor.cgColor)
         circleLayer.lineWidth = 2.0
         circlesLayer.append(circleLayer)
         self.layer.addSublayer(circleLayer)
@@ -227,7 +231,7 @@ public class RippleView: UIView {
 
     // MARK: Animation methods
 
-    /// Add animation to central disk and the surrounding circles 
+    /// Add animation to central disk and the surrounding circles
     private func animateSublayers() {
         animateCentralDisk()
         animateCircles()
@@ -240,7 +244,10 @@ public class RippleView: UIView {
         let maxScale = maxCircleRadius / diskRadius
         let scaleAnimation = Animation.transform(to: maxScale)
         let alphaAnimation = Animation.opacity(from: 0.3, to: 0.0)
-        let groupAnimation = Animation.group(animations: scaleAnimation, alphaAnimation, duration: centerAnimationDuration)
+        let groupAnimation = Animation.group(
+            animations: scaleAnimation,
+            alphaAnimation,
+            duration: centerAnimationDuration)
         centerAnimatedLayer.add(groupAnimation, forKey: nil)
         self.layer.addSublayer(centerAnimatedLayer)
     }
@@ -266,8 +273,18 @@ extension RippleView {
         circlesAnimationTimer?.invalidate()
         diskAnimationTimer?.invalidate()
         let timeInterval = CFTimeInterval(animationDuration) + circleAnimationDuration
-        circlesAnimationTimer =  Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(animateCircles), userInfo: nil, repeats: true)
-        diskAnimationTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(animateCentralDisk), userInfo: nil, repeats: true)
+        circlesAnimationTimer = Timer.scheduledTimer(
+            timeInterval: timeInterval,
+            target: self,
+            selector: #selector(animateCircles),
+            userInfo: nil,
+            repeats: true)
+        diskAnimationTimer = Timer.scheduledTimer(
+            timeInterval: timeInterval,
+            target: self,
+            selector: #selector(animateCentralDisk),
+            userInfo: nil,
+            repeats: true)
     }
 
     /// Stop the ripple animation

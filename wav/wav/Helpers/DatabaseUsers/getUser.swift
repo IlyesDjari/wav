@@ -14,11 +14,14 @@ import CoreData
 func getUser(completion: @escaping (Result<String, Error>) -> Void) {
     DispatchQueue.main.async {
         guard let userID = getUserIDFromCoreData() else {
-            completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
+            completion(
+                    .failure(
+                    NSError(domain: "ilyesdjari.wav",
+                            code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Core Data"])))
             return
         }
-        let db = Firestore.firestore()
-        let usersRef = db.collection("Users")
+        let dataBase = Firestore.firestore()
+        let usersRef = dataBase.collection("Users")
 
         usersRef.document(userID).getDocument { (document, error) in
             if let error = error {
@@ -27,10 +30,19 @@ func getUser(completion: @escaping (Result<String, Error>) -> Void) {
                 if let username = document.data()?["username"] as? String {
                     completion(.success(username))
                 } else {
-                    completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "Username not found in Firestore"])))
+                    completion(
+                            .failure(
+                            NSError(
+                                domain: "ilyesdjari.wav",
+                                code: 404, userInfo: [NSLocalizedDescriptionKey: "Username not found in Firestore"])))
                 }
             } else {
-                completion(.failure(NSError(domain: "ilyesdjari.wav", code: 404, userInfo: [NSLocalizedDescriptionKey: "User document not found in Firestore"])))
+                completion(
+                        .failure(
+                        NSError(
+                            domain: "ilyesdjari.wav",
+                            code: 404,
+                            userInfo: [NSLocalizedDescriptionKey: "User document not found in Firestore"])))
             }
         }
     }

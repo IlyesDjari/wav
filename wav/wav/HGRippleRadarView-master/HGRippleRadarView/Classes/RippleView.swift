@@ -28,7 +28,7 @@ public class RippleView: UIView {
 
     /// The duration to animate one circle
     private var circleAnimationDuration: CFTimeInterval {
-        if circlesLayer.count ==  0 {
+        if circlesLayer.count == 0 {
             return CFTimeInterval(animationDuration)
         }
         return CFTimeInterval(animationDuration) / CFTimeInterval(circlesLayer.count)
@@ -58,8 +58,8 @@ public class RippleView: UIView {
         if paddingBetweenCircles != -1 {
             return paddingBetweenCircles
         }
-        let availableRadius = min(bounds.width, bounds.height)/2 - (minimumCircleRadius)
-        return  availableRadius / CGFloat(numberOfCircles)
+        let availableRadius = min(bounds.width, bounds.height) / 2 - (minimumCircleRadius)
+        return availableRadius / CGFloat(numberOfCircles)
     }
 
     // MARK: Public Properties
@@ -179,8 +179,8 @@ public class RippleView: UIView {
 
     /// Draws disks and circles
     private func drawSublayers() {
-       drawDisks()
-       redrawCircles()
+        drawDisks()
+        redrawCircles()
     }
 
     /// Draw central disk and the disk for the central animation
@@ -201,7 +201,7 @@ public class RippleView: UIView {
         drawDisks()
     }
 
-     func redrawCircles() {
+    func redrawCircles() {
         circlesLayer.forEach {
             $0.removeFromSuperlayer()
         }
@@ -226,7 +226,7 @@ public class RippleView: UIView {
 
     // MARK: Animation methods
 
-    /// Add animation to central disk and the surrounding circles 
+    /// Add animation to central disk and the surrounding circles
     private func animateSublayers() {
         animateCentralDisk()
         animateCircles()
@@ -239,7 +239,10 @@ public class RippleView: UIView {
         let maxScale = maxCircleRadius / diskRadius
         let scaleAnimation = Animation.transform(to: maxScale)
         let alphaAnimation = Animation.opacity(from: 0.3, to: 0.0)
-        let groupAnimation = Animation.group(animations: scaleAnimation, alphaAnimation, duration: centerAnimationDuration)
+        let groupAnimation = Animation.group(
+            animations: scaleAnimation,
+            alphaAnimation,
+            duration: centerAnimationDuration)
         centerAnimatedLayer.add(groupAnimation, forKey: nil)
         self.layer.addSublayer(centerAnimatedLayer)
     }
@@ -265,8 +268,18 @@ extension RippleView {
         circlesAnimationTimer?.invalidate()
         diskAnimationTimer?.invalidate()
         let timeInterval = CFTimeInterval(animationDuration) + circleAnimationDuration
-        circlesAnimationTimer =  Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(animateCircles), userInfo: nil, repeats: true)
-        diskAnimationTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(animateCentralDisk), userInfo: nil, repeats: true)
+        circlesAnimationTimer = Timer.scheduledTimer(
+            timeInterval: timeInterval,
+            target: self,
+            selector: #selector(animateCircles),
+            userInfo: nil,
+            repeats: true)
+        diskAnimationTimer = Timer.scheduledTimer(
+            timeInterval: timeInterval,
+            target: self,
+            selector: #selector(animateCentralDisk),
+            userInfo: nil,
+            repeats: true)
     }
 
     /// Stop the ripple animation

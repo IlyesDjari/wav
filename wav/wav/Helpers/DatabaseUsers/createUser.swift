@@ -11,10 +11,10 @@ import FirebaseFirestore
 import CoreData
 
 func createUser(userName: String, completion: @escaping (Result<String, Error>) -> Void) {
-    let db = Firestore.firestore()
+    let dataBase = Firestore.firestore()
     // Create a new document in the "Users" collection with a unique ID
     var ref: DocumentReference?
-    ref = db.collection("Users").addDocument(data: [
+    ref = dataBase.collection("Users").addDocument(data: [
         "username": userName,
         "createdAt": FieldValue.serverTimestamp()
     ]) { error in

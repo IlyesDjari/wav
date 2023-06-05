@@ -31,12 +31,14 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
         }
     }
 
-    func radarView(radarView: HGRippleRadarView.RadarView, didDeselectAllItems lastSelectedItem: HGRippleRadarView.Item) {
+    func radarView(
+        radarView: HGRippleRadarView.RadarView,
+        didDeselectAllItems lastSelectedItem: HGRippleRadarView.Item) {
         let view = radarView.view(for: lastSelectedItem)
         reduce(view: view)
 
         guard let user = lastSelectedItem.value as? NearbyUser,
-              let index = usersData.firstIndex(where: { $0.id == user.id }) else {
+            let index = usersData.firstIndex(where: { $0.id == user.id }) else {
             return
         }
         let indexPath = IndexPath(row: index, section: 0)
@@ -49,7 +51,7 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
         reduce(view: view)
 
         guard let user = item.value as? NearbyUser,
-              let index = usersData.firstIndex(where: { $0.id == user.id }) else {
+            let index = usersData.firstIndex(where: { $0.id == user.id }) else {
             return
         }
         let indexPath = IndexPath(row: index, section: 0)
@@ -85,17 +87,17 @@ extension NearbyViewController: RadarViewDelegate, RadarViewDataSource {
     }
 
     private func enlarge(view: UIView?) {
-            let animation = Animation.transform(from: 1.0, to: 1.5)
-            animation.fillMode = .forwards
-            animation.isRemovedOnCompletion = false
-            view?.layer.add(animation, forKey: "transform")
+        let animation = Animation.transform(from: 1.0, to: 1.5)
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        view?.layer.add(animation, forKey: "transform")
     }
 
     private func reduce(view: UIView?) {
-            let animation = Animation.transform(from: 1.5, to: 1.0)
-            animation.fillMode = .forwards
-            animation.isRemovedOnCompletion = false
-            view?.layer.add(animation, forKey: "transform")
+        let animation = Animation.transform(from: 1.5, to: 1.0)
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        view?.layer.add(animation, forKey: "transform")
     }
 
     func setRadar() {

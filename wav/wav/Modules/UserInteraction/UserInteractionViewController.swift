@@ -70,7 +70,10 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
         }
     }
 
-    func animate(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
+    func animate(
+        from currentState: DistanceDirectionState,
+        to nextState: DistanceDirectionState,
+        with peer: NINearbyObject) {
         // If the app transitions from unavailable, present the app's display
         // and hide the user instructions.
         if currentState == .unknown && nextState != .unknown {

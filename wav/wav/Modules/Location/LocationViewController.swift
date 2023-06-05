@@ -36,7 +36,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                         case .success:
                             print("Favorite genre added successfully.")
                         case .failure(let error):
-                            NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error adding favorite genre: \(error.localizedDescription)")
+                            NotificationBanner.showErrorBanner(
+                                title: "Error",
+                                subtitle: "Error adding favorite genre: \(error.localizedDescription)")
                         }
                     }
                 } else {
@@ -51,7 +53,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                         case .success:
                             print("Favorite song added successfully.")
                         case .failure(let error):
-                            NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error adding favorite genre: \(error.localizedDescription)")
+                            NotificationBanner.showErrorBanner(
+                                title: "Error",
+                                subtitle: "Error adding favorite genre: \(error.localizedDescription)")
                         }
                     }
                 } else {
@@ -88,7 +92,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                 configureUI()
             }
         } catch {
-            NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error retrieving user from Core Data: \(error.localizedDescription)")
+            NotificationBanner.showErrorBanner(
+                title: "Error",
+                subtitle: "Error retrieving user from Core Data: \(error.localizedDescription)")
         }
     }
 

@@ -134,7 +134,10 @@ struct MusicPlaybackControl {
         }
     }
 
-    public func setLiveShareSessionButton(liveSessionButton: UIImageView, liveSessionLabel: UILabel, sharePlayStatus: Bool) {
+    public func setLiveShareSessionButton(
+        liveSessionButton: UIImageView,
+        liveSessionLabel: UILabel,
+        sharePlayStatus: Bool) {
         if sharePlayStatus {
             // Perform actions when sharePlayStatus is true
             let button = UIImage(named: "liveShareOn")

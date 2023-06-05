@@ -16,14 +16,23 @@ final public class Visualizer: NSObject {
 
     // MARK: - Object life cycle
     private override init() {
-      super.init()
+        super.init()
         NotificationCenter
             .default
-            .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
+            .addObserver(
+            self,
+            selector: #selector(
+                Visualizer.orientationDidChangeNotification(_:)),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil)
 
         NotificationCenter
             .default
-            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+            .addObserver(
+            self,
+            selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
 
         UIDevice
             .current
@@ -60,9 +69,9 @@ extension Visualizer {
 
     public class func start(_ config: Configuration = Configuration()) {
 
-		if config.showsLog {
-			print("Visualizer start...")
-		}
+        if config.showsLog {
+            print("Visualizer start...")
+        }
         let instance = sharedInstance
         instance.enabled = true
         instance.config = config
@@ -74,9 +83,9 @@ extension Visualizer {
                 }
             }
         }
-		if config.showsLog {
-			print("started !")
-		}
+        if config.showsLog {
+            print("started !")
+        }
     }
 
     public class func stop() {
@@ -100,142 +109,72 @@ extension Visualizer {
 
     // MARK: - Dequeue and locating TouchViews and handling events
     private func dequeueTouchView() -> TouchView {
-        var touchView: TouchView?
-        for view in touchViews {
-            if view.superview == nil {
-                touchView = view
-                break
-            }
+        for view in touchViews where view.superview == nil {
+            return view
         }
-
-        if touchView == nil {
-            touchView = TouchView()
-            touchViews.append(touchView!)
-        }
-
-        return touchView!
+        let touchView = TouchView()
+        touchViews.append(touchView)
+        return touchView
     }
 
     private func findTouchView(_ touch: UITouch) -> TouchView? {
-        for view in touchViews {
-            if touch == view.touch {
-                return view
-            }
+        for view in touchViews where touch == view.touch {
+            return view
         }
-
         return nil
     }
 
     open func handleEvent(_ event: UIEvent) {
-        if event.type != .touches {
+        guard event.type == .touches && Visualizer.sharedInstance.enabled else {
             return
         }
 
-        if !Visualizer.sharedInstance.enabled {
+        let topWindow = findTopVisibleWindow()
+
+        guard let touches = event.allTouches else {
             return
         }
 
+        for touch in touches {
+            handleTouch(touch, in: topWindow)
+            log(touch)
+        }
+    }
+
+    private func findTopVisibleWindow() -> UIWindow {
         var topWindow = UIApplication.shared.keyWindow!
-        for window in UIApplication.shared.windows {
-            if window.isHidden == false && window.windowLevel > topWindow.windowLevel {
-                topWindow = window
-            }
+
+        for window in UIApplication.shared.windows where !window.isHidden && window.windowLevel
+        > topWindow.windowLevel {
+            topWindow = window
         }
 
-        for touch in event.allTouches! {
-            let phase = touch.phase
-
-            switch phase {
-            case .began:
-                let view = dequeueTouchView()
-                view.config = Visualizer.sharedInstance.config
-                view.touch = touch
-                view.beginTouch()
-                view.center = touch.location(in: topWindow)
-                topWindow.addSubview(view)
-                log(touch)
-            case .moved:
-                if let view = findTouchView(touch) {
-                    view.center = touch.location(in: topWindow)
-                }
-
-                log(touch)
-            case .stationary:
-                log(touch)
-            case .ended, .cancelled:
-                if let view = findTouchView(touch) {
-                    UIView.animate(withDuration: 0.2, delay: 0.0, options: .allowUserInteraction, animations: { () -> Void  in
-                        view.alpha = 0.0
-                        view.endTouch()
-                        }, completion: { [unowned self] (_) -> Void in
-                            view.removeFromSuperview()
-                            self.log(touch)
-                        })
-                }
-
-                log(touch)
-            }
-        }
-    }
-}
-
-extension Visualizer {
-    public func warnIfSimulator() {
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
-            print("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.", terminator: "")
-        #endif
+        return topWindow
     }
 
-    // MARK: - Logging
-    public func log(_ touch: UITouch) {
-        if !config.showsLog {
-            return
-        }
+    private func handleTouch(_ touch: UITouch, in window: UIWindow) {
+        let phase = touch.phase
 
-        var ti = 0
-        var viewLogs = [[String: String]]()
-        for view in touchViews {
-            var index = ""
-
-            index = "\(ti)"
-            ti += 1
-
-            var phase: String!
-            switch touch.phase {
-            case .began: phase = "B"
-            case .moved: phase = "M"
-            case .stationary: phase = "S"
-            case .ended: phase = "E"
-            case .cancelled: phase = "C"
+        switch phase {
+        case .began:
+            let view = dequeueTouchView()
+            configureTouchView(view, with: touch)
+            view.beginTouch()
+            view.center = touch.location(in: window)
+            window.addSubview(view)
+        case .moved:
+            if let view = findTouchView(touch) {
+                view.center = touch.location(in: window)
             }
-
-            let xAxis = String(format: "%.02f", view.center.x)
-            let yAxis = String(format: "%.02f", view.center.y)
-            let center = "(\(xAxis), \(yAxis))"
-            let radius = String(format: "%.02f", touch.majorRadius)
-            viewLogs.append(["index": index, "center": center, "phase": phase, "radius": radius])
-        }
-
-        var log = ""
-
-        for viewLog in viewLogs {
-
-            if (viewLog["index"]!).characters.count == 0 {
-                continue
+        case .ended, .cancelled:
+            if let view = findTouchView(touch) {
+                animateTouchViewRemoval(view) {
+                    view.removeFromSuperview()
+                    self.log(touch)
+                }
             }
-
-            let index = viewLog["index"]!
-            let center = viewLog["center"]!
-            let phase = viewLog["phase"]!
-            let radius = viewLog["radius"]!
-            log += "Touch: [\(index)]<\(phase)> c:\(center) r:\(radius)\t\n"
+        default:
+            break
         }
-
-        if log == previousLog {
-            return
-        }
-
-        previousLog = log
-        print(log, terminator: "")
     }
 }

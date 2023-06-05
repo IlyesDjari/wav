@@ -73,7 +73,9 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             case .success:
                 print("Location updated successfully in the database.")
             case .failure(let error):
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Failed to update location: \(error.localizedDescription)")
+                NotificationBanner.showErrorBanner(
+                    title: "Error",
+                    subtitle: "Failed to update location: \(error.localizedDescription)")
             }
         }
     }
@@ -91,7 +93,9 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 }
             case .failure(let error):
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error getting nearby users: \(error.localizedDescription)")
+                NotificationBanner.showErrorBanner(
+                    title: "Error",
+                    subtitle: "Error getting nearby users: \(error.localizedDescription)")
             }
         }
     }
