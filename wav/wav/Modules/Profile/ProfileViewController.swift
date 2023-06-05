@@ -75,7 +75,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    @IBAction func removeAccount(_ sender: Any) {
+    
+    private func performAccountRemoval() {
         removeUser { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -92,5 +93,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 banner.autoDismiss = true
             }
         }
+    }
+    
+    @IBAction func removeAccount(_ sender: Any) {
+        let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to remove your account?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] (_) in
+            self?.performAccountRemoval()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
