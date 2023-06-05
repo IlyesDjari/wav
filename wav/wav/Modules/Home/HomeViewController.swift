@@ -47,6 +47,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, PlayerView
     @IBOutlet weak var album3: UIImageView!
 
     // Properties
+    let discoverabilityStatus = UserDefaultsManager.shared.getDiscoverabilityStatus()
     public var recentItems: [RecentItem] = []
     public var recommendedStations: [Playlist] = []
     var fetchedArtists: MusicItemCollection<Artist> = MusicItemCollection([])

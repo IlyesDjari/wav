@@ -11,7 +11,8 @@ struct UserDefaultsManager {
     static let shared = UserDefaultsManager()
     private let sharePlayKey = "sharePlayStatus"
     private let liveSessionListeningKey = "liveSessionListening"
-    
+    private let discoverabilityKey = "discoverabilityStatus"
+
     func saveSharePlayStatus(status: Bool) {
         UserDefaults.standard.set(status, forKey: sharePlayKey)
     }
@@ -26,5 +27,18 @@ struct UserDefaultsManager {
 
     func isLiveSessionListening() -> Bool {
         return UserDefaults.standard.bool(forKey: liveSessionListeningKey)
+    }
+
+    func saveDiscoverabilityStatus(status: Bool) {
+        UserDefaults.standard.set(status, forKey: discoverabilityKey)
+    }
+
+    func getDiscoverabilityStatus() -> Bool {
+        if UserDefaults.standard.object(forKey: discoverabilityKey) == nil {
+            saveDiscoverabilityStatus(status: true)
+            return true
+        } else {
+            return UserDefaults.standard.bool(forKey: discoverabilityKey)
+        }
     }
 }

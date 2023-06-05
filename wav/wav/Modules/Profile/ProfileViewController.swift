@@ -11,7 +11,12 @@ import NotificationBannerSwift
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
 
+
+
     // Outlets
+    @IBOutlet weak var turnOnDiscoverability: UIView!
+    @IBOutlet weak var turnOffDiscoverability: UIView!
+
     @IBOutlet weak var username: UITextField! {
         didSet {
             username.delegate = self
@@ -21,6 +26,34 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserData()
+        discoverabilityStatus()
+    }
+
+    private func discoverabilityStatus() {
+        let discoverabilityStatus = UserDefaultsManager.shared.getDiscoverabilityStatus()
+        let onColor = UIColor(named: "Purple")
+        let offColor = UIColor(named: "defaultPlayerBackground")
+        print("Discoverability status: \(discoverabilityStatus)")
+        UIView.animate(withDuration: 0.3) {
+            self.turnOnDiscoverability.backgroundColor = discoverabilityStatus ? onColor : offColor
+            self.turnOffDiscoverability.backgroundColor = discoverabilityStatus ? offColor : onColor
+        }
+    }
+
+    @IBAction func tapOn(_ sender: Any) {
+        Task {
+            print("tapped On")
+            UserDefaultsManager.shared.saveDiscoverabilityStatus(status: true)
+            discoverabilityStatus()
+        }
+    }
+
+    @IBAction func tapOff(_ sender: Any) {
+        Task {
+            print("tapped Off")
+            UserDefaultsManager.shared.saveDiscoverabilityStatus(status: false)
+            discoverabilityStatus()
+        }
     }
 
     private func setUserData() {
@@ -36,7 +69,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
 
     private func updateUsername() {
         if let updatedText = username.text {
@@ -75,7 +107,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    
+
     private func performAccountRemoval() {
         removeUser { [weak self] result in
             guard let self = self else { return }
@@ -94,7 +126,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
+
     @IBAction func removeAccount(_ sender: Any) {
         let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to remove your account?", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] (_) in

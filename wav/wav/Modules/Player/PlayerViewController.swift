@@ -89,7 +89,8 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         }
         set {
             UserDefaultsManager.shared.saveSharePlayStatus(status: newValue)
-            if newValue {
+            let discoverabilityStatus = UserDefaultsManager.shared.getDiscoverabilityStatus()
+            if newValue && discoverabilityStatus {
                 startup()
             }
         }
