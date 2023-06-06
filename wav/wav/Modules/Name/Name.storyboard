@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How should we call you ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CD-M7-E25">
-                                <rect key="frame" x="16" y="276" width="361" height="28.666666666666686"/>
+                                <rect key="frame" x="16" y="276" width="361" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -72,16 +72,15 @@
                             <constraint firstItem="6Nc-HL-6kQ" firstAttribute="trailing" secondItem="CBF-xR-ssY" secondAttribute="trailing" id="7Cf-pF-r6M"/>
                             <constraint firstItem="6Nc-HL-6kQ" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="9Vh-DH-e6o"/>
                             <constraint firstItem="6Nc-HL-6kQ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="9it-Dp-W9C"/>
-                            <constraint firstItem="6Nc-HL-6kQ" firstAttribute="leading" secondItem="8CD-M7-E25" secondAttribute="leading" id="PWh-9X-4rw"/>
                             <constraint firstItem="CBF-xR-ssY" firstAttribute="leading" secondItem="vHN-At-bKa" secondAttribute="leading" id="R2s-MR-UTz"/>
                             <constraint firstItem="CBF-xR-ssY" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="10" id="SXF-4p-ylL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vHN-At-bKa" secondAttribute="bottom" constant="82" id="YVs-UF-pbJ"/>
-                            <constraint firstItem="8CD-M7-E25" firstAttribute="leading" secondItem="CBF-xR-ssY" secondAttribute="leading" id="bhF-Dd-mg3"/>
-                            <constraint firstItem="8CD-M7-E25" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="riJ-EE-IEb"/>
+                            <constraint firstItem="8CD-M7-E25" firstAttribute="leading" secondItem="CBF-xR-ssY" secondAttribute="leading" id="e8n-nK-Ean"/>
+                            <constraint firstItem="8CD-M7-E25" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="217" id="gci-cu-6sR"/>
+                            <constraint firstItem="8CD-M7-E25" firstAttribute="trailing" secondItem="6Nc-HL-6kQ" secondAttribute="trailing" id="hmF-ys-7xG"/>
+                            <constraint firstItem="8CD-M7-E25" firstAttribute="leading" secondItem="6Nc-HL-6kQ" secondAttribute="leading" id="iVS-jH-A0Z"/>
                             <constraint firstItem="6Nc-HL-6kQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="150" id="sPF-hA-CwK"/>
-                            <constraint firstItem="8CD-M7-E25" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="217" id="sr0-TT-Bke"/>
                             <constraint firstItem="CBF-xR-ssY" firstAttribute="trailing" secondItem="vHN-At-bKa" secondAttribute="trailing" id="wLq-Am-wGi"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8CD-M7-E25" secondAttribute="trailing" constant="16" id="xxt-oC-9wJ"/>
                         </constraints>
                     </view>
                     <connections>

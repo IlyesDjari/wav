@@ -95,13 +95,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Customize the presentation options for the notification
+            let presentationOptions: UNNotificationPresentationOptions = [.banner, .badge, .sound, .list]
+        completionHandler(presentationOptions)
+    }
+
     func application(
         _ application: UIApplication,
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // Handle the received remote notification
-        // You can customize the handling based on the userInfo payload
-        // completionHandler(UIBackgroundFetchResult) should be called when the processing is completed
-        completionHandler(.noData)
+        let center = UNUserNotificationCenter.current()
+        // Extract the notification content from the "aps" key
+        if let aps = userInfo["aps"] as? [String: Any],
+           let alert = aps["alert"] as? [String: Any],
+           let title = alert["title"] as? String,
+           let body = alert["body"] as? String {
+
+            // Customize the notification content
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            content.sound = UNNotificationSound.default
+
+            // Request to present the notification
+            let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: nil)
+
+            // Set the presentation options to show the notification on lock screen
+            center.add(request) { error in
+                if let error {
+                    print("Error presenting notification: \(error)")
+                    completionHandler(.failed)
+                } else {
+                    print("Notification presented successfully")
+                    completionHandler(.newData)
+                }
+            }
+        } else {
+            completionHandler(.noData)
+        }
     }
 }

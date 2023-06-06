@@ -1,3 +1,5 @@
+/* eslint-disable eol-last */
+/* eslint-disable indent */
 /**
  * Import function triggers from their respective submodules:
  *
@@ -14,12 +16,12 @@ admin.initializeApp();
 
 exports.sendNotificationOnFieldChange =
     functions.firestore.document("Users/{userID}")
-        .onUpdate((change, context) => {
-          const newData = change.after.data();
-          const previousData = change.before.data();
+    .onUpdate((change, context) => {
+        const newData = change.after.data();
+        const previousData = change.before.data();
 
-          // Check if the "notification" field has changed to a string value
-          if (newData.notification &&
+        // Check if the "notification" field has changed to a string value
+        if (newData.notification &&
             typeof newData.notification === "string" &&
             previousData.notification !== newData.notification) {
             const userID = context.params.userID;
@@ -28,23 +30,23 @@ exports.sendNotificationOnFieldChange =
             const userRef = admin.firestore().collection("Users").doc(userID);
             return userRef.get()
                 .then((userDoc) => {
-                  const fcmToken = userDoc.data().fcmToken;
-                  // Construct the notification message
-                  const message = {
-                    token: fcmToken,
-                    notification: {
-                      title: "New Notification",
-                      body: newData.notification,
-                      sound: "default",
-                    },
-                  };
+                    const fcmToken = userDoc.data().fcmToken;
+                    // Construct the notification message
+                    const message = {
+                        token: fcmToken,
+                        notification: {
+                            title: "Somebody is trying to find you",
+                            body: newData.notification
+                        },
+                    };
+
                     // Send the notification using the Firebase Admin SDK
-                  return admin.messaging().send(message);
+                    return admin.messaging().send(message);
                 })
                 .catch((error) => {
-                  console.error("Error retrieving FCM token:", error);
+                    console.error("Error retrieving FCM token:", error);
                 });
-          }
+        }
 
-          return null;
-        });
+        return null;
+    });
