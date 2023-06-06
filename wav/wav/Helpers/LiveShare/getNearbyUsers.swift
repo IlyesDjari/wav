@@ -75,7 +75,7 @@ private func queryNearbyUsers(
                     let otherUsername = document.data()["username"] as? String,
                     let otherSong = document.data()["favoriteSong"] as? String,
                     let otherGenre = document.data()["favoriteGenre"] as? String,
-                    let discover = document.data()["favoriteGenre"] as? Bool
+                    let discover = document.data()["discover"] as? Bool
                 else {
                         continue
                 }

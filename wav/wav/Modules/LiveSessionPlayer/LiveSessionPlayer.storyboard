@@ -111,7 +111,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="060-wa-Gff">
+                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="060-wa-Gff">
                                 <rect key="frame" x="16" y="713" width="361" height="52"/>
                                 <color key="backgroundColor" name="Purple"/>
                                 <constraints>
@@ -177,6 +177,7 @@
                     <connections>
                         <outlet property="currentArtist" destination="pVP-oJ-XDe" id="hKw-Fp-uq7"/>
                         <outlet property="currentSongName" destination="Jyy-Zq-mZ5" id="7iG-Zc-Uly"/>
+                        <outlet property="nearbyButton" destination="060-wa-Gff" id="yAm-CC-bfN"/>
                         <outlet property="playingCover" destination="RXr-s4-1Im" id="pOD-Kb-Q33"/>
                         <outlet property="stateButton" destination="7yQ-js-XIK" id="Nyp-pw-Cmn"/>
                         <outlet property="suggestCover" destination="BUw-er-3CI" id="oV2-i9-7XF"/>

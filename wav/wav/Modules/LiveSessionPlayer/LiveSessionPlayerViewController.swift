@@ -26,6 +26,7 @@ class LiveSessionPlayerViewController: UIViewController {
     @IBOutlet weak var suggestLabel: UILabel!
     @IBOutlet weak var stateButton: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var nearbyButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,20 +53,20 @@ class LiveSessionPlayerViewController: UIViewController {
         musicPlaybackControl.setStateButtonImage(stateButton: stateButton)
     }
     private func fetchAllData() {
-        guard let usersData = usersData else { return }
+        guard let usersData else { return }
         getSongInfo(songID: usersData.songID)
         setSuggestion(songID: usersData.favoriteSong)
         setUserLabel()
+        nearbyButton.isHidden = !(usersData.discover)
     }
 
     private func setUserLabel() {
-        guard let usersData = usersData else { return }
+        guard let usersData else { return }
         userLabel.text = "You're listening with \(usersData.username) who truly loves \(usersData.favoriteGenre)"
     }
 
     private func handleLiveSessionListening() {
-        let isLiveSessionListening = UserDefaultsManager.shared.isLiveSessionListening()
-        if isLiveSessionListening {
+        if UserDefaultsManager.shared.isLiveSessionListening() {
             observeCurrentlyPlaying()
         } else {
             stopObservingCurrentlyPlaying()
