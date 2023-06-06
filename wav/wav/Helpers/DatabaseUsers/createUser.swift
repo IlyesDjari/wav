@@ -17,9 +17,10 @@ func createUser(userName: String, completion: @escaping (Result<String, Error>) 
     ref = dataBase.collection("Users").addDocument(data: [
         "username": userName,
         "createdAt": FieldValue.serverTimestamp(),
-        "notification": NSNull()
+        "notification": NSNull(),
+        "discover": true
     ]) { error in
-        if let error = error {
+        if let error {
             completion(.failure(error))
         } else {
             completion(.success(ref!.documentID))

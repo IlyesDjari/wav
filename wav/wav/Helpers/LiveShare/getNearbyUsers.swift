@@ -74,7 +74,9 @@ private func queryNearbyUsers(
                     let otherLatitude = otherUserLocation.latitude as Double?,
                     let otherUsername = document.data()["username"] as? String,
                     let otherSong = document.data()["favoriteSong"] as? String,
-                    let otherGenre = document.data()["favoriteGenre"] as? String else {
+                    let otherGenre = document.data()["favoriteGenre"] as? String,
+                    let discover = document.data()["favoriteGenre"] as? Bool
+                else {
                         continue
                 }
 
@@ -92,6 +94,7 @@ private func queryNearbyUsers(
                         username: otherUsername,
                         favoriteGenre: otherGenre,
                         favoriteSong: otherSong,
+                        discover: discover,
                         id: otherUserID
                     )
                     nearbyUsers.append(nearbyUser)

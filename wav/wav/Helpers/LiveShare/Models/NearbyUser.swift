@@ -14,5 +14,6 @@ struct NearbyUser {
     let username: String
     let favoriteGenre: String
     let favoriteSong: String
+    let discover: Bool
     let id: String
 }

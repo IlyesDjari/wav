@@ -21,7 +21,7 @@ func updateUsernameInFirestore(newUsername: String, completion: @escaping (Resul
         }
         let userRef = dataBase.collection("Users").document(userID)
         userRef.updateData(["username": newUsername]) { error in
-            if let error = error {
+            if let error {
                 completion(.failure(error))
             } else {
                 completion(.success(()))

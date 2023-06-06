@@ -36,7 +36,7 @@ exports.sendNotificationOnFieldChange =
                         token: fcmToken,
                         notification: {
                             title: "Somebody is trying to find you",
-                            body: newData.notification
+                            body: newData.notification,
                         },
                     };
 

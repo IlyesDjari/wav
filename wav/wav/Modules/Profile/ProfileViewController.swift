@@ -8,6 +8,7 @@
 import UIKit
 import MusicKit
 import NotificationBannerSwift
+import Firebase
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
 
@@ -31,10 +32,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let discoverabilityStatus = UserDefaultsManager.shared.getDiscoverabilityStatus()
         let onColor = UIColor(named: "Purple")
         let offColor = UIColor(named: "defaultPlayerBackground")
-        print("Discoverability status: \(discoverabilityStatus)")
+
         UIView.animate(withDuration: 0.3) {
             self.turnOnDiscoverability.backgroundColor = discoverabilityStatus ? onColor : offColor
             self.turnOffDiscoverability.backgroundColor = discoverabilityStatus ? offColor : onColor
+        }
+        guard let userID = getUserIDFromCoreData() else {
+            return
+        }
+        let usersRef = Firestore.firestore().collection("Users")
+        let userDocRef = usersRef.document(userID)
+        userDocRef.updateData(["discover": discoverabilityStatus]) { error in
+            if let error {
+                NotificationBanner.showErrorBanner(
+                    title: "Error",
+                    subtitle: "Error updating discoverability status: \(error)")
+            } else {
+                print("Discoverability status updated successfully")
+            }
         }
     }
 
