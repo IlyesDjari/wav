@@ -34,7 +34,6 @@ func getNearbyUsers(completion: @escaping (Result<[NearbyUser], Error>) -> Void)
 private func fetchUserLocation(userID: String, completion: @escaping (Result<GeoPoint, Error>) -> Void) {
     let usersRef = Firestore.firestore().collection("Users")
     let userDocRef = usersRef.document(userID)
-
     userDocRef.getDocument { (document, error) in
         if let error = error {
             completion(.failure(error))
@@ -79,13 +78,10 @@ private func queryNearbyUsers(
                 else {
                         continue
                 }
-
                 if otherSongID.isEmpty || otherUserID == userID {
                     continue
                 }
-
                 let distance = calculateDistance(currentUserLocation, otherUserLocation)
-
                 if distance <= 500 {
                     let nearbyUser = NearbyUser(
                         songID: otherSongID,

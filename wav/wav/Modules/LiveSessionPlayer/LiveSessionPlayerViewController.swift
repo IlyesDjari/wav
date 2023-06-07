@@ -117,6 +117,7 @@ class LiveSessionPlayerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserInteractionSegue" {
             if let destinationVC = segue.destination as? UserInteractionViewController {
+                destinationVC.userId = usersData?.id
                 destinationVC.user = usersData?.username
             }
         }

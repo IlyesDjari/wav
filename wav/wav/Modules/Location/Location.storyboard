@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="35.877862595419849" y="4.9295774647887329"/>
         </scene>
-        <!--NavigationViewController-->
+        <!--WalktroughViewController-->
         <scene sceneID="Xde-Uk-cJt">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationViewController" id="t76-G2-gtM" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Walktrough" referencedIdentifier="WalktroughViewController" id="t76-G2-gtM" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="VKz-Ud-xE7"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8i-pr-K6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -103,7 +103,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
-            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84699999999999998" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -55,6 +55,9 @@
 		7E28121B2A2E9092006D9925 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7E28121A2A2E9092006D9925 /* FirebaseMessaging */; };
 		7E28121D2A2E9092006D9925 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E28121C2A2E9092006D9925 /* FirebaseStorage */; };
 		7E2812232A2F87B0006D9925 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812222A2F87AF006D9925 /* GoogleService-Info.plist */; };
+		7E2812252A2FAF31006D9925 /* notifyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812242A2FAF31006D9925 /* notifyUser.swift */; };
+		7E2812282A312C8F006D9925 /* Walktrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812272A312C8F006D9925 /* Walktrough.storyboard */; };
+		7E28122A2A312DA5006D9925 /* WalktroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2812292A312DA5006D9925 /* WalktroughViewController.swift */; };
 		7E418B592A02F446007B9863 /* HomeViewController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B582A02F446007B9863 /* HomeViewController+History.swift */; };
 		7E418B5B2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */; };
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
@@ -172,6 +175,9 @@
 		7E28120E2A2E5E42006D9925 /* updateLiveShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateLiveShare.swift; sourceTree = "<group>"; };
 		7E2812112A2E5EA5006D9925 /* startNearbyInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startNearbyInteraction.swift; sourceTree = "<group>"; };
 		7E2812222A2F87AF006D9925 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7E2812242A2FAF31006D9925 /* notifyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifyUser.swift; sourceTree = "<group>"; };
+		7E2812272A312C8F006D9925 /* Walktrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Walktrough.storyboard; sourceTree = "<group>"; };
+		7E2812292A312DA5006D9925 /* WalktroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalktroughViewController.swift; sourceTree = "<group>"; };
 		7E418B582A02F446007B9863 /* HomeViewController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+History.swift"; sourceTree = "<group>"; };
 		7E418B5A2A02F5F5007B9863 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
@@ -462,6 +468,15 @@
 			path = NearbyInteraction;
 			sourceTree = "<group>";
 		};
+		7E2812262A312C0F006D9925 /* Walktrough */ = {
+			isa = PBXGroup;
+			children = (
+				7E2812272A312C8F006D9925 /* Walktrough.storyboard */,
+				7E2812292A312DA5006D9925 /* WalktroughViewController.swift */,
+			);
+			path = Walktrough;
+			sourceTree = "<group>";
+		};
 		7E418B572A02F42B007B9863 /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,6 +610,7 @@
 				7EAB3EF72A01635100BB2E0B /* Login */,
 				7EF558672A098BA400D1FE8F /* Name */,
 				7EF558852A0AED5700D1FE8F /* Location */,
+				7E2812262A312C0F006D9925 /* Walktrough */,
 				7EAB3EF62A01634B00BB2E0B /* Home */,
 				7E91E6262A05AA9400ADB0EE /* Player */,
 				7EF558502A087EF500D1FE8F /* Search */,
@@ -785,6 +801,7 @@
 				7E2811FB2A2D615A006D9925 /* getUser.swift */,
 				7E2811FD2A2D699F006D9925 /* updateUsername.swift */,
 				7E2811FF2A2D6EAE006D9925 /* removeUser.swift */,
+				7E2812242A2FAF31006D9925 /* notifyUser.swift */,
 			);
 			path = DatabaseUsers;
 			sourceTree = "<group>";
@@ -909,6 +926,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E2812232A2F87B0006D9925 /* GoogleService-Info.plist in Resources */,
+				7E2812282A312C8F006D9925 /* Walktrough.storyboard in Resources */,
 				7EAB3EF92A01636900BB2E0B /* Login.storyboard in Resources */,
 				7EF5584F2A087E4000D1FE8F /* List.storyboard in Resources */,
 				7EF5585E2A0883C200D1FE8F /* Library.storyboard in Resources */,
@@ -1021,6 +1039,7 @@
 				7E91E62C2A067F5100ADB0EE /* PlayerViewController+fetchPlayingSong.swift in Sources */,
 				7E2811F02A28C175006D9925 /* TopsSongsCollectionViewCell.swift in Sources */,
 				7E2811ED2A28C00A006D9925 /* ArtistViewController+CollectionView.swift in Sources */,
+				7E2812252A2FAF31006D9925 /* notifyUser.swift in Sources */,
 				7E5132ED2A13ABED00E68533 /* NearbyViewController+NearbySongs.swift in Sources */,
 				7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */,
 				7E004ABB2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift in Sources */,
@@ -1030,6 +1049,7 @@
 				7EF5585C2A0883B400D1FE8F /* LibraryViewController.swift in Sources */,
 				7E91E62A2A05AAB300ADB0EE /* PlayerViewController.swift in Sources */,
 				7E91E6302A0681B300ADB0EE /* MusicPlaybackControl.swift in Sources */,
+				7E28122A2A312DA5006D9925 /* WalktroughViewController.swift in Sources */,
 				7EF558872A0AED7100D1FE8F /* LocationViewController.swift in Sources */,
 				7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */,
 				7E28120A2A2E425B006D9925 /* errorNotification.swift in Sources */,

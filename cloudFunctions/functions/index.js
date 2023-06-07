@@ -35,7 +35,7 @@ exports.sendNotificationOnFieldChange =
                     const message = {
                         token: fcmToken,
                         notification: {
-                            title: "Somebody is trying to find you",
+                            title: "WAV",
                             body: newData.notification,
                         },
                     };

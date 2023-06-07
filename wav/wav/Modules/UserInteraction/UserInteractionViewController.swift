@@ -25,6 +25,13 @@ class UserInteractionViewController: UIViewController, NISessionDelegate {
     var lastVibrationDistance: Float?
     var viewIsSeen: Bool = false
     var user: String?
+    var userId: String? {
+        didSet {
+            if let unwrappedUserId = userId {
+                updateNotificationField(withUserID: unwrappedUserId)
+            }
+        }
+    }
 
     // Outlets
     @IBOutlet weak var nearbyArrow: UIImageView!

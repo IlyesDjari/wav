@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Walktrough View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="WalktroughViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="WalktroughViewController" customModule="wav" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Walktrough1" translatesAutoresizingMaskIntoConstraints="NO" id="EGw-H3-8rS">
+                                <rect key="frame" x="0.0" y="109" width="393" height="631"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="y9s-vy-9Qt" appends="YES" id="2Lf-u1-jwc"/>
+                                </connections>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="eI0-oE-iCW">
+                                <rect key="frame" x="16" y="765" width="361" height="26"/>
+                                <color key="currentPageIndicatorTintColor" name="Purple"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <color key="tintColor" name="Purple"/>
+                        <constraints>
+                            <constraint firstItem="eI0-oE-iCW" firstAttribute="top" secondItem="EGw-H3-8rS" secondAttribute="bottom" constant="25" id="29z-Sg-d40"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="EGw-H3-8rS" secondAttribute="bottom" constant="78" id="AMt-NC-foc"/>
+                            <constraint firstItem="EGw-H3-8rS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FUl-Rq-11T"/>
+                            <constraint firstItem="eI0-oE-iCW" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="NIG-Ke-lj0"/>
+                            <constraint firstItem="EGw-H3-8rS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="RxW-Aj-XPO"/>
+                            <constraint firstItem="EGw-H3-8rS" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="g4J-EN-tvs"/>
+                            <constraint firstItem="eI0-oE-iCW" firstAttribute="centerX" secondItem="EGw-H3-8rS" secondAttribute="centerX" id="nK7-K2-aiD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dots" destination="eI0-oE-iCW" id="aup-8P-Csx"/>
+                        <outlet property="image" destination="EGw-H3-8rS" id="R6e-PY-U48"/>
+                        <segue destination="Sab-V5-YGb" kind="show" identifier="home" id="StI-a9-yGu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="y9s-vy-9Qt" userLabel="leftSwipe">
+                    <connections>
+                        <action selector="swipeAction:" destination="Y6W-OH-hqX" id="v13-To-jvJ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="84.732824427480907" y="4.9295774647887329"/>
+        </scene>
+        <!--NavigationViewController-->
+        <scene sceneID="GIa-Dd-crs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationViewController" id="Sab-V5-YGb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yoO-QM-wHo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHA-DX-AWj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="408"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Walktrough1" width="260" height="420"/>
+        <namedColor name="Background">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Purple">
+            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
