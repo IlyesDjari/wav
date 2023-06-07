@@ -20,15 +20,23 @@ class WalktroughViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func skip(_ sender: Any) {
+        navigateToHome()
+    }
+
     @IBAction func swipeAction(_ sender: Any) {
         page += 1
         updatePage(animated: true)
     }
 
+    private func navigateToHome() {
+        self.performSegue(withIdentifier: "home", sender: self)
+    }
+
     private func updatePage(animated: Bool) {
         guard page >= 1 && page <= 5 else {
             // Perform segue to NavigationHomeViewController when page is 6
-            self.performSegue(withIdentifier: "home", sender: self)
+            navigateToHome()
             return
         }
 

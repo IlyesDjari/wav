@@ -27,16 +27,27 @@
                                 <rect key="frame" x="16" y="765" width="361" height="26"/>
                                 <color key="currentPageIndicatorTintColor" name="Purple"/>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHy-Qa-9ra">
+                                <rect key="frame" x="320" y="66" width="57" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Skip"/>
+                                <connections>
+                                    <action selector="skip:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="V7i-nQ-bLp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" name="Purple"/>
                         <constraints>
                             <constraint firstItem="eI0-oE-iCW" firstAttribute="top" secondItem="EGw-H3-8rS" secondAttribute="bottom" constant="25" id="29z-Sg-d40"/>
+                            <constraint firstItem="SHy-Qa-9ra" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="320" id="7zw-ti-c80"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="EGw-H3-8rS" secondAttribute="bottom" constant="78" id="AMt-NC-foc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SHy-Qa-9ra" secondAttribute="trailing" constant="16" id="CcW-sZ-EHs"/>
                             <constraint firstItem="EGw-H3-8rS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FUl-Rq-11T"/>
                             <constraint firstItem="eI0-oE-iCW" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="NIG-Ke-lj0"/>
                             <constraint firstItem="EGw-H3-8rS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="RxW-Aj-XPO"/>
+                            <constraint firstItem="SHy-Qa-9ra" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="7" id="Uiu-oj-eBI"/>
                             <constraint firstItem="EGw-H3-8rS" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="g4J-EN-tvs"/>
                             <constraint firstItem="eI0-oE-iCW" firstAttribute="centerX" secondItem="EGw-H3-8rS" secondAttribute="centerX" id="nK7-K2-aiD"/>
                         </constraints>
