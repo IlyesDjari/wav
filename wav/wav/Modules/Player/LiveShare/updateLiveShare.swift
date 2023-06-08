@@ -26,8 +26,7 @@ extension PlayerViewController {
                     }
                 }
             } else {
-                NotificationBanner.showErrorBanner(title: "Error", subtitle: "Error: currentEntry ID is nil.")
-
+                print("Error: currentEntry ID is nil.")
             }
         } else {
             stopLiveShareSession { result in

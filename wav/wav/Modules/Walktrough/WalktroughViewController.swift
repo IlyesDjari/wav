@@ -24,6 +24,12 @@ class WalktroughViewController: UIViewController {
         navigateToHome()
     }
 
+    @IBAction func swipeBack(_ sender: Any) {
+        if page > 1 {
+            page -= 1
+            updatePage(animated: true)
+        }
+    }
     @IBAction func swipeAction(_ sender: Any) {
         page += 1
         updatePage(animated: true)
@@ -39,9 +45,7 @@ class WalktroughViewController: UIViewController {
             navigateToHome()
             return
         }
-
         let imageName = "Walktrough\(page)"
-
         if animated {
             let nextImage = UIImage(named: imageName)
             UIView.transition(with: self.image,
@@ -52,7 +56,6 @@ class WalktroughViewController: UIViewController {
         } else {
             image.image = UIImage(named: imageName)
         }
-
         dots.currentPage = page - 1
     }
 }

@@ -21,6 +21,7 @@
                                 <rect key="frame" x="0.0" y="109" width="393" height="631"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="y9s-vy-9Qt" appends="YES" id="2Lf-u1-jwc"/>
+                                    <outletCollection property="gestureRecognizers" destination="5lP-L1-UYK" appends="YES" id="rWN-uj-hPo"/>
                                 </connections>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="eI0-oE-iCW">
@@ -59,6 +60,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="5lP-L1-UYK" userLabel="rightSwipe">
+                    <connections>
+                        <action selector="swipeBack:" destination="Y6W-OH-hqX" id="Nvg-3d-XzI"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="y9s-vy-9Qt" userLabel="leftSwipe">
                     <connections>
                         <action selector="swipeAction:" destination="Y6W-OH-hqX" id="v13-To-jvJ"/>
