@@ -63,7 +63,6 @@
 		7E418B632A03155C007B9863 /* shadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B622A03155C007B9863 /* shadowView.swift */; };
 		7E418B662A0320C0007B9863 /* HomePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B652A0320C0007B9863 /* HomePlayer.swift */; };
 		7E418B6B2A03276C007B9863 /* UIColor+isDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */; };
-		7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E418B6C2A056FDB007B9863 /* showLoadingView.swift */; };
 		7E5132DF2A12DE7200E68533 /* getNearbyUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */; };
 		7E5132E92A12F0A500E68533 /* NearbyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5132E82A12F0A500E68533 /* NearbyUser.swift */; };
 		7E5132ED2A13ABED00E68533 /* NearbyViewController+NearbySongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5132EC2A13ABED00E68533 /* NearbyViewController+NearbySongs.swift */; };
@@ -75,6 +74,8 @@
 		7E5133122A13C69400E68533 /* MusadoraKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5133112A13C69400E68533 /* MusadoraKit */; };
 		7E567B5F2A0C052200172755 /* addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567B5E2A0C052200172755 /* addGradient.swift */; };
 		7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */; };
+		7E8EC3CC2A37CFD800620ECD /* showLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC3CB2A37CFD800620ECD /* showLoadingView.swift */; };
+		7E8EC3CF2A37D25D00620ECD /* Pulsator in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8EC3CE2A37D25D00620ECD /* Pulsator */; };
 		7E91E61E2A059C5A00ADB0EE /* HomeViewController+Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */; };
 		7E91E6212A05A37200ADB0EE /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E6202A05A37200ADB0EE /* HomeViewController+CollectionView.swift */; };
 		7E91E6252A05A48500ADB0EE /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91E6242A05A48500ADB0EE /* ForYouCollectionViewCell.swift */; };
@@ -183,13 +184,13 @@
 		7E418B622A03155C007B9863 /* shadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shadowView.swift; sourceTree = "<group>"; };
 		7E418B652A0320C0007B9863 /* HomePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePlayer.swift; sourceTree = "<group>"; };
 		7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+isDark.swift"; sourceTree = "<group>"; };
-		7E418B6C2A056FDB007B9863 /* showLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showLoadingView.swift; sourceTree = "<group>"; };
 		7E5132DE2A12DE7200E68533 /* getNearbyUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNearbyUsers.swift; sourceTree = "<group>"; };
 		7E5132E82A12F0A500E68533 /* NearbyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUser.swift; sourceTree = "<group>"; };
 		7E5132EC2A13ABED00E68533 /* NearbyViewController+NearbySongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearbyViewController+NearbySongs.swift"; sourceTree = "<group>"; };
 		7E5132EF2A13B2C500E68533 /* NearbyUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUsersTableViewCell.swift; sourceTree = "<group>"; };
 		7E567B5E2A0C052200172755 /* addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGradient.swift; sourceTree = "<group>"; };
 		7E6AD29F2A0C43BA0068027A /* ListViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+tableView.swift"; sourceTree = "<group>"; };
+		7E8EC3CB2A37CFD800620ECD /* showLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showLoadingView.swift; sourceTree = "<group>"; };
 		7E91E61D2A059C5A00ADB0EE /* HomeViewController+Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Stations.swift"; sourceTree = "<group>"; };
 		7E91E6202A05A37200ADB0EE /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		7E91E6242A05A48500ADB0EE /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -266,6 +267,7 @@
 				7E2812152A2E9092006D9925 /* FirebaseAuth in Frameworks */,
 				7E28121D2A2E9092006D9925 /* FirebaseStorage in Frameworks */,
 				7E2812172A2E9092006D9925 /* FirebaseDatabase in Frameworks */,
+				7E8EC3CF2A37D25D00620ECD /* Pulsator in Frameworks */,
 				7B320631CABAF821C5A00C9C /* Pods_wav.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,8 +650,8 @@
 			children = (
 				7EAB3EE72A0162D700BB2E0B /* Assets.xcassets */,
 				7E418B622A03155C007B9863 /* shadowView.swift */,
+				7E8EC3CB2A37CFD800620ECD /* showLoadingView.swift */,
 				7E418B6A2A03276C007B9863 /* UIColor+isDark.swift */,
-				7E418B6C2A056FDB007B9863 /* showLoadingView.swift */,
 				7EBBEAFA2A057D1300A2970C /* updateBackgroundColor.swift */,
 				7EF5583F2A06F89000D1FE8F /* updateTimelineGradient.swift */,
 				7EF558492A08610300D1FE8F /* animateImageTransition.swift */,
@@ -874,6 +876,7 @@
 				7E2812182A2E9092006D9925 /* FirebaseFirestore */,
 				7E28121A2A2E9092006D9925 /* FirebaseMessaging */,
 				7E28121C2A2E9092006D9925 /* FirebaseStorage */,
+				7E8EC3CE2A37D25D00620ECD /* Pulsator */,
 			);
 			productName = wav;
 			productReference = 7EAB3ED82A0162D500BB2E0B /* wav.app */;
@@ -910,6 +913,7 @@
 				7E51330D2A13C63000E68533 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7E5133102A13C69400E68533 /* XCRemoteSwiftPackageReference "MusadoraKit" */,
 				7E2812132A2E9092006D9925 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7E8EC3CD2A37D25D00620ECD /* XCRemoteSwiftPackageReference "Pulsator" */,
 			);
 			productRefGroup = 7EAB3ED92A0162D500BB2E0B /* Products */;
 			projectDirPath = "";
@@ -1043,6 +1047,7 @@
 				7E5132ED2A13ABED00E68533 /* NearbyViewController+NearbySongs.swift in Sources */,
 				7E6AD2A02A0C43BA0068027A /* ListViewController+tableView.swift in Sources */,
 				7E004ABB2A13FD710024CDBC /* LocationViewController+getUserFavoriteSong.swift in Sources */,
+				7E8EC3CC2A37CFD800620ECD /* showLoadingView.swift in Sources */,
 				7E2812082A2E3A62006D9925 /* playSongFromPlaylist.swift in Sources */,
 				7E004AD42A1553B50024CDBC /* UserInteractionViewController+NISessionDelegate.swift in Sources */,
 				7E28120F2A2E5E42006D9925 /* updateLiveShare.swift in Sources */,
@@ -1055,7 +1060,6 @@
 				7E28120A2A2E425B006D9925 /* errorNotification.swift in Sources */,
 				7EF558842A0AA5BE00D1FE8F /* stopLiveShareSession.swift in Sources */,
 				7E2811E72A278C81006D9925 /* ArtistViewController.swift in Sources */,
-				7E418B6D2A056FDB007B9863 /* showLoadingView.swift in Sources */,
 				7E2812022A2D6F03006D9925 /* removeUserIDFromCoreData.swift in Sources */,
 				7E567B5F2A0C052200172755 /* addGradient.swift in Sources */,
 				7E91E62E2A0680D000ADB0EE /* HomePlayerViewController+FetchCurrentlyPlaying.swift in Sources */,
@@ -1396,6 +1400,14 @@
 				kind = branch;
 			};
 		};
+		7E8EC3CD2A37D25D00620ECD /* XCRemoteSwiftPackageReference "Pulsator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shu223/Pulsator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1448,6 +1460,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7E5133102A13C69400E68533 /* XCRemoteSwiftPackageReference "MusadoraKit" */;
 			productName = MusadoraKit;
+		};
+		7E8EC3CE2A37D25D00620ECD /* Pulsator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E8EC3CD2A37D25D00620ECD /* XCRemoteSwiftPackageReference "Pulsator" */;
+			productName = Pulsator;
 		};
 /* End XCSwiftPackageProductDependency section */
 

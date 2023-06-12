@@ -11,7 +11,6 @@ import NotificationBannerSwift
 
 extension PlayerViewController {
     public func startup() {
-        print("called")
         // Create the NISession.
         session = NISession()
         // Set the delegate.

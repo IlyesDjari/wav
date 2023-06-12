@@ -169,7 +169,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJX-01-Jfx" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                 <rect key="frame" x="8" y="42" width="75" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -266,6 +266,7 @@
                         <outlet property="currentTime" destination="9mh-Zy-E8f" id="01X-wq-3nD"/>
                         <outlet property="liveShareButton" destination="IPm-Kf-fsE" id="B4K-jh-aAy"/>
                         <outlet property="liveShareLabel" destination="BJX-01-Jfx" id="AdJ-FV-F5k"/>
+                        <outlet property="liveShareView" destination="NyE-D7-TKa" id="GQ5-Lr-GMK"/>
                         <outlet property="repeatOnce" destination="PKa-fN-aRB" id="9ET-5Q-V01"/>
                         <outlet property="shuffleButton" destination="JCC-G1-w21" id="UO4-tO-MYM"/>
                         <outlet property="skipButton" destination="tCV-MW-b1H" id="Fvz-hM-Oyr"/>
@@ -312,7 +313,7 @@
     </scenes>
     <designables>
         <designable name="BJX-01-Jfx">
-            <size key="intrinsicContentSize" width="59" height="14.5"/>
+            <size key="intrinsicContentSize" width="67.5" height="17"/>
         </designable>
         <designable name="Ygn-eF-zaa"/>
         <designable name="jsb-ld-Khk"/>
@@ -326,10 +327,10 @@
         <image name="shuffleOff" width="32" height="32"/>
         <image name="skip" width="32" height="32"/>
         <namedColor name="Purple">
-            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84313725490196079" green="0.23921568627450981" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="defaultPlayerBackground">
-            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12549019607843137" green="0.12549019607843137" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

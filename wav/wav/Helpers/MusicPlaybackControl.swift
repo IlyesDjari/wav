@@ -137,11 +137,12 @@ struct MusicPlaybackControl {
     public func setLiveShareSessionButton(
         liveSessionButton: UIImageView,
         liveSessionLabel: UILabel,
-        sharePlayStatus: Bool) {
+        sharePlayStatus: Bool,
+        liveShareView: UIView? = nil) {
         if sharePlayStatus {
             // Perform actions when sharePlayStatus is true
             let button = UIImage(named: "liveShareOn")
-            liveSessionButton.animateImageTransition(to: button, withBounce: true)
+            liveSessionButton.animateImageTransition(to: button, withBounce: true, view: liveShareView)
             liveSessionLabel.textColor = UIColor(named: "Purple")
         } else {
             // Perform actions when sharePlayStatus is false

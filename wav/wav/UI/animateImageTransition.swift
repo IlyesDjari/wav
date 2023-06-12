@@ -7,10 +7,11 @@
 
 import Foundation
 import UIKit
+import Pulsator
 
 extension UIImageView {
-    func animateImageTransition(to newImage: UIImage?, withBounce shouldBounce: Bool) {
-        guard let newImage = newImage else { return }
+    func animateImageTransition(to newImage: UIImage?, withBounce shouldBounce: Bool, view: UIView? = nil) {
+        guard let newImage else { return }
 
         UIView.transition(with: self,
                           duration: 0.3,
@@ -23,6 +24,20 @@ extension UIImageView {
                                   self.bounce()
                               }
                           })
+        if let pulsatorView = view {
+            let pulsator = Pulsator()
+            pulsator.radius = 60
+            pulsator.backgroundColor = UIColor(named: "Purple")?.cgColor
+            pulsator.position = CGPoint(x: pulsatorView.bounds.midX, y: pulsatorView.bounds.midY - 10)
+            pulsatorView.layer.addSublayer(pulsator)
+            pulsator.animationDuration = 3
+            pulsator.repeatCount = 1
+            pulsator.start()
+            DispatchQueue.main.asyncAfter(deadline: .now() + pulsator.animationDuration) {
+                pulsator.stop()
+                pulsator.removeFromSuperlayer()
+            }
+        }
     }
 
     func bounce() {

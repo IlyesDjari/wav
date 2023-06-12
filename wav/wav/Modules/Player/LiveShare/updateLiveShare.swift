@@ -18,7 +18,8 @@ extension PlayerViewController {
                         self.musicPlaybackControl.setLiveShareSessionButton(
                             liveSessionButton: self.liveShareButton,
                             liveSessionLabel: self.liveShareLabel,
-                            sharePlayStatus: self.sharePlay)
+                            sharePlayStatus: self.sharePlay,
+                            liveShareView: self.liveShareView)
                     case .failure(let error):
                         NotificationBanner.showErrorBanner(
                             title: "Error",

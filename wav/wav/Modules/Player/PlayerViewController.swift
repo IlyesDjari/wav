@@ -32,6 +32,7 @@ class PlayerViewController: UIViewController, NISessionDelegate {
     @IBOutlet weak var skipButton: UIImageView!
     @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var repeatOnce: UIImageView!
+    @IBOutlet weak var liveShareView: UIView!
     @IBOutlet weak var liveShareButton: UIImageView!
     @IBOutlet weak var liveShareLabel: MarqueeLabel!
     @IBOutlet weak var shuffleButton: UIImageView!

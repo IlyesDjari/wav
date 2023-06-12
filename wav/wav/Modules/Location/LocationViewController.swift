@@ -105,7 +105,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - CLLocationManagerDelegate methods
 
     func checkLocationAuthorization() {
-        print("called")
         let locationManager = CLLocationManager()
         let authorizationStatus = locationManager.authorizationStatus
         switch authorizationStatus {

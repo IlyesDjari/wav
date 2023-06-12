@@ -60,8 +60,8 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-t4-dqA" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                            <rect key="frame" x="70" y="23" width="279" height="19"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                            <rect key="frame" x="70" y="22" width="279" height="19"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <userDefinedRuntimeAttributes>
@@ -74,8 +74,8 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atr-Fk-ZZZ" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                            <rect key="frame" x="70" y="45" width="279" height="11"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                                            <rect key="frame" x="70" y="46" width="279" height="11"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <userDefinedRuntimeAttributes>
@@ -104,14 +104,14 @@
                                                                         <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="Atr-Fk-ZZZ" secondAttribute="leading" id="55h-2n-i5n"/>
                                                                         <constraint firstItem="iU5-t4-dqA" firstAttribute="centerX" secondItem="pBo-LA-VcE" secondAttribute="centerX" constant="35" id="F1R-Ow-EbP"/>
                                                                         <constraint firstItem="v76-Le-APu" firstAttribute="leading" secondItem="pBo-LA-VcE" secondAttribute="leadingMargin" constant="-20" id="Fhk-fp-HBB"/>
-                                                                        <constraint firstAttribute="bottomMargin" secondItem="Atr-Fk-ZZZ" secondAttribute="bottom" constant="13" id="HcN-Bv-Efw"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="Atr-Fk-ZZZ" secondAttribute="bottom" constant="12" id="HcN-Bv-Efw"/>
                                                                         <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="v76-Le-APu" secondAttribute="trailing" constant="20" id="NU2-hM-Bfa"/>
-                                                                        <constraint firstAttribute="bottomMargin" secondItem="iU5-t4-dqA" secondAttribute="bottom" constant="27" id="O87-iU-zJx"/>
-                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="12" id="Zvc-6U-xAs"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="iU5-t4-dqA" secondAttribute="bottom" constant="28" id="O87-iU-zJx"/>
+                                                                        <constraint firstItem="iU5-t4-dqA" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="11" id="Zvc-6U-xAs"/>
                                                                         <constraint firstItem="iU5-t4-dqA" firstAttribute="trailing" secondItem="Atr-Fk-ZZZ" secondAttribute="trailing" id="b2q-OL-ffY"/>
                                                                         <constraint firstItem="iU5-t4-dqA" firstAttribute="leading" secondItem="pBo-LA-VcE" secondAttribute="leadingMargin" constant="50" id="eLL-z5-tKd"/>
                                                                         <constraint firstItem="v76-Le-APu" firstAttribute="centerY" secondItem="pBo-LA-VcE" secondAttribute="centerY" id="m1j-EK-00g"/>
-                                                                        <constraint firstItem="Atr-Fk-ZZZ" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="34" id="wEb-kM-w1z"/>
+                                                                        <constraint firstItem="Atr-Fk-ZZZ" firstAttribute="top" secondItem="pBo-LA-VcE" secondAttribute="topMargin" constant="35" id="wEb-kM-w1z"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
@@ -193,13 +193,13 @@
     </scenes>
     <designables>
         <designable name="Atr-Fk-ZZZ">
-            <size key="intrinsicContentSize" width="32.5" height="14.5"/>
+            <size key="intrinsicContentSize" width="37" height="17"/>
         </designable>
         <designable name="VTb-My-Kg1">
             <size key="intrinsicContentSize" width="61.5" height="29"/>
         </designable>
         <designable name="iU5-t4-dqA">
-            <size key="intrinsicContentSize" width="37.5" height="17"/>
+            <size key="intrinsicContentSize" width="42.5" height="19.5"/>
         </designable>
     </designables>
     <resources>
@@ -207,7 +207,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
-            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84313725490196079" green="0.23921568627450981" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
