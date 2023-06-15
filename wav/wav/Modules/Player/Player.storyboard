@@ -204,6 +204,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" name="defaultPlayerBackground"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="PKa-fN-aRB" firstAttribute="top" secondItem="tCV-MW-b1H" secondAttribute="top" constant="6" id="1pl-zI-JTo"/>
                                     <constraint firstItem="9mh-Zy-E8f" firstAttribute="leading" secondItem="0bU-ob-O8m" secondAttribute="leading" id="3f9-BG-YEr"/>
@@ -246,6 +247,10 @@
                                     <constraint firstItem="cAq-7B-8h0" firstAttribute="leading" secondItem="pNF-fW-Di4" secondAttribute="leading" id="xed-rG-NhW"/>
                                     <constraint firstItem="NyE-D7-TKa" firstAttribute="leading" secondItem="jsb-ld-Khk" secondAttribute="trailing" constant="24" id="z1A-kl-TUS"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ir8-RN-FiK" appends="YES" id="4No-AQ-XfC"/>
+                                    <outletCollection property="gestureRecognizers" destination="a0B-l7-vh6" appends="YES" id="f6L-cT-Zvz"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -307,6 +312,16 @@
                         <action selector="tappedLiveShare:" destination="Y6W-OH-hqX" id="AKM-XF-ewp"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="ir8-RN-FiK" userLabel="swipeRight">
+                    <connections>
+                        <action selector="swipeRight:" destination="Y6W-OH-hqX" id="Faa-8p-uCD"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="a0B-l7-vh6" userLabel="swipeLeft">
+                    <connections>
+                        <action selector="swipeleft:" destination="Y6W-OH-hqX" id="TFa-SD-9Yc"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="139.13043478260872" y="-2.6785714285714284"/>
         </scene>

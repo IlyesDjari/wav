@@ -218,9 +218,8 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RDT-YG-O8x">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RDT-YG-O8x">
                                                 <rect key="frame" x="28" y="998" width="365" height="260"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wpz-ff-odc">
                                                     <size key="itemSize" width="254" height="256"/>
@@ -274,6 +273,7 @@
                                             <constraint firstItem="wje-VB-JbY" firstAttribute="top" secondItem="BAA-6R-azv" secondAttribute="bottom" constant="8" symbolic="YES" id="Diq-YN-3VW"/>
                                             <constraint firstItem="BAA-6R-azv" firstAttribute="leading" secondItem="rnC-hW-YJO" secondAttribute="leading" constant="28" id="Ep0-AD-rNE"/>
                                             <constraint firstItem="wje-VB-JbY" firstAttribute="trailing" secondItem="BAA-6R-azv" secondAttribute="trailing" id="Nh4-Uh-p7R"/>
+                                            <constraint firstItem="RDT-YG-O8x" firstAttribute="trailing" secondItem="WQr-sI-w9a" secondAttribute="trailing" id="NsX-Pp-vgV"/>
                                             <constraint firstItem="XBv-dr-cn1" firstAttribute="centerX" secondItem="CQm-dv-d3o" secondAttribute="centerX" constant="10" id="Oex-Tb-8sV"/>
                                             <constraint firstAttribute="height" constant="1350" id="PDZ-Pl-Vsn"/>
                                             <constraint firstItem="CQm-dv-d3o" firstAttribute="leading" secondItem="rnC-hW-YJO" secondAttribute="leading" id="PYE-JY-NPQ"/>
@@ -281,6 +281,9 @@
                                             <constraint firstItem="wje-VB-JbY" firstAttribute="leading" secondItem="BAA-6R-azv" secondAttribute="leading" id="WAW-eB-ccq"/>
                                             <constraint firstItem="XBv-dr-cn1" firstAttribute="leading" secondItem="rnC-hW-YJO" secondAttribute="leading" constant="28" id="WSY-KF-lEU"/>
                                             <constraint firstItem="zKG-vD-cTv" firstAttribute="leading" secondItem="XBv-dr-cn1" secondAttribute="leading" id="ZWv-c7-y9x"/>
+                                            <constraint firstAttribute="bottom" secondItem="RDT-YG-O8x" secondAttribute="bottom" constant="92" id="cos-cL-Y9E"/>
+                                            <constraint firstItem="RDT-YG-O8x" firstAttribute="top" secondItem="Dpq-Ms-cwT" secondAttribute="bottom" constant="13" id="dUf-51-bOQ"/>
+                                            <constraint firstItem="RDT-YG-O8x" firstAttribute="leading" secondItem="Dpq-Ms-cwT" secondAttribute="leading" id="j1I-ll-Tke"/>
                                             <constraint firstItem="Dpq-Ms-cwT" firstAttribute="trailing" secondItem="wje-VB-JbY" secondAttribute="trailing" id="k0g-RC-iXD"/>
                                             <constraint firstItem="CQm-dv-d3o" firstAttribute="top" secondItem="rnC-hW-YJO" secondAttribute="topMargin" id="lth-na-f1b"/>
                                             <constraint firstItem="BAA-6R-azv" firstAttribute="centerX" secondItem="CQm-dv-d3o" secondAttribute="centerX" constant="10" id="rBW-8k-bud"/>
@@ -373,7 +376,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Purple">
-            <color red="0.84700000286102295" green="0.24300000071525574" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84313725490196079" green="0.23921568627450981" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

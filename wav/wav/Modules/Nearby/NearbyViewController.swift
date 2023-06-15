@@ -42,6 +42,10 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        setData()
+    }
+
+    func setData() {
         loadingIndicator.show(on: self.view)
         Task {
             updateLocation()

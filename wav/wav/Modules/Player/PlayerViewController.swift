@@ -258,6 +258,14 @@ class PlayerViewController: UIViewController, NISessionDelegate {
         debouncedBackButtonTapped()
     }
 
+    @IBAction func swipeRight(_ sender: Any) {
+        debouncedBackButtonTapped()
+    }
+
+    @IBAction func swipeleft(_ sender: Any) {
+        debouncedSkipButtonTapped()
+    }
+
     @IBAction func tapShuffle(_ sender: Any) {
         musicPlaybackControl.toggleShuffleMode(shuffleModeButton: shuffleButton)
     }
