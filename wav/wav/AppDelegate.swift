@@ -99,53 +99,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        // Customize the presentation options for the notification
-            let presentationOptions: UNNotificationPresentationOptions = [.banner, .badge, .sound, .list]
-        completionHandler(presentationOptions)
-    }
-
-    func application(
-        _ application: UIApplication,
-        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-
-        // Handle the received remote notification
-        let center = UNUserNotificationCenter.current()
-
-        // Extract the notification content from the "aps" key
-        if let aps = userInfo["aps"] as? [String: Any],
-           let alert = aps["alert"] as? [String: Any],
-           let title = alert["title"] as? String,
-           let body = alert["body"] as? String {
-
-            // Customize the notification content
-            let content = UNMutableNotificationContent()
-            content.title = title
-            content.body = body
-            content.sound = UNNotificationSound.default
-
-            // Request to present the notification
-            let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: nil)
-
-            // Set the presentation options to show the notification on lock screen
-            center.add(request) { error in
-                if let error {
-                    print("Error presenting notification: \(error)")
-                    completionHandler(.failed)
+        // Extract the notification content from the UNNotification object
+            _ = notification.request.content
+        // Update the notification field in Firestore to NSNull()
+        if let userID = getUserIDFromCoreData() {
+            let usersRef = Firestore.firestore().collection("Users")
+            let userDocRef = usersRef.document(userID)
+            userDocRef.updateData(["notification": NSNull()]) { error in
+                if let error = error {
+                    print("Error updating notification field in Firestore: \(error)")
+                    // Handle the error accordingly
                 } else {
-                    print("Notification presented successfully")
-                    completionHandler(.newData)
-
-                    // Set the notification field in Firestore to NSNull()
-                    if let userID = getUserIDFromCoreData() {
-                        let usersRef = Firestore.firestore().collection("Users")
-                        let userDocRef = usersRef.document(userID)
-                        userDocRef.updateData(["notification": NSNull()])
-                    }
+                    print("Notification field updated successfully in Firestore")
                 }
             }
         } else {
-            completionHandler(.noData)
+            print("User ID not found in Core Data")
         }
+        // Customize the presentation options for the notification
+        let presentationOptions: UNNotificationPresentationOptions = [.banner, .badge, .sound, .list]
+        completionHandler(presentationOptions)
     }
 }
