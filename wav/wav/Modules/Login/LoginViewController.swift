@@ -56,6 +56,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func notSubscribed(_ sender: Any) {
-        _ = URL(string: "https://apps.apple.com/app/apple-music/id1108187390")!
+        if let appMusicURL = URL(string: "music://") {
+            UIApplication.shared.open(appMusicURL, options: [:], completionHandler: nil)
+        } else {
+            print("Unable to open Apple Music app.")
+        }
     }
 }
