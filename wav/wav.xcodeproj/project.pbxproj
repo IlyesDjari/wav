@@ -593,6 +593,7 @@
 		7EAB3EDA2A0162D500BB2E0B /* wav */ = {
 			isa = PBXGroup;
 			children = (
+				7EC86C682A3AA33E00F06470 /* SupportingFiles */,
 				7EF5586A2A098F7600D1FE8F /* Supporting Files */,
 				7EAB3EF42A0162EA00BB2E0B /* UI */,
 				7EAB3EF32A0162E500BB2E0B /* Helpers */,
@@ -704,6 +705,13 @@
 				7EC240522A0C3BB500029BC7 /* TracksTableViewCell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7EC86C682A3AA33E00F06470 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		7EEA002E2A0D58A100B7304F /* Playlist */ = {
