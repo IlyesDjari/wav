@@ -108,8 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         _ application: UIApplication,
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
         // Handle the received remote notification
         let center = UNUserNotificationCenter.current()
+
         // Extract the notification content from the "aps" key
         if let aps = userInfo["aps"] as? [String: Any],
            let alert = aps["alert"] as? [String: Any],
@@ -133,6 +135,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 } else {
                     print("Notification presented successfully")
                     completionHandler(.newData)
+
+                    // Set the notification field in Firestore to NSNull()
+                    if let userID = getUserIDFromCoreData() {
+                        let usersRef = Firestore.firestore().collection("Users")
+                        let userDocRef = usersRef.document(userID)
+                        userDocRef.updateData(["notification": NSNull()])
+                    }
                 }
             }
         } else {
