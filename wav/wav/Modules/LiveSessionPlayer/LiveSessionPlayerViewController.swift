@@ -114,11 +114,19 @@ class LiveSessionPlayerViewController: UIViewController {
         performSegue(withIdentifier: "UserInteractionSegue", sender: self)
     }
 
+    @IBAction func tapFavouriteSong(_ sender: Any) {
+        performSegue(withIdentifier: "liveSessionPlayerSegue", sender: nil)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserInteractionSegue" {
             if let destinationVC = segue.destination as? UserInteractionViewController {
                 destinationVC.userId = usersData?.id
                 destinationVC.user = usersData?.username
+            }
+        } else if segue.identifier == "liveSessionPlayerSegue" {
+            if let destinationVC = segue.destination as? PlayerViewController {
+                destinationVC.songID = usersData?.favoriteSong
             }
         }
     }

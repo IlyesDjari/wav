@@ -44,7 +44,7 @@
                                 <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyy-Zq-mZ5" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyy-Zq-mZ5" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                 <rect key="frame" x="206" y="337" width="171" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,7 +58,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVP-oJ-XDe" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVP-oJ-XDe" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                 <rect key="frame" x="206" y="359" width="171" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,7 +89,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11C-4n-7u5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11C-4n-7u5">
                                         <rect key="frame" x="159" y="25" width="179" height="101"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,6 +97,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" name="Background"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="BUw-er-3CI" firstAttribute="centerY" secondItem="PLm-qg-Krz" secondAttribute="centerY" id="131-Kk-yR5"/>
                                     <constraint firstItem="11C-4n-7u5" firstAttribute="leading" secondItem="BUw-er-3CI" secondAttribute="trailing" constant="31" id="1CC-IV-ro3"/>
@@ -110,6 +111,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xJ7-Aa-8lg" appends="YES" id="89c-Og-Rc5"/>
+                                </connections>
                             </view>
                             <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="060-wa-Gff">
                                 <rect key="frame" x="16" y="713" width="361" height="52"/>
@@ -185,6 +189,7 @@
                         <outlet property="suggestView" destination="PLm-qg-Krz" id="jWY-9h-lT9"/>
                         <outlet property="userLabel" destination="h5R-eg-Dqa" id="Ncz-cy-b5A"/>
                         <segue destination="jb7-mr-T3o" kind="show" identifier="UserInteractionSegue" id="4v5-Qg-oO3"/>
+                        <segue destination="39s-3m-baO" kind="presentation" identifier="liveSessionPlayerSegue" id="xfE-7G-ghO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -193,8 +198,21 @@
                         <action selector="stateButtonTapped:" destination="Y6W-OH-hqX" id="6k5-pn-ogn"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="xJ7-Aa-8lg" userLabel="tapSong">
+                    <connections>
+                        <action selector="tapFavouriteSong:" destination="Y6W-OH-hqX" id="n74-cW-XRV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="67.938931297709928" y="4.9295774647887329"/>
+        </scene>
+        <!--PlayerViewController-->
+        <scene sceneID="6L6-9c-QrW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" referencedIdentifier="PlayerViewController" id="39s-3m-baO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ja3-cw-MJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="429"/>
         </scene>
         <!--UserInteractionViewController-->
         <scene sceneID="PTG-Of-UCy">
@@ -204,16 +222,12 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DX-3x-gVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="394"/>
+            <point key="canvasLocation" x="533" y="429"/>
         </scene>
     </scenes>
     <designables>
-        <designable name="Jyy-Zq-mZ5">
-            <size key="intrinsicContentSize" width="95" height="19.333333333333332"/>
-        </designable>
-        <designable name="pVP-oJ-XDe">
-            <size key="intrinsicContentSize" width="82.333333333333329" height="17"/>
-        </designable>
+        <designable name="Jyy-Zq-mZ5"/>
+        <designable name="pVP-oJ-XDe"/>
     </designables>
     <resources>
         <image name="homePause" width="32" height="32"/>
