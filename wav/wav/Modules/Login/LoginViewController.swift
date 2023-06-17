@@ -11,7 +11,7 @@ import StoreKit
 import CoreData
 import NotificationBannerSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, SKCloudServiceSetupViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,22 +44,32 @@ class LoginViewController: UIViewController {
             case .authorized:
                 checkAuthorizationStatus()
             case .denied:
-                print("User has denied access to Apple Music")
+                setupSubscribtion()
             case .notDetermined:
-                print("Authorization status not determined")
+                setupSubscribtion()
             case .restricted:
-                print("User is restricted from accessing Apple Music")
+                setupSubscribtion()
             @unknown default:
-                print("Unknown authorization status")
+                setupSubscribtion()
             }
         }
     }
 
     @IBAction func notSubscribed(_ sender: Any) {
-        if let appMusicURL = URL(string: "music://") {
-            UIApplication.shared.open(appMusicURL, options: [:], completionHandler: nil)
-        } else {
-            print("Unable to open Apple Music app.")
+       setupSubscribtion()
+    }
+
+    func setupSubscribtion() {
+        let options: [SKCloudServiceSetupOptionsKey: Any] = [
+                .action: SKCloudServiceSetupAction.subscribe,
+                .messageIdentifier: SKCloudServiceSetupMessageIdentifier.addMusic]
+        let controller = SKCloudServiceSetupViewController()
+        controller.delegate = self
+        controller.load(options: options) { [weak self] (result: Bool, error: Error?) in
+            guard error == nil else { return }
+            if result {
+                self?.present(controller, animated: true, completion: nil)
+            }
         }
     }
 }

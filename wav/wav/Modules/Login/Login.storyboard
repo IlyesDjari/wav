@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="-2.1126760563380285"/>
         </scene>
-        <!--NameViewController-->
+        <!--LocationViewController-->
         <scene sceneID="vEM-W5-a8L">
             <objects>
-                <viewControllerPlaceholder storyboardName="Name" referencedIdentifier="NameViewController" id="cGD-Am-MQg" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Location" referencedIdentifier="LocationViewController" id="cGD-Am-MQg" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="672-CK-Wdi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqG-z0-LvI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
