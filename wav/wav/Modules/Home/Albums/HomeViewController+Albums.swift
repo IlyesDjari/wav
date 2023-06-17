@@ -13,16 +13,21 @@ import UIKit
 extension HomeViewController {
 
     func fetchRecommendedAlbums() async throws {
-        recommendations = try await MRecommendation.defaultAlbums(limit: 3)
+        recommendations = try await MRecommendation.personalAlbums(limit: 3)
         if recommendations.isEmpty {
             // Handle the case where no recommendations are available
             print("No recommended albums available")
         } else {
-            let albumsAndImageViews: [(Album, UIImageView)] = [
-                (recommendations[0], album1),
-                (recommendations[1], album2),
-                (recommendations[2], album3)
-            ]
+            var albumsAndImageViews: [(Album, UIImageView)] = []
+            if recommendations.indices.contains(0) {
+                albumsAndImageViews.append((recommendations[0], album1))
+            }
+            if recommendations.indices.contains(1) {
+                albumsAndImageViews.append((recommendations[1], album2))
+            }
+            if recommendations.indices.contains(2) {
+                albumsAndImageViews.append((recommendations[2], album3))
+            }
             for (album, imageView) in albumsAndImageViews {
                 if let artworkURL = album.artwork?.url(width: 500, height: 500) {
                     loadImage(with: artworkURL, into: imageView)
@@ -33,20 +38,25 @@ extension HomeViewController {
 
     @objc internal func albumTapped(_ sender: UITapGestureRecognizer) {
         guard let tappedImageView = sender.view as? UIImageView else { return }
-
         var selectedAlbum: Album?
+
         switch tappedImageView {
         case album1:
-            selectedAlbum = recommendations[0]
+            if recommendations.indices.contains(0) {
+                selectedAlbum = recommendations[0]
+            }
         case album2:
-            selectedAlbum = recommendations[1]
+            if recommendations.indices.contains(1) {
+                selectedAlbum = recommendations[1]
+            }
         case album3:
-            selectedAlbum = recommendations[2]
+            if recommendations.indices.contains(2) {
+                selectedAlbum = recommendations[2]
+            }
         default:
             break
         }
-
-        if let selectedAlbum {
+        if let selectedAlbum = selectedAlbum {
             navigateToAlbumViewController(with: selectedAlbum)
         }
     }
